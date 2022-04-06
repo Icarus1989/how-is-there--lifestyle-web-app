@@ -434,36 +434,39 @@ function loadImage(image, container, resultsContainer, path) {
         // image.src = '';
         let response = await fetch(path, options);
         let test = await response.blob();
-        let urlObj = URL.createObjectURL(test);
-        image.src = urlObj;
+        let urlObj = URL.createObjectURL(await test);
+        image.src = await urlObj;
         // let image = new Image(test);
         // image.width = '300px';
         // console.log(image);
         // console.log(test);
         // image.src = await path;
-      }, 1000);
+      }, 500);
       image.addEventListener('load', () => {
         // image.src = await path;
         // console.log('load...');
         container.append(image);
       });
     } catch {
-      image.src = '';
-
-      setTimeout(async () => {
-        let response = await fetch(path, options);
-        let test = await response.blob();
-        let urlObj = URL.createObjectURL(test);
-        image.src = urlObj;
-        // image.src = '';
-        // image.src = await path;
-      }, 1000);
-      image.addEventListener('load', () => {
-        // image.src = await path;
-        // console.log('load...');
-        container.append(image);
-      });
+      console.log(error);
     }
+    // catch {
+    //   image.src = '';
+
+    //   setTimeout(async () => {
+    //     let response = await fetch(path, options);
+    //     let test = await response.blob();
+    //     let urlObj = URL.createObjectURL(test);
+    //     image.src = urlObj;
+    //     // image.src = '';
+    //     // image.src = await path;
+    //   }, 500);
+    //   image.addEventListener('load', () => {
+    //     // image.src = await path;
+    //     // console.log('load...');
+    //     container.append(image);
+    //   });
+    // }
 
 
     resultsContainer.scrollTo(0, 0);
