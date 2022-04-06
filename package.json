@@ -4,7 +4,8 @@
   "description": "This is the Lifestyle Project for the Start2impact JavaScript Advanced Guide",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "How's There?",
