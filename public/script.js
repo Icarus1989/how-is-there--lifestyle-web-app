@@ -399,6 +399,8 @@ function createSaveBtn(container) {
 }
 
 function loadImage(image, container, resultsContainer, path) {
+  // image.src = '';
+
   if (image) {
     // image.delete();
     image.style.width = "250vw";
@@ -416,23 +418,26 @@ function loadImage(image, container, resultsContainer, path) {
       // image.style.height = 'auto';
     }
 
-    image.src = '';
 
     try {
+      image.src = '';
+
       setTimeout(async () => {
         // image.src = '';
         image.src = await path;
-      }, 1200);
+      }, 2000);
       image.addEventListener('load', () => {
         // image.src = await path;
         // console.log('load...');
         container.append(image);
       });
     } catch {
+      image.src = '';
+
       setTimeout(async () => {
         // image.src = '';
         image.src = await path;
-      }, 1200);
+      }, 2000);
       image.addEventListener('load', () => {
         // image.src = await path;
         // console.log('load...');
