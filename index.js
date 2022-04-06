@@ -73,6 +73,24 @@ app.get('/wiki/:cityname', async (request, response) => {
 
 
   } catch {
+
+    if (fs.existsSync('public/tempImage/image.png')) {
+      fs.unlink('public/tempImage/image.png', (error) => {
+        if (error) {
+          throw error;
+        }
+        // console.log('Wikipedia File canceled.');
+      });
+    }
+    if (fs.existsSync('public/cannyimage/edge.png')) {
+      fs.unlink('public/cannyimage/edge.png', (error) => {
+        if (error) {
+          throw error;
+        }
+        // console.log('Canny Edge File canceled.');
+      });
+    }
+
     const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
     // console.log(urlTeleport);
     // const dataTeleport = await fetch(urlTeleport);
@@ -85,22 +103,7 @@ app.get('/wiki/:cityname', async (request, response) => {
     response.json(jsonTeleport);
   }
 
-  if (fs.existsSync('public/tempImage/image.png')) {
-    fs.unlink('public/tempImage/image.png', (error) => {
-      if (error) {
-        throw error;
-      }
-      // console.log('Wikipedia File canceled.');
-    });
-  }
-  if (fs.existsSync('public/cannyimage/edge.png')) {
-    fs.unlink('public/cannyimage/edge.png', (error) => {
-      if (error) {
-        throw error;
-      }
-      // console.log('Canny Edge File canceled.');
-    });
-  }
+
   downloadAndCannyEdge(fileUrl);
 
 })
