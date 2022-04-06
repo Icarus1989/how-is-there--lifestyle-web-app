@@ -6,6 +6,8 @@ let UrbanAreasCompleteList = [];
 
 let arr = [];
 
+// let caches = new CacheStorage();
+
 
 getCompleteListUrbanAreas(UrbanAreasCompleteList);
 createMenu(mainContainer);
@@ -29,6 +31,12 @@ inputField.addEventListener('change', async (event) => {
     iteration: 1,
     fill: 'forwards'
   });
+
+
+  // caches.open(cacheName).then(function (cache) {
+  //   // Do something with your cache
+  //   console.log(cache);
+  // });
 
   // let deleteImg = document.querySelector('#imgContainer');
 
