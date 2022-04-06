@@ -49,23 +49,6 @@ app.get('/wiki/:cityname', async (request, response) => {
 
   let fileUrl;
 
-  if (fs.existsSync('public/tempImage/image.png')) {
-    fs.unlink('public/tempImage/image.png', (error) => {
-      if (error) {
-        throw error;
-      }
-      // console.log('Wikipedia File canceled.');
-    });
-  }
-  if (fs.existsSync('public/cannyimage/edge.png')) {
-    fs.unlink('public/cannyimage/edge.png', (error) => {
-      if (error) {
-        throw error;
-      }
-      // console.log('Canny Edge File canceled.');
-    });
-  }
-
   try {
     const Pixabay_Api_Key = process.env.PIXABAY_API_KEY;
     const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=places&image_type=photo`;
@@ -187,11 +170,31 @@ app.post('/cancelDb', (request, response) => {
 })
 // Sperimentale
 
+// let number = 0;
+
 async function downloadAndCannyEdge(url) {
+
+  if (fs.existsSync('public/tempImage/image.png')) {
+    fs.unlink('public/tempImage/image.png', (error) => {
+      if (error) {
+        throw error;
+      }
+      // console.log('Wikipedia File canceled.');
+    });
+  }
+  if (fs.existsSync('public/cannyimage/edge.png')) {
+    fs.unlink('public/cannyimage/edge.png', (error) => {
+      if (error) {
+        throw error;
+      }
+      // console.log('Canny Edge File canceled.');
+    });
+  }
+
   const response = await fetch(url);
   const buffer = await response.buffer();
   let writeFile = fs.writeFile(`public/tempImage/image.png`, await buffer, async () => {
-    const img = await ImageCanny.load('public/tempImage/image.png');
+    const img = await ImageCanny.load(`public/tempImage/image.png`);
     const grey = await img.grey();
     const options = {
       lowThreshold: 120,
@@ -202,6 +205,7 @@ async function downloadAndCannyEdge(url) {
     const edge = await cannyEdgeDetector(grey, options);
     return edge.save('public/cannyImage/edge.png');
   });
+  // number++;
   // console.log('finished downloading!');
   return writeFile;
 }
