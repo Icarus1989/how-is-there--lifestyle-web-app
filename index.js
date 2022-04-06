@@ -49,6 +49,23 @@ app.get('/wiki/:cityname', async (request, response) => {
 
   let fileUrl;
 
+  if (fs.existsSync('public/tempImage/image.png')) {
+    fs.unlink('public/tempImage/image.png', (error) => {
+      if (error) {
+        throw error;
+      }
+      // console.log('Wikipedia File canceled.');
+    });
+  }
+  if (fs.existsSync('public/cannyimage/edge.png')) {
+    fs.unlink('public/cannyimage/edge.png', (error) => {
+      if (error) {
+        throw error;
+      }
+      // console.log('Canny Edge File canceled.');
+    });
+  }
+
   try {
     const Pixabay_Api_Key = process.env.PIXABAY_API_KEY;
     const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=places&image_type=photo`;
@@ -73,23 +90,6 @@ app.get('/wiki/:cityname', async (request, response) => {
 
 
   } catch {
-
-    if (fs.existsSync('public/tempImage/image.png')) {
-      fs.unlink('public/tempImage/image.png', (error) => {
-        if (error) {
-          throw error;
-        }
-        // console.log('Wikipedia File canceled.');
-      });
-    }
-    if (fs.existsSync('public/cannyimage/edge.png')) {
-      fs.unlink('public/cannyimage/edge.png', (error) => {
-        if (error) {
-          throw error;
-        }
-        // console.log('Canny Edge File canceled.');
-      });
-    }
 
     const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
     // console.log(urlTeleport);
