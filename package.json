@@ -1,0 +1,33 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "This is the Lifestyle Project for the Start2impact JavaScript Advanced Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "How's There?",
+    "LifeStyle",
+    "JavaScript",
+    "Advanced",
+    "Project",
+    "Start2Impact"
+  ],
+  "author": "Alex Valente",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "canny-edge-detector": "^1.0.0",
+    "cross-fetch": "^3.1.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "find-js": "^4.0.2",
+    "image-js": "^0.33.1",
+    "jsdom": "^19.0.0",
+    "mongoose": "^6.2.4",
+    "nedb": "^1.8.0",
+    "node-fetch": "^2.6.7",
+    "nodelist.js": "^1.0.1"
+  }
+}
