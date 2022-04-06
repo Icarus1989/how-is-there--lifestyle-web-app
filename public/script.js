@@ -419,13 +419,29 @@ function loadImage(image, container, resultsContainer, path) {
     }
 
 
+    const options = {
+      method: 'GET',
+      cache: 'no-cache'
+    }
+
     try {
       image.src = '';
 
+
+
       setTimeout(async () => {
+
         // image.src = '';
-        image.src = await path;
-      }, 2000);
+        let response = await fetch(path, options);
+        let test = await response.blob();
+        let urlObj = URL.createObjectURL(test);
+        image.src = urlObj;
+        // let image = new Image(test);
+        // image.width = '300px';
+        // console.log(image);
+        // console.log(test);
+        // image.src = await path;
+      }, 1000);
       image.addEventListener('load', () => {
         // image.src = await path;
         // console.log('load...');
@@ -435,9 +451,13 @@ function loadImage(image, container, resultsContainer, path) {
       image.src = '';
 
       setTimeout(async () => {
+        let response = await fetch(path, options);
+        let test = await response.blob();
+        let urlObj = URL.createObjectURL(test);
+        image.src = urlObj;
         // image.src = '';
-        image.src = await path;
-      }, 2000);
+        // image.src = await path;
+      }, 1000);
       image.addEventListener('load', () => {
         // image.src = await path;
         // console.log('load...');
