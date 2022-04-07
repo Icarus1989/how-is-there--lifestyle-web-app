@@ -248,8 +248,8 @@ table {
 }
 
 h2 {
-  position: absolute;
-  top: 0%;
+  /* position: absolute;
+  top: 0%; */
   color: white;
 
   /* display: grid; */
@@ -587,9 +587,9 @@ canvas {
 }
 
 .menuContainer {
-  width: 75vw;
+  width: 70vw;
   height: fit-content;
-  max-height: 85vh;
+  max-height: 70vh;
   position: absolute;
   right: 0px;
   background: rgb(50, 50, 50, 0.95);
@@ -620,7 +620,7 @@ canvas {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 68vw;
+  width: 62vw;
   border: 1px solid transparent;
   margin: 6px 0px 6px 0px;
 }
@@ -662,7 +662,7 @@ canvas {
 
 .downDirection>i {
   color: white;
-  font-size: 50px;
+  font-size: 42px;
 }
 
 .lastMargin {

@@ -623,10 +623,12 @@ async function searchCity(inputElement, target) {
       } else if (mainContainer.clientWidth < mainContainer.clientHeight) {
         createPointButtons(document.querySelector('#resultsContainer'));
       }
-
-      createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent);
       const cityDescription = await infoScores["summary"];
-      createDescription(document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
+
+      createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent).then(() => {
+        createDescription(document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
+      });
+
       const tableData = infoScores["categories"];
       const dataFirstPart = tableData.slice(0, 9);
       const dataSecondPart = tableData.slice(9, tableData.length);
@@ -915,7 +917,7 @@ function createMenu(mainElement) {
           if (buttonEvent.target == listElement.querySelectorAll('button')[0]) {
             clearTimeout(timeout);
             inputField.value = listElement.firstElementChild.textContent;
-            container.style.top = (-((main.clientHeight / 100) * 90)) + 'px';
+            container.style.top = (-((main.clientHeight / 100) * 70)) + 'px';
             closeBtn.remove();
             searchCity(inputField, inputField);
             if (container.querySelector('.downDirection')) {
@@ -1000,7 +1002,7 @@ function createMenu(mainElement) {
           }
           clearTimeout(timeout);
           closeBtn.remove();
-          container.style.top = (-((main.clientHeight / 100) * 90)) + 'px';
+          container.style.top = (-((main.clientHeight / 100) * 70)) + 'px';
         });
       })
     }
