@@ -991,7 +991,7 @@ function createMenu(mainElement) {
 
       createIconBtn(main, '<i class="fa-solid fa-xmark"></i>').then(() => {
         // test let closeBtn....
-        let closeBtn = document.querySelectorAll('.menuBtn')[1];
+        closeBtn = document.querySelectorAll('.menuBtn')[1];
         console.log(closeBtn);
         closeBtn.style.zIndex = 13;
         closeBtn.addEventListener('click', () => {
