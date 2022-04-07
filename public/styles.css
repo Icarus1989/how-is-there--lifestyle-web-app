@@ -91,7 +91,7 @@ body {
 }
 
 #resultsContainer {
-  border: 2px solid red;
+  /* border: 2px solid red; */
 
   position: relative;
   /* bottom: -20%; */
@@ -102,7 +102,7 @@ body {
   place-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-y:visible;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 }
@@ -110,6 +110,9 @@ body {
 .descriptionBox {
   width: 90vw;
   color: white;
+  margin-top: 3vh;
+  position: absolute;
+  bottom: 2%;
   /* border: 2px solid white; */
   /* backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */
@@ -121,6 +124,9 @@ body {
   font-size: 4.2vw;
   background: rgb(50, 50, 50, 0.7);
   padding: 3vw 5vw 3vw 5vw;
+  margin-bottom: 0;
+  margin-top: 4vw;
+
 
   /* border: 2px solid white; */
   border-left: 4px solid rgb(218, 215, 215);
@@ -139,7 +145,7 @@ body {
   /* padding: 2px; */
   transition: all 1s ease-in-out;
   scroll-snap-align: center;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 
   /* border: 1px solid red; */
 }
@@ -261,6 +267,8 @@ h2 {
   border-bottom: 5px solid rgb(218, 215, 215);
   margin-left: 3vw;
   margin-right: 3vw;
+  margin-top: 0vw;
+  margin-bottom: 0vw;
   border-radius: 18px;
   /* justify-content: end; */
   text-align: center;
