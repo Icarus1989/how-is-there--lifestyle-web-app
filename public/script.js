@@ -560,7 +560,7 @@ async function searchCity(inputElement, target) {
         document.querySelector('.saveBtn').remove();
       }
 
-      createSaveBtn(document.querySelector('#resultsContainer'));
+      createSaveBtn(document.querySelector('#mainContainer'));
 
       let saveButton = document.querySelector('.saveBtn');
       let fullName;
@@ -624,7 +624,7 @@ async function searchCity(inputElement, target) {
         createPointButtons(document.querySelector('#resultsContainer'));
       }
 
-      createTitle(document.querySelector('#resultsContainer'), nameAndState, continent);
+      createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent);
       const cityDescription = await infoScores["summary"];
       createDescription(document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
       const tableData = infoScores["categories"];
@@ -873,8 +873,9 @@ async function createIconBtn(container, icon) {
 
 function createMenu(mainElement) {
   const main = mainElement;
-  createIconBtn(document.querySelector('#resultsContainer'), '<i class="fa-solid fa-bars"></i>');
+  createIconBtn(main, '<i class="fa-solid fa-bars"></i>');
   const menuButton = document.querySelector('.menuBtn');
+  // main.append(menuButton);
 
   menuButton.addEventListener('click', async (event) => {
     if (event.target == menuButton.querySelector('i') || event.target == menuButton) {
@@ -988,8 +989,11 @@ function createMenu(mainElement) {
         document.querySelector('.fa-xmark').parentElement.style.display = 'block';
       }, 500);
 
-      createIconBtn(document.querySelector('#resultsContainer'), '<i class="fa-solid fa-xmark"></i>').then(() => {
-        closeBtn = document.querySelector('.fa-xmark').parentElement;
+      createIconBtn(main, '<i class="fa-solid fa-xmark"></i>').then(() => {
+        // test let closeBtn....
+        let closeBtn = document.querySelectorAll('.menuBtn')[1];
+        console.log(closeBtn);
+        closeBtn.style.zIndex = 13;
         closeBtn.addEventListener('click', () => {
           if (container.querySelector('.downDirection')) {
             disappearElement(container.querySelector('.downDirection'), 0);
