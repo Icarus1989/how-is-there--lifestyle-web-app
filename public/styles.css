@@ -13,6 +13,7 @@
 body {
   padding: 0;
   margin: 0;
+  overflow-y: hidden;
 }
 
 #mainContainer {
@@ -31,6 +32,7 @@ body {
     BlinkMacSystemFont, sans-serif;
 
   transition: all 3s ease-in-out;
+  overflow-y: hidden;
 }
 
 .backgroundImage {
@@ -128,6 +130,7 @@ body {
   /* padding: 2px; */
   transition: all 1s ease-in-out;
   scroll-snap-align: center;
+  border: 2px solid green;
 
   /* border: 1px solid red; */
 }
