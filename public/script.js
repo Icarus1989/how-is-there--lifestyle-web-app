@@ -843,8 +843,9 @@ function createPointButtons(container) {
       }
     });
   }
+  console.log(container.parentElement);
   btnsContainer.setAttribute('id', 'buttonsContainer');
-  container.append(btnsContainer);
+  container.parentElement.append(btnsContainer);
 
   for (let i = 0; i < btnsContainer.children.length; i++) {
     btnsContainer.children[0].style.color = "rgb(74, 126, 223)";

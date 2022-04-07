@@ -26,7 +26,7 @@ const ImageCanny = require('image-js').Image;
 
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const database = new Datastore('citiesDatabase.db');
 database.loadDatabase();
