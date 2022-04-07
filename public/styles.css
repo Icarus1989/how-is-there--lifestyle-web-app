@@ -510,6 +510,7 @@ canvas {
 }
 
 #buttonsContainer {
+  position: fixed;
   display: flex;
   align-items: center;
   flex-direction: row;

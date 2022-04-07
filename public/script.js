@@ -13,7 +13,7 @@ getCompleteListUrbanAreas(UrbanAreasCompleteList);
 createMenu(mainContainer);
 
 // inputContainer.style.position = 'absolute';
-inputContainer.style.top = document.documentElement.clientHeight / 2 - inputContainer.clientHeight / 1.5 + 'px';
+inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 1.5 + 'px';
 
 inputField.addEventListener('change', async (event) => {
 
@@ -22,7 +22,7 @@ inputField.addEventListener('change', async (event) => {
     //   transform: 'translateY(0px)'
     // },
     {
-      transform: `translateY(-${document.documentElement.clientHeight / 2 - inputContainer.clientHeight}px)`
+      transform: `translateY(-${mainContainer.clientHeight / 2.2 - inputContainer.clientHeight}px)`
     }
   ], {
     duration: 1000,
@@ -843,7 +843,7 @@ function createPointButtons(container) {
       }
     });
   }
-  console.log(container.parentElement);
+  // console.log(container.parentElement);
   btnsContainer.setAttribute('id', 'buttonsContainer');
   container.parentElement.append(btnsContainer);
 
@@ -922,7 +922,7 @@ function createMenu(mainElement) {
             }
 
             inputContainer.animate([{
-              transform: `translateY(-${document.documentElement.clientHeight / 2 - inputContainer.clientHeight}px)`
+              transform: `translateY(-${mainContainer.clientHeight / 2.2 - inputContainer.clientHeight}px)`
             }], {
               duration: 1000,
               easing: 'ease',
