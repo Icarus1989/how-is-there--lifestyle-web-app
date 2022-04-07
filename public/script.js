@@ -22,7 +22,7 @@ inputField.addEventListener('change', async (event) => {
     //   transform: 'translateY(0px)'
     // },
     {
-      transform: `translateY(-${mainContainer.clientHeight / 2.2 - inputContainer.clientHeight}px)`
+      transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
     }
   ], {
     duration: 1000,
@@ -923,7 +923,7 @@ function createMenu(mainElement) {
             }
 
             inputContainer.animate([{
-              transform: `translateY(-${mainContainer.clientHeight / 2.2 - inputContainer.clientHeight}px)`
+              transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
             }], {
               duration: 1000,
               easing: 'ease',
