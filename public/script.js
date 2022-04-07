@@ -991,20 +991,35 @@ function createMenu(mainElement) {
         document.querySelector('.fa-xmark').parentElement.style.display = 'block';
       }, 500);
 
+      let closeBtn;
+
       createIconBtn(main, '<i class="fa-solid fa-xmark"></i>').then(() => {
         // test let closeBtn....
         closeBtn = document.querySelectorAll('.menuBtn')[1];
         console.log(closeBtn);
         closeBtn.style.zIndex = 13;
+      }).then(() => {
         closeBtn.addEventListener('click', () => {
           if (container.querySelector('.downDirection')) {
             disappearElement(container.querySelector('.downDirection'), 0);
           }
           clearTimeout(timeout);
+
           closeBtn.remove();
           container.style.top = (-((main.clientHeight / 100) * 70)) + 'px';
+
+          setTimeout(() => {
+            // migliorabile
+            container.remove();
+            header.remove();
+            list.remove();
+          }, 1000);
         });
+
       })
+
+
+
     }
   });
 }
