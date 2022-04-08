@@ -353,23 +353,27 @@ async function retrieveAlternativeCities(info, input) {
 
 async function createDescription(state, globalContinent, textBox, description, container) {
 
+  let textbox;
+  if (document.querySelector('.descriptionBox')) {
+    textbox = document.querySelector('.descriptionBox');
+    for (elem of textbox.querySelectorAll('p')) {
+      elem.remove();
+    }
+    // textBox.innerHTML = description;
+    textbox.insertAdjacentHTML('beforeend', description);
 
-
-
-
-  if (textBox) {
-    textBox.insertAdjacentHTML('afterbegin', description);
   } else {
-    let textSpace = document.createElement('div');
-    textSpace.classList.add('descriptionBox');
-    textSpace.insertAdjacentHTML('afterbegin', description);
-    container.append(textSpace);
+    textbox = document.createElement('div');
+    textbox.classList.add('descriptionBox');
+    textbox.insertAdjacentHTML('afterbegin', description);
+    container.append(textbox);
   }
 
+  let header;
   if (container.querySelector('h2')) {
     container.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
   } else {
-    let header = `${await state}, ${ await globalContinent}`;
+    header = `${await state}, ${ await globalContinent}`;
     header.textContent = `${await state}, ${ await globalContinent}`;
     console.log(container.children[0]);
     container.children[0].insertAdjacentHTML('afterbegin', `<h2>${header}</h2>`);
