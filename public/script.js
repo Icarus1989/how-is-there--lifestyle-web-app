@@ -891,7 +891,8 @@ function createMenu(mainElement) {
       list.classList.add('menuList');
       header.textContent = 'Cities on database...';
       // container.style.width = '75vw'; // <-- oppure basarsi sulla distanza tra lato destro e inizio lente
-      container.style.top = (-((main.clientHeight / 100) * 90)) + 'px';
+      container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
+
 
       container.append(header);
       main.append(container);
@@ -917,15 +918,20 @@ function createMenu(mainElement) {
           if (buttonEvent.target == listElement.querySelectorAll('button')[0]) {
             clearTimeout(timeout);
             inputField.value = listElement.firstElementChild.textContent;
-            container.style.top = (-((main.clientHeight / 100) * 70)) + 'px';
+            container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
             closeBtn.remove();
             searchCity(inputField, inputField);
             if (container.querySelector('.downDirection')) {
               disappearElement(container.querySelector('.downDirection'), 0);
             }
+            container.addEventListener('transitionend', () => {
+              container.remove();
+              header.remove();
+              list.remove();
+            });
 
             inputContainer.animate([{
-              transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
+              transform: `translateY(-${main.scrollHeight / 2 - inputContainer.clientHeight}px)`
             }], {
               duration: 1000,
               easing: 'ease',
@@ -1006,14 +1012,14 @@ function createMenu(mainElement) {
           clearTimeout(timeout);
 
           closeBtn.remove();
-          container.style.top = (-((main.clientHeight / 100) * 70)) + 'px';
+          container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
 
-          setTimeout(() => {
-            // migliorabile
+          container.addEventListener('transitionend', () => {
             container.remove();
             header.remove();
             list.remove();
-          }, 1000);
+          });
+
         });
 
       })

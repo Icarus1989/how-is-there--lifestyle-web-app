@@ -141,7 +141,7 @@ body {
   display: grid;
   place-items: center;
   width: 100vw;
-  height: 100%;
+  height: 90%;
   /* padding: 2px; */
   transition: all 1s ease-in-out;
   scroll-snap-align: center;
@@ -394,7 +394,7 @@ canvas {
 .indications {
   width: 73vw;
   position: fixed;
-  top: 20%;
+  top: 12%;
   text-align: center;
   color: white;
   padding: 2vw;
@@ -589,7 +589,7 @@ canvas {
 .menuContainer {
   width: 70vw;
   height: fit-content;
-  max-height: 70vh;
+  max-height: 68vh;
   position: absolute;
   right: 0px;
   background: rgb(50, 50, 50, 0.95);
