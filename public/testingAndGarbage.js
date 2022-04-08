@@ -1722,6 +1722,43 @@
 // disappearElement(document.querySelector('.saveBtn'), 0);
 
 
+// caches.open(cacheName).then(function (cache) {
+//   // Do something with your cache
+//   console.log(cache);
+// });
+
+// let deleteImg = document.querySelector('#imgContainer');
+
+// let cache = new Cache();
+// cache.delete(deleteImg).then(function (found) {
+//   console.log(found);
+//   // your cache entry has been deleted if found
+// });
+
+//   async function deleteOldCaches( currentCache ) {
+//     const keys = await caches.keys();
+
+//     for ( const key of keys ) {
+//        const isOurCache = 'myapp-' === key.substr( 0, 6 );
+
+//        if ( currentCache === key || ! isOurCache ) {
+//           continue;
+//        }
+
+//        caches.delete( key );
+//     }
+//  }
+
+//  try {
+//     const data = await getData();
+//     console.log( { data } );
+//  } catch ( error ) {
+//     console.error( { error } );
+//  }
+
+
+
+
 
 
 

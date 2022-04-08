@@ -32,44 +32,14 @@ inputField.addEventListener('change', async (event) => {
     fill: 'forwards'
   });
 
-
-  // caches.open(cacheName).then(function (cache) {
-  //   // Do something with your cache
-  //   console.log(cache);
-  // });
-
-  // let deleteImg = document.querySelector('#imgContainer');
-
-  // let cache = new Cache();
-  // cache.delete(deleteImg).then(function (found) {
-  //   console.log(found);
-  //   // your cache entry has been deleted if found
-  // });
-
-  //   async function deleteOldCaches( currentCache ) {
-  //     const keys = await caches.keys();
-
-  //     for ( const key of keys ) {
-  //        const isOurCache = 'myapp-' === key.substr( 0, 6 );
-
-  //        if ( currentCache === key || ! isOurCache ) {
-  //           continue;
-  //        }
-
-  //        caches.delete( key );
-  //     }
-  //  }
-
-  //  try {
-  //     const data = await getData();
-  //     console.log( { data } );
-  //  } catch ( error ) {
-  //     console.error( { error } );
-  //  }
-
   searchCity(inputField, event.target);
 
 });
+
+window.addEventListener('resize', () => {
+  location.reload();
+});
+
 
 async function retrievePixabay(name) {
   const wikiUrl = `wiki/${name}`;
@@ -422,7 +392,7 @@ function loadImage(image, container, resultsContainer, path) {
   if (image) {
     // image.delete();
     image.style.width = "250vw";
-    image.style.height = (container.clientHeight * 1.1) + "px";;
+    image.style.height = (container.clientHeight * 1.01) + "px";;
     if (container.clientHeight < container.clientWidth) {
       image.style.width = "100vw";
       image.style.height = container.clientHeight + "px";
@@ -495,7 +465,7 @@ function loadImage(image, container, resultsContainer, path) {
   } else {
     let image = document.createElement('img');
     image.style.width = "250vw";
-    image.style.height = (container.clientHeight * 1.1) + "px";
+    image.style.height = (container.clientHeight * 1.01) + "px";
     // image.style.width = "auto";
     // image.style.height = container.clientHeight + "px";
     if (container.clientHeight < container.clientWidth) {
