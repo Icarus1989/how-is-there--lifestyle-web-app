@@ -341,24 +341,38 @@ async function retrieveAlternativeCities(info, input) {
   }
 }
 
-async function createTitle(container, state, globalContinent) {
-  if (document.querySelector('h2')) {
-    document.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
-  } else {
-    let header = document.createElement('h2');
-    header.textContent = `${await state}, ${ await globalContinent}`;
-    container.append(header);
-  }
-}
+// async function createTitle(container, state, globalContinent) {
+//   if (document.querySelector('h2')) {
+//     document.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
+//   } else {
+//     let header = document.createElement('h2');
+//     header.textContent = `${await state}, ${ await globalContinent}`;
+//     container.append(header);
+//   }
+// }
 
-function createDescription(textBox, description, container) {
+async function createDescription(state, globalContinent, textBox, description, container) {
+
+
+
+
+
   if (textBox) {
-    textBox.innerHTML = description;
+    textBox.insertAdjacentHTML('afterbegin', description);
   } else {
     let textSpace = document.createElement('div');
     textSpace.classList.add('descriptionBox');
     textSpace.insertAdjacentHTML('afterbegin', description);
     container.append(textSpace);
+  }
+
+  if (container.querySelector('h2')) {
+    container.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
+  } else {
+    let header = `${await state}, ${ await globalContinent}`;
+    header.textContent = `${await state}, ${ await globalContinent}`;
+    console.log(container.children[0]);
+    container.children[0].insertAdjacentHTML('afterbegin', `<h2>${header}</h2>`);
   }
 }
 
@@ -625,9 +639,18 @@ async function searchCity(inputElement, target) {
       }
       const cityDescription = await infoScores["summary"];
 
-      createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent).then(() => {
-        createDescription(document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
-      });
+      // createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent).then(() => {
+      createDescription(nameAndState, continent, document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
+      let descriptionBox = document.querySelector('.descriptionBox');
+      let pElemsHeight = 0;
+      for (let pElem of descriptionBox.children) {
+        pElemsHeight += pElem.getBoundingClientRect().height;
+        console.log(pElem.getBoundingClientRect().height);
+      }
+      console.log(pElemsHeight);
+      console.log(descriptionBox);
+      console.log(descriptionBox.previousElementSibling);
+      // });
 
       const tableData = infoScores["categories"];
       const dataFirstPart = tableData.slice(0, 9);
