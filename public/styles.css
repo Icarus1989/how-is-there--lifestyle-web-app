@@ -620,6 +620,7 @@ canvas {
   padding-right: 5px;
   margin-left: 5vw;
   margin-right: 0vw;
+  border: 1px solid white;
 }
 
 .menuList>li {
@@ -627,7 +628,8 @@ canvas {
   flex-direction: row;
   justify-content: flex-end;
   width: 62vw;
-  border: 1px solid transparent;
+  border: 1px solid red;
+  /* border: 1px solid transparent; */
   margin: 6px 0px 6px 0px;
 }
 
@@ -638,7 +640,7 @@ canvas {
   font-weight: 600;
   text-align: right;
   background: transparent;
-  border: 1px solid transparent;
+  border: 1px solid blue;
 }
 
 .menuList>li>.cityButton:hover {
@@ -655,7 +657,8 @@ canvas {
   color: #E53935;
   font-size: 20px;
   background-color: transparent;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
+  border: 1px solid green;
 }
 
 .downDirection {
