@@ -640,6 +640,8 @@ canvas {
   font-weight: 600;
   text-align: right;
   background: transparent;
+  padding-left: 0px;
+  padding-right: 2px;
   border: 1px solid blue;
 }
 
@@ -658,6 +660,8 @@ canvas {
   font-size: 20px;
   background-color: transparent;
   /* border: 1px solid transparent; */
+  padding-left: 2px;
+  padding-right: 2px;
   border: 1px solid green;
 }
 
