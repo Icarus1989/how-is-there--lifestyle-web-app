@@ -121,7 +121,7 @@ body {
 }
 
 .descriptionBox>p {
-  font-size: 4.2vw;
+  font-size: 3.6vw;
   background: rgb(50, 50, 50, 0.7);
   padding: 3vw 5vw 3vw 5vw;
   margin-bottom: 0;
@@ -258,7 +258,7 @@ h2 {
   place-items: center;
   justify-content: end; */
   width: fit-content;
-  font-size: 2.6vh;
+  font-size: 2.3vh;
   padding: 3vw 5vw 3vw 5vw;
   /* border: 2px solid white; */
   border-left: 5px solid rgb(218, 215, 215);
