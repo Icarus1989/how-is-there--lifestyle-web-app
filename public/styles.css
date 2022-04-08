@@ -587,6 +587,8 @@ canvas {
 }
 
 .menuContainer {
+  display: grid;
+  place-items: end;
   width: 70vw;
   height: fit-content;
   max-height: 68vh;
@@ -608,12 +610,16 @@ canvas {
 }
 
 .menuList {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
   width: fit-content;
   list-style: none;
   padding-left: 5px;
   padding-right: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 5vw;
+  margin-right: 0vw;
 }
 
 .menuList>li {
