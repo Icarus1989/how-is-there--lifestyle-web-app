@@ -1029,12 +1029,16 @@ function createMenu(mainElement) {
 }
 
 window.addEventListener('resize', () => {
+  console.log(window.screen.height);
   // location.reload();
   // alert(document.documentElement.scrollHeight);
   // alert(window.innerHeight);
   // mainContainer.style.width = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
-  mainContainer.style.width = window.innerHeight + 'px';
+  // mainContainer.style.width = window.innerHeight + 'px';
   // document.documentElement.style.width = "100vh";
   // document.body.style.width = "100vh";
+  // mainContainer.style.height = window.screen.height + 'px';
+  // mainContainer.style
+  mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
 
 });
