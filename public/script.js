@@ -1029,7 +1029,7 @@ function createMenu(mainElement) {
 }
 
 window.addEventListener('resize', () => {
-  console.log(window.screen.height);
+  console.log(window.innerHeight);
   // location.reload();
   // alert(document.documentElement.scrollHeight);
   // alert(window.innerHeight);
@@ -1043,5 +1043,5 @@ window.addEventListener('resize', () => {
   // mainContainer.style.top = '0%';
   // mainContainer.style
   // mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
-  mainContainer.style.height = screen.height + 'px';
+  mainContainer.style.height = window.innerHeight + 'px';
 });
