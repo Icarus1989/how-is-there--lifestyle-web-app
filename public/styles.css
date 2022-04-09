@@ -12,6 +12,10 @@
   height: -webkit-fill-available;
 } */
 
+html {
+  height: 95vh;
+}
+
 
 
 
@@ -19,6 +23,7 @@ body {
   padding: 0;
   margin: 0;
   position: fixed;
+  height: 95vh;
   background-color: #505050;
   /* overflow-y: hidden; */
   /* height: 100vh; */
