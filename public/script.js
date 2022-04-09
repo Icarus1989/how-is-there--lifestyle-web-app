@@ -1027,5 +1027,7 @@ function createMenu(mainElement) {
 
 window.addEventListener('resize', () => {
   location.reload();
-  mainContainer.style.width = "100vh";
+  // mainContainer.style.width = "100vh";
+  document.documentElement.style.width = "100vh";
+  document.body.style.width = "100vh";
 });
