@@ -1039,9 +1039,9 @@ window.addEventListener('resize', () => {
   // document.body.style.width = "100vh";
   // mainContainer.style.height = window.screen.height + 'px';
   mainContainer.style.height = (document.documentElement.clientHeight || document.body.clientHeight) + 'px';
-  mainContainer.style.position = 'fixed';
-  mainContainer.style.top = '0%';
+  // mainContainer.style.position = 'fixed';
+  // mainContainer.style.top = '0%';
   // mainContainer.style
   // mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
-
+  mainContainer.style.height = screen.height + 'px';
 });
