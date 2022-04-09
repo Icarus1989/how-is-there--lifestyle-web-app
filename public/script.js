@@ -1028,8 +1028,10 @@ function createMenu(mainElement) {
   });
 }
 
-// window.addEventListener('resize', () => {
-//   location.reload();
-//   // mainContainer.style.width = "100vh";
+window.addEventListener('resize', () => {
+  // location.reload();
+  mainContainer.style.width = "100%";
+  document.documentElement.style.width = "100vh";
+  document.body.style.width = "100vh";
 
-// });
+});
