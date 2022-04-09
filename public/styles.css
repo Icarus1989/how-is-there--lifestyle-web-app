@@ -12,6 +12,10 @@
   height: -webkit-fill-available;
 } */
 
+html {
+  background-color: aquamarine;
+}
+
 
 
 body {
