@@ -1038,7 +1038,7 @@ window.addEventListener('resize', () => {
   // document.documentElement.style.width = "100vh";
   // document.body.style.width = "100vh";
   // mainContainer.style.height = window.screen.height + 'px';
-  mainContainer.style.height = (document.documentElement.clientHeight || document.body.clientHeight) + 'px';
+  // mainContainer.style.height = (document.documentElement.clientHeight || document.body.clientHeight) + 'px';
   // mainContainer.style.position = 'fixed';
   // mainContainer.style.top = '0%';
   // mainContainer.style
