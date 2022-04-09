@@ -40,7 +40,8 @@ body {
     BlinkMacSystemFont, sans-serif;
 
   transition: all 3s ease-in-out;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
+  overflow-y: auto;
 }
 
 .backgroundImage {
