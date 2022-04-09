@@ -1030,8 +1030,10 @@ function createMenu(mainElement) {
 
 window.addEventListener('resize', () => {
   // location.reload();
-  mainContainer.style.width = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
-
+  alert(document.documentElement.scrollHeight);
+  alert(window.innerHeight);
+  // mainContainer.style.width = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
+  mainContainer.style.width = window.innerHeight + 'px';
   // document.documentElement.style.width = "100vh";
   // document.body.style.width = "100vh";
 

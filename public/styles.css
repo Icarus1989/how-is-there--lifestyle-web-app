@@ -28,7 +28,7 @@ body {
   position: fixed;
   border: 2px solid black;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   display: grid;
   /* modifica recente ------------------------ */
   place-items: center;
@@ -42,7 +42,7 @@ body {
 
   transition: all 3s ease-in-out;
   /* overflow-y: hidden; */
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .backgroundImage {
