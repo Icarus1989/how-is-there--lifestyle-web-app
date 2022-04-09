@@ -19,7 +19,7 @@ body {
   padding: 0;
   margin: 0;
   position: fixed;
-  background-color: #E53935;
+  background-color: #505050;
   /* overflow-y: hidden; */
   /* height: 100vh; */
   /* min-height: 100vh;
@@ -28,7 +28,6 @@ body {
 
 #mainContainer {
   position: fixed;
-  border: 2px solid black;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -44,7 +43,6 @@ body {
 
   transition: all 3s ease-in-out;
   /* overflow-y: hidden; */
-  overflow-y: hidden;
 }
 
 .backgroundImage {
@@ -110,6 +108,7 @@ body {
   overflow-y:visible;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  z-index: 10;
 }
 
 .descriptionBox {
@@ -203,13 +202,13 @@ body {
   width: 100%;
 } */
 
-#canvas_p5 {
+/* #canvas_p5 {
   position: absolute;
   width: 90vw;
   height: 100%;
   z-index: -10;
   border: 2px solid red;
-}
+} */
 
 .invibleButtons {
   /* color: white; */
@@ -350,15 +349,15 @@ table>tbody>tr>td {
 
 }
 
-#resultsContainer {
-  /* filter: grayscale(90%); */
+/* #resultsContainer {
+  filter: grayscale(90%);
   z-index: 10;
-}
+} */
 
-canvas {
+/* canvas {
   opacity: 0.0;
   border-radius: 10px;
-}
+} */
 
 .alternatesContainer {
   display: grid;
@@ -410,8 +409,6 @@ canvas {
   -webkit-backdrop-filter: blur(10px); */
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
   /* filter: drop-shadow(1vw 1vw 1vw #232323); */
-
-
 }
 
 .saveBtn {
