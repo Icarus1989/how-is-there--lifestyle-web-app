@@ -466,7 +466,7 @@ function loadImage(image, container, resultsContainer, path) {
   } else {
     let image = document.createElement('img');
     image.style.width = "250vw";
-    image.style.height = (container.clientHeight * 1.01) + "px";
+    image.style.height = (container.clientHeight) + "px";
     // image.style.width = "auto";
     // image.style.height = container.clientHeight + "px";
     if (container.clientHeight < container.clientWidth) {
