@@ -29,7 +29,7 @@ body {
 #mainContainer {
   position: fixed;
   width: 100vw;
-  height: 110vh;
+  height: 95vh;
   display: grid;
   /* modifica recente ------------------------ */
   place-items: center;
