@@ -22,6 +22,8 @@ body {
   padding: 0;
   margin: 0;
   background-color: #E53935;
+  overflow-y: hidden;
+
   /* overflow-y: hidden; */
   /* height: 100vh; */
   /* min-height: 100vh;
