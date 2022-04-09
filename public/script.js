@@ -1029,7 +1029,7 @@ function createMenu(mainElement) {
 }
 
 window.addEventListener('resize', () => {
-  console.log(window.screen.height);
+  // console.log(window.screen.height);
   // location.reload();
   // alert(document.documentElement.scrollHeight);
   // alert(window.innerHeight);
@@ -1038,7 +1038,8 @@ window.addEventListener('resize', () => {
   // document.documentElement.style.width = "100vh";
   // document.body.style.width = "100vh";
   // mainContainer.style.height = window.screen.height + 'px';
-  mainContainer.style.height = (document.documentElement.clientHeight || document.body.clientHeight) + 'px'
+  document.body.style.height = "100vh";
+  mainContainer.style.height = '100vh';
   // mainContainer.style
   // mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
 
