@@ -12,18 +12,14 @@
   height: -webkit-fill-available;
 } */
 
-html {
-  background-color: aquamarine;
-}
 
 
 
 body {
   padding: 0;
   margin: 0;
+  position: fixed;
   background-color: #E53935;
-  overflow-y: hidden;
-
   /* overflow-y: hidden; */
   /* height: 100vh; */
   /* min-height: 100vh;
