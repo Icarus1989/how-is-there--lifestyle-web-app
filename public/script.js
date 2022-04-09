@@ -36,9 +36,7 @@ inputField.addEventListener('change', async (event) => {
 
 });
 
-window.addEventListener('resize', () => {
-  location.reload();
-});
+
 
 
 async function retrievePixabay(name) {
@@ -1026,3 +1024,7 @@ function createMenu(mainElement) {
     }
   });
 }
+
+window.addEventListener('resize', () => {
+  location.reload();
+});
