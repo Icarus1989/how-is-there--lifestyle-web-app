@@ -264,7 +264,7 @@ async function retrieveAlternativeCities(info, input) {
     inputField.addEventListener('change', () => {
       disappearElement(alternatesContainer, 0).then(() => {
         if (document.querySelector('.descriptionBox')) {
-          appearElement(document.querySelector('.descriptionBox'), 500);
+          appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
           appearElement(document.querySelectorAll('table')[0], 500);
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
@@ -280,7 +280,7 @@ async function retrieveAlternativeCities(info, input) {
         inputField.value = event.target.textContent;
         disappearElement(alternatesContainer, 0).then(() => {
           searchCity(inputField, inputField).then(() => {
-            appearElement(document.querySelector('.descriptionBox'), 500);
+            appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
             appearElement(document.querySelectorAll('table')[0], 500);
             appearElement(document.querySelectorAll('table')[1], 500);
             appearElement(document.querySelector('h2'), 500);
@@ -706,10 +706,10 @@ async function disappearElement(elem, delay) {
   });
 }
 
-async function appearElement(elem, delay) {
+async function appearElement(elem, delay, display = 'block') {
   let opacity = 0.0;
   if (elem) {
-    elem.style.display = 'grid';
+    elem.style.display = display;
     return await new Promise((resolve) => {
       setTimeout(() => {
         let interval = setInterval(() => {

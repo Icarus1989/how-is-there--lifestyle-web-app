@@ -117,6 +117,8 @@ body {
 .descriptionBox {
   width: 90vw;
   color: white;
+  display: grid;
+  place-items: center;
   margin-top: 3vh;
   /* position: absolute;
   bottom: 2%; */
