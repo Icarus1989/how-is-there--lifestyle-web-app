@@ -216,7 +216,7 @@ async function retrieveAlternativeCities(info, input) {
       console.log(alternatesContainer.getBoundingClientRect());
 
       alternatesContainer.style.overflowY = 'scroll';
-      createNavButton('down', alternatesContainer, 'absolute');
+      createNavButton('down', alternatesContainer, 'fixed');
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().top + alternatesContainer.clientHeight - alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height - (alternatesContainer.clientTop) + 'px';
 
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().bottom - 2 * alternatesContainer.querySelector('.downDirection').scrollHeight + (alternatesContainer.clientTop / 2) + 'px';
@@ -232,7 +232,9 @@ async function retrieveAlternativeCities(info, input) {
       alternatesContainer.querySelector('.downDirection').style.zIndex = 100;
 
       // alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
-      alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
+      // alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
+      alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().bottom - alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
+
       // Here
       // alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].style.marginBottom = '40%';
       alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
@@ -244,10 +246,12 @@ async function retrieveAlternativeCities(info, input) {
 
       alternatesContainer.addEventListener('scroll', (event) => {
         let downBtn = event.target.querySelector('.downDirection');
-        downBtn.style.position = 'fixed';
+        downBtn.style.position = 'absolute';
         // downBtn.style.top = event.target.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + event.target.getBoundingClientRect().y - (event.target.clientTop / 2) + 'px';
         // downBtn.style.bottom = downBtn.getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
-        downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
+        // downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
+        downBtn.style.bottom = downBtn.getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
+
         // downBtn.style.bottom = '0px';
         downBtn.style.overflow = 'hidden';
 
