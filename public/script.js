@@ -237,10 +237,10 @@ async function retrieveAlternativeCities(info, input) {
       // alternatesContainer.lastElementChild.marginBottom = '20%';
       // alternatesContainer.querySelector('.downDirection').removeEventListener();
 
-      alternatesContainer.addEventListener('scroll', () => {
-        let downBtn = alternatesContainer.querySelector('.downDirection');
+      alternatesContainer.addEventListener('scroll', (event) => {
+        let downBtn = event.target.querySelector('.downDirection');
         downBtn.style.position = 'fixed';
-        downBtn.style.top = alternatesContainer.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + alternatesContainer.getBoundingClientRect().y - (alternatesContainer.clientTop / 2) + 'px';
+        downBtn.style.top = event.target.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + event.target.getBoundingClientRect().y - (event.target.clientTop / 2) + 'px';
         downBtn.style.overflow = 'hidden';
 
         if (alternatesContainer.scrollTop >= alternatesContainer.scrollHeight - alternatesContainer.clientHeight) {
