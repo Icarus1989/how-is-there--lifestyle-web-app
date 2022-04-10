@@ -1043,5 +1043,6 @@ window.addEventListener('resize', () => {
   // mainContainer.style.top = '0%';
   // mainContainer.style
   // mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
-  mainContainer.style.height = window.innerHeight + 'px';
+  mainContainer.style.height = '100vh';
+  mainContainer.scrollTo(0, 0);
 });
