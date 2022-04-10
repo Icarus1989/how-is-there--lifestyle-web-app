@@ -211,7 +211,7 @@ async function retrieveAlternativeCities(info, input) {
     resultsCont.append(alternatesContainer);
     if (secondCityArray.length > 10) {
       alternatesContainer.style.overflowY = 'scroll';
-      createNavButton('down', alternatesContainer, 'fixed');
+      createNavButton('down', alternatesContainer, 'absolute');
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().top + alternatesContainer.clientHeight - alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height - (alternatesContainer.clientTop) + 'px';
 
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().bottom - 2 * alternatesContainer.querySelector('.downDirection').scrollHeight + (alternatesContainer.clientTop / 2) + 'px';

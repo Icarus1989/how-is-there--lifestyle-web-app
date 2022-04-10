@@ -366,7 +366,7 @@ table>tbody>tr>td {
 } */
 
 .alternatesContainer {
-  position: fixed;
+  /* position: fixed; */
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr;
@@ -385,7 +385,7 @@ table>tbody>tr>td {
   border-bottom: 8px solid rgb(105, 98, 91); */
   border-radius: 18px;
   background: #d4d4d44b;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .altButtons {
