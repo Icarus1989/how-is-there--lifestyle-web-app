@@ -373,7 +373,7 @@ table>tbody>tr>td {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   width: 80vw;
-  height: 50vh;
+  height: 45vh;
   padding: 0;
   margin: 0;
   /* border-top: 8px solid rgb(50, 50, 50, 0.6);
