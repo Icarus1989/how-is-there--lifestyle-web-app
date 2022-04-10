@@ -250,7 +250,7 @@ async function retrieveAlternativeCities(info, input) {
         // downBtn.style.top = event.target.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + event.target.getBoundingClientRect().y - (event.target.clientTop / 2) + 'px';
         // downBtn.style.bottom = downBtn.getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
         // downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
-        downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom + 'px';
+        downBtn.style.top = alternatesContainer.getBoundingClientRect().top + alternatesContainer.getBoundingClientRect().height + 'px';
 
         // downBtn.style.bottom = '0px';
         downBtn.style.overflow = 'hidden';
