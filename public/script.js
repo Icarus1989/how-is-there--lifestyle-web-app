@@ -1044,5 +1044,8 @@ window.addEventListener('resize', () => {
   // mainContainer.style
   // mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
   mainContainer.style.height = '100vh';
+});
+
+mainElement.addEventListener('scroll', () => {
   mainContainer.scrollTo(0, 0);
 });
