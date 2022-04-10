@@ -216,7 +216,7 @@ async function retrieveAlternativeCities(info, input) {
       console.log(alternatesContainer.getBoundingClientRect());
 
       alternatesContainer.style.overflowY = 'scroll';
-      createNavButton('down', alternatesContainer, 'fixed');
+      createNavButton('down', alternatesContainer, 'relative');
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().top + alternatesContainer.clientHeight - alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height - (alternatesContainer.clientTop) + 'px';
 
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().bottom - 2 * alternatesContainer.querySelector('.downDirection').scrollHeight + (alternatesContainer.clientTop / 2) + 'px';
@@ -246,7 +246,7 @@ async function retrieveAlternativeCities(info, input) {
 
       alternatesContainer.addEventListener('scroll', (event) => {
         let downBtn = event.target.querySelector('.downDirection');
-        downBtn.style.position = 'absolute';
+        downBtn.style.position = 'fixed';
         // downBtn.style.top = event.target.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + event.target.getBoundingClientRect().y - (event.target.clientTop / 2) + 'px';
         // downBtn.style.bottom = downBtn.getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
         // downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
