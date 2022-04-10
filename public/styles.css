@@ -112,6 +112,7 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   z-index: 10;
+  border: 2px solid green;
 }
 
 .descriptionBox {
@@ -365,6 +366,7 @@ table>tbody>tr>td {
 } */
 
 .alternatesContainer {
+  position: fixed;
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr;
@@ -402,8 +404,8 @@ table>tbody>tr>td {
 
 .indications {
   width: 73vw;
-  position: fixed;
-  top: 12%;
+  /* position: fixed; */
+  /* top: 12%; */
   text-align: center;
   color: white;
   padding: 2vw;
