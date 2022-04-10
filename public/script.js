@@ -152,7 +152,7 @@ async function retrieveAlternativeCities(info, input) {
       disappearElement(document.querySelector('h2'), 0);
     }
     indication.textContent = `The city ${input} is not been found - searching for other cities in this country...`;
-    resultsCont.append(indication);
+    resultsCont.children[0].append(indication);
 
     createSpinner(resultsCont);
 
@@ -208,7 +208,7 @@ async function retrieveAlternativeCities(info, input) {
     // disappearElement(document.querySelector('.spinnerContainer'), 0);
     // fine spinner
     indication.textContent = `The city ${input} is not been found.`;
-    resultsCont.append(alternatesContainer);
+    resultsCont.children[0].append(alternatesContainer);
     if (secondCityArray.length > 10) {
       alternatesContainer.style.overflowY = 'scroll';
       createNavButton('down', alternatesContainer, 'absolute');
