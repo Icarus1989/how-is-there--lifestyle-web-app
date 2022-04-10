@@ -367,7 +367,7 @@ table>tbody>tr>td {
 
 .alternatesContainer {
   /* position: fixed; */
-  position: absolute;
+  /* position: absolute; */
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr;

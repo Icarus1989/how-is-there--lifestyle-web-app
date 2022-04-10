@@ -239,7 +239,7 @@ async function retrieveAlternativeCities(info, input) {
 
       alternatesContainer.addEventListener('scroll', (event) => {
         let downBtn = event.target.querySelector('.downDirection');
-        downBtn.style.position = 'fixed';
+        downBtn.style.position = 'absolute';
         downBtn.style.top = event.target.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + event.target.getBoundingClientRect().y - (event.target.clientTop / 2) + 'px';
         downBtn.style.overflow = 'hidden';
 
