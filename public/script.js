@@ -1028,6 +1028,7 @@ function createMenu(mainElement) {
   });
 }
 
+// forse inutile ai fini pratici
 window.addEventListener('resize', () => {
   console.log(window.innerHeight);
   // location.reload();
@@ -1044,8 +1045,15 @@ window.addEventListener('resize', () => {
   // mainContainer.style
   // mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
   mainContainer.style.height = '100vh';
+  document.querySelector('#imgContainer').style.width = '100vw';
+  document.querySelector('#imgContainer').style.height = '100vh';
+  document.querySelector('#secondImgContainer').style.width = '100vw';
+  document.querySelector('#secondImgContainer').style.height = '100vh';
+  document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
+  document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
 });
 
 document.body.addEventListener('scroll', () => {
   document.body.scrollTo(0, 0);
 });
+// forse inutile ai fini pratici

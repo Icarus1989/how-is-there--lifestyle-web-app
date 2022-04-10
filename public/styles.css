@@ -24,6 +24,7 @@ body {
   background-color: #505050;
   /* overflow-y: hidden; */
   overflow-y: hidden;
+  min-height: 100vh;
   /* height: 100vh; */
   /* min-height: 100vh;
   min-height: -webkit-fill-available; */
@@ -32,7 +33,7 @@ body {
 #mainContainer {
   position: fixed;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   /* modifica recente ------------------------ */
   place-items: center;
@@ -44,7 +45,6 @@ body {
   font-family: -apple-system,
     BlinkMacSystemFont, sans-serif;
 
-  transition: all 3s ease-in-out;
   /* overflow-y: hidden; */
 }
 
