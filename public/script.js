@@ -20,6 +20,8 @@ inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clien
 
 inputField.addEventListener('change', async (event) => {
 
+  mainContainer.scrollTo(0, 0);
+
   inputContainer.animate([
     // {
     //   transform: 'translateY(0px)'
@@ -1054,6 +1056,6 @@ window.addEventListener('resize', () => {
 });
 
 document.body.addEventListener('scroll', () => {
-  document.body.scrollTo(0, 0);
+  mainContainer.scrollTo(0, 0);
 });
 // forse inutile ai fini pratici
