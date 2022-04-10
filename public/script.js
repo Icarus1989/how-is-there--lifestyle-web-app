@@ -133,6 +133,8 @@ async function getRegionsList(country) {
 }
 
 async function retrieveAlternativeCities(info, input) {
+
+
   let resultsCont = document.querySelector('#resultsContainer');
   let indication = document.createElement('p');
   indication.classList.add('indications');
@@ -707,7 +709,7 @@ async function disappearElement(elem, delay) {
 async function appearElement(elem, delay) {
   let opacity = 0.0;
   if (elem) {
-    elem.style.display = 'block';
+    elem.style.display = 'grid';
     return await new Promise((resolve) => {
       setTimeout(() => {
         let interval = setInterval(() => {
