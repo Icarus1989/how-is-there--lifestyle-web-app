@@ -229,7 +229,7 @@ async function retrieveAlternativeCities(info, input) {
       alternatesContainer.querySelector('.downDirection').style.borderRadius = '0px 0px 16px 16px';
       alternatesContainer.querySelector('.downDirection').style.zIndex = 100;
 
-      // alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
+      alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
 
       // Here
       // alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].style.marginBottom = '40%';
@@ -779,7 +779,7 @@ function createNavButton(direction, container, position) {
       directionBtn.style.width = container.clientWidth + 'px';
       directionBtn.style.height = container.clientHeight / 11 + 'px';
       directionBtn.classList.add('downDirection');
-      directionBtn.style.bottom = '0px';
+      // directionBtn.style.bottom = '0px';
       directionBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-chevron-down"></i>');
       break;
     case 'up':
