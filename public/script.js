@@ -134,6 +134,7 @@ async function getRegionsList(country) {
 
 async function retrieveAlternativeCities(info, input) {
 
+  document.querySelector('#insertInput').blur();
 
   let resultsCont = document.querySelector('#resultsContainer');
   let indication = document.createElement('p');
@@ -228,7 +229,7 @@ async function retrieveAlternativeCities(info, input) {
       alternatesContainer.querySelector('.downDirection').style.borderRadius = '0px 0px 16px 16px';
       alternatesContainer.querySelector('.downDirection').style.zIndex = 100;
 
-      alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
+      // alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
 
       // Here
       // alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].style.marginBottom = '40%';
