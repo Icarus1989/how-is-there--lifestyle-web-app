@@ -375,7 +375,7 @@ table>tbody>tr>td {
   width: 80vw;
   height: 45vh;
   padding: 0;
-  margin: 0;
+  margin: 1vw 0vw 5vw 0vw;
   /* border-top: 8px solid rgb(50, 50, 50, 0.6);
   border-left: 8px solid rgb(50, 50, 50, 0.6);
   border-right: 8px solid rgb(50, 50, 50, 0.6);
