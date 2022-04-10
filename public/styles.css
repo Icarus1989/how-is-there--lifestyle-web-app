@@ -103,7 +103,7 @@ body {
   /* bottom: -20%; */
   top: 0%;
   width: 100%;
-  height: 80vh;
+  height: 75vh;
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr 1fr;
@@ -112,7 +112,7 @@ body {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   z-index: 10;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .descriptionBox {
@@ -403,10 +403,23 @@ table>tbody>tr>td {
   filter: drop-shadow(1vw 1vw 1vw #232323);
 }
 
+.tempIndication {
+  position: fixed;
+  top: 12%;
+  width: 73vw;
+  text-align: center;
+  color: white;
+  padding: 2vw;
+  border: 5px solid rgba(155, 9, 9, 0.7);
+  border-radius: 3vw;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background: rgb(50, 50, 50, 0.7);
+  text-shadow: 3px 2px 3px rgb(15, 15, 15);
+}
+
 .indications {
   width: 73vw;
-  /* position: fixed; */
-  /* top: 12%; */
   text-align: center;
   color: white;
   padding: 2vw;
