@@ -272,6 +272,13 @@ async function retrieveAlternativeCities(info, input) {
         }
 
       });
+      resultsCont.addEventListener('scroll', () => {
+        console.log('scroll');
+        if (alternatesContainer.querySelector('.downDirection')) {
+          alternatesContainer.querySelector('.downDirection').position = 'absolute';
+          alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
+        }
+      })
     }
 
 
