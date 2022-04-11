@@ -440,6 +440,7 @@ table>tbody>tr>td {
 
 .saveBtn {
   display: none;
+  place-items: center;
   width: 12vw;
   height: 12vw;
   position: fixed;
@@ -577,6 +578,8 @@ table>tbody>tr>td {
 }
 
 #buttonsContainer>button {
+  display: grid;
+  place-items: center;
   width: fit-content;
   height: fit-content;
   background: transparent;

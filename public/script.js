@@ -286,7 +286,7 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelectorAll('table')[0], 500);
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
-          appearElement(document.querySelector('.saveBtn'), 500);
+          appearElement(document.querySelector('.saveBtn'), 500, 'grid');
         }
         indication.textContent = '';
         disappearElement(indication, 0);
@@ -302,7 +302,7 @@ async function retrieveAlternativeCities(info, input) {
             appearElement(document.querySelectorAll('table')[0], 500);
             appearElement(document.querySelectorAll('table')[1], 500);
             appearElement(document.querySelector('h2'), 500);
-            appearElement(document.querySelector('.saveBtn'), 500);
+            appearElement(document.querySelector('.saveBtn'), 500, 'grid');
           });
         });
         indication.textContent = '';
@@ -327,7 +327,7 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelectorAll('table')[0], 500);
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
-          appearElement(document.querySelector('.saveBtn'), 500);
+          appearElement(document.querySelector('.saveBtn'), 500, 'grid');
         }
       });
     });
@@ -587,7 +587,7 @@ async function searchCity(inputElement, target) {
         continent = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["continent"];
         fullName = `${nameAndState}, ${continent}`;
         saveButton.querySelector('i').style.color = 'rgb(126, 126, 126)';
-        appearElement(document.querySelector('.saveBtn'), 500);
+        appearElement(document.querySelector('.saveBtn'), 500, 'grid');
 
         const dbData = {
           name: cityname,
@@ -615,7 +615,7 @@ async function searchCity(inputElement, target) {
           }
         });
       } else if (dbResponse.status == 'success' && dbResponse.action == 'read from db') {
-        appearElement(document.querySelector('.saveBtn'), 500);
+        appearElement(document.querySelector('.saveBtn'), 500, 'grid');
         infoScores = dbDatas;
         let completeNameArray = dbResponse.title.split(', ');
         cityname = completeNameArray[0];
