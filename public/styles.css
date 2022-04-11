@@ -408,7 +408,6 @@ table>tbody>tr>td {
 .tempIndication {
   position: fixed;
   top: 20%;
-  width: 73vw;
   text-align: center;
   color: white;
   padding: 2vw;
@@ -735,17 +734,26 @@ table>tbody>tr>td {
   }
 
   #insertInput {
-    font-size: 18px;
+    font-size: 20px;
+  }
+
+  .tempIndication {
+    font-size: 3vw;
   }
 
   .indications {
     width: fit-content;
     max-width: 50vw;
+    font-size: 3vw;
   }
 
   .descriptionBox {
-    width: 70vw;
+    width: 90vw;
     font-size: 20px;
+  }
+
+  .descriptionBox>p{
+    font-size: 3vw;
   }
 
   table {
@@ -774,11 +782,16 @@ table>tbody>tr>td {
   }
 
   .menuContainer {
-    width: 50vw;
+    width: 45vw;
+  }
+
+  .menuList {
+    margin-left: 0vw;
+    margin-right: 0vw;
   }
 
   .menuList>li {
-    width: 48vw;
+    width: 40vw;
   }
 
 
