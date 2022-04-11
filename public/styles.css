@@ -380,7 +380,7 @@ table>tbody>tr>td {
   border-left: 8px solid rgb(50, 50, 50, 0.6);
   border-right: 8px solid rgb(50, 50, 50, 0.6);
   border-bottom: 8px solid rgb(50, 50, 50, 0.6); */
-  border: 8px solid rgb(105, 98, 91);
+  border: 8px solid rgb(100, 100, 100);
   /* border-left: 8px solid rgb(105, 98, 91);
   border-right: 8px solid rgb(105, 98, 91);
   border-bottom: 8px solid rgb(105, 98, 91); */
@@ -394,13 +394,15 @@ table>tbody>tr>td {
   width: fit-content;
   font-size: 16px;
   font-weight: 700;
-  color: rgb(25, 25, 25);
-  background-color: rgba(240, 248, 255, 0.9);
+  color: rgb(83,83,83);
+  /* background-color: rgba(240, 248, 255, 0.9); */
+  background: radial-gradient(circle at 140% 22%, white 82%, #a8a8a8 100%);
   padding: 4% 8% 4% 8%;
-  border: 2px solid rgba(240, 248, 255, 1.0);
+  border: 2px solid rgba(150,150,150, 1.0);
   border-radius: 12px;
   margin: 10% 5% 5% 5%;
-  filter: drop-shadow(1vw 1vw 1vw #232323);
+  filter: drop-shadow(0vw 0vw 0.5vw rgb(67,65,72));
+  /* filter: drop-shadow(1vw 1vw 1vw #232323); */
 }
 
 .tempIndication {
@@ -443,9 +445,13 @@ table>tbody>tr>td {
   position: fixed;
   bottom: 14px;
   left: 14px;
+  background: radial-gradient(circle at 140% 22%, white 82%, #a8a8a8 100%);
   border-radius: 2.5vw;
-  border: 1px solid transparent;
-  filter: drop-shadow(1vw 1vw 1vw #232323);
+  /* border: 1px solid transparent;
+   */
+   border: 2px solid rgba(150,150,150, 1.0);
+  /* filter: drop-shadow(1vw 1vw 1vw #232323); */
+  filter: drop-shadow(1vw 1vw 2.5vw rgb(67,65,72));
   z-index: 12;
 }
 
@@ -602,15 +608,19 @@ table>tbody>tr>td {
   position: fixed;
   bottom: 14px;
   right: 14px;
+  background: radial-gradient(circle at 140% 22%, white 82%, #a8a8a8 100%);
   border-radius: 2.5vw;
-  border: 1px solid transparent;
-  filter: drop-shadow(1vw 1vw 1vw #232323);
+  /* border: 1px solid transparent; */
+  border: 2px solid rgba(150,150,150, 1.0);
+  /* filter: drop-shadow(1vw 1vw 1vw #232323); */
+  
+  filter: drop-shadow(1vw 1vw 2.5vw rgb(67,65,72));
   z-index: 12;
 }
 
 .menuBtn>i {
   font-size: 20px;
-  color: rgb(126, 126, 126);
+  color: rgb(111,111,111);
 }
 
 .menuContainer {
@@ -694,7 +704,7 @@ table>tbody>tr>td {
 
 .downDirection {
   color: white;
-  background: rgb(55, 55, 55, 0.6);
+  background: rgb(83,83,83, 0.6);
   overflow: hidden;
   border: 1px solid transparent;
   border-radius: 0px 0px 18px 18px;

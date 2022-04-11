@@ -161,7 +161,7 @@ async function retrieveAlternativeCities(info, input) {
     let data = await getRegionsList(country);
     let alternatesContainer = document.createElement('fieldset');
     let legend = document.createElement('legend');
-    legend.style.color = '#4a7edf';
+    legend.style.color = 'rgb(83, 83, 83)';
     legend.style.fontWeight = 700;
     // legend.style.textShadow = '3px 2px 3px rgb(15 15 15)';
     legend.style.paddingTop = '10px';
@@ -169,8 +169,8 @@ async function retrieveAlternativeCities(info, input) {
     legend.style.paddingBottom = '10px';
     legend.style.paddingRight = '20px';
     legend.style.borderRadius = '12px';
-    legend.style.background = 'rgb(221 227 233)';
-    legend.style.border = '6px solid rgb(105, 98, 91)';
+    legend.style.background = 'rgb(230, 230, 230)';
+    legend.style.border = '6px solid rgb(134, 134, 134)';
     legend.textContent = 'Cities available for this Country:';
     alternatesContainer.append(legend);
     // alternatesContainer.offsetTop = '100px';
