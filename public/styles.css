@@ -450,6 +450,7 @@ table>tbody>tr>td {
   border-radius: 2.5vw;
   /* border: 1px solid transparent;
    */
+   padding: 0;
    border: 2px solid rgba(150,150,150, 1.0);
   /* filter: drop-shadow(1vw 1vw 1vw #232323); */
   filter: drop-shadow(1vw 1vw 2.5vw rgb(67,65,72));
@@ -612,6 +613,7 @@ table>tbody>tr>td {
   bottom: 14px;
   right: 14px;
   background: radial-gradient(circle at 140% 22%, white 82%, #a8a8a8 100%);
+  padding: 0;
   border-radius: 2.5vw;
   /* border: 1px solid transparent; */
   border: 2px solid rgba(150,150,150, 1.0);
