@@ -44,9 +44,14 @@ body {
   overflow: hidden;
   font-family: -apple-system,
     BlinkMacSystemFont, sans-serif;
-
+  /* -ms-overflow-style: none;
+  scrollbar-width: none;   */
   /* overflow-y: hidden; */
 }
+
+/* #mainContainer::-webkit-scrollbar {
+  display: none;
+} */
 
 .backgroundImage {
   /* width: auto; */
@@ -113,6 +118,12 @@ body {
   scroll-snap-type: x mandatory;
   z-index: 10;
   /* border: 2px solid green; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;  
+}
+
+#resultsContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .descriptionBox {
@@ -822,6 +833,10 @@ table>tbody>tr>td {
     font-size: 1.4vw;
   }
 
+  #resultsContainer {
+    height: 80vh;
+  }
+
   h2 {
     width: fit-content;
     padding: 2.5vw 4vw 2.5vw 4vw;
@@ -833,7 +848,7 @@ table>tbody>tr>td {
   }
 
   table {
-    min-width: 600px;
+    min-width: 500px;
     width: 35vw;
     font-size: 1.3vw;
     line-height: 1.5vw;
@@ -875,8 +890,8 @@ table>tbody>tr>td {
   } */
 
   .alternatesContainer {
-    width: 50vw;
-    height: 55vh;
+    width: 45vw;
+    height: 50vh;
     border-radius: 18px;
   }
 
@@ -887,7 +902,12 @@ table>tbody>tr>td {
   }
 
   .altButtons {
-    min-width: 20vw;
+    min-width: 15vw;
+  }
+
+  .tempIndication {
+    max-width: 30vw;
+    border-radius: 2vw;
   }
 
   .indications {
@@ -969,7 +989,7 @@ table>tbody>tr>td {
   .menuContainer {
     width: 32vw;
     height: fit-content;
-    max-height: 80vh;
+    max-height: 70vh;
     position: absolute;
     right: 0px;
     background: rgb(50, 50, 50, 0.95);

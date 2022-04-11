@@ -257,8 +257,8 @@ async function retrieveAlternativeCities(info, input) {
         // downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
         // funzionante iOS
         downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height + 'px';
-        console.log(alternatesContainer.clientLeft)
-        console.log(downBtn.clientLeft);
+        // console.log(alternatesContainer.clientLeft)
+        // console.log(downBtn.clientLeft);
         downBtn.style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
 
         // funzionante iOS
@@ -380,7 +380,7 @@ async function createDescription(state, globalContinent, textBox, description, c
   } else {
     header = `${await state}, ${ await globalContinent}`;
     header.textContent = `${await state}, ${ await globalContinent}`;
-    console.log(container.children[0]);
+    // console.log(container.children[0]);
     container.children[0].insertAdjacentHTML('afterbegin', `<h2>${header}</h2>`);
   }
 }
@@ -654,11 +654,11 @@ async function searchCity(inputElement, target) {
       let pElemsHeight = 0;
       for (let pElem of descriptionBox.children) {
         pElemsHeight += pElem.getBoundingClientRect().height;
-        console.log(pElem.getBoundingClientRect().height);
+        // console.log(pElem.getBoundingClientRect().height);
       }
-      console.log(pElemsHeight);
-      console.log(descriptionBox);
-      console.log(descriptionBox.previousElementSibling);
+      // console.log(pElemsHeight);
+      // console.log(descriptionBox);
+      // console.log(descriptionBox.previousElementSibling);
       // });
 
       const tableData = infoScores["categories"];
@@ -1034,7 +1034,7 @@ function createMenu(mainElement) {
       createIconBtn(main, '<i class="fa-solid fa-xmark"></i>').then(() => {
         // test let closeBtn....
         closeBtn = document.querySelectorAll('.menuBtn')[1];
-        console.log(closeBtn);
+        // console.log(closeBtn);
         closeBtn.style.zIndex = 13;
       }).then(() => {
         closeBtn.addEventListener('click', () => {
