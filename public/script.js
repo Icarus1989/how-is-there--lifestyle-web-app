@@ -224,7 +224,7 @@ async function retrieveAlternativeCities(info, input) {
       // downBtn.style.top = alternatesContainer.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + alternatesContainer.getBoundingClientRect().y - 2 + 'px';
       // alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.getBoundingClientRect().height - alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.getBoundingClientRect().y - 2 + 'px';
       alternatesContainer.querySelector('.downDirection').style.height = '8vh';
-      alternatesContainer.querySelector('.downDirection').style.width = alternatesContainer.scrollWidth + 2 + 'px';
+      alternatesContainer.querySelector('.downDirection').style.width = alternatesContainer.clientWidth + 'px';
       alternatesContainer.querySelector('.downDirection').style.border = '0px solid transparent';
       alternatesContainer.querySelector('.downDirection').style.padding = 0;
       alternatesContainer.querySelector('.downDirection').style.margin = 0;
@@ -234,7 +234,7 @@ async function retrieveAlternativeCities(info, input) {
       // alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
       // alternatesContainer.querySelector('.downDirection').style.bottom = alternatesContainer.querySelector('.downDirection').getBoundingClientRect().height + alternatesContainer.clientTop + 'px';
       alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.offsetTop + alternatesContainer.offsetHeight - alternatesContainer.querySelector('.downDirection').offsetHeight + 'px';
-
+      alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
       // Here
       // alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].style.marginBottom = '40%';
       alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
@@ -252,6 +252,10 @@ async function retrieveAlternativeCities(info, input) {
         // downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height - (alternatesContainer.clientTop / 2) + 'px';
         // funzionante iOS
         downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height + 'px';
+        console.log(alternatesContainer.clientLeft)
+        console.log(downBtn.clientLeft);
+        downBtn.style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
+
         // funzionante iOS
 
         // downBtn.style.bottom = '0px';
