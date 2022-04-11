@@ -590,18 +590,22 @@ table>tbody>tr>td {
 }
 
 #buttonsContainer>button>i {
-  font-size: 10px;
+  font-size: 8px;
   width: fit-content;
   height: fit-content;
   background: transparent;
   /* btnsContainer.children[i].style.color = "rgb(126, 126, 126)"; */
   /* color: "rgb(126, 126, 126)"; */
-  border: 0.8vw solid white;
+  border: 0.6vw solid white;
   border-radius: 50%;
   /* background: rgb(50, 50, 50, 0.7); */
   /* backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */
-  box-shadow: 3px 3px 3px rgb(15, 15, 15);
+
+
+  /* box-shadow: 3px 3px 3px rgb(15, 15, 15); */
+  filter: drop-shadow(1vw 1vw 2.5vw rgb(67,65,72));
+
   /* text-shadow: 1px 1px white, -1px -1px white, 1px -1px white, -1px 1px white; */
 }
 
