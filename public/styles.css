@@ -342,11 +342,7 @@ table>tbody>tr>th {
   text-align: center;
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
   /* border-radius: 10px; */
-  background: radial-gradient(circle at 100% 30%, transparent 82%, #f6f6f69f 100%);
-
-
-
-
+  background: radial-gradient(circle at 100% 30%, transparent 82%, #f6f6f667 100%);
 }
 
 /* table>tbody>tr>th:first-of-type {
