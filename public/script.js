@@ -392,7 +392,7 @@ async function createDescription(state, globalContinent, rank, textbox, descript
     rankBox.classList.add('rank');
     container.append(rankBox);
   }
-  rankBox.textContent = `Teleport City Score: ${rank.toPrecision(4)}`;
+  rankBox.textContent = `Teleport City Score: ${rank.toPrecision(4)}%`;
 
   if (container.querySelector('h2')) {
     container.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;

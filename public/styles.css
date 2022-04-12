@@ -142,7 +142,7 @@ body {
 }
 
 .descriptionBox>p {
-  font-size: 3.6vw;
+  font-size: 3.4vw;
   /* background: rgb(50, 50, 50, 0.7); */
   /* background: radial-gradient(circle at 140% 22%, black 82%, #626161 100%); */
   background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%);
@@ -158,6 +158,9 @@ body {
   border-right: 0px solid transparent;
   border-bottom: 4px solid rgb(218, 215, 215);
   border-radius: 18px;
+
+  line-height: 2.5vh;
+  /* aggiungere a tablet e desktop */
 
 }
 
