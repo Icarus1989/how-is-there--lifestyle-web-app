@@ -153,10 +153,10 @@ body {
 
 
   /* border: 2px solid white; */
-  border-left: 4px solid rgb(218, 215, 215);
+  border-left: 2px solid rgb(218, 215, 215);
   border-top: 0px solid transparent;
   border-right: 0px solid transparent;
-  border-bottom: 4px solid rgb(218, 215, 215);
+  border-bottom: 2px solid rgb(218, 215, 215);
   border-radius: 18px;
 
   line-height: 2.5vh;
@@ -253,10 +253,10 @@ table {
   border-radius: 4vh;
   /* border-left: 2px solid rgb(220, 220, 220); */
 
-  border-left: 5px solid rgb(218, 215, 215);
+  border-left: 4px solid rgb(218, 215, 215);
   border-top: 1px solid transparent;
   border-right: 1px solid transparent;
-  border-bottom: 5px solid rgb(218, 215, 215);
+  border-bottom: 4px solid rgb(218, 215, 215);
 
 
   letter-spacing: 1vw;
@@ -290,10 +290,10 @@ h2 {
   font-size: 2.3vh;
   padding: 3vw 0vw 3vw 0vw;
   /* border: 2px solid white; */
-  border-left: 5px solid rgb(218, 215, 215);
+  border-left: 3px solid rgb(218, 215, 215);
   border-top: 0px solid transparent;
   border-right: 0px solid transparent;
-  border-bottom: 5px solid rgb(218, 215, 215);
+  border-bottom: 3px solid rgb(218, 215, 215);
   margin-left: 2vw;
   margin-right: 2vw;
   margin-top: 0vw;
@@ -313,10 +313,10 @@ h2 {
   width: 85vw;
   color: white;
   padding: 3vw 0vw 3vw 0vw;
-  border-left: 5px solid rgb(218, 215, 215);
+  border-left: 3px solid rgb(218, 215, 215);
   border-top: 0px solid transparent;
   border-right: 0px solid transparent;
-  border-bottom: 5px solid rgb(218, 215, 215);
+  border-bottom: 3px solid rgb(218, 215, 215);
   margin-left: 2vw;
   margin-right: 2vw;
   border-radius: 18px;
