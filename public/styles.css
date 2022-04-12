@@ -168,7 +168,7 @@ body {
   display: grid;
   place-items: center;
   width: 100vw;
-  height: 90%;
+  height: 100%;
   align-content: center;
 
   /* padding: 2px; */
