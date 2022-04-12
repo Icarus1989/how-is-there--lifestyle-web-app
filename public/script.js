@@ -154,6 +154,7 @@ async function retrieveAlternativeCities(info, input) {
     if (document.querySelector('h2')) {
       disappearElement(document.querySelector('h2'), 0);
     }
+    disappearElement(document.querySelector('.menuBtn'), 0);
     indication.textContent = `The city ${input} is not been found - searching for other cities in this country...`;
     resultsCont.children[0].append(indication);
     indication.style.width = '73vw';
@@ -299,6 +300,8 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
           appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+          appearElement(document.querySelector('.menuBtn'), 500, 'grid');
+
         }
         indication.textContent = '';
         disappearElement(indication, 0);
@@ -315,6 +318,7 @@ async function retrieveAlternativeCities(info, input) {
             appearElement(document.querySelectorAll('table')[1], 500);
             appearElement(document.querySelector('h2'), 500);
             appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+            appearElement(document.querySelector('.menuBtn'), 500, 'grid');
           });
         });
         indication.textContent = '';
@@ -340,6 +344,7 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
           appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+          appearElement(document.querySelector('.menuBtn'), 500, 'grid');
         }
       });
     });

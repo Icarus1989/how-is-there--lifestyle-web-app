@@ -620,9 +620,10 @@ table>tbody>tr>td {
 }
 
 .menuBtn {
-  display: block;
+  display: grid;
   width: 12vw;
   height: 12vw;
+  place-items: center;
   position: fixed;
   bottom: 14px;
   right: 14px;
@@ -835,10 +836,12 @@ table>tbody>tr>td {
 
   #resultsContainer {
     height: 80vh;
+    top: 5%;
   }
 
   h2 {
     width: fit-content;
+    font-size: 1.4vw;
     padding: 2.5vw 4vw 2.5vw 4vw;
     border-radius: 2vw;
     border-left: 0.5vw solid rgb(218, 215, 215);
@@ -850,8 +853,8 @@ table>tbody>tr>td {
   table {
     min-width: 500px;
     width: 35vw;
-    font-size: 1.3vw;
-    line-height: 1.5vw;
+    font-size: 1vw;
+    line-height: 1.3vw;
     letter-spacing: 0.5vw;
     border-left: 0.5vw solid rgb(218, 215, 215);
     border-top: 0vw solid transparent;
@@ -876,7 +879,7 @@ table>tbody>tr>td {
   }
 
   .descriptionBox>p {
-    font-size: 1.4vw;
+    font-size: 1vw;
     padding: 2vw 1.5vw 2vw 1.5vw;
     border-left: 0.5vw solid rgb(218, 215, 215);
     border-top: 0vw solid transparent;
@@ -890,8 +893,8 @@ table>tbody>tr>td {
   } */
 
   .alternatesContainer {
-    width: 45vw;
-    height: 50vh;
+    width: 40vw;
+    height: 40vh;
     border-radius: 18px;
   }
 
