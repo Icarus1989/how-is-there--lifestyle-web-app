@@ -361,9 +361,14 @@ async function retrieveAlternativeCities(info, input) {
 //   }
 // }
 
-async function createDescription(state, globalContinent, textBox, description, container) {
+async function createDescription(state, globalContinent, rank, textbox, description, container) {
 
-  let textbox;
+  let rankBox;
+  let header;
+
+  // console.log(rank);
+
+  // let textbox;
   if (document.querySelector('.descriptionBox')) {
     textbox = document.querySelector('.descriptionBox');
     for (elem of textbox.querySelectorAll('p')) {
@@ -379,7 +384,16 @@ async function createDescription(state, globalContinent, textBox, description, c
     container.append(textbox);
   }
 
-  let header;
+  if (document.querySelector('.rank')) {
+    rankBox = document.querySelector('.rank');
+    // rankBox.textContent = `Teleport City Score: ${rank.round(2)}`;
+  } else {
+    rankBox = document.createElement('p');
+    rankBox.classList.add('rank');
+    container.append(rankBox);
+  }
+  rankBox.textContent = `Teleport City Score: ${rank.toPrecision(4)}`;
+
   if (container.querySelector('h2')) {
     container.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
   } else {
@@ -558,6 +572,7 @@ async function searchCity(inputElement, target) {
     const response = await axios.get(url);
     // console.log(response["data"]);
     const info = await response["data"];
+    console.log(info);
 
     try {
 
@@ -592,6 +607,7 @@ async function searchCity(inputElement, target) {
 
       let saveButton = document.querySelector('.saveBtn');
       let fullName;
+      let ranking;
       let fromDb = false;
       let savingCount = 0;
 
@@ -600,9 +616,12 @@ async function searchCity(inputElement, target) {
         urlScores = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_links"]["ua:scores"]["href"];
         dataScores = await fetch(urlScores);
         infoScores = await dataScores.json();
+        console.log(infoScores);
         nameAndState = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"];
         continent = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["continent"];
         fullName = `${nameAndState}, ${continent}`;
+        ranking = await infoScores["teleport_city_score"];
+        console.log(ranking);
         saveButton.querySelector('i').style.color = 'rgb(126, 126, 126)';
         appearElement(document.querySelector('.saveBtn'), 500, 'grid');
 
@@ -634,10 +653,13 @@ async function searchCity(inputElement, target) {
       } else if (dbResponse.status == 'success' && dbResponse.action == 'read from db') {
         appearElement(document.querySelector('.saveBtn'), 500, 'grid');
         infoScores = dbDatas;
+        console.log(dbDatas);
         let completeNameArray = dbResponse.title.split(', ');
         cityname = completeNameArray[0];
         nameAndState = `${completeNameArray[0]}, ${completeNameArray[1]}`;
         continent = completeNameArray[2];
+        ranking = dbDatas["teleport_city_score"];
+        console.log(ranking);
         savingCount = 1;
         fromDb = true;
         saveButton.querySelector('i').style.color = 'rgb(74, 126, 223)';
@@ -654,7 +676,7 @@ async function searchCity(inputElement, target) {
       const cityDescription = await infoScores["summary"];
 
       // createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent).then(() => {
-      createDescription(nameAndState, continent, document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
+      createDescription(nameAndState, continent, ranking, document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
       let descriptionBox = document.querySelector('.descriptionBox');
       let pElemsHeight = 0;
       for (let pElem of descriptionBox.children) {
