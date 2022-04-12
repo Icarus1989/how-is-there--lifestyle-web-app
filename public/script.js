@@ -154,6 +154,9 @@ async function retrieveAlternativeCities(info, input) {
     if (document.querySelector('h2')) {
       disappearElement(document.querySelector('h2'), 0);
     }
+    if (document.querySelector('.rank')) {
+      disappearElement(document.querySelector('.rank'), 0);
+    }
     disappearElement(document.querySelector('.menuBtn'), 0);
     indication.textContent = `The city ${input} is not been found - searching for other cities in this country...`;
     resultsCont.children[0].append(indication);
@@ -299,6 +302,7 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelectorAll('table')[0], 500);
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
+          appearElement(document.querySelector('.rank'), 500);
           appearElement(document.querySelector('.saveBtn'), 500, 'grid');
           appearElement(document.querySelector('.menuBtn'), 500, 'grid');
 
@@ -317,6 +321,7 @@ async function retrieveAlternativeCities(info, input) {
             appearElement(document.querySelectorAll('table')[0], 500);
             appearElement(document.querySelectorAll('table')[1], 500);
             appearElement(document.querySelector('h2'), 500);
+            appearElement(document.querySelector('.rank'), 500);
             appearElement(document.querySelector('.saveBtn'), 500, 'grid');
             appearElement(document.querySelector('.menuBtn'), 500, 'grid');
           });
@@ -343,6 +348,7 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelectorAll('table')[0], 500);
           appearElement(document.querySelectorAll('table')[1], 500);
           appearElement(document.querySelector('h2'), 500);
+          appearElement(document.querySelector('.rank'), 500);
           appearElement(document.querySelector('.saveBtn'), 500, 'grid');
           appearElement(document.querySelector('.menuBtn'), 500, 'grid');
         }
