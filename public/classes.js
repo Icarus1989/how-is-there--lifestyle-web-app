@@ -70,6 +70,8 @@ class PointButtons {
       this.point.classList.add('pointButton');
       this.buttonSection.append(this.point);
       this.point.addEventListener('click', (event) => {
+        alert('click');
+
         if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {
           // console.log('click');
           this.container.scrollTo({
