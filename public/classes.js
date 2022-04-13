@@ -35,8 +35,8 @@ class Indication {
     this.container.append(this.p);
   }
   firstIndication() {
-    this.p.style.left = this.container.getBoundingClientRect().width / 2 - this.p.getBoundingClientRect().width / 2 + 'px';
     this.writeText(`The city ${this.input} is not been found - searching for other cities in this country...`);
+    this.p.style.left = this.container.getBoundingClientRect().width / 2 - this.p.getBoundingClientRect().width / 2 + 'px';
     this.p.classList.add('tempIndication');
   }
   secondIndication() {
