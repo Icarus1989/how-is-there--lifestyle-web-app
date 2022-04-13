@@ -63,25 +63,47 @@ class PointButtons {
   createButtons() {
     this.buttonSection.setAttribute('id', 'buttonsContainer');
     this.container.parentElement.append(this.buttonSection);
-    for (let page of this.pages) {
+    // this.pages.forEach(()=>{
+
+    // })
+    for (this.page of this.pages) {
       this.point = document.createElement('button');
       // console.log(this.point);
       this.point.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
       this.point.classList.add('pointButton');
       this.buttonSection.append(this.point);
-      this.point.addEventListener('click', (event) => {
-        alert('click');
+      // this.point.addEventListener('click', (event) => {
+      //   console.log(this.point);
+      // })
+    }
 
+    Array.from(this.buttonSection.children).map((elem) => {
+      elem.addEventListener('click', (event) => {
         if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {
-          // console.log('click');
           this.container.scrollTo({
             top: 0,
-            left: page.offsetLeft,
+            left: this.pages[(Array.from(this.buttonSection.children)).indexOf(event.target.closest('button'))].offsetLeft,
             behavior: "smooth"
           });
         }
-      })
-    }
+      });
+    });
+
+    // for (let i = 0; i < document.querySelectorAll('.pointButton'); i++) {
+    //   this.point[i].addEventListener('click', (event) => {
+    //     // alert('click');
+    //     if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {
+    //       // console.log('click');
+    //       console.log((Array.from(this.buttonSection.children)).indexOf(this.point[i]));
+    //       this.container.scrollTo({
+    //         top: 0,
+    //         left: this.pages[i].offsetLeft,
+    //         behavior: "smooth"
+    //       });
+    //     }
+    //   });
+    // }
+
 
     for (let i = 0; i < this.buttonSection.children.length; i++) {
       this.buttonSection.children[0].style.color = "rgb(74, 126, 223)";
