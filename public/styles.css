@@ -451,7 +451,7 @@ table>tbody>tr>td {
   border: 3px solid rgba(155, 9, 9, 0.7);
   border-radius: 3vw;
   margin-top: 1%;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
   /* margin-left: 20%;
   margin-right: 20%; */
   background: rgb(90,11,11, 0.7);
@@ -466,7 +466,7 @@ table>tbody>tr>td {
   border: 3px solid rgba(155, 9, 9, 0.7);
   border-radius: 3vw;
   margin-top: 1%;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
   background: rgb(90, 11, 11, 0.7);
   /* backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */

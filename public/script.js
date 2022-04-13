@@ -795,40 +795,6 @@ async function appearElement(elem, delay, display = 'block') {
 
 }
 
-// creata class
-function createSpinner(container) {
-  // -
-  let spinnerContainer = document.createElement('div');
-  // -
-  // spinnerContainer resta fermo
-  // -
-  spinnerContainer.classList.add('spinnerContainer');
-  // -
-  let extDiv = document.createElement('div');
-  // -
-  extDiv.classList.add('circleSegments');
-  // -
-  spinnerContainer.append(extDiv);
-  // -
-  let spinner = document.createElement('div');
-  // -
-  spinner.classList.add('spinner');
-  // -
-  spinnerContainer.append(spinner);
-  // -
-  let icon = document.createElement('div');
-  // -
-  icon.classList.add('spinnerIcon');
-  // -
-  icon.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-globe"></i>');
-  // -
-  spinnerContainer.append(icon);
-  // -
-  container.append(spinnerContainer);
-  // -
-
-}
-
 function createNavButton(direction, container, position) {
   let directionBtn = document.createElement('button');
   // directionBtn.style.display = 'grid';
@@ -912,42 +878,8 @@ function setInfoButtons(scrollTarget) {
 }
 
 function createPointButtons(container) {
-  let btnsContainer = document.createElement('div');
-  let pages = Array.from(container.children).filter(elem => elem.className == 'dataDisplay');
-  for (let page of pages) {
-    let pointButton = document.createElement('button');
-    pointButton.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
-    btnsContainer.append(pointButton);
-
-    pointButton.addEventListener('click', (event) => {
-      if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {
-        container.scrollTo({
-          top: 0,
-          left: pages[Array.from(pointButton.parentElement.children).indexOf(pointButton)].offsetLeft,
-          behavior: "smooth"
-        });
-      }
-    });
-  }
-  // console.log(container.parentElement);
-  btnsContainer.setAttribute('id', 'buttonsContainer');
-  container.parentElement.append(btnsContainer);
-
-  for (let i = 0; i < btnsContainer.children.length; i++) {
-    btnsContainer.children[0].style.color = "rgb(74, 126, 223)";
-    btnsContainer.children[i].style.color = "rgb(126, 126, 126)";
-  }
-
-  container.addEventListener('scroll', () => {
-    for (let i = 0; i < btnsContainer.children.length; i++) {
-      if (container.scrollLeft > pages[i].offsetLeft - 5 && container.scrollLeft < pages[i].offsetLeft + pages[i].clientWidth - 5) {
-        btnsContainer.children[i].style.color = "rgb(74, 126, 223)";
-      } else {
-        // sistemare colore
-        btnsContainer.children[i].style.color = "rgb(126, 126, 126)";
-      }
-    }
-  })
+  let pointButtons = new PointButtons(container);
+  pointButtons.createButtons();
 }
 
 async function createIconBtn(container, icon) {
