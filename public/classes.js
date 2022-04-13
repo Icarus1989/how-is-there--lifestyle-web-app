@@ -65,6 +65,7 @@ class PointButtons {
     for (let page of this.pages) {
       this.point = document.createElement('button');
       this.point.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
+      this.point.classList.add('pointButton');
       this.buttonSection.append(this.point);
       this.point.addEventListener('click', (event) => {
         if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {

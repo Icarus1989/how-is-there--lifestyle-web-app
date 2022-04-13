@@ -614,7 +614,7 @@ table>tbody>tr>td {
   z-index: 3;
 }
 
-#buttonsContainer>button {
+.pointButton {
   display: grid;
   place-items: center;
   width: fit-content;
@@ -625,7 +625,7 @@ table>tbody>tr>td {
   z-index: 4;
 }
 
-#buttonsContainer>button>i {
+.pointButton>i {
   font-size: 8px;
   width: fit-content;
   height: fit-content;
