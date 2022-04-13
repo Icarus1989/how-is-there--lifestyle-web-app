@@ -62,13 +62,16 @@ class PointButtons {
 
   createButtons() {
     this.buttonSection.setAttribute('id', 'buttonsContainer');
+    this.container.parentElement.append(this.buttonSection);
     for (let page of this.pages) {
       this.point = document.createElement('button');
+      // console.log(this.point);
       this.point.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
       this.point.classList.add('pointButton');
       this.buttonSection.append(this.point);
       this.point.addEventListener('click', (event) => {
         if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {
+          // console.log('click');
           this.container.scrollTo({
             top: 0,
             left: page.offsetLeft,
@@ -77,7 +80,6 @@ class PointButtons {
         }
       })
     }
-    this.container.parentElement.append(this.buttonSection);
 
     for (let i = 0; i < this.buttonSection.children.length; i++) {
       this.buttonSection.children[0].style.color = "rgb(74, 126, 223)";
