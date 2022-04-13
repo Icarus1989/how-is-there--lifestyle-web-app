@@ -569,7 +569,7 @@ table>tbody>tr>td {
   background: rgba(240, 248, 255, 0.0);
   opacity: 1.0;
   border: 1px solid transparent;
-  z-index: 10;
+  z-index: 12;
 }
 
 /* .directionBtn:hover {
@@ -611,7 +611,7 @@ table>tbody>tr>td {
   height: 12vw;
   position: fixed;
   bottom: 14px;
-  z-index: 3;
+  z-index: 10;
 }
 
 .pointButton {
@@ -622,7 +622,7 @@ table>tbody>tr>td {
   background: transparent;
   padding: 0% 2% 0% 2%;
   border: 1px solid transparent;
-  z-index: 4;
+  z-index: 14;
 }
 
 .pointButton>i {
@@ -986,7 +986,7 @@ table>tbody>tr>td {
     background: rgba(240, 248, 255, 0.0);
     opacity: 1.0;
     border: 1px solid transparent;
-    z-index: 10;
+    z-index: 12;
   }
 
   .directionBtn:hover {
