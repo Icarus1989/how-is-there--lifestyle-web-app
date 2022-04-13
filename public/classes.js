@@ -72,13 +72,7 @@ class PointButtons {
       this.point.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
       this.point.classList.add('pointButton');
       this.buttonSection.append(this.point);
-      // this.point.addEventListener('click', (event) => {
-      //   console.log(this.point);
-      // })
-    }
-
-    Array.from(this.buttonSection.children).map((elem) => {
-      elem.addEventListener('click', (event) => {
+      this.point.addEventListener('click', (event) => {
         if (event.target.tagName == 'BUTTON' || event.target.closest('i')) {
           this.container.scrollTo({
             top: 0,
@@ -87,7 +81,11 @@ class PointButtons {
           });
         }
       });
-    });
+    }
+
+    // Array.from(this.buttonSection.children).map((elem) => {
+
+    // });
 
     // for (let i = 0; i < document.querySelectorAll('.pointButton'); i++) {
     //   this.point[i].addEventListener('click', (event) => {
