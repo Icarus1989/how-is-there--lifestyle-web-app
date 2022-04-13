@@ -442,6 +442,7 @@ table>tbody>tr>td {
 }
 
 .tempIndication {
+  /* width: 73vw; */
   position: fixed;
   top: 20%;
   text-align: center;
@@ -458,7 +459,7 @@ table>tbody>tr>td {
 }
 
 .indications {
-  width: 73vw;
+  /* width: 73vw; */
   text-align: center;
   color: white;
   padding: 2vw;

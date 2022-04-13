@@ -137,8 +137,10 @@ async function retrieveAlternativeCities(info, input) {
   document.querySelector('#insertInput').blur();
 
   let resultsCont = document.querySelector('#resultsContainer');
-  let indication = document.createElement('p');
-  indication.classList.add('tempIndication');
+  let indication = new Indication(resultsCont.children[0], input);
+  // indication.firstIndication();
+  // let indication = document.createElement('p');
+  // indication.classList.add('tempIndication');
 
 
   // indication.style.left = 0;
@@ -158,13 +160,18 @@ async function retrieveAlternativeCities(info, input) {
       disappearElement(document.querySelector('.rank'), 0);
     }
     disappearElement(document.querySelector('.menuBtn'), 0);
-    indication.textContent = `The city ${input} is not been found - searching for other cities in this country...`;
-    resultsCont.children[0].append(indication);
-    indication.style.width = '73vw';
-    indication.style.left = resultsCont.children[0].getBoundingClientRect().width / 2 - indication.getBoundingClientRect().width / 2 + 'px';
+    // INDICATION
+    // indication.textContent = `The city ${input} is not been found - searching for other cities in this country...`;
+    // resultsCont.children[0].append(indication);
+    indication.firstIndication();
+    // console.log(document.querySelector('.tempIndication'));
+    // indication.style.width = '73vw';
+    // indication.style.left = resultsCont.children[0].getBoundingClientRect().width / 2 - indication.getBoundingClientRect().width / 2 + 'px';
 
 
-    createSpinner(resultsCont);
+    // createSpinner(resultsCont);
+    let spinner = new Spinner(resultsCont);
+    spinner.drawSpinner();
 
     let country = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
     let data = await getRegionsList(country);
@@ -214,13 +221,19 @@ async function retrieveAlternativeCities(info, input) {
       btn.classList.add('altButtons');
     }
     // 100%
-    document.querySelector('.spinnerContainer').remove();
+    // document.querySelector('.spinnerContainer').remove();
+    spinner.removeSpinner();
     // disappearElement(document.querySelector('.spinnerContainer'), 0);
     // fine spinner
-    indication.textContent = `The city ${input} is not been found.`;
-    indication.classList.remove('tempIndication');
-    indication.classList.add('indications');
+
+    // INDICATION
+    indication.secondIndication();
+    console.log(document.querySelector('.indications'));
+    // indication.textContent = `The city ${input} is not been found.`;
+    // indication.classList.remove('tempIndication');
+    // indication.classList.add('indications');
     resultsCont.children[0].append(alternatesContainer);
+    // resultsCont.children[0].append(alternatesContainer);
     if (secondCityArray.length > 10) {
       // console.log(alternatesContainer.getBoundingClientRect());
 
@@ -307,8 +320,10 @@ async function retrieveAlternativeCities(info, input) {
           appearElement(document.querySelector('.menuBtn'), 500, 'grid');
 
         }
-        indication.textContent = '';
-        disappearElement(indication, 0);
+        // INDICATION
+        // indication.textContent = '';
+        indication.nullIndication();
+        // disappearElement(document.querySelector('.indications'), 0);
       });
     });
 
@@ -326,8 +341,10 @@ async function retrieveAlternativeCities(info, input) {
             appearElement(document.querySelector('.menuBtn'), 500, 'grid');
           });
         });
-        indication.textContent = '';
-        disappearElement(indication, 0);
+        // INDICATION
+        // indication.textContent = '';
+        indication.nullIndication();
+        // disappearElement(document.querySelector('.indications'), 0);
       } else {
         return;
       }
@@ -338,11 +355,13 @@ async function retrieveAlternativeCities(info, input) {
     inputField.value = '';
     inputField.placeholder = 'Enter a new city...';
     inputField.blur();
-    indication.textContent = `The City ${input} is not been found or there is no city with this name - try to reinsert the city name or check your internet connection`;
-    resultsCont.append(indication);
+    // INDICATION
+    indication.thirdIndication();
+    // indication.textContent = `The City ${input} is not been found or there is no city with this name - try to reinsert the city name or check your internet connection`;
+    // resultsCont.append(indication);
     document.querySelector('.spinnerContainer').remove();
     inputField.addEventListener('change', () => {
-      disappearElement(indication, 0).then(() => {
+      disappearElement(document.querySelector('.indications'), 0).then(() => {
         if (document.querySelector('.descriptionBox')) {
           appearElement(document.querySelector('.descriptionBox'), 500);
           appearElement(document.querySelectorAll('table')[0], 500);
@@ -792,21 +811,37 @@ async function appearElement(elem, delay, display = 'block') {
 
 }
 
+// creata class
 function createSpinner(container) {
+  // -
   let spinnerContainer = document.createElement('div');
+  // -
   // spinnerContainer resta fermo
+  // -
   spinnerContainer.classList.add('spinnerContainer');
+  // -
   let extDiv = document.createElement('div');
+  // -
   extDiv.classList.add('circleSegments');
+  // -
   spinnerContainer.append(extDiv);
+  // -
   let spinner = document.createElement('div');
+  // -
   spinner.classList.add('spinner');
+  // -
   spinnerContainer.append(spinner);
+  // -
   let icon = document.createElement('div');
+  // -
   icon.classList.add('spinnerIcon');
+  // -
   icon.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-globe"></i>');
+  // -
   spinnerContainer.append(icon);
+  // -
   container.append(spinnerContainer);
+  // -
 
 }
 
