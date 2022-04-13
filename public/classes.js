@@ -61,6 +61,7 @@ class PointButtons {
   }
 
   createButtons() {
+    this.buttonSection.setAttribute('id', 'buttonsContainer');
     for (let page of this.pages) {
       this.point = document.createElement('button');
       this.point.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
@@ -75,7 +76,6 @@ class PointButtons {
         }
       })
     }
-    this.buttonSection.setAttribute('id', 'buttonsContainer');
     this.container.parentElement.append(this.buttonSection);
 
     for (let i = 0; i < this.buttonSection.children.length; i++) {
