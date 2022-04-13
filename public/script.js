@@ -138,12 +138,7 @@ async function retrieveAlternativeCities(info, input) {
 
   let resultsCont = document.querySelector('#resultsContainer');
   let indication = new Indication(resultsCont.children[0], input);
-  // indication.firstIndication();
-  // let indication = document.createElement('p');
-  // indication.classList.add('tempIndication');
 
-
-  // indication.style.left = 0;
   if (document.querySelector('.saveBtn')) {
     document.querySelector('.saveBtn').remove();
   }
@@ -160,16 +155,9 @@ async function retrieveAlternativeCities(info, input) {
       disappearElement(document.querySelector('.rank'), 0);
     }
     disappearElement(document.querySelector('.menuBtn'), 0);
-    // INDICATION
-    // indication.textContent = `The city ${input} is not been found - searching for other cities in this country...`;
-    // resultsCont.children[0].append(indication);
+
     indication.firstIndication();
-    // console.log(document.querySelector('.tempIndication'));
-    // indication.style.width = '73vw';
-    // indication.style.left = resultsCont.children[0].getBoundingClientRect().width / 2 - indication.getBoundingClientRect().width / 2 + 'px';
 
-
-    // createSpinner(resultsCont);
     let spinner = new Spinner(resultsCont);
     spinner.drawSpinner();
 
@@ -229,13 +217,9 @@ async function retrieveAlternativeCities(info, input) {
     // INDICATION
     indication.secondIndication();
     console.log(document.querySelector('.indications'));
-    // indication.textContent = `The city ${input} is not been found.`;
-    // indication.classList.remove('tempIndication');
-    // indication.classList.add('indications');
     resultsCont.children[0].append(alternatesContainer);
-    // resultsCont.children[0].append(alternatesContainer);
+
     if (secondCityArray.length > 10) {
-      // console.log(alternatesContainer.getBoundingClientRect());
 
       alternatesContainer.style.overflowY = 'scroll';
       createNavButton('down', alternatesContainer, 'absolute');
