@@ -13,7 +13,10 @@ document.body.style.width = "100vh";
 
 
 getCompleteListUrbanAreas(UrbanAreasCompleteList);
-createMenu(mainContainer);
+// createMenu(mainContainer);
+let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
+menu.createButton();
+menu.createMenu();
 
 // inputContainer.style.position = 'absolute';
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 1.5 + 'px';
@@ -501,23 +504,6 @@ function loadImage(image, container, resultsContainer, path) {
     } catch {
       console.log(error);
     }
-    // catch {
-    //   image.src = '';
-
-    //   setTimeout(async () => {
-    //     let response = await fetch(path, options);
-    //     let test = await response.blob();
-    //     let urlObj = URL.createObjectURL(test);
-    //     image.src = urlObj;
-    //     // image.src = '';
-    //     // image.src = await path;
-    //   }, 500);
-    //   image.addEventListener('load', () => {
-    //     // image.src = await path;
-    //     // console.log('load...');
-    //     container.append(image);
-    //   });
-    // }
 
 
     resultsContainer.scrollTo(0, 0);
@@ -882,18 +868,20 @@ function createPointButtons(container) {
   pointButtons.createButtons();
 }
 
+// 
 async function createIconBtn(container, icon) {
   let menuBtn = document.createElement('button');
   menuBtn.classList.add('menuBtn');
   menuBtn.insertAdjacentHTML('afterbegin', icon);
   container.append(menuBtn);
 }
+// 
 
 function createMenu(mainElement) {
   const main = mainElement;
   createIconBtn(main, '<i class="fa-solid fa-bars"></i>');
   const menuButton = document.querySelector('.menuBtn');
-  // main.append(menuButton);
+  // 
 
   menuButton.addEventListener('click', async (event) => {
     if (event.target == menuButton.querySelector('i') || event.target == menuButton) {
@@ -902,26 +890,32 @@ function createMenu(mainElement) {
       const container = document.createElement('div');
       const header = document.createElement('h3');
       const list = document.createElement('ul');
+      // 
       container.classList.add('menuContainer');
       header.classList.add('menuHeader');
       list.classList.add('menuList');
       header.textContent = 'Cities on database...';
+      // 
       // container.style.width = '75vw'; // <-- oppure basarsi sulla distanza tra lato destro e inizio lente
       container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
 
 
       container.append(header);
       main.append(container);
+      // 
 
       let arr = [];
       for (let elem of response.data) {
         arr.push(elem.name);
       }
+      //  
       arr = arr.sort().map((elem) => {
+        // 
         let listElement = document.createElement('li');
         let deleteBtn = document.createElement('button');
         listElement.insertAdjacentHTML('afterbegin', '<button></button>');
         listElement.firstElementChild.textContent = elem;
+        // 
 
         listElement.querySelector('button').classList.add('cityButton');
         deleteBtn.classList.add('deleteButton');
@@ -936,6 +930,7 @@ function createMenu(mainElement) {
             inputField.value = listElement.firstElementChild.textContent;
             container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
             closeBtn.remove();
+            // 
             searchCity(inputField, inputField);
             if (container.querySelector('.downDirection')) {
               disappearElement(container.querySelector('.downDirection'), 0);
@@ -982,6 +977,7 @@ function createMenu(mainElement) {
       container.append(list);
       list.style.marginBottom = (list.children[0].getBoundingClientRect().height) * 2 + 'px';
 
+      // 
       if (list.clientHeight > container.clientHeight) {
 
         createNavButton('down', container, 'absolute');
@@ -1004,14 +1000,16 @@ function createMenu(mainElement) {
 
         });
       } else {
+        // 
         list.style.marginBottom = '20px';
       }
-
+      // 
       let timeout = setTimeout(() => {
         container.style.top = '-10px';
         container.style.transition = `translate(0px ${container.clientHeight})`;
         document.querySelector('.fa-xmark').parentElement.style.display = 'block';
       }, 500);
+      // 
 
       let closeBtn;
 

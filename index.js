@@ -153,21 +153,35 @@ app.post('/cancelDb', (request, response) => {
   const cancelCity = request.body.name;
   // console.log(cancelCity);
   // console.log('cancel request...');
-  database.remove({
+  database.find({
     name: cancelCity
   }, (err, docs) => {
-    response.json({
-      status: 'success',
-      action: 'cancel from db',
-      data: docs
+    // console.log(docs[0]["_id"]);
+    database.remove({
+      _id: docs[0]["_id"]
+    }, (err, dataFromDb) => {
+      response.json({
+        status: 'success',
+        action: 'cancel from db',
+        data: dataFromDb
+      })
     })
   })
+  // database.remove({
+  //   name: cancelCity
+  // }, (err, docs) => {
+  //   response.json({
+  //     status: 'success',
+  //     action: 'cancel from db',
+  //     data: docs
+  //   })
+  // })
   // database.cancel({
   //   name:
   // }, (err, docs) => {
 
   // })
-})
+});
 // Sperimentale
 
 // let number = 0;
