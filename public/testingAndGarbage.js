@@ -1757,8 +1757,202 @@
 //  }
 
 
+// location.reload();
+// alert(document.documentElement.scrollHeight);
+// alert(window.innerHeight);
+// mainContainer.style.width = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
+// mainContainer.style.width = window.innerHeight + 'px';
+// document.documentElement.style.width = "100vh";
+// document.body.style.width = "100vh";
+// mainContainer.style.height = window.screen.height + 'px';
+// mainContainer.style.height = (document.documentElement.clientHeight || document.body.clientHeight) + 'px';
+// mainContainer.style.position = 'fixed';
+// mainContainer.style.top = '0%';
+// mainContainer.style
+// mainContainer.style.height = (document.documentElement.scrollHeight || document.body.scrollHeight) + 'px';
+
+
+
 
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
+
+// async function createIconBtn(container, icon) {
+//   let menuBtn = document.createElement('button');
+//   menuBtn.classList.add('menuBtn');
+//   menuBtn.insertAdjacentHTML('afterbegin', icon);
+//   container.append(menuBtn);
+// }
+// 
+
+// function createMenu(mainElement) {
+//   const main = mainElement;
+//   createIconBtn(main, '<i class="fa-solid fa-bars"></i>');
+//   const menuButton = document.querySelector('.menuBtn');
+//   // 
+
+//   menuButton.addEventListener('click', async (event) => {
+//     if (event.target == menuButton.querySelector('i') || event.target == menuButton) {
+//       const menu = await fetch('/menu');
+//       const response = await menu.json();
+//       const container = document.createElement('div');
+//       const header = document.createElement('h3');
+//       const list = document.createElement('ul');
+//       // 
+//       container.classList.add('menuContainer');
+//       header.classList.add('menuHeader');
+//       list.classList.add('menuList');
+//       header.textContent = 'Cities on database...';
+//       // 
+//       // container.style.width = '75vw'; // <-- oppure basarsi sulla distanza tra lato destro e inizio lente
+//       container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
+
+
+//       container.append(header);
+//       main.append(container);
+//       // 
+
+//       let arr = [];
+//       for (let elem of response.data) {
+//         arr.push(elem.name);
+//       }
+//       //  
+//       arr = arr.sort().map((elem) => {
+//         // 
+//         let listElement = document.createElement('li');
+//         let deleteBtn = document.createElement('button');
+//         listElement.insertAdjacentHTML('afterbegin', '<button></button>');
+//         listElement.firstElementChild.textContent = elem;
+//         // 
+
+//         listElement.querySelector('button').classList.add('cityButton');
+//         deleteBtn.classList.add('deleteButton');
+//         deleteBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-xmark"></i>');
+
+//         listElement.append(deleteBtn);
+//         list.append(listElement);
+
+//         listElement.addEventListener('click', async (buttonEvent) => {
+//           if (buttonEvent.target == listElement.querySelectorAll('button')[0]) {
+//             clearTimeout(timeout);
+//             inputField.value = listElement.firstElementChild.textContent;
+//             container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
+//             closeBtn.remove();
+//             // 
+//             searchCity(inputField);
+//             if (container.querySelector('.downDirection')) {
+//               disappearElement(container.querySelector('.downDirection'), 0);
+//             }
+//             container.addEventListener('transitionend', () => {
+//               container.remove();
+//               header.remove();
+//               list.remove();
+//             });
+
+//             inputContainer.animate([{
+//               transform: `translateY(-${main.scrollHeight / 2 - inputContainer.clientHeight}px)`
+//             }], {
+//               duration: 1000,
+//               easing: 'ease',
+//               direction: 'normal',
+//               iteration: 1,
+//               fill: 'forwards'
+//             });
+
+//           } else if (buttonEvent.target == deleteBtn || buttonEvent.target == deleteBtn.firstElementChild) {
+//             let cityName = buttonEvent.target.parentElement.firstElementChild.textContent || buttonEvent.target.parentElement.parentElement.firstElementChild.textContent;
+
+//             const cancelData = {
+//               name: cityName
+//             }
+//             console.log(cityName);
+//             const cancelOptions = {
+//               method: 'POST',
+//               headers: {
+//                 'Content-Type': 'application/json'
+//               },
+//               body: JSON.stringify(cancelData),
+//             }
+
+//             let cancelRequest = await fetch('/cancelDb', cancelOptions);
+//             let cancelInfo = await cancelRequest.json();
+//             console.log(cancelInfo);
+//             listElement.remove();
+//           }
+//         });
+//       });
+
+//       container.append(list);
+//       list.style.marginBottom = (list.children[0].getBoundingClientRect().height) * 2 + 'px';
+
+//       // 
+//       if (list.clientHeight > container.clientHeight) {
+
+//         createNavButton('down', container, 'absolute');
+
+//         container.addEventListener('scroll', () => {
+//           let downBtn = container.querySelector('.downDirection');
+//           downBtn.style.position = 'fixed';
+//           downBtn.style.top = container.getBoundingClientRect().height - downBtn.getBoundingClientRect().height + container.getBoundingClientRect().y - 2 + 'px';
+//           downBtn.style.overflow = 'hidden';
+
+//           if (container.scrollTop >= container.scrollHeight - container.clientHeight) {
+//             let iElement = document.createElement('i');
+//             iElement.classList.add('fa-solid', 'fa-chevron-up');
+//             downBtn.firstElementChild.replaceWith(iElement);
+//           } else {
+//             let iElement = document.createElement('i');
+//             iElement.classList.add('fa-solid', 'fa-chevron-down');
+//             downBtn.firstElementChild.replaceWith(iElement);
+//           }
+
+//         });
+//       } else {
+//         // 
+//         list.style.marginBottom = '20px';
+//       }
+//       // 
+//       let timeout = setTimeout(() => {
+//         container.style.top = '-10px';
+//         container.style.transition = `translate(0px ${container.clientHeight})`;
+//         document.querySelector('.fa-xmark').parentElement.style.display = 'block';
+//       }, 500);
+//       // 
+
+//       let closeBtn;
+
+//       createIconBtn(main, '<i class="fa-solid fa-xmark"></i>').then(() => {
+//         // test let closeBtn....
+//         closeBtn = document.querySelectorAll('.menuBtn')[1];
+//         // console.log(closeBtn);
+//         closeBtn.style.zIndex = 13;
+//       }).then(() => {
+//         closeBtn.addEventListener('click', () => {
+//           if (container.querySelector('.downDirection')) {
+//             disappearElement(container.querySelector('.downDirection'), 0);
+//           }
+//           clearTimeout(timeout);
+
+//           closeBtn.remove();
+//           container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
+
+//           container.addEventListener('transitionend', () => {
+//             container.remove();
+//             header.remove();
+//             list.remove();
+//           });
+
+//         });
+
+//       })
+
+
+
+//     }
+//   });
+// }
+
+
+
 
 // async function searchCity(inputElement, target) {
 
@@ -1940,6 +2134,17 @@
 //     target.value = '';
 //     target.placeholder = 'Enter a new city...';
 //     target.blur();
+//   }
+// }
+
+
+// async function createTitle(container, state, globalContinent) {
+//   if (document.querySelector('h2')) {
+//     document.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
+//   } else {
+//     let header = document.createElement('h2');
+//     header.textContent = `${await state}, ${ await globalContinent}`;
+//     container.append(header);
 //   }
 // }
 

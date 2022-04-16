@@ -423,3 +423,9 @@ class CityData {
   // forse inserire new Indication creando fourthIndication
   // fine catch primo try
 }
+
+class AlternativeCities {
+  constructor() {
+
+  }
+}
