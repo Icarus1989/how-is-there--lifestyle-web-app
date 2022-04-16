@@ -255,14 +255,11 @@ class CityData {
 
   }
 
-  // struttura try catch esterna
-
-  // primo try
   async cityInfo() {
     this.response = await axios.get(this.url);
     return this.info = await this.response["data"];
   }
-  // inizio secondo try
+
   async cityQueryDb() {
     this.info = await this.cityInfo();
     this.name = (this.inputElement.value[0]).toUpperCase() + (this.inputElement.value).slice(1);
@@ -293,8 +290,6 @@ class CityData {
     return this.dbResponse;
   }
 
-  // if / else if esterno usanto return this.dbResponse
-
   async notInDatabase() {
     this.saveButton = document.querySelector('.saveBtn');
     this.urlScores = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_links"]["ua:scores"]["href"];
@@ -307,7 +302,7 @@ class CityData {
     this.saveButton.style.color = 'rgb(126, 126, 126)';
     appearElement(this.saveButton, 500, 'grid');
     this.saveButton.addEventListener('click', async (event) => {
-      if ((event.target == saveButton.querySelector('i') || event.target == this.saveButton) && !(this.savingCount > 0) && (this.fromDb == false)) {
+      if ((event.target == this.saveButton.querySelector('i') || event.target == this.saveButton) && !(this.savingCount > 0) && (this.fromDb == false)) {
         this.dbData = {
           name: this.city,
           title: this.fullName,
@@ -333,7 +328,6 @@ class CityData {
 
   async inDatabase() {
     this.saveButton = document.querySelector('.saveBtn');
-    // console.log(this.saveButton);
     appearElement(this.saveButton, 500, 'grid');
     this.infoScores = this.dbDatas;
     this.completeName = this.dbResponse.title.split(', ');
@@ -370,7 +364,6 @@ class CityData {
     createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
     createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
 
-    // *
     this.inputElement.textContent = '';
     this.inputElement.placeholder = 'Enter a new city...';
     this.inputElement.blur();
@@ -379,26 +372,17 @@ class CityData {
     this.firstPath = 'cannyImage/edge.png';
     this.secondContainer = document.querySelector('#secondImgContainer');
     this.secondPath = 'tempImage/image.png';
-    // *
 
     retrievePixabay(this.city).then(() => {
-
       loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
       loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
-
     }).catch((error) => {
       retrieveTeleportImage(this.city).then(() => {
         loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
       });
-
     });
-
-
   }
-
-  // fine secondo try
-  // inizio catch secondo try
 
   createAlternatives(info) {
     this.info = info;
@@ -409,10 +393,6 @@ class CityData {
     }
     retrieveAlternativeCities(this.info, this.inputElement.value);
   }
-
-  // fine catch secondo try
-  // fine primo try
-  // inizio catch primo try
 
   somethingWrong() {
     this.inputElement.textContent = '';

@@ -604,6 +604,13 @@ function createPointButtons(container) {
   pointButtons.createButtons();
 }
 
+async function createIconBtn(container, icon) {
+  let menuBtn = document.createElement('button');
+  menuBtn.classList.add('menuBtn');
+  menuBtn.insertAdjacentHTML('afterbegin', icon);
+  container.append(menuBtn);
+}
+
 // 
 
 // forse inutile ai fini pratici
