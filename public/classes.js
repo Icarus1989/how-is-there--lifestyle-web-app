@@ -96,20 +96,12 @@ class PointButtons {
   }
 }
 
-
 class Menu {
   constructor(inputField, container, icon) {
     this.container = container;
     this.icon = icon;
-
     this.inputField = inputField;
     this.inputContainer = this.inputField.parentElement;
-    // this.closeBtn = document.querySelectorAll('.menuBtn')[1];
-    // this.iElement = document.createElement('i');
-    // this.timeout = 
-
-
-
   }
   async createButton() {
     this.menuButton = document.createElement('button');
@@ -146,31 +138,24 @@ class Menu {
           this.listElement.insertAdjacentHTML('afterbegin', '<button></button>');
           this.listElement.firstElementChild.textContent = this.elem;
           this.listElement.querySelector('button').classList.add('cityButton');
-
           this.deleteBtn.classList.add('deleteButton');
           this.deleteBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-xmark"></i>');
-
           this.listElement.append(this.deleteBtn);
           this.list.append(this.listElement);
           this.menuContainer.append(this.list);
-
-          // console.log(this.listElement);
-
           this.listElement.addEventListener('click', async (btnEvent) => {
             if (btnEvent.target.tagName == 'BUTTON' && btnEvent.target.classList.contains('cityButton')) {
-              console.log('click');
-              console.log(btnEvent.target);
               clearTimeout(this.timeout);
               this.inputField.value = btnEvent.target.textContent;
               this.menuContainer.style.top = (-((this.container.scrollHeight / 100) * 70)) + 'px';
               this.closeBtn.remove();
               searchCity(this.inputField, this.inputField);
+
               if (this.menuContainer.querySelector('.downDirection')) {
                 disappearElement(this.menuContainer.querySelector('.downDirection'), 0);
               }
-              this.menuContainer.addEventListener('transitionend', () => {
-                console.log('end');
 
+              this.menuContainer.addEventListener('transitionend', () => {
                 this.menuContainer.remove();
                 this.header.remove();
                 this.list.remove();
@@ -187,10 +172,7 @@ class Menu {
                 fill: 'forwards'
               });
             } else if ((btnEvent.target.tagName == 'BUTTON' && btnEvent.target.classList.contains('deleteBtn')) || (btnEvent.target.tagName == 'I' && btnEvent.target.classList.contains('fa-xmark'))) {
-              // console.log('clock');
               this.cityName = btnEvent.target.parentElement.firstElementChild.textContent || btnEvent.target.parentElement.parentElement.firstElementChild.textContent;
-              console.log(this.cityName);
-              // console.log(this.)
               this.cancelData = {
                 name: this.cityName
               };
@@ -203,7 +185,6 @@ class Menu {
               }
               this.cancelRequest = await fetch('/cancelDb', this.cancelOptions);
               this.cancelInfo = await this.cancelRequest.json();
-              console.log(this.cancelInfo);
               btnEvent.target.closest('li').remove();
             }
           })
@@ -249,25 +230,196 @@ class Menu {
               disappearElement(this.menuContainer.querySelector('.downDirection'), 0);
             }
             clearTimeout(this.timeout);
-
             this.closeBtn.remove();
             this.menuContainer.style.top = (-((this.container.scrollHeight / 100) * 70)) + 'px';
-
             this.menuContainer.addEventListener('transitionend', () => {
               this.menuContainer.remove();
               this.header.remove();
               this.list.remove();
             });
-
           });
-
-        })
-
-
-
-
-
+        });
       }
-    })
+    });
   }
+}
+
+class CityData {
+  constructor(inputElement, container) {
+    this.inputElement = inputElement;
+    this.url = `https://api.teleport.org/api/cities/?search=${this.inputElement.value}&embed=city:search-results/city:item/city:country&embed=city:search-results/city:item/city:admin1_division&embed=city:search-results/city:item/city:urban_area&embed=ua:item/ua:scores&embed=ua:item/ua:images&embed=city:search-results/city:item/city:timezone/tz:offsets-now`;
+    this.container = container;
+    // <--- document.querySelector('#mainContainer')
+    this.savingCount = 0;
+    this.fromDb = false;
+
+  }
+
+  // struttura try catch esterna
+
+  // primo try
+  async cityInfo() {
+    this.response = await axios.get(this.url);
+    return this.info = await this.response["data"];
+  }
+  // inizio secondo try
+  async cityQueryDb() {
+    this.info = await this.cityInfo();
+    this.name = (this.inputElement.value[0]).toUpperCase() + (this.inputElement.value).slice(1);
+    console.log(this.info);
+    this.city = (await (this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"]).split(',')[0]) || (this.name);
+
+    this.dbQueryName = {
+      name: this.city
+    };
+
+    this.dbQueryOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.dbQueryName)
+    }
+
+    this.dbQuery = await fetch('/queryDb', this.dbQueryOptions);
+    this.dbResponse = await this.dbQuery.json();
+    this.dbDatas = this.dbResponse.data;
+
+    if (document.querySelector('.saveBtn')) {
+      document.querySelector('.saveBtn').remove();
+    }
+
+    createSaveBtn(this.container);
+    return this.dbResponse;
+  }
+
+  // if / else if esterno usanto return this.dbResponse
+
+  async notInDatabase() {
+    this.saveButton = document.querySelector('.saveBtn');
+    this.urlScores = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_links"]["ua:scores"]["href"];
+    this.dataScores = await fetch(this.urlScores);
+    this.infoScores = await this.dataScores.json();
+    this.nameAndState = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"];
+    this.continent = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["continent"];
+    this.fullName = `${this.nameAndState}, ${this.continent}`;
+    this.ranking = await this.infoScores["teleport_city_score"];
+    this.saveButton.style.color = 'rgb(126, 126, 126)';
+    appearElement(this.saveButton, 500, 'grid');
+    this.saveButton.addEventListener('click', async (event) => {
+      if ((event.target == saveButton.querySelector('i') || event.target == this.saveButton) && !(this.savingCount > 0) && (this.fromDb == false)) {
+        this.dbData = {
+          name: this.city,
+          title: this.fullName,
+          data: this.infoScores
+        }
+
+        this.optionsSaveDb = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(this.dbData)
+        }
+        this.saveDb = await fetch('/saveDb', this.optionsSaveDb);
+        this.saveResponse = await this.saveDb.json();
+        this.saveButton.style.color = 'rgb(74, 126, 223)';
+        this.savingCount++;
+        console.log('Saved on db');
+      }
+    });
+    return this.infoScores;
+  }
+
+  async inDatabase() {
+    this.saveButton = document.querySelector('.saveBtn');
+    // console.log(this.saveButton);
+    appearElement(this.saveButton, 500, 'grid');
+    this.infoScores = this.dbDatas;
+    this.completeName = this.dbResponse.title.split(', ');
+    this.cityName = this.completeName[0];
+    this.nameAndState = `${this.completeName[0]}, ${this.completeName[1]}`;
+    this.continent = this.completeName[2];
+    this.ranking = this.dbDatas["teleport_city_score"];
+    this.savingCount = 1;
+    this.fromDb = true;
+    this.saveButton.style.color = 'rgb(74, 126, 223)';
+    return this.infoScores;
+  }
+
+  async createElements(dataInfo) {
+    this.infoScores = dataInfo;
+    this.fullName = `${this.nameAndState}, ${this.continent}`;
+    if (this.container.clientWidth > this.container.clientHeight) {
+      setInfoButtons(document.querySelector('#resultsContainer'));
+    } else if (this.container.clientWidth < this.container.clientHeight) {
+      createPointButtons(document.querySelector('#resultsContainer'));
+    }
+    console.log(this.infoScores);
+    this.cityDescription = await this.infoScores["summary"];
+    createDescription(this.nameAndState, this.continent, this.ranking, document.querySelector('.descriptionBox'), this.cityDescription, document.querySelectorAll('.dataDisplay')[0]);
+    this.descriptionBox = document.querySelector('.descriptionBox');
+    this.pElemsHeight = 0;
+    for (this.pElem of this.descriptionBox.children) {
+      this.pElemsHeight += this.pElem.getBoundingClientRect().height;
+    }
+
+    this.tableData = this.infoScores["categories"];
+    this.dataFirstPart = this.tableData.slice(0, 9);
+    this.dataSecondPart = this.tableData.slice(9, this.tableData.length);
+    createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
+    createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
+
+    // *
+    this.inputElement.textContent = '';
+    this.inputElement.placeholder = 'Enter a new city...';
+    this.inputElement.blur();
+
+    this.firstContainer = document.querySelector('#imgContainer');
+    this.firstPath = 'cannyImage/edge.png';
+    this.secondContainer = document.querySelector('#secondImgContainer');
+    this.secondPath = 'tempImage/image.png';
+    // *
+
+    retrievePixabay(this.city).then(() => {
+
+      loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
+      loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
+
+    }).catch((error) => {
+      retrieveTeleportImage(this.city).then(() => {
+        loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
+        loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
+      });
+
+    });
+
+
+  }
+
+  // fine secondo try
+  // inizio catch secondo try
+
+  createAlternatives(info) {
+    this.info = info;
+    if (document.querySelector('.descriptionBox')) {
+      disappearElement(document.querySelector('.descriptionBox'), 0);
+      disappearElement(document.querySelectorAll('table')[0], 0);
+      disappearElement(document.querySelectorAll('table')[1], 0);
+    }
+    retrieveAlternativeCities(this.info, this.inputElement.value);
+  }
+
+  // fine catch secondo try
+  // fine primo try
+  // inizio catch primo try
+
+  somethingWrong() {
+    this.inputElement.textContent = '';
+    this.inputElement.placeholder = 'Enter a new city...';
+    this.inputElement.blur();
+    // aggiungere indicazione problemi
+  }
+  // forse inserire new Indication creando fourthIndication
+  // fine catch primo try
 }

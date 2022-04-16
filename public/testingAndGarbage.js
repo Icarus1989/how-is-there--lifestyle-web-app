@@ -1758,6 +1758,196 @@
 
 
 
+// FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
+
+// async function searchCity(inputElement, target) {
+
+//   try {
+//     const url = `https://api.teleport.org/api/cities/?search=${inputElement.value}&embed=city:search-results/city:item/city:country&embed=city:search-results/city:item/city:admin1_division&embed=city:search-results/city:item/city:urban_area&embed=ua:item/ua:scores&embed=ua:item/ua:images&embed=city:search-results/city:item/city:timezone/tz:offsets-now`;
+//     // const data = await fetch(url);
+//     // const info = await data.json();
+//     const response = await axios.get(url);
+//     // console.log(response["data"]);
+//     const info = await response["data"];
+//     console.log(info);
+
+//     try {
+
+//       const cityFromInput = (inputElement.value[0]).toUpperCase() + (inputElement.value).slice(1);
+//       let cityname = (await (info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"]).split(',')[0]) || (cityFromInput);
+
+//       const dbQueryName = {
+//         name: cityname,
+//       }
+//       const optionsQueryDb = {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(dbQueryName),
+//       }
+//       const dbQuery = await fetch('/queryDb', optionsQueryDb);
+//       const dbResponse = await dbQuery.json();
+//       const dbDatas = dbResponse.data;
+
+//       let urlScores;
+//       let dataScores;
+//       let infoScores;
+//       let nameAndState;
+//       let continent;
+
+//       if (document.querySelector('.saveBtn')) {
+//         document.querySelector('.saveBtn').remove();
+//       }
+
+//       createSaveBtn(document.querySelector('#mainContainer'));
+
+//       let saveButton = document.querySelector('.saveBtn');
+//       let fullName;
+//       let ranking;
+//       let fromDb = false;
+//       let savingCount = 0;
+
+//       if (dbResponse.status == 'success' && dbResponse.action == 'Not in database') {
+
+//         urlScores = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_links"]["ua:scores"]["href"];
+//         dataScores = await fetch(urlScores);
+//         infoScores = await dataScores.json();
+//         console.log(infoScores);
+//         nameAndState = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"];
+//         continent = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["continent"];
+//         fullName = `${nameAndState}, ${continent}`;
+//         ranking = await infoScores["teleport_city_score"];
+//         console.log(ranking);
+//         saveButton.querySelector('i').style.color = 'rgb(126, 126, 126)';
+//         appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+
+//         const dbData = {
+//           name: cityname,
+//           title: fullName,
+//           data: infoScores
+//         }
+
+//         const optionsSaveDb = {
+//           method: 'POST',
+//           headers: {
+//             'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify(dbData),
+//         }
+
+//         saveButton.addEventListener('click', async (event) => {
+
+//           if ((event.target == saveButton.querySelector('i') || event.target == saveButton) && !(savingCount > 0) && (fromDb == false)) {
+//             const saveDb = await fetch('/saveDb', optionsSaveDb);
+//             const saveResponse = await saveDb.json();
+//             console.log(saveResponse);
+//             saveButton.querySelector('i').style.color = 'rgb(74, 126, 223)';
+//             savingCount++;
+//             console.log('Saved on db');
+//           }
+//         });
+//       } else if (dbResponse.status == 'success' && dbResponse.action == 'read from db') {
+//         appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+//         infoScores = dbDatas;
+//         console.log(dbDatas);
+//         let completeNameArray = dbResponse.title.split(', ');
+//         cityname = completeNameArray[0];
+//         nameAndState = `${completeNameArray[0]}, ${completeNameArray[1]}`;
+//         continent = completeNameArray[2];
+//         ranking = dbDatas["teleport_city_score"];
+//         console.log(ranking);
+//         savingCount = 1;
+//         fromDb = true;
+//         saveButton.querySelector('i').style.color = 'rgb(74, 126, 223)';
+//         // console.log('Read from db');
+//       }
+
+//       fullName = `${nameAndState}, ${continent}`;
+
+//       if (mainContainer.clientWidth > mainContainer.clientHeight) {
+//         setInfoButtons(document.querySelector('#resultsContainer'));
+//       } else if (mainContainer.clientWidth < mainContainer.clientHeight) {
+//         createPointButtons(document.querySelector('#resultsContainer'));
+//       }
+//       const cityDescription = await infoScores["summary"];
+
+//       // createTitle(document.querySelectorAll('.dataDisplay')[0], nameAndState, continent).then(() => {
+//       createDescription(nameAndState, continent, ranking, document.querySelector('.descriptionBox'), cityDescription, document.querySelectorAll('.dataDisplay')[0]);
+//       let descriptionBox = document.querySelector('.descriptionBox');
+//       let pElemsHeight = 0;
+//       for (let pElem of descriptionBox.children) {
+//         pElemsHeight += pElem.getBoundingClientRect().height;
+//         // console.log(pElem.getBoundingClientRect().height);
+//       }
+//       // console.log(pElemsHeight);
+//       // console.log(descriptionBox);
+//       // console.log(descriptionBox.previousElementSibling);
+//       // });
+
+//       const tableData = infoScores["categories"];
+//       const dataFirstPart = tableData.slice(0, 9);
+//       const dataSecondPart = tableData.slice(9, tableData.length);
+
+//       createDataTable(document.querySelectorAll('table')[0], dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
+//       createDataTable(document.querySelectorAll('table')[1], dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
+
+//       retrievePixabay(cityname).then(() => {
+
+//         target.value = '';
+//         target.placeholder = 'Enter a new city...';
+//         target.blur();
+
+//         let imgContainer = document.querySelector('#imgContainer');
+//         let firstPath = 'cannyImage/edge.png';
+//         let secondImgContainer = document.querySelector('#secondImgContainer');
+//         let secondPath = 'tempImage/image.png';
+
+//         loadImage(secondImgContainer.querySelector('img'), secondImgContainer, document.querySelector('#resultsContainer'), secondPath);
+//         loadImage(imgContainer.querySelector('img'), imgContainer, document.querySelector('#resultsContainer'), firstPath);
+
+//       }).catch(error => {
+//         retrieveTeleportImage(cityname).then(() => {
+//           target.value = '';
+//           target.placeholder = 'Enter a new city...';
+//           target.blur();
+
+//           let imgContainer = document.querySelector('#imgContainer');
+//           let firstPath = 'cannyImage/edge.png';
+//           let secondImgContainer = document.querySelector('#secondImgContainer');
+//           let secondPath = 'tempImage/image.png';
+
+//           loadImage(secondImgContainer.querySelector('img'), secondImgContainer, document.querySelector('#resultsContainer'), secondPath);
+//           loadImage(imgContainer.querySelector('img'), imgContainer, document.querySelector('#resultsContainer'), firstPath);
+
+//         })
+//         // Qui alternativa Wikipedia a Pixabay in caso di immagine mancante
+//       });
+//     } catch (error) {
+//       console.log(error);
+//       if (document.querySelector('.descriptionBox')) {
+//         disappearElement(document.querySelector('.descriptionBox'), 0);
+//         disappearElement(document.querySelectorAll('table')[0], 0);
+//         disappearElement(document.querySelectorAll('table')[1], 0);
+//       }
+//       retrieveAlternativeCities(info, inputElement.value);
+
+//     }
+
+//   } catch (error) {
+//     console.log(error);
+//     console.log('City not found');
+//     target.value = '';
+//     target.placeholder = 'Enter a new city...';
+//     target.blur();
+//   }
+// }
+
+
+// FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
+
+
+
 
 
 

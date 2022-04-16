@@ -477,8 +477,8 @@ table>tbody>tr>td {
 .saveBtn {
   display: none;
   place-items: center;
-  width: 12vw;
-  height: 12vw;
+  width: 14vw;
+  height: 14vw;
   position: fixed;
   bottom: 14px;
   left: 14px;
@@ -496,7 +496,7 @@ table>tbody>tr>td {
 .saveBtn>i {
   /* color: rgb(74, 126, 223); */
   /* color: rgb(126, 126, 126); */
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .spinnerContainer {
@@ -647,8 +647,8 @@ table>tbody>tr>td {
 
 .menuBtn {
   display: grid;
-  width: 12vw;
-  height: 12vw;
+  width: 14vw;
+  height: 14vw;
   place-items: center;
   position: fixed;
   bottom: 14px;
@@ -665,7 +665,7 @@ table>tbody>tr>td {
 }
 
 .menuBtn>i {
-  font-size: 20px;
+  font-size: 22px;
   color: rgb(111,111,111);
 }
 
