@@ -40,26 +40,7 @@ inputField.addEventListener('change', async (event) => {
     fill: 'forwards'
   });
 
-  // searchCity(inputField, event.target);
-
-  let cityData = new CityData(inputField, mainContainer);
-  try {
-    let info = await cityData.cityInfo();
-    try {
-      let queryResponse = await cityData.cityQueryDb();
-      let infoScores;
-      if (queryResponse.status == 'success' && queryResponse.action == 'Not in database') {
-        infoScores = await cityData.notInDatabase();
-      } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
-        infoScores = await cityData.inDatabase();
-      }
-      cityData.createElements(infoScores);
-    } catch {
-      cityData.createAlternatives(info);
-    }
-  } catch {
-    cityData.somethingWrong();
-  }
+  searchCity(event.target);
 
 });
 
@@ -336,34 +317,20 @@ async function retrieveAlternativeCities(info, input) {
     alternatesContainer.addEventListener('click', (event) => {
       if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
         inputField.value = event.target.textContent;
-        disappearElement(alternatesContainer, 0).then(async () => {
-          // testing - nota pulire codice se possibile
-          let cityData = new CityData(inputField, mainContainer);
-          try {
-            let info = await cityData.cityInfo();
-            try {
-              let queryResponse = await cityData.cityQueryDb();
-              let infoScores;
-              if (queryResponse.status == 'success' && queryResponse.action == 'Not in database') {
-                infoScores = await cityData.notInDatabase();
-              } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
-                infoScores = await cityData.inDatabase();
-              }
-              cityData.createElements(infoScores);
-            } catch {
-              cityData.createAlternatives(info);
-            }
-          } catch {
-            cityData.somethingWrong();
-          }
-          appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
-          appearElement(document.querySelectorAll('table')[0], 500);
-          appearElement(document.querySelectorAll('table')[1], 500);
-          appearElement(document.querySelector('h2'), 500);
-          appearElement(document.querySelector('.rank'), 500);
-          appearElement(document.querySelector('.saveBtn'), 500, 'grid');
-          appearElement(document.querySelector('.menuBtn'), 500, 'grid');
-          // testing - nota pulire codice se possibile
+        disappearElement(alternatesContainer, 0).then(() => {
+          // testing
+
+          // testing
+
+          searchCity(inputField).then(() => {
+            appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
+            appearElement(document.querySelectorAll('table')[0], 500);
+            appearElement(document.querySelectorAll('table')[1], 500);
+            appearElement(document.querySelector('h2'), 500);
+            appearElement(document.querySelector('.rank'), 500);
+            appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+            appearElement(document.querySelector('.menuBtn'), 500, 'grid');
+          });
         });
         // INDICATION
         // indication.textContent = '';
@@ -595,6 +562,27 @@ function loadImage(image, container, resultsContainer, path) {
   }
 }
 
+async function searchCity(input) {
+  let cityData = new CityData(input, mainContainer);
+  try {
+    let info = await cityData.cityInfo();
+    try {
+      let queryResponse = await cityData.cityQueryDb();
+      let infoScores;
+      if (queryResponse.status == 'success' && queryResponse.action == 'Not in database') {
+        infoScores = await cityData.notInDatabase();
+      } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
+        infoScores = await cityData.inDatabase();
+      }
+      cityData.createElements(infoScores);
+    } catch {
+      cityData.createAlternatives(info);
+    }
+  } catch {
+    cityData.somethingWrong();
+  }
+}
+
 async function disappearElement(elem, delay) {
   let opacity = 1.0;
   return await new Promise((resolve) => {
@@ -785,30 +773,7 @@ function createMenu(mainElement) {
             container.style.top = (-((main.scrollHeight / 100) * 70)) + 'px';
             closeBtn.remove();
             // 
-            // searchCity(inputField, inputField);
-
-            // testing
-            let cityData = new CityData(inputField, mainContainer);
-            try {
-              let info = await cityData.cityInfo();
-              try {
-                let queryResponse = await cityData.cityQueryDb();
-                let infoScores;
-                if (queryResponse.status == 'success' && queryResponse.action == 'Not in database') {
-                  infoScores = await cityData.notInDatabase();
-                } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
-                  infoScores = await cityData.inDatabase();
-                }
-                cityData.createElements(infoScores);
-              } catch {
-                cityData.createAlternatives(info);
-              }
-            } catch {
-              cityData.somethingWrong();
-            }
-            // testing
-
-
+            searchCity(inputField);
             if (container.querySelector('.downDirection')) {
               disappearElement(container.querySelector('.downDirection'), 0);
             }
