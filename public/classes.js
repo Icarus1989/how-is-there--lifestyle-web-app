@@ -352,11 +352,12 @@ class CityData {
     console.log(this.infoScores);
     this.cityDescription = await this.infoScores["summary"];
     createDescription(this.nameAndState, this.continent, this.ranking, document.querySelector('.descriptionBox'), this.cityDescription, document.querySelectorAll('.dataDisplay')[0]);
-    this.descriptionBox = document.querySelector('.descriptionBox');
-    this.pElemsHeight = 0;
-    for (this.pElem of this.descriptionBox.children) {
-      this.pElemsHeight += this.pElem.getBoundingClientRect().height;
-    }
+    // this.descriptionBox = document.querySelector('.descriptionBox');
+    // console.log(document.querySelector('.descriptionBox'));
+    // this.pElemsHeight = 0;
+    // for (this.pElem of document.querySelector('.descriptionBox').children) {
+    //   this.pElemsHeight += this.pElem.getBoundingClientRect().height;
+    // }
 
     this.tableData = this.infoScores["categories"];
     this.dataFirstPart = this.tableData.slice(0, 9);
@@ -403,6 +404,58 @@ class CityData {
   // forse inserire new Indication creando fourthIndication
   // fine catch primo try
 }
+
+class Description {
+  constructor(state, continent, rank, textbox, description, container) {
+    this.container = container;
+    this.state = state;
+    this.continent = continent;
+    this.rank = rank;
+    this.textbox = textbox;
+    this.description = description;
+  }
+
+  async createTitle() {
+    this.header = document.querySelector('h2');
+    if (this.header) {
+      this.header.textContent = `${await this.state}, ${ await this.continent}`;
+    } else {
+      this.header = document.createElement('h2');
+      this.header.textContent = `${await this.state}, ${ await this.continent}`;
+      this.container.append(this.header);
+    }
+  }
+
+  async createText() {
+    this.textbox = document.querySelector('.descriptionBox');
+    if (this.textbox) {
+      for (this.elem of this.textbox.querySelectorAll('p')) {
+        this.elem.remove();
+      }
+      this.textbox.insertAdjacentHTML('afterbegin', this.description);
+    } else {
+      this.textbox = document.createElement('div');
+      this.textbox.insertAdjacentHTML('afterbegin', this.description);
+      this.container.append(this.textbox);
+    }
+    this.textbox.classList.add('descriptionBox');
+  }
+
+  async createRank() {
+    this.rankBox = document.querySelector('.rank');
+    if (this.rankBox) {
+      this.rankBox.textContent = `Teleport City Score: ${this.rank.toPrecision(4)}%`;
+    } else {
+      this.rankBox = document.createElement('p');
+      this.rankBox.textContent = `Teleport City Score: ${this.rank.toPrecision(4)}%`;
+      this.container.append(this.rankBox);
+    }
+    this.rankBox.classList.add('rank');
+  }
+
+
+}
+
 
 class AlternativeCities {
   constructor() {

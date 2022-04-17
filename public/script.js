@@ -122,6 +122,7 @@ async function retrieveAlternativeCities(info, input) {
     let data = await getRegionsList(country);
     let alternatesContainer = document.createElement('fieldset');
     let legend = document.createElement('legend');
+    // ---- PASSARE IN CSS ----
     legend.style.color = 'rgb(83, 83, 83)';
     legend.style.fontWeight = 700;
     legend.style.paddingTop = '10px';
@@ -132,6 +133,7 @@ async function retrieveAlternativeCities(info, input) {
     legend.style.background = 'rgb(230, 230, 230)';
     legend.style.border = '6px solid rgb(134, 134, 134)';
     legend.textContent = 'Cities available for this Country:';
+    // ---- PASSARE IN CSS ----
     alternatesContainer.append(legend);
     alternatesContainer.classList.add('alternatesContainer');
 
@@ -172,6 +174,7 @@ async function retrieveAlternativeCities(info, input) {
 
       alternatesContainer.style.overflowY = 'scroll';
       createNavButton('down', alternatesContainer, 'absolute');
+      // ---- PASSARE IN CSS ----
       alternatesContainer.querySelector('.downDirection').style.height = '8vh';
       alternatesContainer.querySelector('.downDirection').style.width = alternatesContainer.clientWidth + 'px';
       alternatesContainer.querySelector('.downDirection').style.border = '0px solid transparent';
@@ -181,6 +184,7 @@ async function retrieveAlternativeCities(info, input) {
       alternatesContainer.querySelector('.downDirection').style.zIndex = 100;
       alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.offsetTop + alternatesContainer.offsetHeight - alternatesContainer.querySelector('.downDirection').offsetHeight + 'px';
       alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
+      // ---- PASSARE IN CSS ----
 
       alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
 
@@ -203,7 +207,7 @@ async function retrieveAlternativeCities(info, input) {
 
       });
       resultsCont.addEventListener('scroll', () => {
-        console.log('scroll');
+        // console.log('scroll');
         if (alternatesContainer.querySelector('.downDirection')) {
           alternatesContainer.querySelector('.downDirection').position = 'absolute';
           alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
@@ -267,7 +271,9 @@ async function retrieveAlternativeCities(info, input) {
     document.querySelector('.spinnerContainer').remove();
     inputField.addEventListener('change', () => {
       disappearElement(document.querySelector('.indications'), 0).then(() => {
+
         if (document.querySelector('.descriptionBox')) {
+          Promise.all([])
           appearElement(document.querySelector('.descriptionBox'), 500);
           appearElement(document.querySelectorAll('table')[0], 500);
           appearElement(document.querySelectorAll('table')[1], 500);
@@ -281,39 +287,11 @@ async function retrieveAlternativeCities(info, input) {
   }
 }
 
-async function createDescription(state, globalContinent, rank, textbox, description, container) {
-  let rankBox;
-  let header;
-
-  if (document.querySelector('.descriptionBox')) {
-    textbox = document.querySelector('.descriptionBox');
-    for (elem of textbox.querySelectorAll('p')) {
-      elem.remove();
-    }
-    textbox.insertAdjacentHTML('beforeend', description);
-  } else {
-    textbox = document.createElement('div');
-    textbox.classList.add('descriptionBox');
-    textbox.insertAdjacentHTML('afterbegin', description);
-    container.append(textbox);
-  }
-
-  if (document.querySelector('.rank')) {
-    rankBox = document.querySelector('.rank');
-  } else {
-    rankBox = document.createElement('p');
-    rankBox.classList.add('rank');
-    container.append(rankBox);
-  }
-  rankBox.textContent = `Teleport City Score: ${rank.toPrecision(4)}%`;
-
-  if (container.querySelector('h2')) {
-    container.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
-  } else {
-    header = `${await state}, ${ await globalContinent}`;
-    header.textContent = `${await state}, ${ await globalContinent}`;
-    container.children[0].insertAdjacentHTML('afterbegin', `<h2>${header}</h2>`);
-  }
+async function createDescription(state, globalContinent, rank, textbox, text, container) {
+  let description = new Description(state, globalContinent, rank, textbox, text, container);
+  let title = await description.createTitle();
+  let textBox = await description.createText();
+  let rankBox = await description.createRank();
 }
 
 function createDataTable(table, jsonData, container) {

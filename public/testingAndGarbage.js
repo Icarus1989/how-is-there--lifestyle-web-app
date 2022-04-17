@@ -2149,6 +2149,48 @@
 // }
 
 
+
+// async function createDescription(state, globalContinent, rank, textbox, text, container) {
+//   let description = new Description(state, globalContinent, rank, textbox, text, container);
+//   let title = await description.createTitle();
+//   let textBox = await description.createText();
+//   let rankBox = await description.createRank();
+// let rankBox;
+// let header;
+
+// if (document.querySelector('.descriptionBox')) {
+//   textbox = document.querySelector('.descriptionBox');
+//   for (elem of textbox.querySelectorAll('p')) {
+//     elem.remove();
+//   }
+//   textbox.insertAdjacentHTML('beforeend', description);
+// } else {
+//   textbox = document.createElement('div');
+//   textbox.classList.add('descriptionBox');
+//   textbox.insertAdjacentHTML('afterbegin', description);
+//   container.append(textbox);
+// }
+
+// if (document.querySelector('.rank')) {
+//   rankBox = document.querySelector('.rank');
+// } else {
+//   rankBox = document.createElement('p');
+//   rankBox.classList.add('rank');
+//   container.append(rankBox);
+// }
+// rankBox.textContent = `Teleport City Score: ${rank.toPrecision(4)}%`;
+
+// if (container.querySelector('h2')) {
+//   container.querySelector('h2').textContent = `${await state}, ${ await globalContinent}`;
+// } else {
+//   header = document.createElement('h2');
+//   // header = `${await state}, ${ await globalContinent}`;
+//   header.textContent = `${await state}, ${ await globalContinent}`;
+//   // container.children[0].insertAdjacentHTML('afterbegin', header);
+//   container.append(header);
+// }
+// }
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 
