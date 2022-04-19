@@ -458,7 +458,40 @@ class Description {
 
 
 class AlternativeCities {
-  constructor() {
+  constructor(UrbanAreaList, info, input, alternatesContainer) {
+    this.UrbanAreaList = UrbanAreaList;
+    this.inputElement = document.querySelector('#insertInput');
+    this.info = info;
+    this.input = input;
+    this.alternatesContainer = alternatesContainer;
+  }
 
+  async createAlternatives() {
+    this.country = this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
+    this.listData = await getRegionsList(this.country);
+    this.firstFilteredArr = [];
+    this.secondFilteredArr = [];
+
+    for (let city of this.listData) {
+      if (this.UrbanAreaList.includes(city)) {
+        this.firstFilteredArr.push(city);
+      }
+    }
+
+    for (let elem of this.firstFilteredArr) {
+      this.result = await filterCityList(elem, this.country);
+      if (this.result && !this.secondFilteredArr.includes(this.result)) {
+        this.secondFilteredArr.push(await this.result);
+      }
+    }
+  }
+
+  async createButtons() {
+    this.secondFilteredArr.sort().map((elem) => {
+      this.btn = document.createElement('button');
+      this.btn.textContent = elem;
+      this.alternatesContainer.append(this.btn);
+      this.btn.classList.add('altButtons');
+    });
   }
 }

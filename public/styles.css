@@ -425,6 +425,22 @@ table>tbody>tr>td {
   /* position: fixed; */
 }
 
+.alternatesContainer>legend {
+  color: rgb(83, 83, 83);
+  font-weight: 700;
+  background: rgb(230, 230, 230);
+  padding: 10px 20px 10px 20px;
+  border: 6px solid rgb(134, 134, 134);
+  border-radius: 12px;
+}
+
+#altDownButton {
+  padding: 0;
+  border: 0px solid transparent;
+  border-radius: 0px 0px 16px 16px;
+  z-index: 100;
+}
+
 .altButtons {
   min-width: 28vw;
   width: fit-content;

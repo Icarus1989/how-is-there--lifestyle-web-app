@@ -2191,6 +2191,110 @@
 // }
 // }
 
+// ---- PASSARE IN CSS ----
+// legend.style.color = 'rgb(83, 83, 83)';
+// legend.style.fontWeight = 700;
+// legend.style.paddingTop = '10px';
+// legend.style.paddingLeft = '20px';
+// legend.style.paddingBottom = '10px';
+// legend.style.paddingRight = '20px';
+// legend.style.borderRadius = '12px';
+// legend.style.background = 'rgb(230, 230, 230)';
+// legend.style.border = '6px solid rgb(134, 134, 134)';
+// ---- PASSARE IN CSS ----
+
+
+// ---- PASSARE IN CSS ----
+// alternatesContainer.querySelector('.downDirection').style.height = '8vh';
+// alternatesContainer.querySelector('.downDirection').style.border = '0px solid transparent';
+// alternatesContainer.querySelector('.downDirection').style.padding = 0;
+// alternatesContainer.querySelector('.downDirection').style.margin = 0;
+// alternatesContainer.querySelector('.downDirection').style.borderRadius = '0px 0px 16px 16px';
+// alternatesContainer.querySelector('.downDirection').style.zIndex = 100;
+// ---- PASSARE IN CSS ----
+
+
+
+// console.log(firstCityArray);
+// console.log(secondCityArray);
+// for (let elem of firstCityArray) {
+//   filterCityList(elem, country).then((result) => {
+//     secondCityArray.push(result);
+//   });
+// }
+// console.log(secondCityArray);
+
+
+// for(let elem of firstCityArray){
+
+// }
+
+
+// console.log(firstCityArray);
+
+// secondCityArray = firstCityArray.map(async (elem) => {
+//   return result = await filterCityList(elem, country);
+
+//   // console.log(result);
+//   // secondCityArray.push(await result);
+
+//   // console.log(secondCityArray);
+//   // if (result && !secondCityArray.includes(result)) {
+//   //   secondCityArray.push(result);
+//   // }
+//   // console.log(secondCityArray);
+//   // console.log(secondCityArray);
+// }).map(elem => {
+//   if (elem && !secondCityArray.includes(elem)) {
+//     secondCityArray.push(elem);
+//   }
+// });
+
+
+
+// Promise.allSettled(secondCityArray).then(result => console.log(result))
+// })
+//   .filter(elem => elem !== undefined).map(elem => {
+//   let btn = document.createElement('button');
+//   alternatesContainer.append(btn);
+//   btn.textContent = elem;
+//   btn.classList.add('altButtons');
+// });
+
+
+
+
+// secondCityArray = secondCityArray.filter((elem) => {
+//   return elem !== undefined;
+// });
+
+// secondCityArray = secondCityArray.filter((elem) => {
+//   return elem !== undefined;
+// });
+// secondCityArray = secondCityArray.map(elem => {
+//   console.log(elem);
+//   let btn = document.createElement('button');
+//   alternatesContainer.append(btn);
+//   btn.textContent = elem;
+//   btn.classList.add('altButtons');
+// });
+
+// for (let i = 0; i < secondCityArray.length; i++) {
+//   let btn = document.createElement('button');
+//   btn.textContent = secondCityArray[i];
+//   alternatesContainer.append(btn);
+//   btn.classList.add('altButtons');
+// }
+
+
+// for (let elem of UrbanAreasCompleteList) {
+//   for (let city of data) {
+//     if (city === elem) {
+//       firstCityArray.push(elem);
+//     }
+//   }
+// }
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 

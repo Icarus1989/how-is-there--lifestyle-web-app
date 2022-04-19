@@ -73,13 +73,13 @@ async function filterCityList(city, controller) {
   if (iso_alpha2 == controller) {
     return city;
   } else {
-    return;
+    return false;
   }
 }
 
-let completeCitiesOfACountryArray = [];
 
 async function getRegionsList(country) {
+  let completeCitiesOfACountryArray = [];
   const url = `https://api.teleport.org/api/countries/iso_alpha2%3A${country}/admin1_divisions/`;
   const regionsJson = await axios.get(url);
   for await (let elem of regionsJson["data"]["_links"]["a1:items"]) {
@@ -93,101 +93,55 @@ async function getRegionsList(country) {
 }
 
 async function retrieveAlternativeCities(info, input) {
-  document.querySelector('#insertInput').blur();
+  // document.querySelector('#insertInput').blur();
+  inputField.value = '';
+  inputField.placeholder = 'Enter a new city...';
+  inputField.blur();
   let resultsCont = document.querySelector('#resultsContainer');
   let indication = new Indication(resultsCont.children[0], input);
+  resultsCont.scrollTo(0, 0);
   if (document.querySelector('.saveBtn')) {
     document.querySelector('.saveBtn').remove();
   }
+  if (document.querySelector('h2')) {
+    disappearElement(document.querySelector('h2'), 0);
+  }
+  if (document.querySelector('.rank')) {
+    disappearElement(document.querySelector('.rank'), 0);
+  }
+  disappearElement(document.querySelector('.menuBtn'), 0);
 
   try {
     // inizio spinner
-    resultsCont.scrollTo(0, 0);
-    let secondCityArray = [];
-
-    if (document.querySelector('h2')) {
-      disappearElement(document.querySelector('h2'), 0);
-    }
-    if (document.querySelector('.rank')) {
-      disappearElement(document.querySelector('.rank'), 0);
-    }
-    disappearElement(document.querySelector('.menuBtn'), 0);
 
     indication.firstIndication();
 
     let spinner = new Spinner(resultsCont);
     spinner.drawSpinner();
 
-    let country = await info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
-    let data = await getRegionsList(country);
     let alternatesContainer = document.createElement('fieldset');
     let legend = document.createElement('legend');
-    // ---- PASSARE IN CSS ----
-    legend.style.color = 'rgb(83, 83, 83)';
-    legend.style.fontWeight = 700;
-    legend.style.paddingTop = '10px';
-    legend.style.paddingLeft = '20px';
-    legend.style.paddingBottom = '10px';
-    legend.style.paddingRight = '20px';
-    legend.style.borderRadius = '12px';
-    legend.style.background = 'rgb(230, 230, 230)';
-    legend.style.border = '6px solid rgb(134, 134, 134)';
     legend.textContent = 'Cities available for this Country:';
-    // ---- PASSARE IN CSS ----
     alternatesContainer.append(legend);
     alternatesContainer.classList.add('alternatesContainer');
 
-    let firstCityArray = [];
-    for (let elem of UrbanAreasCompleteList) {
-      for (let city of data) {
-        if (city === elem) {
-          firstCityArray.push(elem);
-        }
-      }
-    }
+    let alternatives = new AlternativeCities(UrbanAreasCompleteList, info, input, alternatesContainer);
+    let alternativesCities = await alternatives.createAlternatives();
+    let alternativesButtons = await alternatives.createButtons();
 
-    for (let elem of firstCityArray) {
-      let result = await filterCityList(elem, country);
-      if (elem && !secondCityArray.includes(elem)) {
-        secondCityArray.push(result);
-      }
-    }
-
-    secondCityArray = secondCityArray.filter((elem) => {
-      return elem !== undefined;
-    });
-
-    for (let i = 0; i < secondCityArray.length; i++) {
-      let btn = document.createElement('button');
-      btn.textContent = secondCityArray[i];
-      alternatesContainer.append(btn);
-      btn.classList.add('altButtons');
-    }
     spinner.removeSpinner();
-
-    // INDICATION
     indication.secondIndication();
-    console.log(document.querySelector('.indications'));
     resultsCont.children[0].append(alternatesContainer);
 
-    if (secondCityArray.length > 10) {
-
+    if (document.querySelectorAll('.altButtons').length > 10) {
       alternatesContainer.style.overflowY = 'scroll';
       createNavButton('down', alternatesContainer, 'absolute');
-      // ---- PASSARE IN CSS ----
-      alternatesContainer.querySelector('.downDirection').style.height = '8vh';
       alternatesContainer.querySelector('.downDirection').style.width = alternatesContainer.clientWidth + 'px';
-      alternatesContainer.querySelector('.downDirection').style.border = '0px solid transparent';
-      alternatesContainer.querySelector('.downDirection').style.padding = 0;
-      alternatesContainer.querySelector('.downDirection').style.margin = 0;
-      alternatesContainer.querySelector('.downDirection').style.borderRadius = '0px 0px 16px 16px';
-      alternatesContainer.querySelector('.downDirection').style.zIndex = 100;
+      alternatesContainer.querySelector('.downDirection').style.height = '8vh';
       alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.offsetTop + alternatesContainer.offsetHeight - alternatesContainer.querySelector('.downDirection').offsetHeight + 'px';
       alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
-      // ---- PASSARE IN CSS ----
-
+      alternatesContainer.querySelector('.downDirection').setAttribute('id', 'altDownButton');
       alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
-
       alternatesContainer.addEventListener('scroll', (event) => {
         let downBtn = event.target.querySelector('.downDirection');
         downBtn.style.position = 'fixed';
@@ -207,18 +161,15 @@ async function retrieveAlternativeCities(info, input) {
 
       });
       resultsCont.addEventListener('scroll', () => {
-        // console.log('scroll');
         if (alternatesContainer.querySelector('.downDirection')) {
           alternatesContainer.querySelector('.downDirection').position = 'absolute';
           alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
         }
-      })
+      });
     }
 
 
-    inputField.value = '';
-    inputField.placeholder = 'Enter a new city...';
-    inputField.blur();
+
 
     inputField.addEventListener('change', () => {
       disappearElement(alternatesContainer, 0).then(() => {
@@ -250,10 +201,7 @@ async function retrieveAlternativeCities(info, input) {
             appearElement(document.querySelector('.menuBtn'), 500, 'grid');
           });
         });
-        // INDICATION
-        // indication.textContent = '';
         indication.nullIndication();
-        // disappearElement(document.querySelector('.indications'), 0);
       } else {
         return;
       }
@@ -266,9 +214,7 @@ async function retrieveAlternativeCities(info, input) {
     inputField.blur();
     // INDICATION
     indication.thirdIndication();
-    // indication.textContent = `The City ${input} is not been found or there is no city with this name - try to reinsert the city name or check your internet connection`;
-    // resultsCont.append(indication);
-    document.querySelector('.spinnerContainer').remove();
+    // document.querySelector('.spinnerContainer').remove();
     inputField.addEventListener('change', () => {
       disappearElement(document.querySelector('.indications'), 0).then(() => {
 
@@ -331,7 +277,6 @@ function createSaveBtn(container) {
 }
 
 function loadImage(image, container, resultsContainer, path) {
-  // image.src = '';
 
   if (image) {
     // image.delete();
@@ -346,10 +291,7 @@ function loadImage(image, container, resultsContainer, path) {
       image.style.position = "relative";
       image.style.left = "-10%";
       image.style.bottom = "0px";
-      // image.style.width = '300vw';
-      // image.style.height = 'auto';
     }
-
 
     const options = {
       method: 'GET',
@@ -358,11 +300,7 @@ function loadImage(image, container, resultsContainer, path) {
 
     try {
       image.src = '';
-
-
-
       setTimeout(async () => {
-
         // image.src = '';
         let response = await fetch(path, options);
         let test = await response.blob();
@@ -383,7 +321,6 @@ function loadImage(image, container, resultsContainer, path) {
       console.log(error);
     }
 
-
     resultsContainer.scrollTo(0, 0);
 
     resultsContainer.addEventListener('scroll', (event) => {
@@ -393,14 +330,12 @@ function loadImage(image, container, resultsContainer, path) {
     let image = document.createElement('img');
     image.style.width = "250vw";
     image.style.height = (container.clientHeight) + "px";
-    // image.style.width = "auto";
-    // image.style.height = container.clientHeight + "px";
+
     if (container.clientHeight < container.clientWidth) {
       image.style.width = "100vw";
       image.style.height = container.clientHeight + "px";
       image.style.top = "-50vh";
       image.style.left = "-10%";
-
     } else {
       image.style.position = "relative";
       image.style.left = "-10%";
@@ -573,8 +508,7 @@ function setInfoButtons(scrollTarget) {
         behavior: 'smooth'
       });
     }
-  })
-
+  });
 }
 
 function createPointButtons(container) {
