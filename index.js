@@ -6,24 +6,9 @@ const {
 } = require('axios');
 require('dotenv').config();
 
-// const axios = require('axios');
-// const {
-//   default: axios
-// } = require("axios");
-// const mongoose = require('mongoose');
-
 const Datastore = require('nedb');
-
 const cannyEdgeDetector = require('canny-edge-detector');
-
 const ImageCanny = require('image-js').Image;
-
-// const dbURI = 'mongodb+srv://app-user:f8e6yT7QzgFBIJTb@clustercitiesdata.ki1bh.mongodb.net/cities-datas?retryWrites=true&w=majority';
-
-// f8e6yT7QzgFBIJTb
-// app-user
-// cities-datas
-
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -42,11 +27,7 @@ app.use(express.json({
 
 
 app.get('/wiki/:cityname', async (request, response) => {
-  // console.log('Request Number 2');
   const cityName = request.params.cityname;
-  // console.log(cityName);
-  // Qui divisione del name se più parole
-
   let fileUrl;
 
   try {
@@ -54,42 +35,20 @@ app.get('/wiki/:cityname', async (request, response) => {
     const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=places&image_type=photo`;
     const dataPixabay = await axios.get(urlPixabay);
     const jsonPixabay = await dataPixabay["data"];
-    // const jsonPixabay = await dataPixabay.json();
-    // console.log(dataPixabay);
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
-    // console.log(fileUrl);
     response.json(jsonPixabay);
-
-    // axios.get(urlPixabay).then((response) => {
-    //   console.log(response);
-    // })
-    // axios({
-    //   method: 'get',
-    //   url: urlPixabay,
-    //   responseType: 'stream'
-    // }).then((response)=>{
-    //   console.log
-    // })
-
-
   } catch {
 
     const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
-    // console.log(urlTeleport);
-    // const dataTeleport = await fetch(urlTeleport);
     const dataTeleport = await axios.get(urlTeleport);
-    // console.log(dataTeleport);
     const jsonTeleport = await dataTeleport["data"];
-    // console.log(jsonTeleport);
     fileUrl = await jsonTeleport["photos"][0]["image"]["web"];
-    // console.log('Got Teleport');
     response.json(jsonTeleport);
   }
 
-
   downloadAndCannyEdge(fileUrl);
 
-})
+});
 
 
 app.post('/queryDb', (request, response) => {
@@ -101,14 +60,12 @@ app.post('/queryDb', (request, response) => {
       response.end();
       return;
     } else if (docs.length == 0) {
-      // console.log('Not in database, saving...');
       response.json({
         status: 'success',
         action: 'Not in database',
         name: data.name,
       });
     } else {
-      // console.log('HERE read from database');
       response.json({
         status: 'success',
         action: 'read from db',
@@ -122,9 +79,7 @@ app.post('/queryDb', (request, response) => {
 
 
 app.post('/saveDb', (request, response) => {
-  // console.log('Saving...');
   const saveData = request.body;
-  // console.log(saveData);
   database.insert(saveData);
   response.json({
     status: 'success',
@@ -134,9 +89,7 @@ app.post('/saveDb', (request, response) => {
 
 });
 
-// Sperimentale
 app.get('/menu', (request, response) => {
-  // console.log('reading all saving cities...');
   database.find({}, (err, docs) => {
     response.json({
       status: 'success',
@@ -144,19 +97,13 @@ app.get('/menu', (request, response) => {
       data: docs
     })
   })
-})
-// Sperimentale
+});
 
-// Sperimentale cancel from db
 app.post('/cancelDb', (request, response) => {
-  // console.log(request.body);
   const cancelCity = request.body.name;
-  // console.log(cancelCity);
-  // console.log('cancel request...');
   database.find({
     name: cancelCity
   }, (err, docs) => {
-    // console.log(docs[0]["_id"]);
     database.remove({
       _id: docs[0]["_id"]
     }, (err, dataFromDb) => {
@@ -167,24 +114,7 @@ app.post('/cancelDb', (request, response) => {
       })
     })
   })
-  // database.remove({
-  //   name: cancelCity
-  // }, (err, docs) => {
-  //   response.json({
-  //     status: 'success',
-  //     action: 'cancel from db',
-  //     data: docs
-  //   })
-  // })
-  // database.cancel({
-  //   name:
-  // }, (err, docs) => {
-
-  // })
 });
-// Sperimentale
-
-// let number = 0;
 
 async function downloadAndCannyEdge(url) {
 
@@ -193,7 +123,6 @@ async function downloadAndCannyEdge(url) {
       if (error) {
         throw error;
       }
-      // console.log('Wikipedia File canceled.');
     });
   }
   if (fs.existsSync('public/cannyimage/edge.png')) {
@@ -201,7 +130,6 @@ async function downloadAndCannyEdge(url) {
       if (error) {
         throw error;
       }
-      // console.log('Canny Edge File canceled.');
     });
   }
 
@@ -219,7 +147,5 @@ async function downloadAndCannyEdge(url) {
     const edge = await cannyEdgeDetector(grey, options);
     return edge.save('public/cannyImage/edge.png');
   });
-  // number++;
-  // console.log('finished downloading!');
   return writeFile;
 }

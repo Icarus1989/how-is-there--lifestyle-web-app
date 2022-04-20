@@ -31,6 +31,7 @@ inputField.addEventListener('change', async (event) => {
     fill: 'forwards'
   });
   searchCity(event.target);
+
 });
 
 async function retrievePixabay(name) {
@@ -111,12 +112,13 @@ async function retrieveAlternativeCities(info, input) {
   }
   disappearElement(document.querySelector('.menuBtn'), 0);
 
+  let spinner = new Spinner(resultsCont);
+
   try {
     // inizio spinner
 
     indication.firstIndication();
 
-    let spinner = new Spinner(resultsCont);
     spinner.drawSpinner();
 
     let alternatesContainer = document.createElement('fieldset');
@@ -125,7 +127,7 @@ async function retrieveAlternativeCities(info, input) {
     alternatesContainer.append(legend);
     alternatesContainer.classList.add('alternatesContainer');
 
-    let alternatives = new AlternativeCities(UrbanAreasCompleteList, info, input, alternatesContainer);
+    let alternatives = new AlternativeCities(UrbanAreasCompleteList, info, input, alternatesContainer, resultsCont);
     let alternativesCities = await alternatives.createAlternatives();
     let alternativesButtons = await alternatives.createButtons();
 
@@ -133,55 +135,19 @@ async function retrieveAlternativeCities(info, input) {
     indication.secondIndication();
     resultsCont.children[0].append(alternatesContainer);
 
-    if (document.querySelectorAll('.altButtons').length > 10) {
-      alternatesContainer.style.overflowY = 'scroll';
-      createNavButton('down', alternatesContainer, 'absolute');
-      alternatesContainer.querySelector('.downDirection').style.width = alternatesContainer.clientWidth + 'px';
-      alternatesContainer.querySelector('.downDirection').style.height = '8vh';
-      alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.offsetTop + alternatesContainer.offsetHeight - alternatesContainer.querySelector('.downDirection').offsetHeight + 'px';
-      alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
-      alternatesContainer.querySelector('.downDirection').setAttribute('id', 'altDownButton');
-      alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
-      alternatesContainer.addEventListener('scroll', (event) => {
-        let downBtn = event.target.querySelector('.downDirection');
-        downBtn.style.position = 'fixed';
-        downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height + 'px';
-        downBtn.style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
-        downBtn.style.overflow = 'hidden';
-
-        if (alternatesContainer.scrollTop >= alternatesContainer.scrollHeight - alternatesContainer.clientHeight) {
-          let iElement = document.createElement('i');
-          iElement.classList.add('fa-solid', 'fa-chevron-up');
-          downBtn.firstElementChild.replaceWith(iElement);
-        } else {
-          let iElement = document.createElement('i');
-          iElement.classList.add('fa-solid', 'fa-chevron-down');
-          downBtn.firstElementChild.replaceWith(iElement);
-        }
-
-      });
-      resultsCont.addEventListener('scroll', () => {
-        if (alternatesContainer.querySelector('.downDirection')) {
-          alternatesContainer.querySelector('.downDirection').position = 'absolute';
-          alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
-        }
-      });
+    if (alternativesButtons > 10) {
+      alternatives.bigContainer();
     }
-
-
-
 
     inputField.addEventListener('change', () => {
       disappearElement(alternatesContainer, 0).then(() => {
         if (document.querySelector('.descriptionBox')) {
-          appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
-          appearElement(document.querySelectorAll('table')[0], 500);
-          appearElement(document.querySelectorAll('table')[1], 500);
-          appearElement(document.querySelector('h2'), 500);
-          appearElement(document.querySelector('.rank'), 500);
-          appearElement(document.querySelector('.saveBtn'), 500, 'grid');
-          appearElement(document.querySelector('.menuBtn'), 500, 'grid');
-
+          let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+          appearGrid.show();
+          let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+          appearBlock.show();
+          let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
+          appearInline.show();
         }
         indication.nullIndication();
       });
@@ -191,14 +157,13 @@ async function retrieveAlternativeCities(info, input) {
       if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
         inputField.value = event.target.textContent;
         disappearElement(alternatesContainer, 0).then(() => {
-          searchCity(inputField).then(() => {
-            appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
-            appearElement(document.querySelectorAll('table')[0], 500);
-            appearElement(document.querySelectorAll('table')[1], 500);
-            appearElement(document.querySelector('h2'), 500);
-            appearElement(document.querySelector('.rank'), 500);
-            appearElement(document.querySelector('.saveBtn'), 500, 'grid');
-            appearElement(document.querySelector('.menuBtn'), 500, 'grid');
+          searchCity(inputField).then(async () => {
+            let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+            appearGrid.show();
+            let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+            appearBlock.show();
+            let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
+            appearInline.show();
           });
         });
         indication.nullIndication();
@@ -214,19 +179,16 @@ async function retrieveAlternativeCities(info, input) {
     inputField.blur();
     // INDICATION
     indication.thirdIndication();
-    // document.querySelector('.spinnerContainer').remove();
+    spinner.removeSpinner();
     inputField.addEventListener('change', () => {
-      disappearElement(document.querySelector('.indications'), 0).then(() => {
-
+      indication.nullIndication().then(() => {
         if (document.querySelector('.descriptionBox')) {
-          Promise.all([])
-          appearElement(document.querySelector('.descriptionBox'), 500);
-          appearElement(document.querySelectorAll('table')[0], 500);
-          appearElement(document.querySelectorAll('table')[1], 500);
-          appearElement(document.querySelector('h2'), 500);
-          appearElement(document.querySelector('.rank'), 500);
-          appearElement(document.querySelector('.saveBtn'), 500, 'grid');
-          appearElement(document.querySelector('.menuBtn'), 500, 'grid');
+          let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+          appearGrid.show();
+          let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+          appearBlock.show();
+          let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
+          appearInline.show();
         }
       });
     });
@@ -390,6 +352,7 @@ async function searchCity(input) {
   } catch {
     cityData.somethingWrong();
   }
+
 }
 
 async function disappearElement(elem, delay) {
@@ -402,6 +365,7 @@ async function disappearElement(elem, delay) {
         if (opacity < 0) {
           clearInterval(interval);
           elem.style.display = 'none';
+          // elem.remove();
         }
       }, 20);
     }, delay);
@@ -409,27 +373,9 @@ async function disappearElement(elem, delay) {
   });
 }
 
-async function appearElement(elem, delay, display = 'block') {
-  let opacity = 0.0;
-  if (elem) {
-    elem.style.display = display;
-    return await new Promise((resolve) => {
-      setTimeout(() => {
-        let interval = setInterval(() => {
-          opacity = opacity + 0.1;
-          elem.style.opacity = opacity;
-          if (opacity > 1.0) {
-            clearInterval(interval);
-          }
-        }, 20);
-      }, delay);
-      resolve();
-    });
-  } else {
-    return;
-  }
-
-
+async function appearElement(elem, delay, display) {
+  let appearGrid = new AppearElems(display, delay, elem);
+  appearGrid.show();
 }
 
 function createNavButton(direction, container, position) {

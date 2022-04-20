@@ -2295,6 +2295,71 @@
 //   }
 // }
 
+
+// alternatesContainer.style.overflowY = 'scroll';
+// createNavButton('down', alternatesContainer, 'absolute');
+// alternatesContainer.querySelector('.downDirection').style.width = alternatesContainer.clientWidth + 'px';
+// alternatesContainer.querySelector('.downDirection').style.height = '8vh';
+// alternatesContainer.querySelector('.downDirection').style.top = alternatesContainer.offsetTop + alternatesContainer.offsetHeight - alternatesContainer.querySelector('.downDirection').offsetHeight + 'px';
+// alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
+// alternatesContainer.querySelector('.downDirection').setAttribute('id', 'altDownButton');
+// alternatesContainer.querySelectorAll('.altButtons')[alternatesContainer.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
+// alternatesContainer.addEventListener('scroll', (event) => {
+//   let downBtn = event.target.querySelector('.downDirection');
+//   downBtn.style.position = 'fixed';
+//   downBtn.style.top = alternatesContainer.getBoundingClientRect().bottom - downBtn.getBoundingClientRect().height + 'px';
+//   downBtn.style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
+//   downBtn.style.overflow = 'hidden';
+
+//   if (alternatesContainer.scrollTop >= alternatesContainer.scrollHeight - alternatesContainer.clientHeight) {
+//     let iElement = document.createElement('i');
+//     iElement.classList.add('fa-solid', 'fa-chevron-up');
+//     downBtn.firstElementChild.replaceWith(iElement);
+//   } else {
+//     let iElement = document.createElement('i');
+//     iElement.classList.add('fa-solid', 'fa-chevron-down');
+//     downBtn.firstElementChild.replaceWith(iElement);
+//   }
+
+// });
+// resultsCont.addEventListener('scroll', () => {
+//   if (alternatesContainer.querySelector('.downDirection')) {
+//     alternatesContainer.querySelector('.downDirection').position = 'absolute';
+//     alternatesContainer.querySelector('.downDirection').style.left = alternatesContainer.getBoundingClientRect().left + (alternatesContainer.clientLeft) + 'px';
+//   }
+// });
+
+// let appearElemets =
+// appearElement(document.querySelector('.descriptionBox'), 500, 'grid');
+// appearElement(document.querySelectorAll('table')[0], 500);
+// appearElement(document.querySelectorAll('table')[1], 500);
+// appearElement(document.querySelector('h2'), 500);
+// appearElement(document.querySelector('.rank'), 500);
+// appearElement(document.querySelector('.saveBtn'), 500, 'grid');
+// appearElement(document.querySelector('.menuBtn'), 500, 'grid');
+
+
+// async function appearElement(elem, delay, display = 'block') {
+//   let opacity = 0.0;
+//   if (elem) {
+//     elem.style.display = display;
+//     return await new Promise((resolve) => {
+//       setTimeout(() => {
+//         let interval = setInterval(() => {
+//           opacity = opacity + 0.1;
+//           elem.style.opacity = opacity;
+//           if (opacity > 1.0) {
+//             clearInterval(interval);
+//           }
+//         }, 20);
+//       }, delay);
+//       resolve();
+//     });
+//   } else {
+//     return;
+//   }
+// }
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 

@@ -456,14 +456,14 @@ class Description {
 
 }
 
-
 class AlternativeCities {
-  constructor(UrbanAreaList, info, input, alternatesContainer) {
+  constructor(UrbanAreaList, info, input, container, parentContainer) {
     this.UrbanAreaList = UrbanAreaList;
     this.inputElement = document.querySelector('#insertInput');
     this.info = info;
     this.input = input;
-    this.alternatesContainer = alternatesContainer;
+    this.container = container;
+    this.parentContainer = parentContainer;
   }
 
   async createAlternatives() {
@@ -487,11 +487,84 @@ class AlternativeCities {
   }
 
   async createButtons() {
+    this.counter = 0;
     this.secondFilteredArr.sort().map((elem) => {
       this.btn = document.createElement('button');
       this.btn.textContent = elem;
-      this.alternatesContainer.append(this.btn);
+      this.container.append(this.btn);
       this.btn.classList.add('altButtons');
+      this.counter++;
+    });
+    return this.counter;
+  }
+
+  async bigContainer() {
+    this.container.style.overflowY = 'scroll';
+    createNavButton('down', this.container, 'absolute');
+    this.downBtn = this.container.querySelector('.downDirection');
+    this.downBtn.style.width = this.container.clientWidth + 'px';
+    this.downBtn.style.height = '8vh';
+    this.downBtn.style.top = this.container.offsetTop + this.container.offsetHeight - this.container.querySelector('.downDirection').offsetHeight + 'px';
+    this.downBtn.style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
+    this.downBtn.setAttribute('id', 'altDownButton');
+    this.container.querySelectorAll('.altButtons')[this.container.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
+
+
+    this.container.addEventListener('scroll', (event) => {
+      // let downBtn = event.target.querySelector('.downDirection');
+      this.downBtn.style.position = 'fixed';
+      this.downBtn.style.top = this.container.getBoundingClientRect().bottom - this.downBtn.getBoundingClientRect().height + 'px';
+      this.downBtn.style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
+      this.downBtn.style.overflow = 'hidden';
+
+      if (this.container.scrollTop >= this.container.scrollHeight - this.container.clientHeight) {
+        this.iElement = document.createElement('i');
+        this.iElement.classList.add('fa-solid', 'fa-chevron-up');
+        this.downBtn.firstElementChild.replaceWith(this.iElement);
+      } else {
+        this.iElement = document.createElement('i');
+        this.iElement.classList.add('fa-solid', 'fa-chevron-down');
+        this.downBtn.firstElementChild.replaceWith(this.iElement);
+      }
+
+    });
+    this.parentContainer.addEventListener('scroll', () => {
+      if (this.container.querySelector('.downDirection')) {
+        this.container.querySelector('.downDirection').position = 'absolute';
+        this.container.querySelector('.downDirection').style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
+      }
+    });
+  }
+}
+
+class AppearElems {
+  constructor(display, delay, ...elems) {
+    this.display = display;
+    this.delay = delay;
+    this.elems = elems;
+  }
+
+  show() {
+    this.elems.map(async (elem) => {
+      console.log(elem);
+      if (elem) {
+        elem.style.display = this.display;
+        this.opacity = 0.0;
+        return await new Promise((resolve) => {
+          setTimeout(() => {
+            this.interval = setInterval(() => {
+              this.opacity = this.opacity + 0.1;
+              elem.style.opacity = this.opacity;
+              if (this.opacity > 1.0) {
+                clearInterval(this.interval);
+              }
+            }, 20);
+          }, this.delay);
+          resolve();
+        });
+      } else {
+        return;
+      }
     });
   }
 }
