@@ -2360,6 +2360,53 @@
 //   }
 // }
 
+
+
+// async function cityScores(city) {
+//   const url = `https://api.teleport.org/api/cities/?search=${city}&embed=city%3Asearch-results%2Fcity%3Aitem%2Fcity%3Aurban_area%2Fua%3Ascores`
+//   const response = await axios.get(url);
+//   console.log(response["data"]);
+// }
+
+
+// retrievePixabay
+// const pixabayURL = await pixResponse["data"]["hits"][0]["largeImageURL"];
+// return pixabayURL;
+
+
+
+// test
+// const dataJson = await axios.get(url);
+// const detailsUrl = await dataJson["data"]["_embedded"]["city:search-results"][0]["_links"]["city:item"]["href"];
+// const detailsData = await axios.get(detailsUrl);
+// const isoHref = await detailsData["data"]["_links"]["city:country"]["href"];
+// const iso_alpha2 = await (isoHref.split('/')[5]).split(':')[1];
+// if (iso_alpha2 == controller) {
+//   return city;
+// } else {
+//   return false;
+// }
+
+
+
+// for (let ua of this.UrbanAreaList) {
+//   console.log(ua["iso_alpha2"]);
+//   // if(ua["iso_alpha2"] == )
+// }
+
+// for (let city of this.listData) {
+//   if (this.UrbanAreaList.includes(city)) {
+//     this.firstFilteredArr.push(city);
+//   }
+// }
+
+// for (let elem of this.firstFilteredArr) {
+//   this.result = await filterCityList(elem, this.country);
+//   if (this.result && !this.secondFilteredArr.includes(this.result)) {
+//     this.secondFilteredArr.push(await this.result);
+//   }
+// }
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 

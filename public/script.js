@@ -35,42 +35,53 @@ inputField.addEventListener('change', async (event) => {
 });
 
 async function retrievePixabay(name) {
-  const wikiUrl = `wiki/${name}`;
-  const wikiResponse = await axios.get(wikiUrl);
-  const pixabayURL = await wikiResponse["data"]["hits"][0]["largeImageURL"];
-  return pixabayURL;
+  const url = `bkgImage/${name}`;
+  const pixData = new RetrieveData(url);
+  return pixResponse = await pixData.retrieve();
 }
 
 async function retrieveTeleportImage(name) {
-  const telUrl = `wiki/${name}`;
-  const telResponse = await axios.get(telUrl);
-  console.log(telResponse["data"]);
-}
-
-async function cityScores(city) {
-  const url = `https://api.teleport.org/api/cities/?search=${city}&embed=city%3Asearch-results%2Fcity%3Aitem%2Fcity%3Aurban_area%2Fua%3Ascores`
-  const response = await axios.get(url);
-  console.log(response["data"]);
+  const telUrl = `bkgImage/${name}`;
+  const telData = new RetrieveData(telUrl);
+  const telResponse = await telData.retrieve();
+  return telResponse["data"];
 }
 
 async function getCompleteListUrbanAreas(arr) {
   const url = `https://api.teleport.org/api/urban_areas`;
-  let completeDataset = await axios.get(url);
-  let completeUAListTotal = completeDataset["data"]["_links"]["ua:item"];
-  for (let elem of completeUAListTotal) {
-    arr.push(elem["name"]);
-  }
+  const listData = new RetrieveData(url);
+  const completeDataset = await listData.retrieve();
+  const completeUAListTotal = completeDataset["data"]["_links"]["ua:item"];
+  // console.log(completeUAListTotal);
+  // console.log('start');
+  completeUAListTotal.map(async (elem) => {
+    let data = new RetrieveData(elem["href"]);
+    let retrieves = await data.retrieve();
+
+    // let iso_alpha2 = (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
+
+    let uaObj = {
+      name: await retrieves["data"]["_links"]["ua:identifying-city"]["name"],
+      iso_alpha2: await (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
+    }
+    arr.push(uaObj);
+  })
+  // console.log('end');
+  // for (let elem of completeUAListTotal) {
+  //   arr.push(elem["name"]);
+  // }
   return arr;
 }
 
 
 async function filterCityList(city, controller) {
-  const url = `https://api.teleport.org/api/cities/?search=${city}`;
-  const dataJson = await axios.get(url);
-  const detailsUrl = await dataJson["data"]["_embedded"]["city:search-results"][0]["_links"]["city:item"]["href"];
-  const detailsData = await axios.get(detailsUrl);
-  const href = await detailsData["data"]["_links"]["city:country"]["href"];
-  const iso_alpha2 = await (href.split('/')[5]).split(':')[1];
+  const firstUrl = `https://api.teleport.org/api/cities/?search=${city}`;
+  const doubledata = new DoubleRetrieve(firstUrl);
+  const firstData = await doubledata.retrieve();
+  const secondUrl = await firstData["data"]["_embedded"]["city:search-results"][0]["_links"]["city:item"]["href"];
+  const secondData = await doubledata.secondRetrieve(secondUrl);
+  const isoHref = await secondData["data"]["_links"]["city:country"]["href"];
+  const iso_alpha2 = await (isoHref.split('/')[5]).split(':')[1];
   if (iso_alpha2 == controller) {
     return city;
   } else {
@@ -82,7 +93,36 @@ async function filterCityList(city, controller) {
 async function getRegionsList(country) {
   let completeCitiesOfACountryArray = [];
   const url = `https://api.teleport.org/api/countries/iso_alpha2%3A${country}/admin1_divisions/`;
-  const regionsJson = await axios.get(url);
+  const data = new RetrieveData(url);
+  const regionsJson = await data.retrieve();
+
+  // console.log(regionsJson["data"]["_links"]["a1:items"]);
+
+  // let arrayTest = regionsJson["data"]["_links"]["a1:items"];
+  // arrayTest.map(async (elem) => {
+  //   const regionsUrlforCities = `${elem["href"]}/cities`;
+  //   const data = new RetrieveData(regionsUrlforCities);
+  //   const dataByRegion = await data.retrieve();
+  //   const arr = await dataByRegion["data"]["_links"]["city:items"];
+  //   // console.log(arr);
+  //   arr.map(async (item) => {
+  //     completeCitiesOfACountryArray.push(await item["name"]);
+
+  //   })
+  //   return completeCitiesOfACountryArray;
+
+  // })
+
+
+
+  // for await (let elem of regionsJson["data"]["_links"]["a1:items"]) {
+  //   const regionsUrlforCities = `${elem["href"]}/cities`;
+  //   const data = new RetrieveData(regionsUrlforCities);
+  //   const dataByRegion = await data.retrieve();
+  //   const arr = await dataByRegion["data"]["_links"]["city:items"];
+  //   arr.map(elem => completeCitiesOfACountryArray.push(elem["name"]));
+
+
   for await (let elem of regionsJson["data"]["_links"]["a1:items"]) {
     const regionsUrlforCities = `${elem["href"]}/cities`;
     const dataByRegion = await axios.get(regionsUrlforCities);
@@ -90,11 +130,13 @@ async function getRegionsList(country) {
       completeCitiesOfACountryArray.push(elem["name"]);
     }
   }
+  // console.log(completeCitiesOfACountryArray);
+
+  // }
   return completeCitiesOfACountryArray;
 }
 
 async function retrieveAlternativeCities(info, input) {
-  // document.querySelector('#insertInput').blur();
   inputField.value = '';
   inputField.placeholder = 'Enter a new city...';
   inputField.blur();

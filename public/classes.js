@@ -468,22 +468,16 @@ class AlternativeCities {
 
   async createAlternatives() {
     this.country = this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
-    this.listData = await getRegionsList(this.country);
-    this.firstFilteredArr = [];
     this.secondFilteredArr = [];
 
-    for (let city of this.listData) {
-      if (this.UrbanAreaList.includes(city)) {
-        this.firstFilteredArr.push(city);
-      }
-    }
 
-    for (let elem of this.firstFilteredArr) {
-      this.result = await filterCityList(elem, this.country);
-      if (this.result && !this.secondFilteredArr.includes(this.result)) {
-        this.secondFilteredArr.push(await this.result);
+    console.log(this.country);
+
+    this.UrbanAreaList.map(ua => {
+      if (ua["iso_alpha2"] == this.country) {
+        this.secondFilteredArr.push(ua["name"]);
       }
-    }
+    });
   }
 
   async createButtons() {
@@ -556,6 +550,7 @@ class AppearElems {
               this.opacity = this.opacity + 0.1;
               elem.style.opacity = this.opacity;
               if (this.opacity > 1.0) {
+                this.opacity = 1.0;
                 clearInterval(this.interval);
               }
             }, 20);
@@ -566,5 +561,50 @@ class AppearElems {
         return;
       }
     });
+  }
+}
+
+class DisappearElems {
+  constructor(elem, delay) {
+    this.elem = elem;
+    this.delay = delay;
+  }
+  async notShow() {
+    this.opacity = 1.0;
+    return await new Promise((resolve) => {
+      setTimeout(() => {
+        this.interval = setInterval(() => {
+          opacity = opacity - 0.1;
+          this.elem.style.opacity = this.opacity;
+          if (this.opacity < 0) {
+            this.opacity = 0;
+            clearInterval(this.interval);
+            this.elem.style.display = 'none';
+            // elem.remove();
+          }
+        }, 20);
+      }, this.delay);
+      resolve();
+    });
+  }
+}
+
+class RetrieveData {
+  constructor(url) {
+    this.url = url;
+  }
+  async retrieve() {
+    return this.response = await axios.get(this.url);
+  }
+}
+
+class DoubleRetrieve extends RetrieveData {
+  constructor(url) {
+    super(url);
+  }
+  async secondRetrieve(secondUrl) {
+    // super.retrieve();
+    this.secondUrl = secondUrl;
+    return this.secondResponse = await axios.get(this.secondUrl);
   }
 }

@@ -26,7 +26,7 @@ app.use(express.json({
 }));
 
 
-app.get('/wiki/:cityname', async (request, response) => {
+app.get('/bkgImage/:cityname', async (request, response) => {
   const cityName = request.params.cityname;
   let fileUrl;
 
