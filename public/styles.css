@@ -40,7 +40,9 @@ body {
   /* modifica recente ------------------------ */
   /* grid-template-rows: 0.2fr 0.8fr; */
   /* background: linear-gradient(rgb(28, 30, 39), rgb(110, 108, 108)); */
-  background: linear-gradient(rgb(228 229 233), rgb(140 139 139));
+  background: url('/assets/bkgImage.png'), linear-gradient(rgb(228 229 233), rgb(140 139 139));
+  background-position: center;
+  /* background: linear-gradient(rgb(228 229 233), rgb(140 139 139)); */
   overflow: hidden;
   font-family: -apple-system,
     BlinkMacSystemFont, sans-serif;
@@ -180,6 +182,7 @@ body {
 }
 
 #imgContainer {
+
   position: fixed;
   top: 0;
   width: 100vw;
@@ -194,6 +197,7 @@ body {
 
 
   filter: invert(100%);
+
   /* filter: grayscale(50%); */
 }
 
@@ -214,6 +218,7 @@ body {
   /* border-radius: 5vh; */
   overflow: hidden;
   z-index: 1;
+
   /* filter: invert(100%); */
   /* filter: grayscale(50%); */
 }

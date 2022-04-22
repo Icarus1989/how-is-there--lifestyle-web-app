@@ -37,16 +37,23 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
     response.json(jsonPixabay);
+    downloadAndCannyEdge(fileUrl);
+
   } catch {
 
-    const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
-    const dataTeleport = await axios.get(urlTeleport);
-    const jsonTeleport = await dataTeleport["data"];
-    fileUrl = await jsonTeleport["photos"][0]["image"]["web"];
-    response.json(jsonTeleport);
+    try {
+      const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
+      const dataTeleport = await axios.get(urlTeleport);
+      const jsonTeleport = await dataTeleport["data"];
+      fileUrl = await jsonTeleport["photos"][0]["image"]["web"];
+      response.json(jsonTeleport);
+      downloadAndCannyEdge(fileUrl);
+
+    } catch (error) {
+      response.json(error);
+    }
   }
 
-  downloadAndCannyEdge(fileUrl);
 
 });
 
@@ -132,7 +139,6 @@ async function downloadAndCannyEdge(url) {
       }
     });
   }
-
   const response = await fetch(url);
   const buffer = await response.buffer();
   let writeFile = fs.writeFile(`public/tempImage/image.png`, await buffer, async () => {
@@ -148,4 +154,6 @@ async function downloadAndCannyEdge(url) {
     return edge.save('public/cannyImage/edge.png');
   });
   return writeFile;
+
+
 }

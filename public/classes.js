@@ -190,9 +190,12 @@ class Menu {
           })
         });
 
-        this.list.style.marginBottom = (this.list.children[0].getBoundingClientRect().height) * 2 + 'px';
 
-        if (this.list.clientHeight > this.menuContainer.clientHeight) {
+        if (this.list.children.length == 0) {
+          this.menuContainer.style.height = '100px';
+          this.header.textContent = 'No cities saved.';
+        } else if (this.list.clientHeight > this.menuContainer.clientHeight) {
+          this.list.style.marginBottom = (this.list.children[0].getBoundingClientRect().height) * 2 + 'px';
           createNavButton('down', this.menuContainer, 'absolute');
           this.menuContainer.addEventListener('scroll', () => {
 
@@ -367,14 +370,27 @@ class CityData {
     this.secondPath = 'tempImage/image.png';
 
     retrievePixabay(this.city).then(() => {
-      loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
-      loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
-    }).catch((error) => {
+      try {
+        loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
+        loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
+      } catch (error) {
+        console.log('HEY Error!');
+        console.log(error.name);
+        throw new Error(error);
+      }
+    }).catch(() => {
       retrieveTeleportImage(this.city).then(() => {
         loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
-      });
+      }).catch((err) => {
+        console.log('hey an error');
+        throw new Error(err);
+      })
     });
+
+
+
+
   }
 
   createAlternatives(info) {

@@ -6,19 +6,11 @@ let UrbanAreasCompleteList = [];
 
 let arr = [];
 
-// testing
-// document.documentElement.style.width = "100vh";
-// document.body.style.width = "100vh";
-// testing
-
-
-
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
 
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 1.5 + 'px';
-
 inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
@@ -32,7 +24,6 @@ inputField.addEventListener('change', async (event) => {
     fill: 'forwards'
   });
   searchCity(event.target);
-
 });
 
 async function retrievePixabay(name) {
@@ -89,22 +80,16 @@ async function retrieveAlternativeCities(info, input) {
   let spinner = new Spinner(resultsCont);
 
   try {
-    // inizio spinner
-
     indication.firstIndication();
-
     spinner.drawSpinner();
-
     let alternatesContainer = document.createElement('fieldset');
     let legend = document.createElement('legend');
     legend.textContent = 'Cities available for this Country:';
     alternatesContainer.append(legend);
     alternatesContainer.classList.add('alternatesContainer');
-
     let alternatives = new AlternativeCities(UrbanAreasCompleteList, info, input, alternatesContainer, resultsCont);
     let alternativesCities = await alternatives.createAlternatives();
     let alternativesButtons = await alternatives.createButtons();
-
     spinner.removeSpinner();
     indication.secondIndication();
     resultsCont.children[0].append(alternatesContainer);
@@ -151,7 +136,6 @@ async function retrieveAlternativeCities(info, input) {
     inputField.value = '';
     inputField.placeholder = 'Enter a new city...';
     inputField.blur();
-    // INDICATION
     indication.thirdIndication();
     spinner.removeSpinner();
     inputField.addEventListener('change', () => {
@@ -215,7 +199,6 @@ function createSaveBtn(container) {
 function loadImage(image, container, resultsContainer, path) {
 
   if (image) {
-    // image.delete();
     image.style.width = "250vw";
     image.style.height = (container.clientHeight * 1.01) + "px";;
     if (container.clientHeight < container.clientWidth) {
@@ -242,18 +225,11 @@ function loadImage(image, container, resultsContainer, path) {
         let test = await response.blob();
         let urlObj = URL.createObjectURL(await test);
         image.src = await urlObj;
-        // let image = new Image(test);
-        // image.width = '300px';
-        // console.log(image);
-        // console.log(test);
-        // image.src = await path;
       }, 500);
       image.addEventListener('load', () => {
-        // image.src = await path;
-        // console.log('load...');
         container.append(image);
       });
-    } catch {
+    } catch (error) {
       console.log(error);
     }
 
@@ -279,27 +255,21 @@ function loadImage(image, container, resultsContainer, path) {
     }
     image.src = '';
 
-    try {
-      setTimeout(async () => {
-        image.src = await path;
-      }, 1200);
 
-      image.addEventListener('load', () => {
-        // image.src = await path;
-        // console.log('load...');
-        container.append(image);
-      });
-    } catch {
-      setTimeout(async () => {
-        image.src = await path;
-      }, 1200);
+    setTimeout(() => {
+      try {
+        image.src = path;
 
-      image.addEventListener('load', () => {
-        // image.src = await path;
-        // console.log('load...');
-        container.append(image);
-      });
-    }
+      } catch (err) {
+        console.log('hey error!');
+        console.log(err.name);
+      }
+    }, 1200);
+
+    image.addEventListener('load', () => {
+      container.append(image);
+    });
+
 
     resultsContainer.addEventListener('scroll', (event) => {
       image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
@@ -443,24 +413,16 @@ async function createIconBtn(container, icon) {
   container.append(menuBtn);
 }
 
-// testing
 window.addEventListener('load', () => {
   getCompleteListUrbanAreas(UrbanAreasCompleteList);
 });
-// testing
 
-// forse inutile ai fini pratici
 window.addEventListener('resize', () => {
   mainContainer.style.height = '100vh';
-  // document.querySelector('#imgContainer').style.width = '100vw';
-  // document.querySelector('#imgContainer').style.height = '100vh';
-  // document.querySelector('#secondImgContainer').style.width = '100vw';
-  // document.querySelector('#secondImgContainer').style.height = '100vh';
-  // document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
-  // document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
+  document.querySelector('#imgContainer').style.width = '100vw';
+  document.querySelector('#imgContainer').style.height = '100vh';
+  document.querySelector('#secondImgContainer').style.width = '100vw';
+  document.querySelector('#secondImgContainer').style.height = '100vh';
+  document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
+  document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
 });
-
-// document.body.addEventListener('scroll', () => {
-//   mainContainer.scrollTo(0, 0);
-// });
-// forse inutile ai fini pratici
