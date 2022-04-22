@@ -2407,6 +2407,38 @@
 //   }
 // }
 
+// async function filterCityList(city, controller) {
+//   const firstUrl = `https://api.teleport.org/api/cities/?search=${city}`;
+//   const doubledata = new DoubleRetrieve(firstUrl);
+//   const firstData = await doubledata.retrieve();
+//   const secondUrl = await firstData["data"]["_embedded"]["city:search-results"][0]["_links"]["city:item"]["href"];
+//   const secondData = await doubledata.secondRetrieve(secondUrl);
+//   const isoHref = await secondData["data"]["_links"]["city:country"]["href"];
+//   const iso_alpha2 = await (isoHref.split('/')[5]).split(':')[1];
+//   if (iso_alpha2 == controller) {
+//     return city;
+//   } else {
+//     return false;
+//   }
+// }
+
+
+// async function getRegionsList(country) {
+//   let completeCitiesOfACountryArray = [];
+//   const url = `https://api.teleport.org/api/countries/iso_alpha2%3A${country}/admin1_divisions/`;
+//   const data = new RetrieveData(url);
+//   const regionsJson = await data.retrieve();
+
+//   for await (let elem of regionsJson["data"]["_links"]["a1:items"]) {
+//     const regionsUrlforCities = `${elem["href"]}/cities`;
+//     const dataByRegion = await axios.get(regionsUrlforCities);
+//     for await (let elem of dataByRegion["data"]["_links"]["city:items"]) {
+//       completeCitiesOfACountryArray.push(elem["name"]);
+//     }
+//   }
+//   return completeCitiesOfACountryArray;
+// }
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 

@@ -249,7 +249,6 @@ class CityData {
     this.inputElement = inputElement;
     this.url = `https://api.teleport.org/api/cities/?search=${this.inputElement.value}&embed=city:search-results/city:item/city:country&embed=city:search-results/city:item/city:admin1_division&embed=city:search-results/city:item/city:urban_area&embed=ua:item/ua:scores&embed=ua:item/ua:images&embed=city:search-results/city:item/city:timezone/tz:offsets-now`;
     this.container = container;
-    // <--- document.querySelector('#mainContainer')
     this.savingCount = 0;
     this.fromDb = false;
 
@@ -352,13 +351,6 @@ class CityData {
     console.log(this.infoScores);
     this.cityDescription = await this.infoScores["summary"];
     createDescription(this.nameAndState, this.continent, this.ranking, document.querySelector('.descriptionBox'), this.cityDescription, document.querySelectorAll('.dataDisplay')[0]);
-    // this.descriptionBox = document.querySelector('.descriptionBox');
-    // console.log(document.querySelector('.descriptionBox'));
-    // this.pElemsHeight = 0;
-    // for (this.pElem of document.querySelector('.descriptionBox').children) {
-    //   this.pElemsHeight += this.pElem.getBoundingClientRect().height;
-    // }
-
     this.tableData = this.infoScores["categories"];
     this.dataFirstPart = this.tableData.slice(0, 9);
     this.dataSecondPart = this.tableData.slice(9, this.tableData.length);
@@ -468,21 +460,17 @@ class AlternativeCities {
 
   async createAlternatives() {
     this.country = this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
-    this.secondFilteredArr = [];
-
-
-    console.log(this.country);
-
+    this.filteredArr = [];
     this.UrbanAreaList.map(ua => {
       if (ua["iso_alpha2"] == this.country) {
-        this.secondFilteredArr.push(ua["name"]);
+        this.filteredArr.push(ua["name"]);
       }
     });
   }
 
   async createButtons() {
     this.counter = 0;
-    this.secondFilteredArr.sort().map((elem) => {
+    this.filteredArr.sort().map((elem) => {
       this.btn = document.createElement('button');
       this.btn.textContent = elem;
       this.container.append(this.btn);

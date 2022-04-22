@@ -52,88 +52,19 @@ async function getCompleteListUrbanAreas(arr) {
   const listData = new RetrieveData(url);
   const completeDataset = await listData.retrieve();
   const completeUAListTotal = completeDataset["data"]["_links"]["ua:item"];
-  // console.log(completeUAListTotal);
-  // console.log('start');
   completeUAListTotal.map(async (elem) => {
-    let data = new RetrieveData(elem["href"]);
-    let retrieves = await data.retrieve();
-
-    // let iso_alpha2 = (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
+    const data = new RetrieveData(elem["href"]);
+    const retrieves = await data.retrieve();
+    const uaName = await retrieves["data"]["_links"]["ua:identifying-city"]["name"]
+    const ua_iso_alpha2 = await (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
 
     let uaObj = {
-      name: await retrieves["data"]["_links"]["ua:identifying-city"]["name"],
-      iso_alpha2: await (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
+      name: uaName,
+      iso_alpha2: ua_iso_alpha2
     }
     arr.push(uaObj);
-  })
-  // console.log('end');
-  // for (let elem of completeUAListTotal) {
-  //   arr.push(elem["name"]);
-  // }
+  });
   return arr;
-}
-
-
-async function filterCityList(city, controller) {
-  const firstUrl = `https://api.teleport.org/api/cities/?search=${city}`;
-  const doubledata = new DoubleRetrieve(firstUrl);
-  const firstData = await doubledata.retrieve();
-  const secondUrl = await firstData["data"]["_embedded"]["city:search-results"][0]["_links"]["city:item"]["href"];
-  const secondData = await doubledata.secondRetrieve(secondUrl);
-  const isoHref = await secondData["data"]["_links"]["city:country"]["href"];
-  const iso_alpha2 = await (isoHref.split('/')[5]).split(':')[1];
-  if (iso_alpha2 == controller) {
-    return city;
-  } else {
-    return false;
-  }
-}
-
-
-async function getRegionsList(country) {
-  let completeCitiesOfACountryArray = [];
-  const url = `https://api.teleport.org/api/countries/iso_alpha2%3A${country}/admin1_divisions/`;
-  const data = new RetrieveData(url);
-  const regionsJson = await data.retrieve();
-
-  // console.log(regionsJson["data"]["_links"]["a1:items"]);
-
-  // let arrayTest = regionsJson["data"]["_links"]["a1:items"];
-  // arrayTest.map(async (elem) => {
-  //   const regionsUrlforCities = `${elem["href"]}/cities`;
-  //   const data = new RetrieveData(regionsUrlforCities);
-  //   const dataByRegion = await data.retrieve();
-  //   const arr = await dataByRegion["data"]["_links"]["city:items"];
-  //   // console.log(arr);
-  //   arr.map(async (item) => {
-  //     completeCitiesOfACountryArray.push(await item["name"]);
-
-  //   })
-  //   return completeCitiesOfACountryArray;
-
-  // })
-
-
-
-  // for await (let elem of regionsJson["data"]["_links"]["a1:items"]) {
-  //   const regionsUrlforCities = `${elem["href"]}/cities`;
-  //   const data = new RetrieveData(regionsUrlforCities);
-  //   const dataByRegion = await data.retrieve();
-  //   const arr = await dataByRegion["data"]["_links"]["city:items"];
-  //   arr.map(elem => completeCitiesOfACountryArray.push(elem["name"]));
-
-
-  for await (let elem of regionsJson["data"]["_links"]["a1:items"]) {
-    const regionsUrlforCities = `${elem["href"]}/cities`;
-    const dataByRegion = await axios.get(regionsUrlforCities);
-    for await (let elem of dataByRegion["data"]["_links"]["city:items"]) {
-      completeCitiesOfACountryArray.push(elem["name"]);
-    }
-  }
-  // console.log(completeCitiesOfACountryArray);
-
-  // }
-  return completeCitiesOfACountryArray;
 }
 
 async function retrieveAlternativeCities(info, input) {
@@ -514,17 +445,17 @@ async function createIconBtn(container, icon) {
 // 
 
 // forse inutile ai fini pratici
-window.addEventListener('resize', () => {
-  mainContainer.style.height = '100vh';
-  document.querySelector('#imgContainer').style.width = '100vw';
-  document.querySelector('#imgContainer').style.height = '100vh';
-  document.querySelector('#secondImgContainer').style.width = '100vw';
-  document.querySelector('#secondImgContainer').style.height = '100vh';
-  document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
-  document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
-});
+// window.addEventListener('resize', () => {
+//   mainContainer.style.height = '100vh';
+//   document.querySelector('#imgContainer').style.width = '100vw';
+//   document.querySelector('#imgContainer').style.height = '100vh';
+//   document.querySelector('#secondImgContainer').style.width = '100vw';
+//   document.querySelector('#secondImgContainer').style.height = '100vh';
+//   document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
+//   document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
+// });
 
-document.body.addEventListener('scroll', () => {
-  mainContainer.scrollTo(0, 0);
-});
+// document.body.addEventListener('scroll', () => {
+//   mainContainer.scrollTo(0, 0);
+// });
 // forse inutile ai fini pratici
