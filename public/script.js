@@ -445,15 +445,15 @@ async function createIconBtn(container, icon) {
 // 
 
 // forse inutile ai fini pratici
-// window.addEventListener('resize', () => {
-//   mainContainer.style.height = '100vh';
-//   document.querySelector('#imgContainer').style.width = '100vw';
-//   document.querySelector('#imgContainer').style.height = '100vh';
-//   document.querySelector('#secondImgContainer').style.width = '100vw';
-//   document.querySelector('#secondImgContainer').style.height = '100vh';
-//   document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
-//   document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
-// });
+window.addEventListener('resize', () => {
+  mainContainer.style.height = '100vh';
+  document.querySelector('#imgContainer').style.width = '100vw';
+  document.querySelector('#imgContainer').style.height = '100vh';
+  document.querySelector('#secondImgContainer').style.width = '100vw';
+  document.querySelector('#secondImgContainer').style.height = '100vh';
+  document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
+  document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
+});
 
 // document.body.addEventListener('scroll', () => {
 //   mainContainer.scrollTo(0, 0);
