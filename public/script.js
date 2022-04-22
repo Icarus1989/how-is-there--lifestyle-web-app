@@ -11,7 +11,8 @@ document.documentElement.style.width = "100vh";
 document.body.style.width = "100vh";
 // testing
 
-getCompleteListUrbanAreas(UrbanAreasCompleteList);
+
+
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
@@ -442,7 +443,11 @@ async function createIconBtn(container, icon) {
   container.append(menuBtn);
 }
 
-// 
+// testing
+window.addEventListener('load', () => {
+  getCompleteListUrbanAreas(UrbanAreasCompleteList);
+});
+// testing
 
 // forse inutile ai fini pratici
 window.addEventListener('resize', () => {
