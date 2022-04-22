@@ -7,8 +7,8 @@ let UrbanAreasCompleteList = [];
 let arr = [];
 
 // testing
-document.documentElement.style.width = "100vh";
-document.body.style.width = "100vh";
+// document.documentElement.style.width = "100vh";
+// document.body.style.width = "100vh";
 // testing
 
 
