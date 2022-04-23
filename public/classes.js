@@ -265,7 +265,6 @@ class CityData {
   async cityQueryDb() {
     this.info = await this.cityInfo();
     this.name = (this.inputElement.value[0]).toUpperCase() + (this.inputElement.value).slice(1);
-    console.log(this.info);
     this.city = (await (this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"]).split(',')[0]) || (this.name);
 
     this.dbQueryName = {
@@ -325,10 +324,13 @@ class CityData {
         console.log('Saved on db');
       }
     });
+
     return this.infoScores;
   }
 
   async inDatabase() {
+
+
     this.saveButton = document.querySelector('.saveBtn');
     appearElement(this.saveButton, 500, 'grid');
     this.infoScores = this.dbDatas;
@@ -360,40 +362,31 @@ class CityData {
     createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
     createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
 
-    this.inputElement.textContent = '';
-    this.inputElement.placeholder = 'Enter a new city...';
-    this.inputElement.blur();
-
     this.firstContainer = document.querySelector('#imgContainer');
     this.firstPath = 'cannyImage/edge.png';
     this.secondContainer = document.querySelector('#secondImgContainer');
     this.secondPath = 'tempImage/image.png';
+    this.emergencyPath = 'assets/bkgImage.png';
 
     retrievePixabay(this.city).then(() => {
-      try {
-        loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
-        loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
-      } catch (error) {
-        console.log('HEY Error!');
-        console.log(error.name);
-        throw new Error(error);
-      }
+      loadImage(this.secodContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
+      loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
     }).catch(() => {
       retrieveTeleportImage(this.city).then(() => {
         loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
       }).catch((err) => {
-        console.log('hey an error');
+        // capire se tenere e cosa mettere
         throw new Error(err);
       })
     });
 
-
-
-
   }
 
   createAlternatives(info) {
+    this.inputElement.textContent = '';
+    this.inputElement.placeholder = 'Enter a new city...';
+    this.inputElement.blur();
     this.info = info;
     if (document.querySelector('.descriptionBox')) {
       disappearElement(document.querySelector('.descriptionBox'), 0);
@@ -544,7 +537,6 @@ class AppearElems {
 
   show() {
     this.elems.map(async (elem) => {
-      console.log(elem);
       if (elem) {
         elem.style.display = this.display;
         this.opacity = 0.0;

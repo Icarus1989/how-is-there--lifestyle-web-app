@@ -109,7 +109,11 @@ async function retrieveAlternativeCities(info, input) {
           appearInline.show();
         }
         indication.nullIndication();
-      });
+      })
+      // .then(() => {
+      //   let cleanInput = new cleanInputField(document.querySelector('#insertInput'));
+      //   cleanInput.cancelInput();
+      // })
     });
 
     alternatesContainer.addEventListener('click', (event) => {
@@ -123,8 +127,8 @@ async function retrieveAlternativeCities(info, input) {
             appearBlock.show();
             let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
             appearInline.show();
-          });
-        });
+          })
+        })
         indication.nullIndication();
       } else {
         return;
@@ -220,16 +224,17 @@ function loadImage(image, container, resultsContainer, path) {
     try {
       image.src = '';
       setTimeout(async () => {
-        // image.src = '';
         let response = await fetch(path, options);
-        let test = await response.blob();
-        let urlObj = URL.createObjectURL(await test);
+        let blob = await response.blob();
+        let urlObj = URL.createObjectURL(await blob);
         image.src = await urlObj;
       }, 500);
       image.addEventListener('load', () => {
         container.append(image);
       });
     } catch (error) {
+      // capire se tenere e cosa mettere
+      console.log('hey an error');
       console.log(error);
     }
 
@@ -255,20 +260,23 @@ function loadImage(image, container, resultsContainer, path) {
     }
     image.src = '';
 
+    try {
+      setTimeout(async () => {
+        image.src = await path;
+      }, 1200);
 
-    setTimeout(() => {
-      try {
-        image.src = path;
+      image.addEventListener('load', () => {
+        container.append(image);
+      });
+    } catch {
+      setTimeout(async () => {
+        image.src = await path;
+      }, 1200);
 
-      } catch (err) {
-        console.log('hey error!');
-        console.log(err.name);
-      }
-    }, 1200);
-
-    image.addEventListener('load', () => {
-      container.append(image);
-    });
+      image.addEventListener('load', () => {
+        container.append(image);
+      });
+    }
 
 
     resultsContainer.addEventListener('scroll', (event) => {
@@ -289,6 +297,9 @@ async function searchCity(input) {
       } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
         infoScores = await cityData.inDatabase();
       }
+      input.value = '';
+      input.placeholder = 'Enter a new city...';
+      input.blur();
       cityData.createElements(infoScores);
     } catch {
       cityData.createAlternatives(info);
@@ -309,7 +320,6 @@ async function disappearElement(elem, delay) {
         if (opacity < 0) {
           clearInterval(interval);
           elem.style.display = 'none';
-          // elem.remove();
         }
       }, 20);
     }, delay);

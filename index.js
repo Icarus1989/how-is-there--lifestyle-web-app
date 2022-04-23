@@ -50,7 +50,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
       downloadAndCannyEdge(fileUrl);
 
     } catch (error) {
-      response.json(error);
+      response.json(error["data"]);
     }
   }
 
