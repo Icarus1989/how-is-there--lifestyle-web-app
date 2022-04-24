@@ -266,10 +266,11 @@ table {
   border-radius: 4vh;
   /* border-left: 2px solid rgb(220, 220, 220); */
 
-  border-left: 4px solid rgb(218, 215, 215);
+  /* border-left: 4px solid rgb(218, 215, 215);
   border-top: 1px solid transparent;
   border-right: 1px solid transparent;
-  border-bottom: 4px solid rgb(218, 215, 215);
+  border-bottom: 4px solid rgb(218, 215, 215); */
+  border: 1px solid transparent;
 
 
   letter-spacing: 1vw;
@@ -323,7 +324,7 @@ h2 {
   box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
   background: rgba(13, 13, 13, 0.7);
   box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
-  border: 0px solid transparent;
+  border: 1px solid transparent;
   /* test */
   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
 
@@ -372,7 +373,8 @@ table>tbody>tr>th {
   text-align: center;
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
   /* border-radius: 10px; */
-  background: radial-gradient(circle at 100% 30%, transparent 82%, #f6f6f667 100%);
+  /* background: radial-gradient(circle at 100% 30%, transparent 82%, #f6f6f667 100%); */
+  
 }
 
 /* table>tbody>tr>th:first-of-type {
@@ -384,7 +386,10 @@ table>tbody>tr>th {
 table>tbody>tr {
   /* margin-top: 10px; */
   /* background-color: rgb(50, 50, 50, 0.6); */
-  background: rgb(50, 50, 50, 0.7);
+  /* background: rgb(50, 50, 50, 0.7); */
+  background: rgba(13, 13, 13, 0.7);
+  box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+  border: 0px solid transparent;
 
   /* backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(2px); */
@@ -930,10 +935,9 @@ table>tbody>tr>td {
     font-size: 1.4vw;
     padding: 1.5vw 0vw 1.5vw 0vw;
     border-radius: 2vw;
-    border-left: 0.5vw solid rgb(218, 215, 215);
-    border-top: 0vw solid transparent;
-    border-right: 0vw solid transparent;
-    border-bottom: 0.5vw solid rgb(218, 215, 215);
+    background: rgba(13, 13, 13, 0.7);
+    box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+    border: 1px solid transparent;
     margin: 0;
   }
 
@@ -952,10 +956,9 @@ table>tbody>tr>td {
   .rank {
     width: 35vw;
     padding: 1.5vw 0vw 1.5vw 0vw;
-    border-left: 0.5vw solid rgb(218, 215, 215);
-    border-top: 0vw solid transparent;
-    border-right: 0vw solid transparent;
-    border-bottom: 0.5vw solid rgb(218, 215, 215);
+    background: rgba(13, 13, 13, 0.7);
+    box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+    border: 1px solid transparent;
   }
 
   #imgContainer {
