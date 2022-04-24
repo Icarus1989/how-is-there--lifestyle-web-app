@@ -2532,3 +2532,104 @@
 // console.log((wikiJson["query"]["pages"])[Object.keys(wikiJson["query"]["pages"])]["thumbnail"]["source"]);
 // return new Promise;
 // return wikiLink = await (wikiJson["query"]["pages"])[Object.keys(wikiJson["query"]["pages"])]["thumbnail"]["source"];
+
+
+
+
+// Styles
+
+// h2 {
+//   /* position: absolute;
+//   top: 0%; */
+//   color: white;
+
+//   /* display: grid; */
+//   /* 
+//   text-align: center;
+//   place-items: center;
+//   justify-content: end; */
+//   min-width: 70vw;
+//   max-width: 85vw;
+//   font-size: 2.3vh;
+//   padding: 3vw 5vw 3vw 5vw;
+//   /* border: 2px solid white; */
+//   /* border-left: 3px solid rgb(218, 215, 215);
+//   border-top: 0px solid transparent;
+//   border-right: 0px solid transparent;
+//   border-bottom: 3px solid rgb(218, 215, 215); */
+//   /* border: 0px solid black; */
+
+//   margin-left: 2vw;
+//   margin-right: 2vw;
+//   margin-top: 0vw;
+//   margin-bottom: 0vw;
+//   border-radius: 18px;
+//   /* justify-content: end; */
+//   text-align: center;
+//   text-shadow: 4px 3px 3px rgb(15, 15, 15);
+//   /* test */
+//   /* background: rgb(15, 15, 15, 0.7);
+//   box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
+//   background: rgba(13, 13, 13, 0.7);
+//   box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+//   border: 1px solid transparent;
+//   /* test */
+//   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
+
+//   /* backdrop-filter: blur(2px);
+//   -webkit-backdrop-filter: blur(10px); */
+// }
+
+// .descriptionBox>p {
+//   font-size: 3.4vw;
+//   /* background: rgb(50, 50, 50, 0.7); */
+//   /* background: radial-gradient(circle at 140% 22%, black 82%, #626161 100%); */
+//   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
+//   /* test */
+//   /* background: rgb(15, 15, 15, 0.7);
+//   box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
+//   background: rgba(13, 13, 13, 0.7);
+//   box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+//   border: 0px solid transparent;
+//   /* test */
+//   padding: 3vw 5vw 3vw 5vw;
+//   margin-bottom: 0;
+//   margin-top: 4vw;
+
+
+//   /* border: 2px solid white; */
+//   /* border-left: 2px solid rgb(218, 215, 215);
+//   border-top: 0px solid transparent;
+//   border-right: 0px solid transparent;
+//   border-bottom: 2px solid rgb(218, 215, 215); */
+//   /* border: 0px solid black; */
+//   border-radius: 18px;
+
+//   line-height: 2.5vh;
+//   /* aggiungere a tablet e desktop */
+
+// }
+
+// .rank {
+//   width: 85 vw;
+//   color: white;
+//   padding: 3 vw 0 vw 3 vw 0 vw;
+//   /* background: rgba(15,15,15, 0.7); */
+//   /* border-left: 3px solid rgb(218, 215, 215);
+//   border-top: 0px solid transparent;
+//   border-right: 0px solid transparent;
+//   border-bottom: 3px solid rgb(218, 215, 215); */
+
+//   margin - left: 2 vw;
+//   margin - right: 2 vw;
+//   border - radius: 18 px;
+//   text - align: center;
+//   text - shadow: 4 px 3 px 3 px rgb(15, 15, 15);
+//   /* box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
+
+//   background: rgba(13, 13, 13, 0.7);
+//   box - shadow: 0 px 0 px 15 px #1e1e1e, 0px 0px 30px # 0 a0a0ae0;
+//   border: 0 px solid transparent;
+
+//   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
+// }

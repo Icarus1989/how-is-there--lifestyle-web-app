@@ -369,7 +369,7 @@ class CityData {
     this.emergencyPath = 'assets/bkgImage.png';
 
     retrievePixabay(this.city).then(() => {
-      loadImage(this.secodContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
+      loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
       loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
     }).catch(() => {
       retrieveTeleportImage(this.city).then(() => {

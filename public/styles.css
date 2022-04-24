@@ -149,30 +149,21 @@ body {
   /* background: rgb(50, 50, 50, 0.7); */
   /* background: radial-gradient(circle at 140% 22%, black 82%, #626161 100%); */
   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
-  /* test */
-  /* background: rgb(15, 15, 15, 0.7);
-  box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
   background: rgba(13, 13, 13, 0.7);
-  box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+  /* box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0; */
   border: 0px solid transparent;
-  /* test */
   padding: 3vw 5vw 3vw 5vw;
   margin-bottom: 0;
   margin-top: 4vw;
-
-
   /* border: 2px solid white; */
-  /* border-left: 2px solid rgb(218, 215, 215);
-  border-top: 0px solid transparent;
-  border-right: 0px solid transparent;
-  border-bottom: 2px solid rgb(218, 215, 215); */
   /* border: 0px solid black; */
-  border-radius: 18px;
-
+  border-radius: 0px 18px 18px 0px;
   line-height: 2.5vh;
-  /* aggiungere a tablet e desktop */
-
+  margin-left: -3vw;
 }
+
+/* vedi garbage per vecchi stili */
+
 
 .dataDisplay {
   display: grid;
@@ -291,70 +282,48 @@ table {
 }
 
 h2 {
-  /* position: absolute;
-  top: 0%; */
   color: white;
-
   /* display: grid; */
-  /* 
-  text-align: center;
-  place-items: center;
-  justify-content: end; */
   min-width: 70vw;
   max-width: 85vw;
   font-size: 2.3vh;
   padding: 3vw 5vw 3vw 5vw;
   /* border: 2px solid white; */
-  /* border-left: 3px solid rgb(218, 215, 215);
-  border-top: 0px solid transparent;
-  border-right: 0px solid transparent;
-  border-bottom: 3px solid rgb(218, 215, 215); */
   /* border: 0px solid black; */
-
   margin-left: 2vw;
-  margin-right: 2vw;
+  margin-right: -18vw;
   margin-top: 0vw;
   margin-bottom: 0vw;
-  border-radius: 18px;
+  border-radius: 18px 0px 0px 18px;
   /* justify-content: end; */
-  text-align: center;
-  text-shadow: 4px 3px 3px rgb(15, 15, 15);
-  /* test */
-  /* background: rgb(15, 15, 15, 0.7);
-  box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
+  text-align: left;
+  text-shadow: 4px 3px 3px rgb(15 15 15);
   background: rgba(13, 13, 13, 0.7);
-  box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+  /* box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0; */
   border: 1px solid transparent;
-  /* test */
   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
-
-  /* backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(10px); */
 }
 
+/* vedi garbage per vecchi stili */
+
 .rank {
-  width: 85vw;
+  width: 91vw;
   color: white;
   padding: 3vw 0vw 3vw 0vw;
   /* background: rgba(15,15,15, 0.7); */
-  /* border-left: 3px solid rgb(218, 215, 215);
-  border-top: 0px solid transparent;
-  border-right: 0px solid transparent;
-  border-bottom: 3px solid rgb(218, 215, 215); */
-  
   margin-left: 2vw;
-  margin-right: 2vw;
-  border-radius: 18px;
+  margin-right: -7vw;
+  border-radius: 18px 0px 0px 18px;
   text-align: center;
-  text-shadow: 4px 3px 3px rgb(15, 15, 15);
+  text-shadow: 4px 3px 3px rgb(15 15 15);
   /* box-shadow: 0px 0px 10px black, 0px 0px 35px #000000c9; */
-
   background: rgba(13, 13, 13, 0.7);
-  box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
+  /* box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0; */
   border: 0px solid transparent;
-
   /* background: radial-gradient(circle at 100% 30%, rgb(50, 50, 50, 0.7) 82%, #888686 100%); */
 }
+
+/* vedi garbage per vecchi stili */
 
 table>tbody {
   width: auto;

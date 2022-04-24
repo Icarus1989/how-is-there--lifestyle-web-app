@@ -200,89 +200,131 @@ function createSaveBtn(container) {
   container.append(saveBtn);
 }
 
-function loadImage(image, container, resultsContainer, path) {
+function loadImage(img, container, resultsContainer, path) {
 
-  if (image) {
-    image.style.width = "250vw";
-    image.style.height = (container.clientHeight * 1.01) + "px";;
-    if (container.clientHeight < container.clientWidth) {
-      image.style.width = "100vw";
-      image.style.height = container.clientHeight + "px";
-      image.style.left = "-10%";
-      image.style.top = "-50vh";
-    } else {
-      image.style.position = "relative";
-      image.style.left = "-10%";
-      image.style.bottom = "0px";
-    }
+  if (img) {
+    img.remove();
+  }
+  let image = document.createElement('img');
+  image.style.width = "250vw";
+  image.style.height = (container.clientHeight) + "px";
 
-    const options = {
-      method: 'GET',
-      cache: 'no-cache'
-    }
-
-    try {
-      image.src = '';
-      setTimeout(async () => {
-        let response = await fetch(path, options);
-        let blob = await response.blob();
-        let urlObj = URL.createObjectURL(await blob);
-        image.src = await urlObj;
-      }, 500);
-      image.addEventListener('load', () => {
-        container.append(image);
-      });
-    } catch (error) {
-      // capire se tenere e cosa mettere
-      console.log('hey an error');
-      console.log(error);
-    }
-
-    resultsContainer.scrollTo(0, 0);
-
-    resultsContainer.addEventListener('scroll', (event) => {
-      image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
-    });
+  if (container.clientHeight < container.clientWidth) {
+    image.style.width = "100vw";
+    image.style.height = container.clientHeight + "px";
+    image.style.top = "-50vh";
+    image.style.left = "-10%";
   } else {
-    let image = document.createElement('img');
-    image.style.width = "250vw";
-    image.style.height = (container.clientHeight) + "px";
+    image.style.position = "relative";
+    image.style.left = "-10%";
+    image.style.bottom = "0px";
+  }
+  image.src = '';
 
-    if (container.clientHeight < container.clientWidth) {
-      image.style.width = "100vw";
-      image.style.height = container.clientHeight + "px";
-      image.style.top = "-50vh";
-      image.style.left = "-10%";
-    } else {
-      image.style.position = "relative";
-      image.style.left = "-10%";
-      image.style.bottom = "0px";
-    }
-    image.src = '';
+  try {
+    setTimeout(async () => {
+      image.src = await path;
+    }, 1200);
 
-    try {
-      setTimeout(async () => {
-        image.src = await path;
-      }, 1200);
+    image.addEventListener('load', () => {
+      container.append(image);
+    });
+  } catch {
+    setTimeout(async () => {
+      image.src = await path;
+    }, 1200);
 
-      image.addEventListener('load', () => {
-        container.append(image);
-      });
-    } catch {
-      setTimeout(async () => {
-        image.src = await path;
-      }, 1200);
-
-      image.addEventListener('load', () => {
-        container.append(image);
-      });
-    }
-
-
-    resultsContainer.addEventListener('scroll', (event) => {
-      image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+    image.addEventListener('load', () => {
+      container.append(image);
     });
   }
+
+
+  resultsContainer.addEventListener('scroll', (event) => {
+    image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+  });
+
+  // if (image) {
+  //   image.style.width = "250vw";
+  //   image.style.height = (container.clientHeight * 1.01) + "px";;
+  //   if (container.clientHeight < container.clientWidth) {
+  //     image.style.width = "100vw";
+  //     image.style.height = container.clientHeight + "px";
+  //     image.style.left = "-10%";
+  //     image.style.top = "-50vh";
+  //   } else {
+  //     image.style.position = "relative";
+  //     image.style.left = "-10%";
+  //     image.style.bottom = "0px";
+  //   }
+
+  //   const options = {
+  //     method: 'GET',
+  //     cache: 'no-cache'
+  //   }
+
+  //   try {
+  //     image.src = '';
+  //     setTimeout(async () => {
+  //       let response = await fetch(path, options);
+  //       let blob = await response.blob();
+  //       let urlObj = URL.createObjectURL(await blob);
+  //       image.src = await urlObj;
+  //     }, 500);
+  //     image.addEventListener('load', () => {
+  //       container.append(image);
+  //     });
+  //   } catch (error) {
+  //     // capire se tenere e cosa mettere
+  //     console.log('hey an error');
+  //     console.log(error);
+  //   }
+
+  //   resultsContainer.scrollTo(0, 0);
+
+  //   resultsContainer.addEventListener('scroll', (event) => {
+  //     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+  //   });
+  // } else {
+  //   let image = document.createElement('img');
+  //   image.style.width = "250vw";
+  //   image.style.height = (container.clientHeight) + "px";
+
+  //   if (container.clientHeight < container.clientWidth) {
+  //     image.style.width = "100vw";
+  //     image.style.height = container.clientHeight + "px";
+  //     image.style.top = "-50vh";
+  //     image.style.left = "-10%";
+  //   } else {
+  //     image.style.position = "relative";
+  //     image.style.left = "-10%";
+  //     image.style.bottom = "0px";
+  //   }
+  //   image.src = '';
+
+  //   try {
+  //     setTimeout(async () => {
+  //       image.src = await path;
+  //     }, 1200);
+
+  //     image.addEventListener('load', () => {
+  //       container.append(image);
+  //     });
+  //   } catch {
+  //     setTimeout(async () => {
+  //       image.src = await path;
+  //     }, 1200);
+
+  //     image.addEventListener('load', () => {
+  //       container.append(image);
+  //     });
+  //   }
+
+
+  //   resultsContainer.addEventListener('scroll', (event) => {
+  //     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+  //   });
+  // }
 }
 
 async function searchCity(input) {
