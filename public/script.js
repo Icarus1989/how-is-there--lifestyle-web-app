@@ -210,49 +210,88 @@ function createSaveBtn(container) {
   container.append(saveBtn);
 }
 
-function loadImage(img, container, resultsContainer, path) {
+function loadImage(image, container, resultsContainer, path) {
 
-  if (img) {
-    img.remove();
-  }
-  let image = document.createElement('img');
-  image.style.width = "250vw";
-  image.style.height = (container.clientHeight) + "px";
+  if (image) {
+    image.style.width = "250vw";
+    image.style.height = (container.clientHeight * 1.01) + "px";;
+    if (container.clientHeight < container.clientWidth) {
+      image.style.width = "100vw";
+      image.style.height = container.clientHeight + "px";
+      image.style.left = "-10%";
+      image.style.top = "-50vh";
+    } else {
+      image.style.position = "relative";
+      image.style.left = "-10%";
+      image.style.bottom = "0px";
+    }
 
-  if (container.clientHeight < container.clientWidth) {
-    image.style.width = "100vw";
-    image.style.height = container.clientHeight + "px";
-    image.style.top = "-50vh";
-    image.style.left = "-10%";
+    const options = {
+      method: 'GET',
+      cache: 'no-cache'
+    }
+
+    try {
+      image.src = '';
+      setTimeout(async () => {
+        let response = await fetch(path, options);
+        let test = await response.blob();
+        let urlObj = URL.createObjectURL(await test);
+        image.src = await urlObj;
+      }, 500);
+      image.addEventListener('load', () => {
+        container.append(image);
+      });
+    } catch {
+      console.log(error);
+    }
+
+    resultsContainer.scrollTo(0, 0);
+
+    resultsContainer.addEventListener('scroll', (event) => {
+      image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+    });
   } else {
-    image.style.position = "relative";
-    image.style.left = "-10%";
-    image.style.bottom = "0px";
-  }
-  image.src = '';
+    let image = document.createElement('img');
+    image.style.width = "250vw";
+    image.style.height = (container.clientHeight) + "px";
 
-  try {
-    setTimeout(async () => {
-      image.src = await path;
-    }, 1200);
+    if (container.clientHeight < container.clientWidth) {
+      image.style.width = "100vw";
+      image.style.height = container.clientHeight + "px";
+      image.style.top = "-50vh";
+      image.style.left = "-10%";
+    } else {
+      image.style.position = "relative";
+      image.style.left = "-10%";
+      image.style.bottom = "0px";
+    }
+    image.src = '';
 
-    image.addEventListener('load', () => {
-      container.append(image);
+    try {
+      setTimeout(async () => {
+        image.src = await path;
+      }, 1200);
+
+      image.addEventListener('load', () => {
+        container.append(image);
+      });
+    } catch {
+      setTimeout(async () => {
+        image.src = await path;
+      }, 1200);
+
+      image.addEventListener('load', () => {
+        container.append(image);
+      });
+    }
+
+
+    resultsContainer.addEventListener('scroll', (event) => {
+      image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
     });
-  } catch {
-    setTimeout(async () => {
-      image.src = await path;
-    }, 1200);
 
-    image.addEventListener('load', () => {
-      container.append(image);
-    });
   }
-
-
-  resultsContainer.addEventListener('scroll', (event) => {
-    image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
-  });
 
 }
 
