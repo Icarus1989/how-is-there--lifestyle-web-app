@@ -627,7 +627,6 @@ class createDraw {
   }
   existingImg(image) {
     this.image = image;
-
     this.options = {
       method: 'GET',
       cache: 'no-cache'
@@ -638,10 +637,12 @@ class createDraw {
       this.blob = await this.response.blob();
       this.urlObj = URL.createObjectURL(await this.blob);
       this.image.src = await this.urlObj;
+      this.image.addEventListener('load', () => {
+        this.container.append(this.image);
+      });
     }, 500);
-    this.image.addEventListener('load', () => {
-      this.container.append(this.image);
-    });
+
+    console.log('load from exist');
   }
   notExistingImg() {
     this.image = document.createElement('img');
@@ -652,6 +653,7 @@ class createDraw {
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
+    console.log('load from not exist');
   }
   scrollMovement() {
     this.resultsContainer.scrollTo(0, 0);
@@ -659,4 +661,5 @@ class createDraw {
       this.image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
     });
   }
+
 }
