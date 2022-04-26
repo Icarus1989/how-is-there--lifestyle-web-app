@@ -92,6 +92,7 @@ async function retrieveAlternativeCities(info, input) {
     let alternativesButtons = await alternatives.createButtons();
     spinner.removeSpinner();
     indication.secondIndication();
+    resultsCont.children[0].style.placeItems = 'center';
     resultsCont.children[0].append(alternatesContainer);
 
     if (alternativesButtons > 10) {
@@ -101,6 +102,8 @@ async function retrieveAlternativeCities(info, input) {
     inputField.addEventListener('change', () => {
       disappearElement(alternatesContainer, 0).then(() => {
         if (document.querySelector('.descriptionBox')) {
+          resultsCont.children[0].style.placeItems = 'normal';
+
           let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
           appearGrid.show();
           let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
@@ -120,6 +123,7 @@ async function retrieveAlternativeCities(info, input) {
       if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
         inputField.value = event.target.textContent;
         disappearElement(alternatesContainer, 0).then(() => {
+          resultsCont.children[0].style.placeItems = 'normal';
           searchCity(inputField).then(async () => {
             let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
             appearGrid.show();
@@ -129,6 +133,7 @@ async function retrieveAlternativeCities(info, input) {
             appearInline.show();
           })
         })
+        // resultsCont.children[0].style.placeItems = 'normal';
         indication.nullIndication();
       } else {
         return;
@@ -165,12 +170,16 @@ async function createDescription(state, globalContinent, rank, textbox, text, co
 }
 
 function createDataTable(table, jsonData, container) {
+  console.log(Array.from(container.parentElement.children).indexOf(container));
+
   if (table) {
     for (let i = 0; i < jsonData.length; i++) {
       table.querySelectorAll('th')[i].textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
       table.querySelectorAll('td')[i].textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
     }
   } else {
+    let tableContainer = document.createElement('div');
+    tableContainer.classList.add(`tableContainer${Array.from(container.parentElement.children).indexOf(container)}`);
     let table = document.createElement('table');
     let tbody = document.createElement('tbody');
     for (let i = 0; i < jsonData.length; i++) {
@@ -185,7 +194,8 @@ function createDataTable(table, jsonData, container) {
     }
 
     table.append(tbody);
-    container.append(table);
+    tableContainer.append(table);
+    container.append(tableContainer);
     table.firstElementChild.children[0].firstElementChild.style.borderRadius = '18px 0px 0px 0px';
     table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0px 18px 0px 0px';
     table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0px 0px 0px 18px';
@@ -244,87 +254,6 @@ function loadImage(img, container, resultsContainer, path) {
     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
   });
 
-  // if (image) {
-  //   image.style.width = "250vw";
-  //   image.style.height = (container.clientHeight * 1.01) + "px";;
-  //   if (container.clientHeight < container.clientWidth) {
-  //     image.style.width = "100vw";
-  //     image.style.height = container.clientHeight + "px";
-  //     image.style.left = "-10%";
-  //     image.style.top = "-50vh";
-  //   } else {
-  //     image.style.position = "relative";
-  //     image.style.left = "-10%";
-  //     image.style.bottom = "0px";
-  //   }
-
-  //   const options = {
-  //     method: 'GET',
-  //     cache: 'no-cache'
-  //   }
-
-  //   try {
-  //     image.src = '';
-  //     setTimeout(async () => {
-  //       let response = await fetch(path, options);
-  //       let blob = await response.blob();
-  //       let urlObj = URL.createObjectURL(await blob);
-  //       image.src = await urlObj;
-  //     }, 500);
-  //     image.addEventListener('load', () => {
-  //       container.append(image);
-  //     });
-  //   } catch (error) {
-  //     // capire se tenere e cosa mettere
-  //     console.log('hey an error');
-  //     console.log(error);
-  //   }
-
-  //   resultsContainer.scrollTo(0, 0);
-
-  //   resultsContainer.addEventListener('scroll', (event) => {
-  //     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
-  //   });
-  // } else {
-  //   let image = document.createElement('img');
-  //   image.style.width = "250vw";
-  //   image.style.height = (container.clientHeight) + "px";
-
-  //   if (container.clientHeight < container.clientWidth) {
-  //     image.style.width = "100vw";
-  //     image.style.height = container.clientHeight + "px";
-  //     image.style.top = "-50vh";
-  //     image.style.left = "-10%";
-  //   } else {
-  //     image.style.position = "relative";
-  //     image.style.left = "-10%";
-  //     image.style.bottom = "0px";
-  //   }
-  //   image.src = '';
-
-  //   try {
-  //     setTimeout(async () => {
-  //       image.src = await path;
-  //     }, 1200);
-
-  //     image.addEventListener('load', () => {
-  //       container.append(image);
-  //     });
-  //   } catch {
-  //     setTimeout(async () => {
-  //       image.src = await path;
-  //     }, 1200);
-
-  //     image.addEventListener('load', () => {
-  //       container.append(image);
-  //     });
-  //   }
-
-
-  //   resultsContainer.addEventListener('scroll', (event) => {
-  //     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
-  //   });
-  // }
 }
 
 async function searchCity(input) {
