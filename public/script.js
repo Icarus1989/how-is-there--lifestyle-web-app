@@ -204,9 +204,9 @@ function createSaveBtn(container) {
 }
 
 function loadImage(image, container, resultsContainer, path) {
-  let draw = new createDraw(image, container, resultsContainer, path);
+  let draw = new createDraw(container, resultsContainer, path);
   if (image) {
-    draw.existingImg();
+    draw.existingImg(image);
     draw.calcMeasures();
   } else {
     draw.notExistingImg();

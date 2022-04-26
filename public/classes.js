@@ -606,8 +606,7 @@ class DoubleRetrieve extends RetrieveData {
 }
 
 class createDraw {
-  constructor(image, container, resultsContainer, path) {
-    this.image = image;
+  constructor(container, resultsContainer, path) {
     this.container = container;
     this.resultsContainer = resultsContainer;
     this.path = path;
@@ -626,7 +625,9 @@ class createDraw {
       this.image.style.bottom = "0px";
     }
   }
-  existingImg() {
+  existingImg(image) {
+    this.image = image;
+
     this.options = {
       method: 'GET',
       cache: 'no-cache'
