@@ -268,23 +268,13 @@ function loadImage(image, container, resultsContainer, path) {
     }
     image.src = '';
 
-    try {
-      setTimeout(async () => {
-        image.src = await path;
-      }, 1200);
+    setTimeout(async () => {
+      image.src = await path;
+    }, 1200);
 
-      image.addEventListener('load', () => {
-        container.append(image);
-      });
-    } catch {
-      setTimeout(async () => {
-        image.src = await path;
-      }, 1200);
-
-      image.addEventListener('load', () => {
-        container.append(image);
-      });
-    }
+    image.addEventListener('load', () => {
+      container.append(image);
+    });
 
 
     resultsContainer.addEventListener('scroll', (event) => {
