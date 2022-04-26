@@ -255,7 +255,7 @@ body {
 
 h2 {
   position: relative;
-  right: 0px;
+  right: -2vw;
   color: white;
   /* display: grid; */
   min-width: 70vw;
@@ -282,7 +282,7 @@ h2 {
 
 .rank {
   position: relative;
-  right: 0;
+  right: -2vw;
   min-width: 70vw;
   max-width: 85vw;
   color: white;
@@ -344,30 +344,32 @@ table {
 .tableContainer1 {
   display: grid;
   place-items: center;
-  width: 97vw;
+  width: 95vw;
   height: 62vh;
   border-top: 3vw solid rgba(13, 13, 13, 0.7);
   border-left: 3vw solid rgba(13, 13, 13, 0.7);
   border-bottom: 3vw solid rgba(13, 13, 13, 0.7);
   border-right: 0vw solid transparent;
   border-radius: 6vw 0vw 0vw 6vw;
+  margin-left: 2vw;
 }
 
 .tableContainer2 {
   display: grid;
   place-items: center;
-  width: 97vw;
-  height: 65vh;
+  width: 95vw;
+  height: 62vh;
   border-top: 3vw solid rgba(13, 13, 13, 0.7);
   border-left: 0vw solid transparent;
   border-bottom: 3vw solid rgba(13, 13, 13, 0.7);
   border-right: 3vw solid rgba(13, 13, 13, 0.7);
   border-radius: 0vw 6vw 6vw 0vw;
+  margin-right: 2vw;
 }
 
 table>tbody {
   width: auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* background-color: rgb(50, 50, 50, 0.6); */
   /* border: 1px solid red; */
 }
