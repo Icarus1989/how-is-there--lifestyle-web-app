@@ -604,3 +604,58 @@ class DoubleRetrieve extends RetrieveData {
     return this.secondResponse = await axios.get(this.secondUrl);
   }
 }
+
+class createDraw {
+  constructor(image, container, resultsContainer, path) {
+    this.image = image;
+    this.container = container;
+    this.resultsContainer = resultsContainer;
+    this.path = path;
+  }
+  calcMeasures() {
+    this.image.style.width = "250vw";
+    this.image.style.height = (this.container.clientHeight * 1.01) + "px";
+    if (this.container.clientHeight < this.container.clientWidth) {
+      this.image.style.width = "100vw";
+      this.image.style.height = this.container.clientHeight + "px";
+      this.image.style.left = "-10%";
+      this.image.style.top = "-50vh";
+    } else {
+      this.image.style.position = "relative";
+      this.image.style.left = "-10%";
+      this.image.style.bottom = "0px";
+    }
+  }
+  existingImg() {
+    this.options = {
+      method: 'GET',
+      cache: 'no-cache'
+    }
+    this.image.src = '';
+    setTimeout(async () => {
+      this.response = await fetch(this.path, this.options);
+      this.blob = await this.response.blob();
+      this.urlObj = URL.createObjectURL(await this.blob);
+      this.image.src = await this.urlObj;
+    }, 500);
+    this.image.addEventListener('load', () => {
+      this.container.append(this.image);
+    });
+  }
+  notExistingImg() {
+    this.image = document.createElement('img');
+    this.image.src = '';
+    setTimeout(async () => {
+      this.image.src = await this.path;
+    }, 1200);
+    this.image.addEventListener('load', () => {
+      this.container.append(this.image);
+    });
+  }
+  scrollMovement() {
+    this.resultsContainer.scrollTo(0, 0);
+    this.resultsContainer.addEventListener('scroll', (event) => {
+      this.image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+    });
+  }
+}

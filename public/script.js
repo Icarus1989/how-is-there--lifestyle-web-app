@@ -113,10 +113,6 @@ async function retrieveAlternativeCities(info, input) {
         }
         indication.nullIndication();
       })
-      // .then(() => {
-      //   let cleanInput = new cleanInputField(document.querySelector('#insertInput'));
-      //   cleanInput.cancelInput();
-      // })
     });
 
     alternatesContainer.addEventListener('click', (event) => {
@@ -170,8 +166,6 @@ async function createDescription(state, globalContinent, rank, textbox, text, co
 }
 
 function createDataTable(table, jsonData, container) {
-  console.log(Array.from(container.parentElement.children).indexOf(container));
-
   if (table) {
     for (let i = 0; i < jsonData.length; i++) {
       table.querySelectorAll('th')[i].textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
@@ -192,7 +186,6 @@ function createDataTable(table, jsonData, container) {
       td.textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
       tr.append(td);
     }
-
     table.append(tbody);
     tableContainer.append(table);
     container.append(tableContainer);
@@ -211,77 +204,87 @@ function createSaveBtn(container) {
 }
 
 function loadImage(image, container, resultsContainer, path) {
-
+  let draw = new createDraw(image, container, resultsContainer, path);
   if (image) {
-    image.style.width = "250vw";
-    image.style.height = (container.clientHeight * 1.01) + "px";;
-    if (container.clientHeight < container.clientWidth) {
-      image.style.width = "100vw";
-      image.style.height = container.clientHeight + "px";
-      image.style.left = "-10%";
-      image.style.top = "-50vh";
-    } else {
-      image.style.position = "relative";
-      image.style.left = "-10%";
-      image.style.bottom = "0px";
-    }
-
-    const options = {
-      method: 'GET',
-      cache: 'no-cache'
-    }
-
-    try {
-      image.src = '';
-      setTimeout(async () => {
-        let response = await fetch(path, options);
-        let test = await response.blob();
-        let urlObj = URL.createObjectURL(await test);
-        image.src = await urlObj;
-      }, 500);
-      image.addEventListener('load', () => {
-        container.append(image);
-      });
-    } catch {
-      console.log(error);
-    }
-
-    resultsContainer.scrollTo(0, 0);
-
-    resultsContainer.addEventListener('scroll', (event) => {
-      image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
-    });
+    draw.existingImg();
+    draw.calcMeasures();
   } else {
-    let image = document.createElement('img');
-    image.style.width = "250vw";
-    image.style.height = (container.clientHeight) + "px";
-
-    if (container.clientHeight < container.clientWidth) {
-      image.style.width = "100vw";
-      image.style.height = container.clientHeight + "px";
-      image.style.top = "-50vh";
-      image.style.left = "-10%";
-    } else {
-      image.style.position = "relative";
-      image.style.left = "-10%";
-      image.style.bottom = "0px";
-    }
-    image.src = '';
-
-    setTimeout(async () => {
-      image.src = await path;
-    }, 1200);
-
-    image.addEventListener('load', () => {
-      container.append(image);
-    });
-
-
-    resultsContainer.addEventListener('scroll', (event) => {
-      image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
-    });
-
+    draw.notExistingImg();
+    draw.calcMeasures();
   }
+  draw.scrollMovement();
+
+  // if (image) {
+  //   image.style.width = "250vw";
+  //   image.style.height = (container.clientHeight * 1.01) + "px";
+  //   if (container.clientHeight < container.clientWidth) {
+  //     image.style.width = "100vw";
+  //     image.style.height = container.clientHeight + "px";
+  //     image.style.left = "-10%";
+  //     image.style.top = "-50vh";
+  //   } else {
+  //     image.style.position = "relative";
+  //     image.style.left = "-10%";
+  //     image.style.bottom = "0px";
+  //   }
+
+  //   const options = {
+  //     method: 'GET',
+  //     cache: 'no-cache'
+  //   }
+
+  //   try {
+  //     image.src = '';
+  //     setTimeout(async () => {
+  //       let response = await fetch(path, options);
+  //       let test = await response.blob();
+  //       let urlObj = URL.createObjectURL(await test);
+  //       image.src = await urlObj;
+  //     }, 500);
+  //     image.addEventListener('load', () => {
+  //       container.append(image);
+  //     });
+  //   } catch {
+  //     console.log(error);
+  //   }
+
+  //   resultsContainer.scrollTo(0, 0);
+
+  //   resultsContainer.addEventListener('scroll', (event) => {
+  //     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+  //   });
+  // } else {
+  //   let image = document.createElement('img');
+  //   image.style.width = "250vw";
+  //   image.style.height = (container.clientHeight) + "px";
+
+  //   if (container.clientHeight < container.clientWidth) {
+  //     image.style.width = "100vw";
+  //     image.style.height = container.clientHeight + "px";
+  //     image.style.top = "-50vh";
+  //     image.style.left = "-10%";
+  //   } else {
+  //     image.style.position = "relative";
+  //     image.style.left = "-10%";
+  //     image.style.bottom = "0px";
+  //   }
+  //   image.src = '';
+
+  //   setTimeout(async () => {
+  //     image.src = await path;
+  //   }, 1200);
+
+  //   image.addEventListener('load', () => {
+  //     container.append(image);
+  //   });
+
+  //   resultsContainer.scrollTo(0, 0);
+
+  //   resultsContainer.addEventListener('scroll', (event) => {
+  //     image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
+  //   });
+
+  // }
 
 }
 
