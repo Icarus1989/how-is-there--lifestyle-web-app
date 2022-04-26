@@ -261,7 +261,7 @@ h2 {
   min-width: 70vw;
   max-width: 85vw;
   font-size: 2.3vh;
-  padding: 3vw 5vw 3vw 5vw;
+  padding: 3vw 7vw 3vw 5vw;
   /* border: 2px solid white; */
   /* border: 0px solid black; */
   margin-left: 5vw;
@@ -286,7 +286,7 @@ h2 {
   min-width: 70vw;
   max-width: 85vw;
   color: white;
-  padding: 3vw 5vw 3vw 5vw;
+  padding: 3vw 7vw 3vw 5vw;
   /* background: rgba(15,15,15, 0.7); */
   margin-left: 5vw;
   margin-right: 0vw;
@@ -476,9 +476,10 @@ table>tbody>tr>td {
   color: rgb(83, 83, 83);
   font-weight: 700;
   background: rgb(230, 230, 230);
-  padding: 10px 20px 10px 20px;
+  padding: 1vh 4vw 1vh 4vw;
   border: 6px solid rgb(134, 134, 134);
   border-radius: 12px;
+  margin: 0 auto;
 }
 
 #altDownButton {

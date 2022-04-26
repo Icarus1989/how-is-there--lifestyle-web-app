@@ -196,10 +196,10 @@ function createDataTable(table, jsonData, container) {
     table.append(tbody);
     tableContainer.append(table);
     container.append(tableContainer);
-    table.firstElementChild.children[0].firstElementChild.style.borderRadius = '18px 0px 0px 0px';
-    table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0px 18px 0px 0px';
-    table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0px 0px 0px 18px';
-    table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0px 0px 18px 0px';
+    table.firstElementChild.children[0].firstElementChild.style.borderRadius = '4vh 0vh 0vh 0vh';
+    table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
+    table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
+    table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
   }
 }
 
