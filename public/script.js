@@ -66,15 +66,15 @@ async function retrieveAlternativeCities(info, input) {
   let resultsCont = document.querySelector('#resultsContainer');
   let indication = new Indication(resultsCont.children[0], input);
   resultsCont.scrollTo(0, 0);
-  if (document.querySelector('.saveBtn')) {
-    document.querySelector('.saveBtn').remove();
-  }
-  if (document.querySelector('h2')) {
-    disappearElement(document.querySelector('h2'), 0);
-  }
-  if (document.querySelector('.rank')) {
-    disappearElement(document.querySelector('.rank'), 0);
-  }
+  // if (document.querySelector('.saveBtn')) {
+  //   document.querySelector('.saveBtn').remove();
+  // }
+  // if (document.querySelector('h2')) {
+  //   disappearElement(document.querySelector('h2'), 0);
+  // }
+  // if (document.querySelector('.rank')) {
+  //   disappearElement(document.querySelector('.rank'), 0);
+  // }
   disappearElement(document.querySelector('.menuBtn'), 0);
 
   let spinner = new Spinner(resultsCont);
@@ -95,41 +95,45 @@ async function retrieveAlternativeCities(info, input) {
     resultsCont.children[0].style.placeItems = 'center';
     resultsCont.children[0].append(alternatesContainer);
 
-    if (alternativesButtons > 10) {
+    if (alternativesButtons > 8) {
       alternatives.bigContainer();
     }
+
+    console.log(alternatesContainer);
 
     inputField.addEventListener('change', () => {
       disappearElement(alternatesContainer, 0).then(() => {
         if (document.querySelector('.descriptionBox')) {
-          resultsCont.children[0].style.placeItems = 'normal';
+          // resultsCont.children[0].style.placeItems = 'normal';
 
-          let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+          let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
           appearGrid.show();
-          let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+          let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
           appearBlock.show();
-          let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
+          let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
           appearInline.show();
         }
         indication.nullIndication();
       })
+      resultsCont.children[0].style.placeItems = 'normal';
+
     });
 
     alternatesContainer.addEventListener('click', (event) => {
       if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
         inputField.value = event.target.textContent;
         disappearElement(alternatesContainer, 0).then(() => {
-          resultsCont.children[0].style.placeItems = 'normal';
+          // resultsCont.children[0].style.placeItems = 'normal';
           searchCity(inputField).then(async () => {
-            let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+            let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
             appearGrid.show();
-            let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+            let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
             appearBlock.show();
-            let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
+            let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
             appearInline.show();
           })
         })
-        // resultsCont.children[0].style.placeItems = 'normal';
+        resultsCont.children[0].style.placeItems = 'normal';
         indication.nullIndication();
       } else {
         return;
@@ -146,11 +150,11 @@ async function retrieveAlternativeCities(info, input) {
     inputField.addEventListener('change', () => {
       indication.nullIndication().then(() => {
         if (document.querySelector('.descriptionBox')) {
-          let appearGrid = new AppearElems('grid', 500, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+          let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
           appearGrid.show();
-          let appearBlock = new AppearElems('block', 500, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+          let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
           appearBlock.show();
-          let appearInline = new AppearElems('inline', 500, document.querySelector('h2'), document.querySelector('.rank'));
+          let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
           appearInline.show();
         }
       });
@@ -165,35 +169,39 @@ async function createDescription(state, globalContinent, rank, textbox, text, co
   let rankBox = await description.createRank();
 }
 
-function createDataTable(table, jsonData, container) {
-  if (table) {
-    for (let i = 0; i < jsonData.length; i++) {
-      table.querySelectorAll('th')[i].textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
-      table.querySelectorAll('td')[i].textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
-    }
-  } else {
-    let tableContainer = document.createElement('div');
-    tableContainer.classList.add(`tableContainer${Array.from(container.parentElement.children).indexOf(container)}`);
-    let table = document.createElement('table');
-    let tbody = document.createElement('tbody');
-    for (let i = 0; i < jsonData.length; i++) {
-      let tr = document.createElement('tr');
-      tbody.append(tr);
-      let th = document.createElement('th');
-      th.textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
-      tr.append(th);
-      let td = document.createElement('td');
-      td.textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
-      tr.append(td);
-    }
-    table.append(tbody);
-    tableContainer.append(table);
-    container.append(tableContainer);
-    table.firstElementChild.children[0].firstElementChild.style.borderRadius = '4vh 0vh 0vh 0vh';
-    table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
-    table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
-    table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
+function createDataTable(oldTable, jsonData, container) {
+  // if (table) {
+  //   for (let i = 0; i < jsonData.length; i++) {
+  //     table.querySelectorAll('th')[i].textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
+  //     table.querySelectorAll('td')[i].textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
+  //   }
+  // } else {
+  if (oldTable) {
+    oldTable.parentElement.remove();
+    oldTable.remove();
   }
+  let tableContainer = document.createElement('div');
+  tableContainer.classList.add(`tableContainer${Array.from(container.parentElement.children).indexOf(container)}`);
+  let table = document.createElement('table');
+  let tbody = document.createElement('tbody');
+  for (let i = 0; i < jsonData.length; i++) {
+    let tr = document.createElement('tr');
+    tbody.append(tr);
+    let th = document.createElement('th');
+    th.textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
+    tr.append(th);
+    let td = document.createElement('td');
+    td.textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
+    tr.append(td);
+  }
+  table.append(tbody);
+  tableContainer.append(table);
+  container.append(tableContainer);
+  table.firstElementChild.children[0].firstElementChild.style.borderRadius = '4vh 0vh 0vh 0vh';
+  table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
+  table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
+  table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
+  // }
 }
 
 function createSaveBtn(container) {
@@ -233,7 +241,10 @@ async function searchCity(input) {
       input.blur();
       cityData.createElements(infoScores);
     } catch {
-      cityData.createAlternatives(info);
+      cityData.deleteElements().then(() => {
+        // resultsContainer.style.overflowX = 'hidden';
+        cityData.createAlternatives(info);
+      })
     }
   } catch {
     cityData.somethingWrong();

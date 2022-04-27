@@ -353,12 +353,14 @@ class CityData {
     } else if (this.container.clientWidth < this.container.clientHeight) {
       createPointButtons(document.querySelector('#resultsContainer'));
     }
-    console.log(this.infoScores);
+    // console.log(this.infoScores);
     this.cityDescription = await this.infoScores["summary"];
     createDescription(this.nameAndState, this.continent, this.ranking, document.querySelector('.descriptionBox'), this.cityDescription, document.querySelectorAll('.dataDisplay')[0]);
     this.tableData = this.infoScores["categories"];
     this.dataFirstPart = this.tableData.slice(0, 9);
     this.dataSecondPart = this.tableData.slice(9, this.tableData.length);
+    // createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
+    // createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
     createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
     createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
 
@@ -383,16 +385,35 @@ class CityData {
 
   }
 
+  async deleteElements() {
+    if (document.querySelector('.descriptionBox')) {
+      // disappearElement(document.querySelector('h2'), 0);
+      // disappearElement(document.querySelector('.rank'), 0);
+      // disappearElement(document.querySelector('.descriptionBox'), 0);
+      // disappearElement(document.querySelectorAll('table')[0], 0);
+      // disappearElement(document.querySelectorAll('table')[1], 0);
+      document.querySelector('h2').remove();
+      document.querySelector('.descriptionBox').remove();
+      document.querySelector('.rank').remove();
+      document.querySelector('.tableContainer1').remove();
+      document.querySelector('.tableContainer2').remove();
+
+      // document.querySelector('.descriptionBox').remove();
+      // document.querySelectorAll('table')[0].remove();
+      // document.querySelectorAll('table')[1].remove();
+    }
+  }
+
   createAlternatives(info) {
     this.inputElement.textContent = '';
     this.inputElement.placeholder = 'Enter a new city...';
     this.inputElement.blur();
     this.info = info;
-    if (document.querySelector('.descriptionBox')) {
-      disappearElement(document.querySelector('.descriptionBox'), 0);
-      disappearElement(document.querySelectorAll('table')[0], 0);
-      disappearElement(document.querySelectorAll('table')[1], 0);
-    }
+    // if (document.querySelector('.descriptionBox')) {
+    //   disappearElement(document.querySelector('.descriptionBox'), 0);
+    //   disappearElement(document.querySelectorAll('table')[0], 0);
+    //   disappearElement(document.querySelectorAll('table')[1], 0);
+    // }
     retrieveAlternativeCities(this.info, this.inputElement.value);
   }
 
@@ -495,7 +516,7 @@ class AlternativeCities {
     this.downBtn = this.container.querySelector('.downDirection');
     this.downBtn.style.width = this.container.clientWidth + 'px';
     this.downBtn.style.height = '8vh';
-    this.downBtn.style.top = this.container.offsetTop + this.container.offsetHeight - this.container.querySelector('.downDirection').offsetHeight + 'px';
+    this.downBtn.style.top = this.container.offsetTop + this.container.getBoundingClientRect().height - this.container.querySelector('.downDirection').offsetHeight + 'px';
     this.downBtn.style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
     this.downBtn.setAttribute('id', 'altDownButton');
     this.container.querySelectorAll('.altButtons')[this.container.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');

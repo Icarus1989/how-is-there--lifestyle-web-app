@@ -152,7 +152,7 @@ body {
   background: rgba(13, 13, 13, 0.7);
   /* box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0; */
   border: 0px solid transparent;
-  padding: 3vw 5vw 3vw 5vw;
+  padding: 3vw 3vw 3vw 7vw;
   margin-bottom: 0;
   margin-top: 4vw;
   /* border: 2px solid white; */
@@ -261,7 +261,7 @@ h2 {
   min-width: 70vw;
   max-width: 85vw;
   font-size: 2.3vh;
-  padding: 3vw 7vw 3vw 5vw;
+  padding: 3vw 12vw 3vw 5vw;
   /* border: 2px solid white; */
   /* border: 0px solid black; */
   margin-left: 5vw;
@@ -286,7 +286,8 @@ h2 {
   min-width: 70vw;
   max-width: 85vw;
   color: white;
-  padding: 3vw 7vw 3vw 5vw;
+  font-size: 2vh;
+  padding: 3vw 12vw 3vw 5vw;
   /* background: rgba(15,15,15, 0.7); */
   margin-left: 5vw;
   margin-right: 0vw;
@@ -457,6 +458,7 @@ table>tbody>tr>td {
   grid-template-rows: 1fr 1fr 1fr;
   width: 80vw;
   height: 45vh;
+  max-height: 300px;
   padding: 0;
   margin: 1vw 0vw 5vw 0vw;
   /* border-top: 8px solid rgb(50, 50, 50, 0.6);
