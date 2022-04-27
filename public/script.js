@@ -215,6 +215,7 @@ function loadImage(image, container, resultsContainer, path) {
   let draw = new createDraw(container, resultsContainer, path);
   if (image) {
     draw.existingImg(image);
+    draw.notExistingImg();
     draw.calcMeasures();
   } else {
     draw.notExistingImg();
@@ -241,7 +242,13 @@ async function searchCity(input) {
       input.blur();
       cityData.createElements(infoScores);
     } catch {
-      cityData.deleteElements().then(() => {
+      // document.querySelector('h2').remove();
+      // document.querySelector('.descriptionBox').remove();
+      // document.querySelector('.rank').remove();
+      // document.querySelector('.tableContainer1').remove();
+      // document.querySelector('.tableContainer2').remove();
+      let elemetsToDel = [document.querySelector('h2'), document.querySelector('.descriptionBox'), document.querySelector('.rank'), document.querySelector('.tableContainer1'), document.querySelector('.tableContainer2')];
+      cityData.deleteElements(elemetsToDel).then(() => {
         // resultsContainer.style.overflowX = 'hidden';
         cityData.createAlternatives(info);
       })
@@ -364,6 +371,12 @@ async function createIconBtn(container, icon) {
   menuBtn.insertAdjacentHTML('afterbegin', icon);
   container.append(menuBtn);
 }
+
+// function deleteGroup(...elems) {
+//   for (let elem of elems) {
+//     elem.remove();
+//   }
+// }
 
 window.addEventListener('load', () => {
   getCompleteListUrbanAreas(UrbanAreasCompleteList);

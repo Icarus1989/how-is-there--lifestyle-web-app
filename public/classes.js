@@ -254,6 +254,7 @@ class CityData {
     this.container = container;
     this.savingCount = 0;
     this.fromDb = false;
+    this.descriptionBox = document.querySelector('.descriptionBox');
 
   }
 
@@ -353,14 +354,11 @@ class CityData {
     } else if (this.container.clientWidth < this.container.clientHeight) {
       createPointButtons(document.querySelector('#resultsContainer'));
     }
-    // console.log(this.infoScores);
     this.cityDescription = await this.infoScores["summary"];
     createDescription(this.nameAndState, this.continent, this.ranking, document.querySelector('.descriptionBox'), this.cityDescription, document.querySelectorAll('.dataDisplay')[0]);
     this.tableData = this.infoScores["categories"];
     this.dataFirstPart = this.tableData.slice(0, 9);
     this.dataSecondPart = this.tableData.slice(9, this.tableData.length);
-    // createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
-    // createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
     createDataTable(document.querySelectorAll('table')[0], this.dataFirstPart, document.querySelectorAll('.dataDisplay')[1]);
     createDataTable(document.querySelectorAll('table')[1], this.dataSecondPart, document.querySelectorAll('.dataDisplay')[2]);
 
@@ -385,22 +383,12 @@ class CityData {
 
   }
 
-  async deleteElements() {
-    if (document.querySelector('.descriptionBox')) {
-      // disappearElement(document.querySelector('h2'), 0);
-      // disappearElement(document.querySelector('.rank'), 0);
-      // disappearElement(document.querySelector('.descriptionBox'), 0);
-      // disappearElement(document.querySelectorAll('table')[0], 0);
-      // disappearElement(document.querySelectorAll('table')[1], 0);
-      document.querySelector('h2').remove();
-      document.querySelector('.descriptionBox').remove();
-      document.querySelector('.rank').remove();
-      document.querySelector('.tableContainer1').remove();
-      document.querySelector('.tableContainer2').remove();
-
-      // document.querySelector('.descriptionBox').remove();
-      // document.querySelectorAll('table')[0].remove();
-      // document.querySelectorAll('table')[1].remove();
+  async deleteElements(elems) {
+    if (this.descriptionBox) {
+      this.elems = elems;
+      for (let elem of this.elems) {
+        elem.remove();
+      }
     }
   }
 
@@ -409,11 +397,6 @@ class CityData {
     this.inputElement.placeholder = 'Enter a new city...';
     this.inputElement.blur();
     this.info = info;
-    // if (document.querySelector('.descriptionBox')) {
-    //   disappearElement(document.querySelector('.descriptionBox'), 0);
-    //   disappearElement(document.querySelectorAll('table')[0], 0);
-    //   disappearElement(document.querySelectorAll('table')[1], 0);
-    // }
     retrieveAlternativeCities(this.info, this.inputElement.value);
   }
 
@@ -648,22 +631,9 @@ class createDraw {
   }
   existingImg(image) {
     this.image = image;
-    this.options = {
-      method: 'GET',
-      cache: 'no-cache'
+    if (this.image) {
+      this.image.remove();
     }
-    this.image.src = '';
-    setTimeout(async () => {
-      this.response = await fetch(this.path, this.options);
-      this.blob = await this.response.blob();
-      this.urlObj = URL.createObjectURL(await this.blob);
-      this.image.src = await this.urlObj;
-      this.image.addEventListener('load', () => {
-        this.container.append(this.image);
-      });
-    }, 500);
-
-    console.log('load from exist');
   }
   notExistingImg() {
     this.image = document.createElement('img');
@@ -674,7 +644,6 @@ class createDraw {
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
-    console.log('load from not exist');
   }
   scrollMovement() {
     this.resultsContainer.scrollTo(0, 0);
@@ -682,5 +651,4 @@ class createDraw {
       this.image.style.left = (-((event.target.scrollLeft / (event.target.scrollWidth - event.target.clientWidth)) * 100)) - 10 + '%';
     });
   }
-
 }

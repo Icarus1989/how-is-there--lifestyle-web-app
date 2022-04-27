@@ -2598,6 +2598,23 @@
 // }
 // loadImage FUNZIONANTE
 
+
+// this.image = image;
+// this.options = {
+//   method: 'GET',
+//   cache: 'no-cache'
+// }
+// this.image.src = '';
+// setTimeout(async () => {
+//   this.response = await fetch(this.path, this.options);
+//   this.blob = await this.response.blob();
+//   this.urlObj = URL.createObjectURL(await this.blob);
+//   this.image.src = await this.urlObj;
+//   this.image.addEventListener('load', () => {
+//     this.container.append(this.image);
+//   });
+// }, 500);
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 
