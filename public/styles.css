@@ -855,8 +855,9 @@ table>tbody>tr>td {
   }
 
   h2 {
-    min-width: 50vw;
-    max-width: 75vw;
+    min-width: 78vw;
+    max-width: 80vw;
+    padding: 3vw 11vw 3vw 4vw;
   }
 
   .descriptionBox {
@@ -870,13 +871,18 @@ table>tbody>tr>td {
 
   table {
     width: 75vw;
-    font-size: 2vh;
+    font-size: 1.8vh;
+    line-height: 4vh;
   }
 
   .rank {
-    width: 50vw;
+    /* width: 50vw; */
+    min-width: 78vw;
+    max-width: 80vw;
     font-size: 2.3vh;
-    padding: 2.5vw 1vw 2.5vw 1vw;
+    /* padding: 2.5vw 1vw 2.5vw 1vw; */
+    padding: 3vw 11vw 3vw 4vw;
+    
   }
 
   .alternatesContainer {

@@ -2615,6 +2615,36 @@
 //   });
 // }, 500);
 
+// if (table) {
+//   for (let i = 0; i < jsonData.length; i++) {
+//     table.querySelectorAll('th')[i].textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
+//     table.querySelectorAll('td')[i].textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
+//   }
+// } else {
+
+
+
+
+// if (document.querySelector('.saveBtn')) {
+//   document.querySelector('.saveBtn').remove();
+// }
+// if (document.querySelector('h2')) {
+//   disappearElement(document.querySelector('h2'), 0);
+// }
+// if (document.querySelector('.rank')) {
+//   disappearElement(document.querySelector('.rank'), 0);
+// }
+
+
+// document.querySelector('h2').remove();
+// document.querySelector('.descriptionBox').remove();
+// document.querySelector('.rank').remove();
+// document.querySelector('.tableContainer1').remove();
+// document.querySelector('.tableContainer2').remove();
+
+
+// resultsContainer.style.overflowX = 'hidden';
+
 // FUNZIONI ESSENZIALI DI COSTRUZIONE PASSATE IN CLASSES
 
 

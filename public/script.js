@@ -66,15 +66,6 @@ async function retrieveAlternativeCities(info, input) {
   let resultsCont = document.querySelector('#resultsContainer');
   let indication = new Indication(resultsCont.children[0], input);
   resultsCont.scrollTo(0, 0);
-  // if (document.querySelector('.saveBtn')) {
-  //   document.querySelector('.saveBtn').remove();
-  // }
-  // if (document.querySelector('h2')) {
-  //   disappearElement(document.querySelector('h2'), 0);
-  // }
-  // if (document.querySelector('.rank')) {
-  //   disappearElement(document.querySelector('.rank'), 0);
-  // }
   disappearElement(document.querySelector('.menuBtn'), 0);
 
   let spinner = new Spinner(resultsCont);
@@ -99,8 +90,6 @@ async function retrieveAlternativeCities(info, input) {
       alternatives.bigContainer();
     }
 
-    console.log(alternatesContainer);
-
     inputField.addEventListener('change', () => {
       disappearElement(alternatesContainer, 0).then(() => {
         if (document.querySelector('.descriptionBox')) {
@@ -123,7 +112,6 @@ async function retrieveAlternativeCities(info, input) {
       if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
         inputField.value = event.target.textContent;
         disappearElement(alternatesContainer, 0).then(() => {
-          // resultsCont.children[0].style.placeItems = 'normal';
           searchCity(inputField).then(async () => {
             let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
             appearGrid.show();
@@ -170,12 +158,6 @@ async function createDescription(state, globalContinent, rank, textbox, text, co
 }
 
 function createDataTable(oldTable, jsonData, container) {
-  // if (table) {
-  //   for (let i = 0; i < jsonData.length; i++) {
-  //     table.querySelectorAll('th')[i].textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
-  //     table.querySelectorAll('td')[i].textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
-  //   }
-  // } else {
   if (oldTable) {
     oldTable.parentElement.remove();
     oldTable.remove();
@@ -201,7 +183,6 @@ function createDataTable(oldTable, jsonData, container) {
   table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
   table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
   table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
-  // }
 }
 
 function createSaveBtn(container) {
@@ -242,21 +223,14 @@ async function searchCity(input) {
       input.blur();
       cityData.createElements(infoScores);
     } catch {
-      // document.querySelector('h2').remove();
-      // document.querySelector('.descriptionBox').remove();
-      // document.querySelector('.rank').remove();
-      // document.querySelector('.tableContainer1').remove();
-      // document.querySelector('.tableContainer2').remove();
       let elemetsToDel = [document.querySelector('h2'), document.querySelector('.descriptionBox'), document.querySelector('.rank'), document.querySelector('.tableContainer1'), document.querySelector('.tableContainer2')];
       cityData.deleteElements(elemetsToDel).then(() => {
-        // resultsContainer.style.overflowX = 'hidden';
         cityData.createAlternatives(info);
       })
     }
   } catch {
     cityData.somethingWrong();
   }
-
 }
 
 async function disappearElement(elem, delay) {
@@ -371,12 +345,6 @@ async function createIconBtn(container, icon) {
   menuBtn.insertAdjacentHTML('afterbegin', icon);
   container.append(menuBtn);
 }
-
-// function deleteGroup(...elems) {
-//   for (let elem of elems) {
-//     elem.remove();
-//   }
-// }
 
 window.addEventListener('load', () => {
   getCompleteListUrbanAreas(UrbanAreasCompleteList);
