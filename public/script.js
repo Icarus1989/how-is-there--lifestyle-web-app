@@ -1,12 +1,12 @@
 let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
-let UrbanAreasCompleteList = [];
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
 let animationCounter = 0;
-// inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
+let UrbanAreasCompleteList = [];
+
 inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
@@ -23,7 +23,7 @@ inputField.addEventListener('change', async (event) => {
     });
     animationCounter++;
   } else {
-    inputContainer.style.top = `-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px`;
+    inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
   }
   searchCity(event.target);
 });
@@ -41,115 +41,77 @@ async function retrieveTeleportImage(name) {
   return telResponse["data"];
 }
 
-async function getCompleteListUrbanAreas(arr) {
-  const url = `https://api.teleport.org/api/urban_areas`;
-  const listData = new RetrieveData(url);
-  const completeDataset = await listData.retrieve();
-  const completeUAListTotal = completeDataset["data"]["_links"]["ua:item"];
-  completeUAListTotal.map(async (elem) => {
-    const data = new RetrieveData(elem["href"]);
-    const retrieves = await data.retrieve();
-    const uaName = await retrieves["data"]["_links"]["ua:identifying-city"]["name"]
-    const ua_iso_alpha2 = await (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
-
-    let uaObj = {
-      name: uaName,
-      iso_alpha2: ua_iso_alpha2
-    }
-    arr.push(uaObj);
-  });
-  return arr;
-}
-
 async function retrieveAlternativeCities(info, input) {
+
   inputField.value = '';
   inputField.placeholder = 'Enter a new city...';
   inputField.blur();
-  let resultsCont = document.querySelector('#resultsContainer');
-  let indication = new Indication(resultsCont.children[0], input);
-  resultsCont.scrollTo(0, 0);
   disappearElement(document.querySelector('.menuBtn'), 0);
 
+  let resultsCont = document.querySelector('#resultsContainer');
+  let alternatesContainer = document.createElement('fieldset');
+  let legend = document.createElement('legend');
+  let indication = new Indication(resultsCont.children[0], input);
   let spinner = new Spinner(resultsCont);
 
-  try {
-    indication.firstIndication();
-    spinner.drawSpinner();
-    let alternatesContainer = document.createElement('fieldset');
-    let legend = document.createElement('legend');
-    legend.textContent = 'Cities available for this Country:';
-    alternatesContainer.append(legend);
-    alternatesContainer.classList.add('alternatesContainer');
-    let alternatives = new AlternativeCities(UrbanAreasCompleteList, info, input, alternatesContainer, resultsCont);
-    let alternativesCities = await alternatives.createAlternatives();
-    let alternativesButtons = await alternatives.createButtons();
-    spinner.removeSpinner();
-    indication.secondIndication();
-    resultsCont.children[0].style.placeItems = 'center';
-    resultsCont.children[0].append(alternatesContainer);
 
-    if (alternativesButtons > 8) {
-      alternatives.bigContainer();
-    }
+  resultsCont.scrollTo(0, 0);
+  indication.firstIndication();
+  spinner.drawSpinner();
+  legend.textContent = 'Cities available for this Country:';
+  alternatesContainer.append(legend);
+  alternatesContainer.classList.add('alternatesContainer');
+  const uaUrl = `https://api.teleport.org/api/urban_areas`;
+  let urbanAreas = new UARetrieve(uaUrl);
+  let urbanAreasList = await urbanAreas.retrieveUrbanAreas();
+  let alternatives = new AlternativeCities(urbanAreasList, info, input, alternatesContainer, resultsCont);
+  let alternativesCities = await alternatives.createAlternatives();
+  let alternativesButtons = await alternatives.createButtons();
+  spinner.removeSpinner();
+  indication.secondIndication();
+  resultsCont.children[0].style.placeItems = 'center';
+  resultsCont.children[0].append(alternatesContainer);
 
-    inputField.addEventListener('change', () => {
+  if (alternativesButtons > 8) {
+    alternatives.bigContainer();
+  }
+
+  inputField.addEventListener('change', () => {
+    disappearElement(alternatesContainer, 0).then(() => {
+      if (document.querySelector('.descriptionBox')) {
+        let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
+        appearGrid.show();
+        let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
+        appearBlock.show();
+        let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
+        appearInline.show();
+      }
+      indication.nullIndication();
+    })
+    resultsCont.children[0].style.placeItems = 'normal';
+    appearElement(document.querySelector('.menuBtn'), 500, 'grid');
+
+  });
+
+  alternatesContainer.addEventListener('click', (event) => {
+    if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
+      inputField.value = event.target.textContent;
       disappearElement(alternatesContainer, 0).then(() => {
-        if (document.querySelector('.descriptionBox')) {
-          // resultsCont.children[0].style.placeItems = 'normal';
-
+        searchCity(inputField).then(async () => {
           let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
           appearGrid.show();
           let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
           appearBlock.show();
           let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
           appearInline.show();
-        }
-        indication.nullIndication();
+        })
       })
       resultsCont.children[0].style.placeItems = 'normal';
-
-    });
-
-    alternatesContainer.addEventListener('click', (event) => {
-      if (event.target.tagName == 'BUTTON' && event.target !== document.querySelector('.downDirection')) {
-        inputField.value = event.target.textContent;
-        disappearElement(alternatesContainer, 0).then(() => {
-          searchCity(inputField).then(async () => {
-            let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
-            appearGrid.show();
-            let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
-            appearBlock.show();
-            let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
-            appearInline.show();
-          })
-        })
-        resultsCont.children[0].style.placeItems = 'normal';
-        indication.nullIndication();
-      } else {
-        return;
-      }
-    });
-
-  } catch (error) {
-    console.log(error);
-    inputField.value = '';
-    inputField.placeholder = 'Enter a new city...';
-    inputField.blur();
-    indication.thirdIndication();
-    spinner.removeSpinner();
-    inputField.addEventListener('change', () => {
-      indication.nullIndication().then(() => {
-        if (document.querySelector('.descriptionBox')) {
-          let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
-          appearGrid.show();
-          let appearBlock = new AppearElems('block', 0, document.querySelectorAll('table')[0], document.querySelectorAll('table')[1]);
-          appearBlock.show();
-          let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
-          appearInline.show();
-        }
-      });
-    });
-  }
+      indication.nullIndication();
+    } else {
+      return;
+    }
+  });
 }
 
 async function createDescription(state, globalContinent, rank, textbox, text, container) {
@@ -347,10 +309,6 @@ async function createIconBtn(container, icon) {
   menuBtn.insertAdjacentHTML('afterbegin', icon);
   container.append(menuBtn);
 }
-
-window.addEventListener('load', () => {
-  getCompleteListUrbanAreas(UrbanAreasCompleteList);
-});
 
 window.addEventListener('resize', () => {
   mainContainer.style.height = '100vh';

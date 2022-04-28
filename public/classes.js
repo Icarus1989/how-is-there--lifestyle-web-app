@@ -461,9 +461,30 @@ class Description {
 
 }
 
+class UARetrieve {
+  constructor(url) {
+    this.url = url;
+
+  }
+  async retrieveUrbanAreas() {
+    this.listData = await axios.get(this.url);
+    this.completeUAList = await this.listData["data"]["_links"]["ua:item"];
+    this.requests = this.completeUAList.map(async (elem) => {
+      this.uaData = await axios.get(elem["href"]);
+      this.uaName = await this.uaData["data"]["_links"]["ua:identifying-city"]["name"];
+      this.ua_iso_alpha2 = await (this.uaData["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1);
+      return this.uaObj = {
+        name: this.uaName,
+        iso_alpha2: this.ua_iso_alpha2
+      }
+    })
+    return Promise.all(this.requests);
+  }
+}
+
 class AlternativeCities {
-  constructor(UrbanAreaList, info, input, container, parentContainer) {
-    this.UrbanAreaList = UrbanAreaList;
+  constructor(uaArray, info, input, container, parentContainer) {
+    this.UrbanAreas = uaArray;
     this.inputElement = document.querySelector('#insertInput');
     this.info = info;
     this.input = input;
@@ -472,11 +493,14 @@ class AlternativeCities {
   }
 
   async createAlternatives() {
+    // this.UrbanAreaList = UrbanAreaList;
     this.country = this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
     this.filteredArr = [];
-    this.UrbanAreaList.map(ua => {
+    this.UrbanAreas.map(ua => {
       if (ua["iso_alpha2"] == this.country) {
         this.filteredArr.push(ua["name"]);
+        // console.log(this.filteredArr);
+
       }
     });
   }

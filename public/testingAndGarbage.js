@@ -2649,6 +2649,27 @@
 
 
 
+// async function getCompleteListUrbanAreas(arr) {
+//   const url = `https://api.teleport.org/api/urban_areas`;
+//   const listData = new RetrieveData(url);
+//   const completeDataset = await listData.retrieve();
+//   const completeUAListTotal = completeDataset["data"]["_links"]["ua:item"];
+//   completeUAListTotal.map(async (elem) => {
+//     const data = new RetrieveData(elem["href"]);
+//     const retrieves = await data.retrieve();
+//     const uaName = await retrieves["data"]["_links"]["ua:identifying-city"]["name"]
+//     const ua_iso_alpha2 = await (retrieves["data"]["_links"]["ua:countries"][0]["href"]).slice(-3, -1)
+
+//     let uaObj = {
+//       name: uaName,
+//       iso_alpha2: ua_iso_alpha2
+//     }
+//     arr.push(uaObj);
+//   });
+//   return arr;
+// }
+
+
 
 
 
