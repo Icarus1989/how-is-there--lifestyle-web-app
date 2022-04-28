@@ -112,8 +112,9 @@ class Menu {
   createMenu() {
     this.menuButton.addEventListener('click', async (event) => {
       if (event.target == this.menuButton.querySelector('i') || event.target == this.menuButton) {
-        this.menu = await fetch('/menu');
-        this.response = await this.menu.json();
+        this.menu = await axios.get('/menu');
+        // Ok funzionante - Ok test local - ? test device
+        this.response = await this.menu["data"];
         this.menuContainer = document.createElement('div');
         this.header = document.createElement('h3');
         this.list = document.createElement('ul');
@@ -295,8 +296,9 @@ class CityData {
   async notInDatabase() {
     this.saveButton = document.querySelector('.saveBtn');
     this.urlScores = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_links"]["ua:scores"]["href"];
-    this.dataScores = await fetch(this.urlScores);
-    this.infoScores = await this.dataScores.json();
+    this.dataScores = await axios.get(this.urlScores);
+    // Ok funzionante - Ok test local - ? test device
+    this.infoScores = await this.dataScores["data"];
     this.nameAndState = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"];
     this.continent = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["continent"];
     this.fullName = `${this.nameAndState}, ${this.continent}`;
@@ -670,10 +672,12 @@ class createDraw {
     }
     setTimeout(async () => {
       this.response = await fetch(this.path, this.options);
+      // 
       this.blob = await this.response.blob();
       this.urlObj = URL.createObjectURL(this.blob);
       this.image.src = this.urlObj;
-    }, 1000);
+    }, 800);
+    // test delay
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
