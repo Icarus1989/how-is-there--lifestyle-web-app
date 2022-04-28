@@ -677,7 +677,6 @@ class createDraw {
       this.urlObj = URL.createObjectURL(this.blob);
       this.image.src = this.urlObj;
     }, 800);
-    // test delay
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
