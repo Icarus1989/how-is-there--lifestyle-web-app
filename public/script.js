@@ -11,7 +11,7 @@ inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
   if (animationCounter == 0) {
-    inputContainer.style.top = ((mainContainer.scrollHeight / 50) * 100) - inputContainer.scrollHeight / 2 + 'px';
+    inputContainer.style.top = mainContainer.getBoundingClientRect().height / 2 - inputContainer.getBoundingClientRect().height / 2 + 'px';
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
     }], {
