@@ -659,6 +659,7 @@ class createDraw {
       this.image.remove();
     }
   }
+
   notExistingImg() {
     this.image = document.createElement('img');
     this.image.src = '';
@@ -669,6 +670,7 @@ class createDraw {
       this.container.append(this.image);
     });
   }
+
   scrollMovement() {
     this.resultsContainer.scrollTo(0, 0);
     this.resultsContainer.addEventListener('scroll', (event) => {
