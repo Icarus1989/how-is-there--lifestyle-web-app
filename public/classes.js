@@ -664,8 +664,17 @@ class createDraw {
   notExistingImg() {
     this.image = document.createElement('img');
     this.image.src = '';
+    this.options = {
+      method: 'GET',
+      cache: 'no-cache'
+    }
     setTimeout(async () => {
-      this.image.src = await this.path;
+      // this.image.src = await this.path;
+
+      this.response = await fetch(this.path, this.options);
+      this.blob = await this.response.blob();
+      this.urlObj = URL.createObjectURL(await this.blob);
+      this.image.src = await this.urlObj;
     }, 1200);
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
