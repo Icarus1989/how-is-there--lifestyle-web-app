@@ -66,6 +66,7 @@ body {
 
 #inputContainer {
   position: fixed;
+  /* top: 50%; */
   width: 82vw;
   height: auto;
   display: flex;
