@@ -5,12 +5,12 @@ let UrbanAreasCompleteList = [];
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
-let inputCounter = 0;
+let animationCounter = 0;
 // inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
 inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
-  if (inputCounter == 0) {
+  if (animationCounter == 0) {
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
@@ -21,6 +21,7 @@ inputField.addEventListener('change', async (event) => {
       iteration: 1,
       fill: 'forwards'
     });
+    animationCounter++;
   } else {
     inputContainer.style.top = `-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px`;
   }
