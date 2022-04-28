@@ -655,6 +655,7 @@ class createDraw {
   }
   existingImg(image) {
     this.image = image;
+    this.image.src = '';
     if (this.image) {
       this.image.remove();
     }
