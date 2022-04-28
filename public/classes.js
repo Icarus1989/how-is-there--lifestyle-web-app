@@ -675,7 +675,7 @@ class createDraw {
       this.blob = await this.response.blob();
       this.urlObj = URL.createObjectURL(await this.blob);
       this.image.src = await this.urlObj;
-    }, 1200);
+    }, 500);
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
