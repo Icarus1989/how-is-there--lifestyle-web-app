@@ -669,13 +669,11 @@ class createDraw {
       cache: 'no-cache'
     }
     setTimeout(async () => {
-      // this.image.src = await this.path;
-
       this.response = await fetch(this.path, this.options);
       this.blob = await this.response.blob();
-      this.urlObj = URL.createObjectURL(await this.blob);
-      this.image.src = await this.urlObj;
-    }, 500);
+      this.urlObj = URL.createObjectURL(this.blob);
+      this.image.src = this.urlObj;
+    }, 1000);
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
