@@ -1,16 +1,12 @@
 let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
-
 let UrbanAreasCompleteList = [];
-
-let arr = [];
-
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
 
-inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 1.5 + 'px';
+inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
 inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
