@@ -5,20 +5,25 @@ let UrbanAreasCompleteList = [];
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
-
-inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
+let inputCounter = 0;
+// inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
 inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
-  inputContainer.animate([{
-    transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
-  }], {
-    duration: 1000,
-    easing: 'ease',
-    direction: 'normal',
-    iteration: 1,
-    fill: 'forwards'
-  });
+  if (inputCounter == 0) {
+    inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
+    inputContainer.animate([{
+      transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
+    }], {
+      duration: 1000,
+      easing: 'ease',
+      direction: 'normal',
+      iteration: 1,
+      fill: 'forwards'
+    });
+  } else {
+    inputContainer.style.top = `-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px`;
+  }
   searchCity(event.target);
 });
 
