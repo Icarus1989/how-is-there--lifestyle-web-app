@@ -11,7 +11,7 @@ inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
   if (animationCounter == 0) {
-    inputContainer.style.position = 'fixed';
+    inputContainer.style.position = 'absolute';
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
     // inputContainer.style.top = '50%';
     inputContainer.animate([{
@@ -25,7 +25,7 @@ inputField.addEventListener('change', async (event) => {
     });
     animationCounter++;
   } else {
-    inputContainer.style.position = 'absolute';
+    inputContainer.style.position = 'fixed';
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
   }
   searchCity(event.target);
