@@ -22,7 +22,7 @@ inputField.addEventListener('change', async (event) => {
     // console.log(inputContainer.clientHeight);
     // inputContainer.style.top = '50%';
     inputContainer.animate([{
-      transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight + (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
+      transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
       duration: 700,
       easing: 'linear',
