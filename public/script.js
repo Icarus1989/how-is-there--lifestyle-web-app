@@ -14,7 +14,8 @@ inputField.addEventListener('change', async (event) => {
     console.log(document.body.clientHeight);
     console.log(document.body.scrollHeight);
 
-    alert(`${document.body.clientHeight} , ${document.body.scrollHeight}`);
+    alert(`document.body ${document.body.clientHeight} , ${document.body.scrollHeight}`);
+    alert(`document.documentElement ${document.documentElement.clientHeight} , ${document.documentElement.scrollHeight}`);
 
     // inputContainer.style.position = 'absolute';
     // console.log(inputContainer.clientHeight);
