@@ -6,23 +6,23 @@ menu.createButton();
 menu.createMenu();
 let animationCounter = 0;
 let UrbanAreasCompleteList = [];
-inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) + 'px';
+inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
 inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
   if (animationCounter == 0) {
-    console.log(document.body.clientHeight);
-    console.log(document.body.scrollHeight);
+    // console.log(document.body.clientHeight);
+    // console.log(document.body.scrollHeight);
 
-    alert(`document.body ${document.body.getBoundingClientRect().height} , ${document.body.scrollHeight}`);
-    alert(`document.documentElement ${document.documentElement.getBoundingClientRect().height} , ${document.documentElement.scrollHeight}`);
+    // alert(`document.body ${document.body.getBoundingClientRect().height} , ${document.body.scrollHeight}`);
+    // alert(`document.documentElement ${document.documentElement.getBoundingClientRect().height} , ${document.documentElement.scrollHeight}`);
 
     // inputContainer.style.position = 'absolute';
     // console.log(inputContainer.clientHeight);
     // inputContainer.style.top = '50%';
     inputContainer.animate([{
-      transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
+      transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight + (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
       duration: 700,
       easing: 'linear',
