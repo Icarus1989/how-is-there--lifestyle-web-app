@@ -11,13 +11,19 @@ inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
   if (animationCounter == 0) {
-    inputContainer.style.position = 'absolute';
+    console.log(document.body.clientHeight);
+    console.log(document.body.scrollHeight);
+
+    alert(`${document.body.clientHeight} , ${document.body.scrollHeight}`);
+
+    // inputContainer.style.position = 'absolute';
+    // console.log(inputContainer.clientHeight);
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
     // inputContainer.style.top = '50%';
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
     }], {
-      duration: 1000,
+      duration: 700,
       easing: 'linear',
       direction: 'normal',
       iteration: 1,
@@ -25,7 +31,7 @@ inputField.addEventListener('change', async (event) => {
     });
     animationCounter++;
   } else {
-    inputContainer.style.position = 'fixed';
+    // inputContainer.style.position = 'fixed';
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
   }
   searchCity(event.target);

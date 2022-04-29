@@ -160,14 +160,13 @@ class Menu {
                 this.menuContainer.remove();
                 this.header.remove();
                 this.list.remove();
-                console.log(this.header);
               });
 
               this.inputContainer.animate([{
-                transform: `translateY(-${this.container.scrollHeight / 2 - this.inputContainer.clientHeight}px)`
+                transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight}px)`
               }], {
-                duration: 1000,
-                easing: 'ease',
+                duration: 700,
+                easing: 'linear',
                 direction: 'normal',
                 iteration: 1,
                 fill: 'forwards'
