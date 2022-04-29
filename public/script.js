@@ -6,6 +6,7 @@ menu.createButton();
 menu.createMenu();
 let animationCounter = 0;
 let UrbanAreasCompleteList = [];
+inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) + 'px';
 
 inputField.addEventListener('change', async (event) => {
 
@@ -14,12 +15,11 @@ inputField.addEventListener('change', async (event) => {
     console.log(document.body.clientHeight);
     console.log(document.body.scrollHeight);
 
-    alert(`document.body ${document.body.clientHeight} , ${document.body.scrollHeight}`);
-    alert(`document.documentElement ${document.documentElement.clientHeight} , ${document.documentElement.scrollHeight}`);
+    alert(`document.body ${document.body.getBoundingClientRect().height} , ${document.body.scrollHeight}`);
+    alert(`document.documentElement ${document.documentElement.getBoundingClientRect().height} , ${document.documentElement.scrollHeight}`);
 
     // inputContainer.style.position = 'absolute';
     // console.log(inputContainer.clientHeight);
-    inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
     // inputContainer.style.top = '50%';
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight}px)`
