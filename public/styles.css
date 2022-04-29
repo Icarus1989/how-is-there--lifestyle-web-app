@@ -798,14 +798,6 @@ table>tbody>tr>td {
   border: 1px solid transparent;
 }
 
-.menuList>li>.cityButton:hover {
-  width: fit-content;
-  color: rgb(50, 50, 50, 0.95);
-  background: white;
-  /* border: 2px solid rgb(50, 50, 50, 0.95); */
-  border-radius: 1vw;
-}
-
 .menuList>li>.deleteButton {
   display: grid;
   place-items: center;
@@ -934,8 +926,9 @@ table>tbody>tr>td {
 @media only screen and (min-width: 900px) {
   #inputContainer {
     width: 50vw;
-    max-width: 600px;
+    /* max-width: 600px; */
     height: 5vw;
+    border-radius: 1vw;
   }
 
   #inputContainer>i {
@@ -949,20 +942,24 @@ table>tbody>tr>td {
 
   #resultsContainer {
     height: 100vh;
-    top: 5%;
+    top: 0%;
   }
 
+  .dataDisplay {
+    place-items: center;
+  } 
+
   h2 {
-    /* width: fit-content; */
+    left: 0;
+    /* width: 35vw; */
     min-width: 35vw;
-    max-width: 50vw;
+    max-width: 35vw;
     font-size: 1.4vw;
-    padding: 1.5vw 0vw 1.5vw 0vw;
-    border-radius: 2vw;
     background: rgba(13, 13, 13, 0.7);
-    box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
-    border: 1px solid transparent;
-    margin: 0;
+    border: 0px solid transparent;
+    border-radius: 1.5vw 0vw 0vw 1.5vw;
+    padding: 1vw 39vw 1vw 10vw;
+    margin-left: 22.5vw;
   }
 
   table {
@@ -977,12 +974,51 @@ table>tbody>tr>td {
     border-bottom: 0.5vw solid rgb(218, 215, 215);
   }
 
+  .tableContainer1 {
+    display: grid;
+    place-items: center;
+    width: 92vw;
+    height: 62vh;
+    border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-bottom: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-right: 0vw solid transparent;
+    border-radius: 6vw 0vw 0vw 6vw;
+    margin-left: 6.5vw;
+  }
+  
+  .tableContainer2 {
+    display: grid;
+    place-items: center;
+    width: 92vw;
+    height: 62vh;
+    border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-left: 0vw solid transparent;
+    border-bottom: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-right: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-radius: 0vw 6vw 6vw 0vw;
+    margin-right: 6.5vw;
+  }
+
   .rank {
-    width: 35vw;
+    /* position: relative;
+    left: 0;
+    max-width: 50vw;
+    min-width: 50vw; */
+    /* width: 35vw;
     padding: 1.5vw 0vw 1.5vw 0vw;
     background: rgba(13, 13, 13, 0.7);
     box-shadow: 0px 0px 15px #1e1e1e, 0px 0px 30px #0a0a0ae0;
-    border: 1px solid transparent;
+    border: 1px solid transparent; */
+    /* padding: 1vw 12vw 1vw 5vw;
+    margin-left: 17.5vw; */
+    position: relative;
+    left: 0;
+    max-width: 50vw;
+    min-width: 50vw;
+    padding: 1vw 31vw 1vw 5vw;
+    border-radius: 1.5vw 0vw 0vw 1.5vw;
+    margin-left: 20.5vw;
   }
 
   #imgContainer {
@@ -998,17 +1034,26 @@ table>tbody>tr>td {
   }
 
   .descriptionBox {
-    width: 50vw;
+    width: 40vw;
   }
 
   .descriptionBox>p {
-    font-size: 1vw;
+    /* font-size: 1vw;
     padding: 2vw 1.5vw 2vw 1.5vw;
     border-left: 0.5vw solid rgb(218, 215, 215);
     border-top: 0vw solid transparent;
     border-right: 0vw solid transparent;
-    border-bottom: 0.5vw solid rgb(218, 215, 215);
-    border-radius: 2vw;
+    border-bottom: 0.5vw solid rgb(218, 215, 215); */
+    border-radius: 1.5vw;
+    margin-top: 4vw; 
+    font-size: 1vw;
+    padding: 1vw 3.5vw 1vw 3.5vw;
+    /* border-left: 0.5vw solid rgb(218, 215, 215); */
+    /* border-top: 0vw solid transparent; */
+    /* border-right: 0vw solid transparent; */
+    /* border-bottom: 0.5vw solid rgb(218, 215, 215); */
+    /* border-radius: 2vw; */
+    margin-top: 1vw;
   }
 
   /* .backgroundImage {
@@ -1044,6 +1089,7 @@ table>tbody>tr>td {
     padding: 2vw 1vw;
     border: 5px solid rgba(155, 9, 9, 0.7);
     border-radius: 2vw;
+    margin-bottom: 1%;
     background: rgb(50, 50, 50, 0.7);
     text-shadow: 3px 2px 3px rgb(15, 15, 15);
   }
@@ -1086,9 +1132,23 @@ table>tbody>tr>td {
     z-index: 12;
   }
 
-  .directionBtn:hover {
+  .leftDirection:hover {
     opacity: 0.7;
     background: rgba(240, 248, 255, 1.0)
+  }
+  .leftDirection:hover>i {
+    color: rgb(15,15,15);
+    opacity: 1.0;
+  }
+
+  .rightDirection:hover {
+    opacity: 0.7;
+    background: rgba(240, 248, 255, 1.0)
+  }
+
+  .rightDirection:hover>i {
+    color: rgb(15,15,15);
+    opacity: 1.0;
   }
 
   .directionBtn>i {
@@ -1157,7 +1217,17 @@ table>tbody>tr>td {
     text-align: right;
     font-size: 1.8vw;
     background: transparent;
+    padding: 0.1vw;
     border: 1px solid transparent;
+  }
+
+  .menuList>li>.cityButton:hover {
+    width: fit-content;
+    color: rgb(50, 50, 50, 0.95);
+    background: white;
+    /* border: 2px solid rgb(50, 50, 50, 0.95); */
+    border-radius: 1vw;
+    padding: 0.1vw 1vw;
   }
 
   .menuList>li>.deleteButton {

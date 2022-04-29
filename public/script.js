@@ -12,15 +12,6 @@ inputField.addEventListener('change', async (event) => {
 
   mainContainer.scrollTo(0, 0);
   if (animationCounter == 0) {
-    // console.log(document.body.clientHeight);
-    // console.log(document.body.scrollHeight);
-
-    // alert(`document.body ${document.body.getBoundingClientRect().height} , ${document.body.scrollHeight}`);
-    // alert(`document.documentElement ${document.documentElement.getBoundingClientRect().height} , ${document.documentElement.scrollHeight}`);
-
-    // inputContainer.style.position = 'absolute';
-    // console.log(inputContainer.clientHeight);
-    // inputContainer.style.top = '50%';
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
@@ -88,6 +79,7 @@ async function retrieveAlternativeCities(info, input) {
 
   inputField.addEventListener('change', () => {
     disappearElement(alternatesContainer, 0).then(() => {
+      alternatesContainer.remove();
       if (document.querySelector('.descriptionBox')) {
         let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
         appearGrid.show();
@@ -269,10 +261,17 @@ function createNavButton(direction, container, position) {
 }
 
 function setInfoButtons(scrollTarget) {
-  createNavButton('left', mainContainer, 'fixed');
-  createNavButton('right', mainContainer, 'fixed');
+  if (!document.querySelector('.rightDirection')) {
+    createNavButton('left', mainContainer, 'fixed');
+    createNavButton('right', mainContainer, 'fixed');
+  }
   let leftBtn = document.querySelector('.leftDirection');
   let rightBtn = document.querySelector('.rightDirection');
+
+  leftBtn.style.top = mainContainer.clientHeight / 2 - rightBtn.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+  rightBtn.style.top = mainContainer.clientHeight / 2 - rightBtn.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+
+
 
   scrollTarget.addEventListener('scroll', (event) => {
 

@@ -163,7 +163,8 @@ class Menu {
               });
 
               this.inputContainer.animate([{
-                transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight}px)`
+                transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
+                // transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight}px)`
               }], {
                 duration: 700,
                 easing: 'linear',
@@ -255,6 +256,7 @@ class CityData {
     this.savingCount = 0;
     this.fromDb = false;
     this.descriptionBox = document.querySelector('.descriptionBox');
+    this.resultsContainer = document.querySelector('#resultsContainer');
 
   }
 
@@ -296,7 +298,6 @@ class CityData {
     this.saveButton = document.querySelector('.saveBtn');
     this.urlScores = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["_links"]["ua:scores"]["href"];
     this.dataScores = await axios.get(this.urlScores);
-    // Ok funzionante - Ok test local - ? test device
     this.infoScores = await this.dataScores["data"];
     this.nameAndState = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["full_name"];
     this.continent = await this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:urban_area"]["continent"];
@@ -351,9 +352,9 @@ class CityData {
     this.infoScores = dataInfo;
     this.fullName = `${this.nameAndState}, ${this.continent}`;
     if (this.container.clientWidth > this.container.clientHeight) {
-      setInfoButtons(document.querySelector('#resultsContainer'));
+      setInfoButtons(this.resultsContainer);
     } else if (this.container.clientWidth < this.container.clientHeight) {
-      createPointButtons(document.querySelector('#resultsContainer'));
+      createPointButtons(this.resultsContainer);
     }
     this.cityDescription = await this.infoScores["summary"];
     createDescription(this.nameAndState, this.continent, this.ranking, document.querySelector('.descriptionBox'), this.cityDescription, document.querySelectorAll('.dataDisplay')[0]);
