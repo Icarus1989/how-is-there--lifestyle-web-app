@@ -174,6 +174,8 @@ class Menu {
                   iteration: 1,
                   fill: 'forwards'
                 });
+              } else {
+                this.inputContainer.style.top = this.container.clientHeight / 2 - this.inputContainer.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
               }
 
             } else if ((btnEvent.target.tagName == 'BUTTON' && btnEvent.target.classList.contains('deleteBtn')) || (btnEvent.target.tagName == 'I' && btnEvent.target.classList.contains('fa-xmark'))) {
