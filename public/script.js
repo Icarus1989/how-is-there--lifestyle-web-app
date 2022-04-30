@@ -4,14 +4,12 @@ let inputContainer = inputField.parentElement;
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
-let animationCounter = 0;
 let UrbanAreasCompleteList = [];
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
 inputField.addEventListener('change', async (event) => {
-
   mainContainer.scrollTo(0, 0);
-  if (animationCounter == 0) {
+  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2)) {
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
@@ -21,13 +19,16 @@ inputField.addEventListener('change', async (event) => {
       iteration: 1,
       fill: 'forwards'
     });
-    animationCounter++;
   } else {
-    // inputContainer.style.position = 'fixed';
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 + 'px';
+    console.log(inputContainer.getBoundingClientRect().y);
   }
+
+
   searchCity(event.target);
 });
+
+
 
 async function retrievePixabay(name) {
   const url = `bkgImage/${name}`;
@@ -224,7 +225,7 @@ async function appearElement(elem, delay, display) {
 function createNavButton(direction, container, position) {
   let directionBtn = document.createElement('button');
   directionBtn.style.placeItems = 'center';
-  directionBtn.classList.add('directionBtn');
+  // directionBtn.classList.add('directionBtn');
   directionBtn.style.position = position;
 
   switch (direction) {

@@ -647,25 +647,26 @@ table>tbody>tr>td {
   z-index: 10;
 } */
 
-.directionBtn>i {
+/* .directionBtn>i {
   font-size: 60px;
   color: black;
   opacity: 0.5;
-}
+} */
 
 .leftDirection {
   /* Solo per test */
   /* color: rgb(15, 15, 15, 0.0); */
   /* Solo per test */
+  
   display: none;
-  opacity: 0.0;
+  /* opacity: 0.0; */
 
 
 }
 
 .rightDirection {
   /* Solo per test */
-  color: rgb(15, 15, 15, 0.0);
+  /* color: rgb(15, 15, 15, 0.0); */
   /* Solo per test */
 
 }
@@ -820,7 +821,8 @@ table>tbody>tr>td {
 
 .downDirection>i {
   color: white;
-  font-size: 42px;
+  font-size: 6vh;
+  opacity: 0.5;
 }
 
 .lastMargin {
@@ -968,10 +970,10 @@ table>tbody>tr>td {
     font-size: 1vw;
     line-height: 1.3vw;
     letter-spacing: 0.5vw;
-    border-left: 0.5vw solid rgb(218, 215, 215);
+    /* border-left: 0.5vw solid rgb(218, 215, 215);
     border-top: 0vw solid transparent;
     border-right: 0vw solid transparent;
-    border-bottom: 0.5vw solid rgb(218, 215, 215);
+    border-bottom: 0.5vw solid rgb(218, 215, 215); */
   }
 
   .tableContainer1 {
@@ -1034,7 +1036,9 @@ table>tbody>tr>td {
   }
 
   .descriptionBox {
-    width: 40vw;
+    width: 50vw;
+    position: relative;
+    left: -3vw;
   }
 
   .descriptionBox>p {
@@ -1054,6 +1058,7 @@ table>tbody>tr>td {
     /* border-bottom: 0.5vw solid rgb(218, 215, 215); */
     /* border-radius: 2vw; */
     margin-top: 1vw;
+    margin-left: 0vw;
   }
 
   /* .backgroundImage {
@@ -1126,24 +1131,57 @@ table>tbody>tr>td {
   }
 
   .directionBtn {
-    background: rgba(240, 248, 255, 0.0);
-    opacity: 1.0;
+    opacity: 0.5;
+    background: rgba(240, 248, 255, 1.0);
+    /* z-index: 10; */
+    /* background: rgba(240, 248, 255, 0.0); */
+    /* opacity: 1.0; */
     border: 1px solid transparent;
     z-index: 12;
   }
 
+  /* .downDirection {
+    
+  } */
+
+  .leftDirection {
+    background: rgba(240, 248, 255, 0.0);
+    z-index: 12;
+    border: 1px solid transparent;
+  }
+
+  .leftDirection>i {
+    color: rgba(15,15,15,0.5);
+    font-size: 6vh;
+    opacity: 1.0;
+
+  }
+
   .leftDirection:hover {
     opacity: 0.7;
-    background: rgba(240, 248, 255, 1.0)
+    background: rgba(240, 248, 255, 0.7);
   }
   .leftDirection:hover>i {
-    color: rgb(15,15,15);
+    color: rgba(15,15,15);
     opacity: 1.0;
   }
 
+  .rightDirection {
+    background: rgba(240, 248, 255, 0.0);
+    border: 1px solid transparent;
+    z-index: 12;
+  }
+
+  .rightDirection>i {
+    color: rgba(15,15,15,0.5);
+    opacity: 1.0;
+    font-size: 6vh;
+  }
+
   .rightDirection:hover {
-    opacity: 0.7;
-    background: rgba(240, 248, 255, 1.0)
+    opacity: 0.7;   
+    background: rgba(240, 248, 255, 0.7);
+
   }
 
   .rightDirection:hover>i {
@@ -1241,6 +1279,10 @@ table>tbody>tr>td {
   }
 
   .downDirection {
+    background: rgba(240, 248, 255, 0.5);
+    /* opacity: 1.0; */
+    border: 1px solid transparent;
+    z-index: 12;
     color: white;
     background: rgb(55, 55, 55, 0.6);
     overflow: hidden;
@@ -1250,7 +1292,7 @@ table>tbody>tr>td {
 
   .downDirection>i {
     color: white;
-    font-size: 50px;
+    /* font-size: 50px; */
   }
 
   .lastMargin {
