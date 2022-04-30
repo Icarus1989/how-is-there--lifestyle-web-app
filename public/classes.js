@@ -34,15 +34,16 @@ class Indication {
     this.container.append(this.p);
   }
   firstIndication() {
-    this.p.style.width = '73vw';
+    // this.p.style.width = '73vw';
     this.writeText(`The city ${this.input} is not been found - searching for other cities in this country...`);
-    this.p.style.left = this.container.getBoundingClientRect().width / 2 - this.p.getBoundingClientRect().width / 2 + 'px';
     this.p.classList.add('tempIndication');
+    this.p.style.left = this.container.getBoundingClientRect().width / 2 - this.p.getBoundingClientRect().width / 2 + 'px';
   }
   secondIndication() {
     this.writeText(`The city ${this.input} is not been found.`);
     this.p.classList.remove('tempIndication');
     this.p.classList.add('indications');
+    // console.log(this.p.scrollWidth);
   }
   thirdIndication() {
     this.writeText(`The City ${this.input} is not been found or there is no city with this name - try to reinsert the city name or check your internet connection`);

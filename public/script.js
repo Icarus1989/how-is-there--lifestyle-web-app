@@ -65,17 +65,24 @@ async function retrieveAlternativeCities(info, input) {
   const uaUrl = `https://api.teleport.org/api/urban_areas`;
   let urbanAreas = new UARetrieve(uaUrl);
   let urbanAreasList = await urbanAreas.retrieveUrbanAreas();
-  let alternatives = new AlternativeCities(urbanAreasList, info, input, alternatesContainer, resultsCont);
-  let alternativesCities = await alternatives.createAlternatives();
-  let alternativesButtons = await alternatives.createButtons();
-  spinner.removeSpinner();
-  indication.secondIndication();
-  resultsCont.children[0].style.placeItems = 'center';
-  resultsCont.children[0].append(alternatesContainer);
 
-  if (alternativesButtons > 8) {
-    alternatives.bigContainer();
+  try {
+    let alternatives = new AlternativeCities(urbanAreasList, info, input, alternatesContainer, resultsCont);
+    let alternativesCities = await alternatives.createAlternatives();
+    let alternativesButtons = await alternatives.createButtons();
+    spinner.removeSpinner();
+    indication.secondIndication();
+    resultsCont.children[0].style.placeItems = 'center';
+    resultsCont.children[0].append(alternatesContainer);
+
+    if (alternativesButtons > 8) {
+      alternatives.bigContainer();
+    }
+  } catch {
+    spinner.removeSpinner();
+    indication.thirdIndication();
   }
+
 
   inputField.addEventListener('change', () => {
     disappearElement(alternatesContainer, 0).then(() => {
