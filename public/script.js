@@ -1,9 +1,11 @@
 let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
-let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
-menu.createButton();
-menu.createMenu();
+window.addEventListener('load', () => {
+  let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
+  menu.createButton();
+  menu.createMenu();
+});
 let UrbanAreasCompleteList = [];
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
