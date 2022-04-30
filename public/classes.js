@@ -162,16 +162,21 @@ class Menu {
                 this.list.remove();
               });
 
-              this.inputContainer.animate([{
-                transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
-                // transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight}px)`
-              }], {
-                duration: 700,
-                easing: 'linear',
-                direction: 'normal',
-                iteration: 1,
-                fill: 'forwards'
-              });
+              console.log(this.inputContainer.getBoundingClientRect().y)
+              if (this.inputContainer.getBoundingClientRect().y > this.container.clientHeight / 25) {
+                this.inputContainer.animate([{
+                  transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
+                  // transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight}px)`
+                }], {
+                  duration: 700,
+                  easing: 'linear',
+                  direction: 'normal',
+                  iteration: 1,
+                  fill: 'forwards'
+                });
+              }
+
+
             } else if ((btnEvent.target.tagName == 'BUTTON' && btnEvent.target.classList.contains('deleteBtn')) || (btnEvent.target.tagName == 'I' && btnEvent.target.classList.contains('fa-xmark'))) {
               this.cityName = btnEvent.target.parentElement.firstElementChild.textContent || btnEvent.target.parentElement.parentElement.firstElementChild.textContent;
               this.cancelData = {
