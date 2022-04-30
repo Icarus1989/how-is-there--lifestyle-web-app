@@ -162,6 +162,8 @@ class Menu {
                 this.list.remove();
               });
 
+              console.log(this.inputContainer.getBoundingClientRect().y > this.container.clientHeight / 2 - this.inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2));
+
               if (this.inputContainer.getBoundingClientRect().y > this.container.clientHeight / 2 - this.inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2)) {
                 this.inputContainer.animate([{
                   transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
