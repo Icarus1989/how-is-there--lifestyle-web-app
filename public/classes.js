@@ -162,7 +162,7 @@ class Menu {
                 this.list.remove();
               });
 
-              console.log(this.inputContainer.getBoundingClientRect().y)
+              // console.log(this.inputContainer.getBoundingClientRect().y)
               if (this.inputContainer.getBoundingClientRect().y > this.container.clientHeight / 25) {
                 this.inputContainer.animate([{
                   transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`

@@ -710,7 +710,7 @@ table>tbody>tr>td {
 
 
   /* box-shadow: 3px 3px 3px rgb(15, 15, 15); */
-  filter: drop-shadow(1vw 1vw 2.5vw rgb(67,65,72));
+  filter: drop-shadow(0vw 0vw 2vw rgb(52, 52, 52));
 
   /* text-shadow: 1px 1px white, -1px -1px white, 1px -1px white, -1px 1px white; */
 }
