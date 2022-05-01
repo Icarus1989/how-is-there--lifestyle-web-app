@@ -231,12 +231,14 @@ class Menu {
 
         createIconBtn(this.container, '<i class="fa-solid fa-xmark"></i>').then(() => {
           this.closeBtn = document.querySelectorAll('.menuBtn')[1];
+          this.closeBtn.classList.add('menuBtnOpen');
           this.closeBtn.style.zIndex = 13;
         }).then(() => {
           this.closeBtn.addEventListener('click', () => {
             if (this.menuContainer.querySelector('.downDirection')) {
               disappearElement(this.menuContainer.querySelector('.downDirection'), 0);
             }
+            this.closeBtn.classList.remove('menuBtnOpen');
             clearTimeout(this.timeout);
             this.closeBtn.remove();
             this.menuContainer.style.top = (-((this.container.scrollHeight / 100) * 70)) + 'px';
@@ -327,6 +329,7 @@ class CityData {
         this.saveDb = await fetch('/saveDb', this.optionsSaveDb);
         this.saveResponse = await this.saveDb.json();
         this.saveButton.style.color = 'rgb(74, 126, 223)';
+        this.saveButton.classList.add('saveBtnActive');
         this.savingCount++;
         console.log('Saved on db');
       }
@@ -349,6 +352,7 @@ class CityData {
     this.savingCount = 1;
     this.fromDb = true;
     this.saveButton.style.color = 'rgb(74, 126, 223)';
+    this.saveButton.classList.add('saveBtnActive');
     return this.infoScores;
   }
 
@@ -677,12 +681,19 @@ class createDraw {
     setTimeout(async () => {
       this.response = await fetch(this.path, this.options);
       // console.log(this.response);
-      // this.response = await axios.get(this.path);
+      // this.response = await axios.get(this.path, {
+      //   headers: {
+      //     'Cache-Control': 'no-cache',
+      //     'Pragma': 'no-cache',
+      //     'Expires': '0',
+      //   }
+      // });
       // console.log(this.response);
       // 
       // this.axiosData = await this.response["data"];
       // this.data = new ReadableStream(this.axiosData);
       // console.log(this.data);
+      // Nota provare test Base64 da this.response["data"] ottenuto da Axios
       this.blob = await this.response.blob();
 
 
