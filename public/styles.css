@@ -30,7 +30,6 @@ body {
   left: -50%;
 }
 
-
 #inputContainer {
   position: absolute;
   width: 82vw;
@@ -867,7 +866,6 @@ table>tbody>tr>td {
   .rightDirection:hover {
     opacity: 0.7;   
     background: rgba(240, 248, 255, 0.7);
-
   }
 
   .rightDirection:hover>i {

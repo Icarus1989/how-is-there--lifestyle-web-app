@@ -672,12 +672,20 @@ class createDraw {
     this.image.src = '';
     this.options = {
       method: 'GET',
-      cache: 'no-cache'
+      // cache: 'no-cache'
     }
     setTimeout(async () => {
       this.response = await fetch(this.path, this.options);
+      // console.log(this.response);
+      // this.response = await axios.get(this.path);
+      // console.log(this.response);
       // 
+      // this.axiosData = await this.response["data"];
+      // this.data = new ReadableStream(this.axiosData);
+      // console.log(this.data);
       this.blob = await this.response.blob();
+
+
       this.urlObj = URL.createObjectURL(this.blob);
       this.image.src = this.urlObj;
     }, 800);
