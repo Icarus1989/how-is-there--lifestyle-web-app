@@ -114,7 +114,6 @@ class Menu {
     this.menuButton.addEventListener('click', async (event) => {
       if (event.target == this.menuButton.querySelector('i') || event.target == this.menuButton) {
         this.menu = await axios.get('/menu');
-        // Ok funzionante - Ok test local - ? test device
         this.response = await this.menu["data"];
         this.menuContainer = document.createElement('div');
         this.header = document.createElement('h3');
@@ -163,7 +162,6 @@ class Menu {
                 this.list.remove();
               });
 
-              // console.log(this.inputContainer.getBoundingClientRect().y)
               if (this.inputContainer.getBoundingClientRect().y > this.container.clientHeight / 25) {
                 this.inputContainer.animate([{
                   transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
