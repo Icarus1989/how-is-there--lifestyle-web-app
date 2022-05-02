@@ -22,8 +22,6 @@ inputField.addEventListener('change', async (event) => {
   } else {
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
   }
-
-
   searchCity(event.target);
 });
 
@@ -78,6 +76,7 @@ async function retrieveAlternativeCities(info, input) {
     if (alternativesButtons > 8) {
       alternatives.bigContainer();
     }
+    // Qui per alternativeButtons == 0
   } catch {
     spinner.removeSpinner();
     indication.thirdIndication();
@@ -199,10 +198,16 @@ async function searchCity(input) {
       let elemetsToDel = [document.querySelector('h2'), document.querySelector('.descriptionBox'), document.querySelector('.rank'), document.querySelector('.tableContainer1'), document.querySelector('.tableContainer2')];
       cityData.deleteElements(elemetsToDel).then(() => {
         cityData.createAlternatives(info);
-      })
+      }).catch((err) => {
+        throw new Error(err);
+      });
     }
-  } catch {
-    cityData.somethingWrong();
+  } catch (error) {
+    input.value = '';
+    input.placeholder = 'Something wrong...';
+    input.blur();
+    let errorInd = new Indication(mainContainer, error.message);
+    error.message == 'Network Error' ? errorInd.fourthIndication() : errorInd.fifthIndication();
   }
 }
 

@@ -292,17 +292,18 @@ table>tbody>tr>td {
 }
 
 .altButtons {
-  min-width: 28vw;
+  min-width: 32vw;
   width: fit-content;
+  height: 8vh;
   font-size: 16px;
   font-weight: 700;
-  color: rgb(83,83,83);
-  background: radial-gradient(circle at 140% 22%, white 82%, #a8a8a8 100%);
+  color: rgb(50,50,50);
   padding: 4% 8% 4% 8%;
-  border: 2px solid rgba(150,150,150, 1.0);
+  border: 2px solid rgba(230,230,230, 1.0);
   border-radius: 12px;
   margin: 10% 5% 5% 5%;
-  filter: drop-shadow(0vw 0vw 0.5vw rgb(67,65,72));
+  background: linear-gradient(320deg, #b9b7b7, #f0f0f0);
+  box-shadow: 0.6vw 0.6vw 2.6vw #6c6c6c, -0.6vw -0.6vw 2.6vw #d3d2d282;
 }
 
 .tempIndication {
@@ -331,6 +332,7 @@ table>tbody>tr>td {
   margin-bottom: 5%;
   background: rgb(90, 11, 11, 0.7);
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
+  z-index: 15;
 }
 
 .saveBtn {
@@ -589,13 +591,13 @@ table>tbody>tr>td {
   }
 
   .tempIndication {
-    width: 30vw;
+    width: 50vw;
     font-size: 3vw;
   }
 
   .indications {
     width: fit-content;
-    width: 30vw;
+    width: 50vw;
     font-size: 3vw;
   }
 
@@ -630,6 +632,7 @@ table>tbody>tr>td {
   .alternatesContainer {
     width: 60vw;
     height: 40vh;
+    max-height: 450px;
     font-size: 20px;
     border-radius: 18px;
   }
@@ -640,6 +643,7 @@ table>tbody>tr>td {
 
   .altButtons {
     min-width: 20vw;
+    height: 6vh;
     font-size: 18px;
   }
 
@@ -707,8 +711,7 @@ table>tbody>tr>td {
   }
 
   table {
-    min-width: 500px;
-    width: 35vw;
+    width: 40vw;
     font-size: 1vw;
     line-height: 1.3vw;
     letter-spacing: 0.5vw;
@@ -777,8 +780,10 @@ table>tbody>tr>td {
 
   .alternatesContainer {
     width: 40vw;
-    height: 40vh;
+    height: 45vh;
+    max-height: 350px;
     border-radius: 18px;
+    margin: 1vw 0vw 2vw 0vw;
   }
 
   .alternatesContainer>legend {
@@ -787,6 +792,11 @@ table>tbody>tr>td {
 
   .altButtons {
     min-width: 15vw;
+    height: 8vh;
+    border: 1px solid rgb(255 255 255);
+    border-radius: 16px;
+    background: linear-gradient(320deg, #b9b7b7, #f0f0f0);
+    box-shadow: 0.6vw 0.6vw 2.6vw #6c6c6c, -0.6vw -0.6vw 2.6vw #d3d2d282;
   }
 
   .tempIndication {
@@ -815,11 +825,18 @@ table>tbody>tr>td {
     border: 1px solid transparent;
     bottom: 3vh;
     left: 3vh;
-    filter: drop-shadow(1vw 1vw 1vw #232323);
+    background: linear-gradient(145deg, #f0f0f0, #9f9e9e);
+    box-shadow: 1.6vw 1.6vw 3.6vw #6c6c6c, -1.6vw -1.6vw 3.6vw #d3d2d282;
+
   }
 
   .saveBtn>i {
     font-size: 2.5vw;
+  }
+  
+  .saveBtnActive {
+    background: linear-gradient(145deg, #9f9e9e, #f0f0f0);
+    border: 1px solid rgb(223,223,223);
   }
 
   .spinnerContainer {
@@ -907,11 +924,17 @@ table>tbody>tr>td {
     border: 1px solid transparent;
     bottom: 3vh;
     right: 3vh;
-    filter: drop-shadow(1vw 1vw 1vw #232323);
+    background: linear-gradient(145deg, #f0f0f0, #9f9e9e);
+    box-shadow: 1.6vw 1.6vw 3.6vw #6c6c6c, -1.6vw -1.6vw 3.6vw #d3d2d282;
   }
 
   .menuBtn>i {
     font-size: 2.5vw;
+  }
+
+  .menuBtnOpen {
+    background: linear-gradient(145deg, #9f9e9e, #f0f0f0);
+    border: 1px solid rgb(223,223,223);
   }
 
   .menuContainer {

@@ -39,15 +39,27 @@ class Indication {
     this.p.classList.add('tempIndication');
     this.p.style.left = this.container.getBoundingClientRect().width / 2 - this.p.getBoundingClientRect().width / 2 + 'px';
   }
+
   secondIndication() {
     this.writeText(`The city ${this.input} is not been found.`);
     this.p.classList.remove('tempIndication');
     this.p.classList.add('indications');
-    // console.log(this.p.scrollWidth);
   }
+
   thirdIndication() {
-    this.writeText(`The City ${this.input} is not been found or there is no city with this name - try to reinsert the city name or check your internet connection`);
+    this.writeText(`The City ${this.input} is not been found or there is no city with this name - try to reinsert the city name`);
   }
+
+  fourthIndication() {
+    this.writeText(`${this.input} - please check your connection.`);
+    this.p.classList.add('indications');
+  }
+
+  fifthIndication() {
+    this.writeText(`${this.input} - unknown error, please reload the page.`);
+    this.p.classList.add('indications');
+  }
+
   async nullIndication() {
     this.p.textContent = '';
     this.p.remove();
@@ -165,7 +177,6 @@ class Menu {
               if (this.inputContainer.getBoundingClientRect().y > this.container.clientHeight / 25) {
                 this.inputContainer.animate([{
                   transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
-                  // transform: `translateY(-${this.container.clientHeight / 2 - this.inputContainer.clientHeight}px)`
                 }], {
                   duration: 700,
                   easing: 'linear',
@@ -193,6 +204,7 @@ class Menu {
               btnEvent.target.closest('li').remove();
             }
           })
+
         });
 
 
@@ -250,6 +262,10 @@ class Menu {
           });
         });
       }
+      mainContainer.addEventListener('click', () => {
+        let closeEvent = new Event('click');
+        this.closeBtn.dispatchEvent(closeEvent);
+      })
     });
   }
 }
@@ -385,9 +401,6 @@ class CityData {
       retrieveTeleportImage(this.city).then(() => {
         loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
-      }).catch((err) => {
-        // capire se tenere e cosa mettere
-        throw new Error(err);
       })
     });
 
@@ -409,15 +422,6 @@ class CityData {
     this.info = info;
     retrieveAlternativeCities(this.info, this.inputElement.value);
   }
-
-  somethingWrong() {
-    this.inputElement.textContent = '';
-    this.inputElement.placeholder = 'Enter a new city...';
-    this.inputElement.blur();
-    // aggiungere indicazione problemi
-  }
-  // forse inserire new Indication creando fourthIndication
-  // fine catch primo try
 }
 
 class Description {
