@@ -4,7 +4,6 @@ let inputContainer = inputField.parentElement;
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
 menu.createButton();
 menu.createMenu();
-let UrbanAreasCompleteList = [];
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
 inputField.addEventListener('change', async (event) => {
@@ -24,8 +23,6 @@ inputField.addEventListener('change', async (event) => {
   }
   searchCity(event.target);
 });
-
-
 
 async function retrievePixabay(name) {
   const url = `bkgImage/${name}`;
@@ -82,7 +79,6 @@ async function retrieveAlternativeCities(info, input) {
     indication.thirdIndication();
   }
 
-
   inputField.addEventListener('change', () => {
     disappearElement(alternatesContainer, 0).then(() => {
       alternatesContainer.remove();
@@ -98,7 +94,6 @@ async function retrieveAlternativeCities(info, input) {
     })
     resultsCont.children[0].style.placeItems = 'normal';
     appearElement(document.querySelector('.menuBtn'), 500, 'grid');
-
   });
 
   alternatesContainer.addEventListener('click', (event) => {
@@ -167,15 +162,14 @@ function createSaveBtn(container) {
 function loadImage(image, container, resultsContainer, path) {
   let draw = new createDraw(container, resultsContainer, path);
   if (image) {
-    draw.existingImg(image);
-    draw.notExistingImg();
+    draw.deleteExistingImg(image);
+    draw.drawImg();
     draw.calcMeasures();
   } else {
-    draw.notExistingImg();
+    draw.drawImg();
     draw.calcMeasures();
   }
   draw.scrollMovement();
-
 }
 
 async function searchCity(input) {
@@ -236,7 +230,6 @@ async function appearElement(elem, delay, display) {
 function createNavButton(direction, container, position) {
   let directionBtn = document.createElement('button');
   directionBtn.style.placeItems = 'center';
-  // directionBtn.classList.add('directionBtn');
   directionBtn.style.position = position;
 
   switch (direction) {

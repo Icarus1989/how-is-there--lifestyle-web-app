@@ -347,7 +347,6 @@ class CityData {
         this.saveButton.style.color = 'rgb(74, 126, 223)';
         this.saveButton.classList.add('saveBtnActive');
         this.savingCount++;
-        console.log('Saved on db');
       }
     });
 
@@ -507,14 +506,11 @@ class AlternativeCities {
   }
 
   async createAlternatives() {
-    // this.UrbanAreaList = UrbanAreaList;
     this.country = this.info["_embedded"]["city:search-results"][0]["_embedded"]["city:item"]["_embedded"]["city:country"]["iso_alpha2"];
     this.filteredArr = [];
     this.UrbanAreas.map(ua => {
       if (ua["iso_alpha2"] == this.country) {
         this.filteredArr.push(ua["name"]);
-        // console.log(this.filteredArr);
-
       }
     });
   }
@@ -544,7 +540,6 @@ class AlternativeCities {
 
 
     this.container.addEventListener('scroll', (event) => {
-      // let downBtn = event.target.querySelector('.downDirection');
       this.downBtn.style.position = 'fixed';
       this.downBtn.style.top = this.container.getBoundingClientRect().bottom - this.downBtn.getBoundingClientRect().height + 'px';
       this.downBtn.style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
@@ -559,7 +554,6 @@ class AlternativeCities {
         this.iElement.classList.add('fa-solid', 'fa-chevron-down');
         this.downBtn.firstElementChild.replaceWith(this.iElement);
       }
-
     });
     this.parentContainer.addEventListener('scroll', () => {
       if (this.container.querySelector('.downDirection')) {
@@ -667,7 +661,7 @@ class createDraw {
       this.image.style.bottom = "0px";
     }
   }
-  existingImg(image) {
+  deleteExistingImg(image) {
     this.image = image;
     this.image.src = '';
     if (this.image) {
@@ -675,7 +669,7 @@ class createDraw {
     }
   }
 
-  notExistingImg() {
+  drawImg() {
     this.image = document.createElement('img');
     this.image.src = '';
     this.options = {

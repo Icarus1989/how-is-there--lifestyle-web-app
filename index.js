@@ -5,14 +5,12 @@ const {
   default: axios
 } = require('axios');
 require('dotenv').config();
-
 const Datastore = require('nedb');
 const cannyEdgeDetector = require('canny-edge-detector');
 const ImageCanny = require('image-js').Image;
 
 const app = express();
 const port = process.env.PORT || 3001;
-
 const database = new Datastore('citiesDatabase.db');
 database.loadDatabase();
 
@@ -38,9 +36,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
     response.json(jsonPixabay);
     downloadAndCannyEdge(fileUrl);
-
   } catch {
-
     try {
       const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
       const dataTeleport = await axios.get(urlTeleport);
@@ -48,15 +44,11 @@ app.get('/bkgImage/:cityname', async (request, response) => {
       fileUrl = await jsonTeleport["photos"][0]["image"]["web"];
       response.json(jsonTeleport);
       downloadAndCannyEdge(fileUrl);
-
     } catch (error) {
       response.json(error["data"]);
     }
   }
-
-
 });
-
 
 app.post('/queryDb', (request, response) => {
   const data = request.body;
@@ -83,7 +75,6 @@ app.post('/queryDb', (request, response) => {
     }
   });
 });
-
 
 app.post('/saveDb', (request, response) => {
   const saveData = request.body;
@@ -124,7 +115,6 @@ app.post('/cancelDb', (request, response) => {
 });
 
 async function downloadAndCannyEdge(url) {
-
   if (fs.existsSync('public/tempImage/image.png')) {
     fs.unlink('public/tempImage/image.png', (error) => {
       if (error) {
@@ -147,13 +137,11 @@ async function downloadAndCannyEdge(url) {
     const options = {
       lowThreshold: 120,
       highThreshold: 130,
-      gaussianBlur: 0.6, //ultima mod - 0.7 o 0.5 test
+      gaussianBlur: 0.6,
       brightness: 1.1
     };
     const edge = await cannyEdgeDetector(grey, options);
     return edge.save('public/cannyImage/edge.png');
   });
   return writeFile;
-
-
 }
