@@ -345,6 +345,8 @@ class CityData {
           body: JSON.stringify(this.dbData)
         }
         this.saveDb = await fetch('/saveDb', this.optionsSaveDb);
+
+        // ------------
         this.saveResponse = await this.saveDb.json();
         this.saveButton.style.color = 'rgb(74, 126, 223)';
         this.saveButton.classList.add('saveBtnActive');
@@ -674,30 +676,10 @@ class createDraw {
   drawImg() {
     this.image = document.createElement('img');
     this.image.src = '';
-    this.options = {
-      method: 'GET',
-      // cache: 'no-cache'
-    }
     setTimeout(async () => {
-      // this.response = await fetch(this.path, this.options);
-      // console.log(this.response);
       this.response = await axios.get(this.path, {
-        // headers: {
-        //   'Cache-Control': 'no-cache',
-        //   'Pragma': 'no-cache',
-        //   'Expires': '0',
-        // },
         responseType: "blob"
       });
-      // console.log(this.response);
-      // 
-      // this.axiosData = await this.response["data"];
-      // this.data = new ReadableStream(this.axiosData);
-      // console.log(this.data);
-      // Nota provare test Base64 da this.response["data"] ottenuto da Axios
-      // this.blob = await this.response["data"].blob();
-
-
       this.urlObj = URL.createObjectURL(this.response["data"]);
       this.image.src = this.urlObj;
     }, 1000);

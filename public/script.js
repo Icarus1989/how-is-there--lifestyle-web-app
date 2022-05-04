@@ -165,11 +165,11 @@ async function loadImage(image, container, resultsContainer, path) {
   let draw = new createDraw(container, resultsContainer, path);
   if (image) {
     draw.deleteExistingImg(image);
-    let img = await draw.drawImg();
-    let meas = await draw.calcMeasures(img);
+    draw.drawImg();
+    draw.calcMeasures();
   } else {
-    let img = await draw.drawImg();
-    let meas = await draw.calcMeasures(img);
+    draw.drawImg();
+    draw.calcMeasures();
   }
   draw.scrollMovement();
 }

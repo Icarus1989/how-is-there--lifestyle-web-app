@@ -2671,6 +2671,21 @@
 
 
 
+// drawImage FUNZIONANTE IMPORTANTE
+
+// this.image = document.createElement('img');
+// this.image.src = '';
+// this.options = {
+//     //   method: 'GET',
+//     //   // cache: 'no-cache'
+//     // }
+// this.response = await fetch(this.path, this.options);
+// console.log(this.response);
+// this.blob = await this.response["data"].blob();
+// this.urlObj = URL.createObjectURL(this.response["data"]);
+// this.image.src = this.urlObj;
+
+
 
 
 
