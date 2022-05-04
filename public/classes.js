@@ -682,11 +682,11 @@ class createDraw {
       // this.response = await fetch(this.path, this.options);
       // console.log(this.response);
       this.response = await axios.get(this.path, {
-        headers: {
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        },
+        // headers: {
+        //   'Cache-Control': 'no-cache',
+        //   'Pragma': 'no-cache',
+        //   'Expires': '0',
+        // },
         responseType: "blob"
       });
       // console.log(this.response);
@@ -700,7 +700,7 @@ class createDraw {
 
       this.urlObj = URL.createObjectURL(this.response["data"]);
       this.image.src = this.urlObj;
-    }, 800);
+    }, 1000);
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
