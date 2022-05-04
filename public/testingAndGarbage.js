@@ -2671,7 +2671,7 @@
 
 
 
-// drawImage FUNZIONANTE IMPORTANTE
+// drawImage FUNZIONANTE IMPORTANTI
 
 // this.image = document.createElement('img');
 // this.image.src = '';
@@ -2684,6 +2684,53 @@
 // this.blob = await this.response["data"].blob();
 // this.urlObj = URL.createObjectURL(this.response["data"]);
 // this.image.src = this.urlObj;
+
+
+// saveDb FUNZIONANTE IMPORTANTI
+
+// this.optionsSaveDb = {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(this.dbData)
+// }
+// this.saveDb = await fetch('/saveDb', this.optionsSaveDb);
+
+
+// dbQuery FUNZIONANTE IMPORTANTI
+
+// this.dbQueryOptions = {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(this.dbQueryName)
+// }
+
+// this.dbQuery = await fetch('/queryDb', this.dbQueryOptions);
+// this.dbResponse = await this.dbQuery.json();
+// console.log(this.dbResponse);
+
+// cancelDb FUNZIONANTE IMPORTANTI
+
+
+// this.cancelOptions = {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(this.cancelData)
+// }
+// this.cancelRequest = await fetch('/cancelDb', this.cancelOptions);
+// this.cancelInfo = await this.cancelRequest.json();
+
+
+// test chiusura menu al click
+// mainContainer.addEventListener('click', () => {
+//   let closeEvent = new Event('click');
+//   this.closeBtn.dispatchEvent(closeEvent);
+// })
 
 
 

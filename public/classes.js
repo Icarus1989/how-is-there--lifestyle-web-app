@@ -123,7 +123,7 @@ class Menu {
     this.container.append(this.menuButton);
   }
   createMenu() {
-    this.menuButton.addEventListener('click', async (event) => {
+    this.container.addEventListener('click', async (event) => {
       if (event.target == this.menuButton.querySelector('i') || event.target == this.menuButton) {
         this.menu = await axios.get('/menu');
         this.response = await this.menu["data"];
@@ -192,15 +192,16 @@ class Menu {
               this.cancelData = {
                 name: this.cityName
               };
-              this.cancelOptions = {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.cancelData)
-              }
-              this.cancelRequest = await fetch('/cancelDb', this.cancelOptions);
-              this.cancelInfo = await this.cancelRequest.json();
+
+              this.cancelRequest = await axios({
+                method: 'post',
+                url: '/cancelDb',
+                data: this.cancelData,
+                responseType: 'json'
+              });
+
+              this.cancelInfo = await this.cancelRequest["data"];
+              console.log(this.cancelInfo);
               btnEvent.target.closest('li').remove();
             }
           })
@@ -261,11 +262,10 @@ class Menu {
             });
           });
         });
-      }
-      mainContainer.addEventListener('click', () => {
+      } else if (this.closeBtn && !this.menuContainer.contains(event.target)) {
         let closeEvent = new Event('click');
         this.closeBtn.dispatchEvent(closeEvent);
-      })
+      }
     });
   }
 }
@@ -296,20 +296,18 @@ class CityData {
       name: this.city
     };
 
-    this.dbQueryOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(this.dbQueryName)
-    }
+    this.dbQuery = await axios({
+      method: 'post',
+      url: '/queryDb',
+      data: this.dbQueryName,
+      responseType: 'json'
+    });
 
-    this.dbQuery = await fetch('/queryDb', this.dbQueryOptions);
-    this.dbResponse = await this.dbQuery.json();
+    this.dbResponse = await this.dbQuery["data"];
+    console.log(this.dbResponse);
     this.dbDatas = this.dbResponse.data;
 
     // document.querySelector('.saveBtn')?.remove();
-
     if (document.querySelector('.saveBtn')) {
       document.querySelector('.saveBtn').remove();
     }
@@ -331,23 +329,20 @@ class CityData {
     appearElement(this.saveButton, 500, 'grid');
     this.saveButton.addEventListener('click', async (event) => {
       if ((event.target == this.saveButton.querySelector('i') || event.target == this.saveButton) && !(this.savingCount > 0) && (this.fromDb == false)) {
+
         this.dbData = {
           name: this.city,
           title: this.fullName,
           data: this.infoScores
         }
 
-        this.optionsSaveDb = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(this.dbData)
-        }
-        this.saveDb = await fetch('/saveDb', this.optionsSaveDb);
+        this.saveDb = await axios({
+          method: 'post',
+          url: '/saveDb',
+          data: this.dbData,
+          responseType: 'json'
+        });
 
-        // ------------
-        this.saveResponse = await this.saveDb.json();
         this.saveButton.style.color = 'rgb(74, 126, 223)';
         this.saveButton.classList.add('saveBtnActive');
         this.savingCount++;
@@ -358,8 +353,6 @@ class CityData {
   }
 
   async inDatabase() {
-
-
     this.saveButton = document.querySelector('.saveBtn');
     appearElement(this.saveButton, 500, 'grid');
     this.infoScores = this.dbDatas;
