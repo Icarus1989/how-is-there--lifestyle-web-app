@@ -125,6 +125,8 @@ async function createDescription(state, globalContinent, rank, textbox, text, co
 }
 
 function createDataTable(oldTable, jsonData, container) {
+  // oldTable?.parentElement.remove();
+  // oldTable?.remove();
   if (oldTable) {
     oldTable.parentElement.remove();
     oldTable.remove();
@@ -159,15 +161,15 @@ function createSaveBtn(container) {
   container.append(saveBtn);
 }
 
-function loadImage(image, container, resultsContainer, path) {
+async function loadImage(image, container, resultsContainer, path) {
   let draw = new createDraw(container, resultsContainer, path);
   if (image) {
     draw.deleteExistingImg(image);
-    draw.drawImg();
-    draw.calcMeasures();
+    let img = await draw.drawImg();
+    let meas = await draw.calcMeasures(img);
   } else {
-    draw.drawImg();
-    draw.calcMeasures();
+    let img = await draw.drawImg();
+    let meas = await draw.calcMeasures(img);
   }
   draw.scrollMovement();
 }
@@ -255,12 +257,12 @@ function createNavButton(direction, container, position) {
       directionBtn.classList.add('downDirection');
       directionBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-chevron-down"></i>');
       break;
-    case 'up':
-      directionBtn.style.width = '50vw';
-      directionBtn.style.height = '5vh';
-      directionBtn.style.left = '0%';
-      directionBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-chevron-up"></i>');
-      break;
+      // case 'up':
+      //   directionBtn.style.width = '50vw';
+      //   directionBtn.style.height = '5vh';
+      //   directionBtn.style.left = '0%';
+      //   directionBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-chevron-up"></i>');
+      //   break;
   }
   container.append(directionBtn);
 }
@@ -325,12 +327,12 @@ async function createIconBtn(container, icon) {
   container.append(menuBtn);
 }
 
-window.addEventListener('resize', () => {
-  mainContainer.style.height = '100vh';
-  document.querySelector('#imgContainer').style.width = '100vw';
-  document.querySelector('#imgContainer').style.height = '100vh';
-  document.querySelector('#secondImgContainer').style.width = '100vw';
-  document.querySelector('#secondImgContainer').style.height = '100vh';
-  document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
-  document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
-});
+// window.addEventListener('resize', () => {
+//   mainContainer.style.height = '100vh';
+//   document.querySelector('#imgContainer').style.width = '100vw';
+//   document.querySelector('#imgContainer').style.height = '100vh';
+//   document.querySelector('#secondImgContainer').style.width = '100vw';
+//   document.querySelector('#secondImgContainer').style.height = '100vh';
+//   document.querySelector('#imgContainer').querySelector('img').style.height = '100vh';
+//   document.querySelector('#secondImgContainer').querySelector('img').style.height = '100vh';
+// });

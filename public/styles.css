@@ -261,7 +261,7 @@ table>tbody>tr>td {
   grid-template-rows: 1fr 1fr 1fr;
   width: 80vw;
   height: 45vh;
-  max-height: 300px;
+  max-height: 320px;
   padding: 0;
   margin: 1vw 0vw 5vw 0vw;
   border: 8px solid rgb(100, 100, 100);

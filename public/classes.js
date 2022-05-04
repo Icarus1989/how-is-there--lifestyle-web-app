@@ -308,6 +308,8 @@ class CityData {
     this.dbResponse = await this.dbQuery.json();
     this.dbDatas = this.dbResponse.data;
 
+    // document.querySelector('.saveBtn')?.remove();
+
     if (document.querySelector('.saveBtn')) {
       document.querySelector('.saveBtn').remove();
     }
@@ -677,25 +679,26 @@ class createDraw {
       // cache: 'no-cache'
     }
     setTimeout(async () => {
-      this.response = await fetch(this.path, this.options);
+      // this.response = await fetch(this.path, this.options);
       // console.log(this.response);
-      // this.response = await axios.get(this.path, {
-      //   headers: {
-      //     'Cache-Control': 'no-cache',
-      //     'Pragma': 'no-cache',
-      //     'Expires': '0',
-      //   }
-      // });
+      this.response = await axios.get(this.path, {
+        headers: {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
+        responseType: "blob"
+      });
       // console.log(this.response);
       // 
       // this.axiosData = await this.response["data"];
       // this.data = new ReadableStream(this.axiosData);
       // console.log(this.data);
       // Nota provare test Base64 da this.response["data"] ottenuto da Axios
-      this.blob = await this.response.blob();
+      // this.blob = await this.response["data"].blob();
 
 
-      this.urlObj = URL.createObjectURL(this.blob);
+      this.urlObj = URL.createObjectURL(this.response["data"]);
       this.image.src = this.urlObj;
     }, 800);
     this.image.addEventListener('load', () => {
