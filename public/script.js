@@ -83,7 +83,6 @@ async function retrieveAlternativeCities(info, input) {
       alternatesContainer.remove();
       indication.noAltIndication();
     }
-    // Qui per alternativeButtons == 0
   } catch {
     spinner.removeSpinner();
     indication.thirdIndication();
