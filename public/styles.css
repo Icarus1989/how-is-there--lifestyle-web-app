@@ -37,10 +37,12 @@ body {
 h1 {
   position: absolute;
   top: 30%;
+  width: 100%;
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
   font-style: italic;
   font-size: 12vw;
+  text-align: center;
 }
 
 #inputContainer {
