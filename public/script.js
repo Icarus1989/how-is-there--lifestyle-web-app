@@ -6,7 +6,9 @@ menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
-console.log(document.querySelector('h1'));
+console.log((getComputedStyle(document.querySelector('h1')).top).slice(0, -2));
+document.querySelector('h1').style.top = (getComputedStyle(document.querySelector('h1')).top).slice(0, -2) - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+
 
 // document.querySelector('h1').style.top = mainContainer.clientHeight / 25 - document.querySelector('h1').clientHeight + 'px';
 
