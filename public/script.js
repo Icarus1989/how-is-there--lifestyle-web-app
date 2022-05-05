@@ -72,6 +72,10 @@ async function retrieveAlternativeCities(info, input) {
 
     if (alternativesButtons > 8) {
       alternatives.bigContainer();
+    } else if (alternativesButtons == 0) {
+      console.log('No alternatives');
+      alternatesContainer.remove();
+      indication.noAltIndication();
     }
     // Qui per alternativeButtons == 0
   } catch {

@@ -966,7 +966,7 @@ table>tbody>tr>td {
     border: 5px solid rgba(155, 9, 9, 0.7);
     border-radius: 2vw;
     margin-bottom: 1%;
-    background: rgb(50, 50, 50, 0.7);
+    /* background: rgb(90, 11, 11, 0.7); */
     text-shadow: 3px 2px 3px rgb(15, 15, 15);
   }
 
@@ -1026,18 +1026,17 @@ table>tbody>tr>td {
   }
 
   .leftDirection>i {
-    color: rgba(15,15,15,0.5);
+    color: rgba(15, 15, 15, 1.0);
     font-size: 6vh;
     opacity: 1.0;
 
   }
 
   .leftDirection:hover {
-    opacity: 0.7;
-    background: rgba(240, 248, 255, 0.7);
+    opacity: 1.0;
   }
   .leftDirection:hover>i {
-    color: rgba(15,15,15);
+    color: rgb(74, 126, 223);
     opacity: 1.0;
   }
 
@@ -1048,18 +1047,17 @@ table>tbody>tr>td {
   }
 
   .rightDirection>i {
-    color: rgba(15,15,15,0.5);
+    color: rgba(15, 15, 15, 1.0);
     opacity: 1.0;
     font-size: 6vh;
   }
 
   .rightDirection:hover {
-    opacity: 0.7;   
-    background: rgba(240, 248, 255, 0.7);
+    opacity: 1.0;
   }
 
   .rightDirection:hover>i {
-    color: rgb(15,15,15);
+    color: rgb(74, 126, 223);
     opacity: 1.0;
   }
 

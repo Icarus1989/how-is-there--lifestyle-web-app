@@ -60,6 +60,11 @@ class Indication {
     this.p.classList.add('indications');
   }
 
+  noAltIndication() {
+    this.writeText(`No cities data for this country, please try another city.`);
+    this.p.classList.add('indications');
+  }
+
   async nullIndication() {
     this.p.textContent = '';
     this.p.remove();
@@ -558,6 +563,9 @@ class AlternativeCities {
         this.container.querySelector('.downDirection').style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
       }
     });
+  }
+  async zeroAlternatives() {
+
   }
 }
 
