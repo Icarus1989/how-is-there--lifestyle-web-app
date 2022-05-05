@@ -6,6 +6,10 @@ menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
+console.log(document.querySelector('h1'));
+
+// document.querySelector('h1').style.top = mainContainer.clientHeight / 25 - document.querySelector('h1').clientHeight + 'px';
+
 inputField.addEventListener('change', async (event) => {
   mainContainer.scrollTo(0, 0);
   if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 25) {
