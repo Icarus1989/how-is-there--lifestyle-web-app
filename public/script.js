@@ -6,7 +6,7 @@ menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
-console.log((getComputedStyle(document.querySelector('h1')).top).slice(0, -2));
+// console.log((getComputedStyle(document.querySelector('h1')).top).slice(0, -2));
 document.querySelector('h1').style.top = (getComputedStyle(document.querySelector('h1')).top).slice(0, -2) - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
 
@@ -185,6 +185,7 @@ async function loadImage(image, container, resultsContainer, path) {
 }
 
 async function searchCity(input) {
+  disappearElement(document.querySelector('h1'), 0);
   let cityData = new CityData(input, mainContainer);
   try {
     let info = await cityData.cityInfo();
