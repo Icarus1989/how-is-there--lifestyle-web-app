@@ -130,7 +130,18 @@ async function downloadAndCannyEdge(url) {
     });
   }
   const response = await fetch(url);
-  const buffer = await response.buffer();
+  // console.log(response.body);
+  // const test = await axios.get(url, {
+  //   responseType: 'arraybuffer'
+  // });
+  // const test4 = test["data"].buffer();
+  // console.log(test4);
+  // // console.log(test["data"]);
+  // const test2 = new ArrayBuffer(await test["data"]);
+  // console.log(test2);
+  // const test3 = new Int32Array(test2);
+  // // console.log(test3);
+  const buffer = response.buffer();
   let writeFile = fs.writeFile(`public/tempImage/image.png`, await buffer, async () => {
     const img = await ImageCanny.load(`public/tempImage/image.png`);
     const grey = await img.grey();

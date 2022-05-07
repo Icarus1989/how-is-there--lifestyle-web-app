@@ -6,8 +6,7 @@ menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
-// console.log((getComputedStyle(document.querySelector('h1')).top).slice(0, -2));
-document.querySelector('h1').style.top = (getComputedStyle(document.querySelector('h1')).top).slice(0, -2) - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+mainContainer.querySelector('h1').style.top = (getComputedStyle(document.querySelector('h1')).top).slice(0, -2) - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
 
 // document.querySelector('h1').style.top = mainContainer.clientHeight / 25 - document.querySelector('h1').clientHeight + 'px';
@@ -79,7 +78,6 @@ async function retrieveAlternativeCities(info, input) {
     if (alternativesButtons > 8) {
       alternatives.bigContainer();
     } else if (alternativesButtons == 0) {
-      console.log('No alternatives');
       alternatesContainer.remove();
       indication.noAltIndication();
     }
@@ -134,12 +132,12 @@ async function createDescription(state, globalContinent, rank, textbox, text, co
 }
 
 function createDataTable(oldTable, jsonData, container) {
-  // oldTable?.parentElement.remove();
-  // oldTable?.remove();
-  if (oldTable) {
-    oldTable.parentElement.remove();
-    oldTable.remove();
-  }
+  oldTable?.parentElement.remove();
+  oldTable?.remove();
+  // if (oldTable) {
+  //   oldTable.parentElement.remove();
+  //   oldTable.remove();
+  // }
   let tableContainer = document.createElement('div');
   tableContainer.classList.add(`tableContainer${Array.from(container.parentElement.children).indexOf(container)}`);
   let table = document.createElement('table');

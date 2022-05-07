@@ -26,10 +26,7 @@
     "find-js": "^4.0.2",
     "image-js": "^0.33.1",
     "jsdom": "^19.0.0",
-    "mongoose": "^6.2.4",
     "nedb": "^1.8.0",
-    "node-fetch": "^2.6.7",
-    "nodelist.js": "^1.0.1",
     "nodemon": "^2.0.16"
   }
 }

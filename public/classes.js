@@ -206,7 +206,6 @@ class Menu {
               });
 
               this.cancelInfo = await this.cancelRequest["data"];
-              console.log(this.cancelInfo);
               btnEvent.target.closest('li').remove();
             }
           })
@@ -309,13 +308,12 @@ class CityData {
     });
 
     this.dbResponse = await this.dbQuery["data"];
-    console.log(this.dbResponse);
     this.dbDatas = this.dbResponse.data;
 
-    // document.querySelector('.saveBtn')?.remove();
-    if (document.querySelector('.saveBtn')) {
-      document.querySelector('.saveBtn').remove();
-    }
+    document.querySelector('.saveBtn')?.remove();
+    // if (document.querySelector('.saveBtn')) {
+    //   document.querySelector('.saveBtn').remove();
+    // }
 
     createSaveBtn(this.container);
     return this.dbResponse;

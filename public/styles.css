@@ -24,9 +24,7 @@ body {
   width: 100vw;
   height: 100vh;
   display: grid;
-  /* modifica recente ------------------------ */
   place-items: center;
-  /* modifica recente ------------------------ */
   background: linear-gradient(rgb(228 229 233), rgb(140 139 139));
   background-position: center;
   overflow: hidden;
