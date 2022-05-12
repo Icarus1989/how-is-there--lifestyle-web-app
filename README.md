@@ -2,7 +2,7 @@
 <hr>
 
 <div align="center">
-  **How is There? - Lifestyle web app**
+  <h1>How is There? - Lifestyle web app</h1>
 </div>
 
 <p align="center">
