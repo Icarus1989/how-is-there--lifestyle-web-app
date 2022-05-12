@@ -38,3 +38,17 @@
   <p>Immagine...</p>
   <!-- <img src="https://imagizer.imageshack.com/v2/640x480q90/924/Au00v5.png"> -->
 </div>
+
+### Built With
+
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML?retiredLocale=it)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=it)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=it)
+* [p5.js Library](https://p5js.org/)
+<br>
+
+### Description
+<hr>
+<hr>
+
+## Usage
