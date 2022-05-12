@@ -1,7 +1,7 @@
 <hr>
 <hr>
 
-<div align="center">
+<div display="grid"; place-items="center">
   <h1>How is There? - Lifestyle web app</h1>
 </div>
 
