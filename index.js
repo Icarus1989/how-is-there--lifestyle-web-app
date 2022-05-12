@@ -1,3 +1,8 @@
+// test
+const path = require('path');
+// test
+
+
 const express = require('express');
 const fs = require('fs');
 const fetch = require('cross-fetch');
@@ -50,7 +55,10 @@ app.get('/bkgImage/:cityname', async (request, response) => {
   }
 });
 
-app.post('/queryDb', (request, response) => {
+const tempPath = '/queryDb';
+app.post(tempPath, (request, response) => {
+  // console.log(new URL(tempPath));
+  console.log(path.dirname("/queryDb"));
   const data = request.body;
   database.find({
     name: data.name

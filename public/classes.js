@@ -599,30 +599,30 @@ class AppearElems {
   }
 }
 
-class DisappearElems {
-  constructor(elem, delay) {
-    this.elem = elem;
-    this.delay = delay;
-  }
-  async notShow() {
-    this.opacity = 1.0;
-    return await new Promise((resolve) => {
-      setTimeout(() => {
-        this.interval = setInterval(() => {
-          opacity = opacity - 0.1;
-          this.elem.style.opacity = this.opacity;
-          if (this.opacity < 0) {
-            this.opacity = 0;
-            clearInterval(this.interval);
-            this.elem.style.display = 'none';
-            // elem.remove();
-          }
-        }, 20);
-      }, this.delay);
-      resolve();
-    });
-  }
-}
+// class DisappearElems {
+//   constructor(elem, delay) {
+//     this.elem = elem;
+//     this.delay = delay;
+//   }
+//   async notShow() {
+//     this.opacity = 1.0;
+//     return await new Promise((resolve) => {
+//       setTimeout(() => {
+//         this.interval = setInterval(() => {
+//           opacity = opacity - 0.1;
+//           this.elem.style.opacity = this.opacity;
+//           if (this.opacity < 0) {
+//             this.opacity = 0;
+//             clearInterval(this.interval);
+//             this.elem.style.display = 'none';
+//             // elem.remove();
+//           }
+//         }, 20);
+//       }, this.delay);
+//       resolve();
+//     });
+//   }
+// }
 
 class RetrieveData {
   constructor(url) {
@@ -633,16 +633,16 @@ class RetrieveData {
   }
 }
 
-class DoubleRetrieve extends RetrieveData {
-  constructor(url) {
-    super(url);
-  }
-  async secondRetrieve(secondUrl) {
-    // super.retrieve();
-    this.secondUrl = secondUrl;
-    return this.secondResponse = await axios.get(this.secondUrl);
-  }
-}
+// class DoubleRetrieve extends RetrieveData {
+//   constructor(url) {
+//     super(url);
+//   }
+//   async secondRetrieve(secondUrl) {
+//     // super.retrieve();
+//     this.secondUrl = secondUrl;
+//     return this.secondResponse = await axios.get(this.secondUrl);
+//   }
+// }
 
 class createDraw {
   constructor(container, resultsContainer, path) {
