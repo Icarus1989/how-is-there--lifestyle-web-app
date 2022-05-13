@@ -44,7 +44,10 @@
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML?retiredLocale=it)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=it)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=it)
-* [p5.js Library](https://p5js.org/)
+* [Node.js](https://nodejs.dev/)
+* * [Canny-Edge-Detector & Image-js](https://github.com/image-js/canny-edge-detector)
+* [Webpack](https://webpack.js.org/)
+* * 
 <br>
 
 ### Description
@@ -52,3 +55,6 @@
 <hr>
 
 ## Usage
+
+<!-- Disinstallare npm jsdom -->
+<!-- Disinstallare npm nodemon -->
