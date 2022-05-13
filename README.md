@@ -44,10 +44,12 @@
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML?retiredLocale=it)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=it)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=it)
+  * [Teleport_API](https://developers.teleport.org/) 
 * [Node.js](https://nodejs.dev/)
+  * [Express.js](https://expressjs.com) 
+  * [Pixabay_API](https://pixabay.com/api/docs/)
   * [Canny-Edge-Detector & Image-js](https://github.com/image-js/canny-edge-detector)
 * [Webpack](https://webpack.js.org/)
-  * 
 <br>
 
 ### Description
