@@ -45,9 +45,9 @@
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=it)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=it)
 * [Node.js](https://nodejs.dev/)
-* * [Canny-Edge-Detector & Image-js](https://github.com/image-js/canny-edge-detector)
+  * [Canny-Edge-Detector & Image-js](https://github.com/image-js/canny-edge-detector)
 * [Webpack](https://webpack.js.org/)
-* * 
+  * 
 <br>
 
 ### Description
