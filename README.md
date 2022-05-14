@@ -63,7 +63,7 @@
   * [HTML-Webpack-Loader]()
   * [CSS-Loader]()
   * [Style-Loader]()
-  * [Babel]()
+  * [Babel](https://babeljs.io/)
 <br>
 
 ### Description
@@ -72,5 +72,6 @@
 
 ## Usage
 
-<!-- Disinstallare npm jsdom -->
-<!-- Disinstallare npm nodemon -->
+<!-- Disinstallare npm dotenv -->
+<!-- Disinstallare npm find-js -->
+
