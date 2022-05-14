@@ -67,11 +67,41 @@
 <br>
 
 ### Description
+
+Questo progetto...
+
 <hr>
 <hr>
 
 ## Usage
 
+Descrizione uso dell'app...
+
+## Demo
+L’applicazione é stata pubblicata utilizzando Heroku. 
+E’ possibile utilizzarla al link:
+<br>
+:link: https://how-is-there--lifestyle-app.herokuapp.com/
+
+<hr>
+<hr>
+
+## License
+
+Distributed under the MIT License.
+
+<hr>
+<hr>
+
+## Contacts
+
+Alex<br>
+westcoastrapper89@yahoo.it<br>
+[GitHub](http://https://github.com/Icarus1989)<br>
+[Instagram](http://https://www.instagram.com/alex._.1989/)<br>
+[Facebook](https://www.facebook.com/alex.valente.92)<br>
+
+Project Link :link: : [ https://github.com/Icarus1989/deglaciation-counter-project]
+
 <!-- Disinstallare npm dotenv -->
-<!-- Disinstallare npm find-js -->
 
