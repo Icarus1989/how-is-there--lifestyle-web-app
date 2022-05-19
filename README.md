@@ -93,14 +93,10 @@ prima, seconda e terza schermata -->
     tramite l'apposito tasto in basso a sinistra :star:.
 
 <!-- Immagine buttons alternatives con Eureka -->
-:small_blue_diamond: Se la città non é presente nei dati verrà effettuata una ricerca su tutte le
-    possibili alternative per il Paese di tale città, dalle quali sarà poi possibile
-    scegliere e osservarne i dati
+:small_blue_diamond: :small_blue_diamond: Se la città non é presente nei dati verrà effettuata una  ricerca su tutte le possibili alternative per il Paese di tale città, dalle quali sarà poi possibile scegliere e osservarne i dati
 
 <!-- Immagini vari errors -->
-:small_blue_diamond: Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi
-    fosse un problema con la rete del dispositivo da cui si sta utilizzando l'app
-    compariranno dei messaggi di errore adatti
+:small_blue_diamond: :small_blue_diamond: Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema con la rete del dispositivo da cui si sta utilizzando l'app compariranno dei messaggi di errore adatti
 
 :large_blue_diamond: Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra &equiv; sarà possibile selezionare una delle città salvate in precedenza o 
