@@ -94,8 +94,8 @@ prima, seconda e terza schermata -->
 <!-- Immagini vari errors -->
 * Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema con la rete del dispositivo da cui si sta utilizzando l'app compariranno dei messaggi di errore adatti
 
-:large_blue_circle: Utilizzando il menu con l'apposito tasto nella parte in basso a 
-destra &#9776; sarà possibile selezionare una delle città salvate in precedenza o 
+&#9776; Utilizzando il menu con l'apposito tasto nella parte in basso a 
+destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
 
 ## Demo
