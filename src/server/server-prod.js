@@ -161,6 +161,5 @@ async function downloadAndCannyEdge(url) {
     return edge.save('./dist/client/assets/tempImages/edge.png');
 
   });
-
   return writeFile;
 }

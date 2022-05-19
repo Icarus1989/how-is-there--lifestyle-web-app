@@ -20,15 +20,6 @@ const {
   default: axios
 } = require('axios');
 
-// testing
-
-// if ('virtualKeyboard' in navigator) {
-//   console.log('virtualkeyboard live!');
-//   console.log(navigator.virtualKeyboard);
-// }
-
-// testing
-
 let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
