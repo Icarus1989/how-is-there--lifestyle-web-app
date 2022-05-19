@@ -25,5 +25,10 @@
     "express": "^4.17.2",
     "image-js": "^0.33.1",
     "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   }
 }
