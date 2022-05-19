@@ -1,11 +1,13 @@
 {
-  "name": "public",
+  "name": "client",
   "version": "1.0.0",
   "description": "This is the Lifestyle Project for the Start2impact JavaScript Advanced Guide",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
+    "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
+    "start": "node ./dist/server.bundle.js",
+    "test": "echo \"Testing for webpack\""
   },
   "keywords": [
     "How is There?",
@@ -20,15 +22,29 @@
   "dependencies": {
     "axios": "^0.26.1",
     "canny-edge-detector": "^1.0.0",
+    "canvas": "^2.9.1",
     "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "image-js": "^0.33.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.12",
+    "@babel/plugin-transform-runtime": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "dotenv-webpack": "^7.1.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "webpack-dev-server": "^4.9.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
