@@ -86,7 +86,7 @@ quelle salvate.
 
 <!-- Immagini ottenute da città (cercare una con sfondo accattivante)
 prima, seconda e terza schermata -->
-:small_blue_circle:::small_blue_circle: Se la città é presente nei dati Teleport compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città nel menu tramite l'apposito tasto in basso a sinistra :star:.
+:small_blue_circle::small_blue_circle: Se la città é presente nei dati Teleport compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città nel menu tramite l'apposito tasto in basso a sinistra :star:.
 
 <!-- Immagine buttons alternatives con Eureka -->
 :small_blue_diamond::small_blue_diamond: Se la città non é presente nei dati verrà effettuata una  ricerca su tutte le possibili alternative per il Paese di tale città, dalle quali sarà poi possibile scegliere e osservarne i dati
