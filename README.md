@@ -35,7 +35,7 @@
 ## About The Project
 
 <div align="center">
-  <p>Immagine...</p>
+  <p>Immagine combinata con mobile, tablet e desktop version.</p>
   <!-- <img src="https://imagizer.imageshack.com/v2/640x480q90/924/Au00v5.png"> -->
 </div>
 
@@ -82,7 +82,7 @@ quelle salvate.
 
 <!-- Immagine -->
 
-:mag: Effettuando una ricerca si potranno ottenere vari risultati: 
+(:mag:) Effettuando una ricerca si potranno ottenere vari risultati: 
 
 <!-- Immagini ottenute da città (cercare una con sfondo accattivante)
 prima, seconda e terza schermata -->
@@ -94,7 +94,7 @@ prima, seconda e terza schermata -->
 <!-- Immagini vari errors -->
 * Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema con la rete del dispositivo da cui si sta utilizzando l'app compariranno dei messaggi di errore adatti
 
-&#9776; Utilizzando il menu con l'apposito tasto nella parte in basso a 
+(&#9776;) Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
 
