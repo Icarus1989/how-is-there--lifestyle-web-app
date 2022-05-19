@@ -82,7 +82,7 @@ quelle salvate.
 
 <!-- Immagine -->
 
-:large_blue_circle: Effettuando una ricerca si potranno ottenere vari risultati: 
+:mag: Effettuando una ricerca si potranno ottenere vari risultati: 
 
 <!-- Immagini ottenute da città (cercare una con sfondo accattivante)
 prima, seconda e terza schermata -->
@@ -95,7 +95,7 @@ prima, seconda e terza schermata -->
 * Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema con la rete del dispositivo da cui si sta utilizzando l'app compariranno dei messaggi di errore adatti
 
 :large_blue_circle: Utilizzando il menu con l'apposito tasto nella parte in basso a 
-destra &equiv; sarà possibile selezionare una delle città salvate in precedenza o 
+destra &#9776; sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
 
 ## Demo
