@@ -68,14 +68,43 @@
 
 ### Description
 
-Questo progetto...
+Descrizione...
+
 
 <hr>
 <hr>
 
 ## Usage
 
-Descrizione uso dell'app...
+La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
+scegliere tra una basilare ricerca di una città o la selezione tra una di
+quelle salvate.
+
+<!-- Immagine -->
+
+* Effettuando una ricerca si potranno ottenere vari risultati: 
+
+<!-- Immagini ottenute da città (cercare una con sfondo accattivante)
+prima, seconda e terza schermata -->
+  * Se la città é presente nei dati Teleport compariranno la descriscrizione, il
+    punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in
+    considerazione per ottenere tale punteggio, ordinati in due tabelle nella 
+    seconda e terza pagina. Sarà inoltre possibile salvare tale città nel menu
+    tramite l'apposito tasto in basso a sinistra :star:.
+
+<!-- Immagine buttons alternatives con Eureka -->
+  * Se la città non é presente nei dati verrà effettuata una ricerca su tutte le
+    possibili alternative per il Paese di tale città, dalle quali sarà poi possibile
+    scegliere e osservarne i dati
+
+<!-- Immagini vari errors -->
+  * Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi
+    fosse un problema con la rete del dispositivo da cui si sta utilizzando l'app
+    compariranno dei messaggi di errore adatti
+
+* Utilizzando il menu con l'apposito tasto nella parte in basso a destra &equiv; 
+  sarà possibile selezionare una delle città salvate in precedenza o eliminarle
+  dalla memoria a piacimento.
 
 ## Demo
 L’applicazione é stata pubblicata utilizzando Heroku. 
@@ -103,6 +132,4 @@ westcoastrapper89@yahoo.it<br>
 
 Project Link :link: : [ https://github.com/Icarus1989/how-is-there--lifestyle-web-app ]
 
-<!-- Disinstallare npm dotenv -->
-<!-- aggiungere nuovi node modules, minimizer, plugins -->
 
