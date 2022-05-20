@@ -22,11 +22,11 @@ app.use(express.json({
   limit: '10mb',
 }));
 
-app.get('/dist', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
 
-const port = process.env.PORT || 5001;
+const port = (process.env.PORT || 5001);
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
