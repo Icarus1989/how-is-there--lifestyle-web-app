@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
 
-const port = 5001;
+const port = process.env.PORT || 5001;
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
