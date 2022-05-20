@@ -68,7 +68,11 @@
 
 ### Description
 
-Descrizione...
+Questo é il primo progetto in cui combino così tanti elementi facendoli funzionare all'unisono: gestione dei dati ottenuti dall'API di Teleport lato client, la creazione di cartelle e file tramite node.js, tra i quali immagini ottenute dall'API di Pixabay, la modifica di tali immagini all'interno del server utilizzando un canny edge detector, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack ed il deploy dell'app utilizzando heroku.
+
+#### Client Side
+
+#### Server Side
 
 
 <hr>
