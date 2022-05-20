@@ -135,14 +135,14 @@ async function downloadAndCannyEdge(url) {
   if (fs.existsSync('./dist/client/assets/tempImages/image.png')) {
     fs.unlink('./dist/client/assets/tempImages/image.png', (error) => {
       if (error) {
-        return;
+        downloadAndCannyEdge(url);
       }
     });
   }
   if (fs.existsSync('./dist/client/assets/tempImages/edge.png')) {
     fs.unlink('./dist/client/assets/tempImages/edge.png', (error) => {
       if (error) {
-        return;
+        downloadAndCannyEdge(url);
       }
     });
   }
