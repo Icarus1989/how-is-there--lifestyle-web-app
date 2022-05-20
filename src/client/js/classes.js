@@ -14,7 +14,7 @@ import {
   retrieveAlternativeCities,
   retrieveTeleportImage,
   retrievePixabay
-} from '/src/index.js';
+} from '/src/client/js/index.js';
 
 class Spinner {
   constructor(container) {
@@ -656,7 +656,7 @@ class createDraw {
       });
       this.urlObj = URL.createObjectURL(await this.response["data"]);
       this.image.src = this.urlObj;
-    }, 800);
+    }, 1000);
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });

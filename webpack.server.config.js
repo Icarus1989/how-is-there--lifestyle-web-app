@@ -27,22 +27,11 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
-            // options: {
-            //   name: "/server/[name].[ext]",
-            //   // context: "src"
-            // },
           },
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
           loader: 'file-loader'
-          //   use: [{
-          //   loader: "file-loader",
-          //   options: {
-          //     name: "assets/images/[name].[ext]",
-          //     // context: "src"
-          //   },
-          // }]
         }
       ]
     },

@@ -14,7 +14,7 @@ import {
   AppearElems,
   RetrieveData,
   createDraw
-} from './client/js/classes.js';
+} from './classes.js';
 
 const {
   default: axios
