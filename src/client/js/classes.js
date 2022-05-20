@@ -656,7 +656,7 @@ class createDraw {
       });
       this.urlObj = URL.createObjectURL(await this.response["data"]);
       this.image.src = this.urlObj;
-    }, 1200);
+    }, 800);
     this.image.addEventListener('load', () => {
       this.container.append(this.image);
     });
