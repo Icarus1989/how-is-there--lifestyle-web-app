@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-  Breve presentazione...
+  This is a Lifestyle project made for start2impact JavaScript Advanced guide.
 </p>
 
 <hr>
@@ -19,7 +19,11 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-        <li><a href="#description">Description</a></li>
+        <li><a href="#description">Description</a>
+          <ul>
+          <li><a href="#client-side">Client Side</a></li>
+          <li><a href="#server-side">Server Side</a></li></ul>
+          </li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -65,6 +69,7 @@
   * [Style-Loader]()
   * [Babel](https://babeljs.io/)
 <br>
+<hr>
 
 ### Description
 
