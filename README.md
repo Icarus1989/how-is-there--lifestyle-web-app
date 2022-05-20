@@ -75,6 +75,9 @@
 
 Questo é il primo progetto in cui combino così tanti elementi facendoli funzionare all'unisono: gestione dei dati ottenuti dall'API di Teleport lato client, la creazione di cartelle e file tramite node.js, tra i quali immagini e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack ed il deploy dell'app utilizzando heroku.
 
+<!-- Immagine composta senza dati visualizzati -->
+Lo sfondo sarà composto da due immagini, la prima sarà effettivamente una foto ricavata da Pixabay con opacità bassissima per vederne solo i colori sfumati, la seconda verrà ricavata dalla prima nel server node utilizzando canny-edge-detector per ricavare i bordi delle figure presenti nella foto. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico simile ad un disegno.
+
 #### Client Side
 
 Qui é dove vengono ricavati i dati dall'API di Teleport ed in seguito vengono visualizzati, creato il menu e tutti gli altri componenti necessari nelle varie fasi d'uso dell'app, dando gli input per il salvataggio, cancellazione e utilizzo dei dati nel database, o per la creazione della lista delle città salvate. Inoltre vengono fornite le alternative in caso di città non presente nei dati Teleport e gestiti gli eventuali errori. 
@@ -100,9 +103,6 @@ quelle salvate.
 <!-- Immagini ottenute da città (cercare una con sfondo accattivante)
 prima, seconda e terza schermata -->
 * Se la città é presente nei dati Teleport compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città nel menu tramite l'apposito tasto in basso a sinistra &#9733;. 
-
-<!-- Immagine composta senza dati visualizzati -->
-Lo sfondo sarà composto da due immagini, la prima sarà effettivamente una foto ricavata da Pixabay con opacità bassissima per vederne solo i colori sfumati, la seconda verrà ricavata dalla prima nel server node utilizzando canny-edge-detector per ricavare i bordi delle figure presenti nella foto. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico simile ad un disegno.
 
 <!-- Immagine buttons alternatives con Eureka -->
 * Se la città non é presente nei dati verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, dalle quali sarà poi possibile scegliere e osservarne i dati
