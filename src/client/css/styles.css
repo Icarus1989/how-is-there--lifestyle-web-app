@@ -387,7 +387,7 @@ table>tbody>tr>td {
   place-items: center;
   width: 28vw;
   height: 28vw;
-  background: url('../assets/blackSpinner.svg');
+  background: url('../assets/img/blackSpinner.svg');
   background-size: cover;
   border: 1px solid transparent;
   border-radius: 100%;
@@ -399,7 +399,7 @@ table>tbody>tr>td {
   width: 25vw;
   height: 25vw;
   position: absolute;
-  background: url('../assets/whiteSpinner.svg');
+  background: url('../assets/img/whiteSpinner.svg');
   background-size: cover;
   animation: rotateMe 1s linear infinite reverse;
   transform: rotate(0deg);
