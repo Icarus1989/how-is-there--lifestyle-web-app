@@ -22,7 +22,7 @@ app.use(express.json({
   limit: '10mb',
 }));
 
-app.get('/', (req, res) => {
+app.get('/dist', (req, res) => {
   res.sendFile(HTML_FILE);
 });
 
