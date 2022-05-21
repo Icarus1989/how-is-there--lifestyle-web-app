@@ -896,7 +896,7 @@ table>tbody>tr>td {
   table {
     width: 40vw;
     font-size: 1vw;
-    line-height: 1.3vw;
+    line-height: 1.6vh;
     letter-spacing: 0.5vw;
   }
 
@@ -1002,8 +1002,8 @@ table>tbody>tr>td {
 
   .saveBtn {
     display: none;
-    width: 7vw;
-    height: 7vw;
+    width: 12vh;
+    height: 12vh;
     border-radius: 2vw;
     border: 1px solid transparent;
     bottom: 3vh;
@@ -1100,8 +1100,8 @@ table>tbody>tr>td {
 
   .menuBtn {
     display: block;
-    width: 7vw;
-    height: 7vw;
+    width: 12vh;
+    height: 12vh;
     border-radius: 2vw;
     border: 1px solid transparent;
     bottom: 3vh;

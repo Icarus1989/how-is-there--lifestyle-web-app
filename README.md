@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-  Questo é un progetto Lifestyle per il completamento della guida di start2impact JavaScript Advanced che utilizza dati da più API e un database per la persistenza dei dati.
+  Questo é un progetto Lifestyle per il completamento della guida di start2impact JavaScript Advanced.
 </p>
 
 <hr>
@@ -82,6 +82,11 @@ Lo sfondo sarà composto da due immagini, la prima sarà effettivamente una foto
 
 Qui é dove vengono ricavati i dati dall'API di Teleport ed in seguito vengono visualizzati, creato il menu e tutti gli altri componenti necessari nelle varie fasi d'uso dell'app, dando gli input per il salvataggio, cancellazione e utilizzo dei dati nel database, o per la creazione della lista delle città salvate. Inoltre vengono fornite le alternative in caso di città non presente nei dati Teleport e gestiti gli eventuali errori. 
 
+* Design
+* Search Bar
+* Menu
+
+
 #### Server Side
 
 Qui é dove avvengono le richieste all'API di Pixabay ricavandone poi un immagine che verrà salvata nell'apposita cartella, trasformando poi l'immagine e ricavandone una seconda, ed inviate al lato client per comporre l'immagine della città nello sfondo. Viene inoltre creato il database e tramite richieste get/post vengono effettivamente salvati, cancellati o consultati i dati presenti in questo. 
@@ -93,7 +98,7 @@ Qui é dove avvengono le richieste all'API di Pixabay ricavandone poi un immagin
 ## Usage
 
 La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
-scegliere tra una basilare ricerca di una città o la selezione tra una di
+scegliere tra la ricerca di una città o la selezione tra una di
 quelle salvate.
 
 <!-- Immagine -->
