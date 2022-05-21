@@ -112,7 +112,8 @@ h1 {
 
 .descriptionBox>p {
   font-size: 3.4vw;
-  background: rgba(13, 13, 13, 0.7);
+  /* background: rgba(13, 13, 13, 0.7); */
+  background: linear-gradient(43deg, transparent, 15%, rgba(13, 13, 13, 0.7));
   border: 0px solid transparent;
   padding: 3vw 3vw 3vw 7vw;
   margin-bottom: 0;
