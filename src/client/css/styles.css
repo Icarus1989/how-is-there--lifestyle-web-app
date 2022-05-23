@@ -112,7 +112,6 @@ h1 {
 
 .descriptionBox>p {
   font-size: 3.4vw;
-  /* background: rgba(13, 13, 13, 0.7); */
   background: linear-gradient(43deg, transparent, 15%, rgba(13, 13, 13, 0.7));
   border: 0px solid transparent;
   padding: 3vw 3vw 3vw 7vw;
@@ -1008,7 +1007,7 @@ table>tbody>tr>td {
     display: none;
     width: 12vh;
     height: 12vh;
-    border-radius: 2vw;
+    border-radius: 3.5vh;
     border: 1px solid transparent;
     bottom: 3vh;
     left: 3vh;
@@ -1106,7 +1105,7 @@ table>tbody>tr>td {
     display: block;
     width: 12vh;
     height: 12vh;
-    border-radius: 2vw;
+    border-radius: 3.5vh;
     border: 1px solid transparent;
     bottom: 3vh;
     right: 3vh;
