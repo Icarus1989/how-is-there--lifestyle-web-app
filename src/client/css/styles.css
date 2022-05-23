@@ -203,7 +203,8 @@ table {
   padding: 0px;
   border-collapse: separate;
   border-radius: 4vh;
-  border: 1px solid rgba(13, 13, 13, 0.7);
+  border: 1px solid transparent;
+  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7));
   letter-spacing: 1vw;
   line-height: 6vw;
   font-family: sans-serif;
@@ -255,9 +256,9 @@ table>tbody>tr>th {
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
 }
 
-table>tbody>tr {
+/* table>tbody>tr {
   background: rgba(13, 13, 13, 0.7);
-}
+} */
 
 table>tbody>tr>td {
   width: 50%;
@@ -653,7 +654,8 @@ table>tbody>tr>td {
     padding: 0px;
     border-collapse: separate;
     border-radius: 4vh;
-    border: 1px solid rgba(13, 13, 13, 0.7);
+    background: linear-gradient(45deg, transparent, 26%, rgba(13, 13, 13, 0.7));
+    /* border: 1px solid rgba(13, 13, 13, 0.7); */
     letter-spacing: 0.2vw;
     line-height: 1vw;
     font-family: sans-serif;
@@ -901,6 +903,7 @@ table>tbody>tr>td {
     font-size: 1vw;
     line-height: 1.6vh;
     letter-spacing: 0.5vw;
+    background: linear-gradient(45deg, transparent, 30%, rgba(13, 13, 13, 0.7));
   }
 
   .tableContainer1 {
