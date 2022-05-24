@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-  Questo é un progetto Lifestyle per il completamento della guida di start2impact JavaScript Advanced.
+  Questo é un progetto Lifestyle per la guida di start2impact JavaScript Advanced.
 </p>
 
 <hr>

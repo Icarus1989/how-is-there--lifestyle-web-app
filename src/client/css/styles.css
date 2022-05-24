@@ -903,7 +903,7 @@ table>tbody>tr>td {
     font-size: 1vw;
     line-height: 1.6vh;
     letter-spacing: 0.5vw;
-    background: linear-gradient(45deg, transparent, 30%, rgba(13, 13, 13, 0.7));
+    background: linear-gradient(45deg, transparent, 10%, rgba(13, 13, 13, 0.7));
   }
 
   .tableContainer1 {
@@ -915,7 +915,7 @@ table>tbody>tr>td {
     border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
     border-bottom: 1.5vw solid rgba(13, 13, 13, 0.7);
     border-right: 0vw solid transparent;
-    border-radius: 6vw 0vw 0vw 6vw;
+    border-radius: 8vh 0vh 0vh 8vh;
     margin-left: 6.5vw;
   }
 
@@ -928,7 +928,7 @@ table>tbody>tr>td {
     border-left: 0vw solid transparent;
     border-bottom: 1.5vw solid rgba(13, 13, 13, 0.7);
     border-right: 1.5vw solid rgba(13, 13, 13, 0.7);
-    border-radius: 0vw 6vw 6vw 0vw;
+    border-radius: 0vh 8vh 8vh 0vh;
     margin-right: 6.5vw;
   }
 
@@ -1020,7 +1020,7 @@ table>tbody>tr>td {
   }
 
   .saveBtn>i {
-    font-size: 2.5vw;
+    font-size: 4vh;
   }
 
   .saveBtnActive {
@@ -1117,7 +1117,7 @@ table>tbody>tr>td {
   }
 
   .menuBtn>i {
-    font-size: 2.5vw;
+    font-size: 4vh;
   }
 
   .menuBtnOpen {
