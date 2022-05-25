@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-  Questo é un progetto Lifestyle per la guida di start2impact JavaScript Advanced.
+  Questo é un progetto per la guida di start2impact JavaScript Advanced categoria lifestyle.
 </p>
 
 <hr>
@@ -45,11 +45,14 @@
 
 ### Built With
 
+Client: 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML?retiredLocale=it)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=it)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=it)
   * [Teleport API](https://developers.teleport.org/) 
   * [Axios](https://axios-http.com/)
+
+Server:
 * [Node.js](https://nodejs.dev/)
   * [Express.js](https://expressjs.com) 
   * [Cross-Fetch](https://www.npmjs.com/package/cross-fetch)
@@ -57,6 +60,8 @@
   * [Canny-Edge-Detector & Image-js](https://github.com/image-js/canny-edge-detector)
   * [Regenarator-Runtime](https://www.npmjs.com/package/regenerator-runtime)
 * [NeDB](https://github.com/louischatriot/nedb)
+
+Budler:
 * [Webpack](https://webpack.js.org/)
   * [Webpack-CLI]()
   * [Webpack-Dev-Server]()
@@ -73,24 +78,20 @@
 
 ### Description
 
-Questo é il primo progetto in cui combino così tanti elementi facendoli funzionare all'unisono: gestione dei dati ottenuti dall'API di Teleport lato client, la creazione di cartelle e file tramite node.js, tra i quali immagini e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack ed il deploy dell'app utilizzando heroku.
+Questo é il primo progetto in cui combino così tanti elementi: gestione dei dati ottenuti dall'API di Teleport, animazioni, gestione degli errori, un menu utilizzabile che utilizza dei dati salvati su database lato client, tramite node.js la gestione dell'API di Pixabay e la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack sia per il lato client che server ed il deploy dell'app utilizzando heroku.
+
+<!-- Immagine con dati visualizzati -->
+
+I dati sulle città di Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
+Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
 
 <!-- Immagine composta senza dati visualizzati -->
-Lo sfondo sarà composto da due immagini, la prima sarà effettivamente una foto ricavata da Pixabay con opacità bassissima per vederne solo i colori sfumati, la seconda verrà ricavata dalla prima nel server node utilizzando canny-edge-detector per ricavare i bordi delle figure presenti nella foto. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico simile ad un disegno.
 
-#### Client Side
+Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pixabay con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà ricavata dalla prima con canny-edge-detector, un pacchetto NPM utilizzato per ricavare i bordi delle figure presenti nella foto. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico, simile ad un quadro (NOTA ricercare nome stile pittura).
 
-Qui é dove vengono ricavati i dati dall'API di Teleport ed in seguito vengono visualizzati, creato il menu e tutti gli altri componenti necessari nelle varie fasi d'uso dell'app, dando gli input per il salvataggio, cancellazione e utilizzo dei dati nel database, o per la creazione della lista delle città salvate. Inoltre vengono fornite le alternative in caso di città non presente nei dati Teleport e gestiti gli eventuali errori. 
+<!-- Immagine menu -->
 
-* Design
-* Search Bar
-* Menu
-
-
-#### Server Side
-
-Qui é dove avvengono le richieste all'API di Pixabay ricavandone poi un immagine che verrà salvata nell'apposita cartella, per poi trasformarla e ricavarne una seconda, ed inviate al lato client per comporre l'immagine della città nello sfondo. Viene inoltre creato il database e tramite richieste get/post vengono effettivamente salvati, cancellati o consultati i dati presenti in questo. 
-
+L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database che utilizzo qui per la prima volta, per avere una persistenza dei dati. Tramite questo sarà sempre possibile avere una lista di partenza di città da visualizzare e salvare le proprie città preferite, ma anche eliminarle a piacere. Ho preferito usare questo approccio, rispetto ad esempio a LocalStorage, per poter sopperire ad eventuali altri problemi futuri dei server Teleport ed avere una base di dati per mantenere utilizzabile in qualsiasi caso l'app.
 
 <hr>
 <hr>
