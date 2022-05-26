@@ -164,7 +164,6 @@ async function downloadAndCannyEdge(url) {
     });
     return writeFile;
   } catch {
-    console.log('small error in cannyEdge System');
-    return;
+    downloadAndCannyEdge(url);
   }
 }
