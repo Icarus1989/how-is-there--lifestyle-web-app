@@ -9,7 +9,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // path: path.join(__dirname, 'dist'),
     publicPath: '/',
     filename: 'client/js/[name].bundle.js',
     // assetModuleFilename: 'assets/[name].[ext]'
@@ -78,7 +77,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    port: 5001,
+    port: 5000,
     open: true,
     static: path.resolve(__dirname, 'dist'),
   },

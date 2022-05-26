@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
 
-const port = (process.env.PORT || 5001);
+const port = (process.env.PORT || 5000);
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
@@ -46,7 +46,11 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
     response.json(jsonPixabay);
-    downloadAndCannyEdge(fileUrl);
+    try {
+      downloadAndCannyEdge(fileUrl);
+    } catch {
+      downloadAndCannyEdge(fileUrl);
+    }
   } catch {
     try {
       const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
@@ -158,7 +162,8 @@ async function downloadAndCannyEdge(url) {
       brightness: 0.8
     };
     const edge = await cannyEdgeDetector(grey, options);
-    return edge.save('./dist/client/assets/tempImages/edge.png');
+    // return edge.save('./dist/client/assets/tempImages/edge.png');
+    return await edge.save('./dist/client/assets/tempImages/edge.png');
 
   });
   return writeFile;
