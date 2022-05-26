@@ -30,8 +30,11 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.(png|svg|jpg|gif)$/,
-          loader: 'file-loader'
+          test: /\.(png|svg|jpg|gif|svg)$/,
+          type: 'asset/resource',
+          // generator: {
+          //   filename: 'server/tempImages/[name].[ext]'
+          // }
         }
       ]
     },
