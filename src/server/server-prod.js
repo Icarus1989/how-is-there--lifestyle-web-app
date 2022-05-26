@@ -163,7 +163,7 @@ async function downloadAndCannyEdge(url) {
     };
     const edge = await cannyEdgeDetector(grey, options);
     // return edge.save('./dist/client/assets/tempImages/edge.png');
-    return await edge.save('./dist/client/assets/tempImages/edge.png');
+    return edge.save('./dist/client/assets/tempImages/edge.png');
 
   });
   return writeFile;
