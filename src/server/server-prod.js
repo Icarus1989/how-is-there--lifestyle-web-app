@@ -148,8 +148,8 @@ async function downloadAndCannyEdge(url) {
     //   });
     // }
     try {
-      fs.unlink(`${tempPath}/image.png`);
-      fs.unlink(`${tempPath}/edge.png`);
+      fs.unlink(`./dist/client/assets/tempImages/image.png`);
+      fs.unlink(`./dist/client/assets/tempImages/edge.png`);
     } catch(err) {
       console.error(err);
       // return;
@@ -160,8 +160,8 @@ async function downloadAndCannyEdge(url) {
     
     const response = await fetch(url);
     const buffer = response.buffer();
-    let writeFile = fs.writeFile(`${tempPath}/image.png`, await buffer, async () => {
-      const img = await ImageCanny.load(`${tempPath}/image.png`);
+    let writeFile = fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async () => {
+      const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
       const grey = await img.grey();
       const options = {
         lowThreshold: 120,
@@ -171,7 +171,7 @@ async function downloadAndCannyEdge(url) {
       };
       const edge = await cannyEdgeDetector(grey, options);
       console.log(edge);
-      return edge.save(`${tempPath}/edge.png`);
+      return edge.save(`./dist/client/assets/tempImages/edge.png`);
   
     });
     return writeFile;
