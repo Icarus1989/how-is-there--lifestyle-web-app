@@ -129,28 +129,36 @@ app.post('/cancelDb', (request, response) => {
 
 async function downloadAndCannyEdge(url) {
   try {
-    const dir = './dist/client/assets/tempImages';
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+    const tempPath = './dist/client/assets/tempImages';
+    if (!fs.existsSync(tempPath)) {
+      fs.mkdirSync(tempPath);
     }
-    if (fs.existsSync('./dist/client/assets/tempImages/image.png')) {
-      fs.unlink('./dist/client/assets/tempImages/image.png', (error) => {
-        if (error) {
-          return;
-        }
-      });
+    // if (fs.existsSync(`${tempPath}/image.png`)) {
+    //   fs.unlink(`${tempPath}/image.png`, (error) => {
+    //     if (error) {
+    //       return;
+    //     }
+    //   });
+    // }
+    // if (fs.existsSync(`${tempPath}/edge.png`)) {
+    //   fs.unlink(`${tempPath}/edge.png`, (error) => {
+    //     if (error) {
+    //       return;
+    //     }
+    //   });
+    // }
+    try {
+      fs.unlinkSync(`${tempPath}/image.png`);
+      fs.unlinkSync(`${tempPath}/edge.png`);
+    } catch(err) {
+      console.error(err);
+      return;
     }
-    if (fs.existsSync('./dist/client/assets/tempImages/edge.png')) {
-      fs.unlink('./dist/client/assets/tempImages/edge.png', (error) => {
-        if (error) {
-          return;
-        }
-      });
-    }
+    
     const response = await fetch(url);
     const buffer = response.buffer();
-    let writeFile = fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async () => {
-      const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
+    let writeFile = fs.writeFile(`${tempPath}/image.png`, await buffer, async () => {
+      const img = await ImageCanny.load(`${tempPath}/image.png`);
       const grey = await img.grey();
       const options = {
         lowThreshold: 120,
@@ -159,7 +167,8 @@ async function downloadAndCannyEdge(url) {
         brightness: 0.8
       };
       const edge = await cannyEdgeDetector(grey, options);
-      return edge.save('./dist/client/assets/tempImages/edge.png');
+      console.log(edge);
+      return edge.save(`${tempPath}/edge.png`);
   
     });
     return writeFile;
