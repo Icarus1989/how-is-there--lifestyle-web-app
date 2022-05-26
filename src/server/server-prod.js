@@ -46,11 +46,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
     response.json(jsonPixabay);
-    try {
       downloadAndCannyEdge(fileUrl);
-    } catch {
-      downloadAndCannyEdge(fileUrl);
-    }
   } catch {
     try {
       const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
@@ -132,39 +128,43 @@ app.post('/cancelDb', (request, response) => {
 });
 
 async function downloadAndCannyEdge(url) {
-  const dir = './dist/client/assets/tempImages';
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
-  }
-  if (fs.existsSync('./dist/client/assets/tempImages/image.png')) {
-    fs.unlink('./dist/client/assets/tempImages/image.png', (error) => {
-      if (error) {
-        return;
-      }
+  try {
+    const dir = './dist/client/assets/tempImages';
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+    if (fs.existsSync('./dist/client/assets/tempImages/image.png')) {
+      fs.unlink('./dist/client/assets/tempImages/image.png', (error) => {
+        if (error) {
+          return;
+        }
+      });
+    }
+    if (fs.existsSync('./dist/client/assets/tempImages/edge.png')) {
+      fs.unlink('./dist/client/assets/tempImages/edge.png', (error) => {
+        if (error) {
+          return;
+        }
+      });
+    }
+    const response = await fetch(url);
+    const buffer = response.buffer();
+    let writeFile = fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async () => {
+      const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
+      const grey = await img.grey();
+      const options = {
+        lowThreshold: 120,
+        highThreshold: 130,
+        gaussianBlur: 0.6,
+        brightness: 0.8
+      };
+      const edge = await cannyEdgeDetector(grey, options);
+      return edge.save('./dist/client/assets/tempImages/edge.png');
+  
     });
+    return writeFile;
+  } catch {
+    console.log('small error in cannyEdge System');
+    return;
   }
-  if (fs.existsSync('./dist/client/assets/tempImages/edge.png')) {
-    fs.unlink('./dist/client/assets/tempImages/edge.png', (error) => {
-      if (error) {
-        return;
-      }
-    });
-  }
-  const response = await fetch(url);
-  const buffer = response.buffer();
-  let writeFile = fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async () => {
-    const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
-    const grey = await img.grey();
-    const options = {
-      lowThreshold: 120,
-      highThreshold: 130,
-      gaussianBlur: 0.6,
-      brightness: 0.8
-    };
-    const edge = await cannyEdgeDetector(grey, options);
-    // return edge.save('./dist/client/assets/tempImages/edge.png');
-    return edge.save('./dist/client/assets/tempImages/edge.png');
-
-  });
-  return writeFile;
 }
