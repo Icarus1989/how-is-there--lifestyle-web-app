@@ -148,8 +148,8 @@ async function downloadAndCannyEdge(url) {
     //   });
     // }
     try {
-      fs.unlinkSync(`${tempPath}/image.png`);
-      fs.unlinkSync(`${tempPath}/edge.png`);
+      fs.unlink(`${tempPath}/image.png`);
+      fs.unlink(`${tempPath}/edge.png`);
     } catch(err) {
       console.error(err);
       // return;
