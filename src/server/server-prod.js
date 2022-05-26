@@ -133,30 +133,30 @@ async function downloadAndCannyEdge(url) {
     if (!fs.existsSync(tempPath)) {
       fs.mkdirSync(tempPath);
     }
-    // if (fs.existsSync(`${tempPath}/image.png`)) {
-    //   fs.unlink(`${tempPath}/image.png`, (error) => {
-    //     if (error) {
-    //       return;
-    //     }
-    //   });
-    // }
-    // if (fs.existsSync(`${tempPath}/edge.png`)) {
-    //   fs.unlink(`${tempPath}/edge.png`, (error) => {
-    //     if (error) {
-    //       return;
-    //     }
-    //   });
-    // }
-    try {
-      fs.unlink(`./dist/client/assets/tempImages/image.png`);
-      fs.unlink(`./dist/client/assets/tempImages/edge.png`);
-    } catch(err) {
-      console.error(err);
-      // return;
-      if (err) {
-        return;
-      }
+    if (fs.existsSync(`${tempPath}/image.png`)) {
+      fs.unlink(`${tempPath}/image.png`, (error) => {
+        if (error) {
+          return;
+        }
+      });
     }
+    if (fs.existsSync(`${tempPath}/edge.png`)) {
+      fs.unlink(`${tempPath}/edge.png`, (error) => {
+        if (error) {
+          return;
+        }
+      });
+    }
+    // try {
+    //   fs.unlink(`./dist/client/assets/tempImages/image.png`);
+    //   fs.unlink(`./dist/client/assets/tempImages/edge.png`);
+    // } catch(err) {
+    //   console.error(err);
+    //   // return;
+    //   if (err) {
+    //     return;
+    //   }
+    // }
     
     const response = await fetch(url);
     const buffer = response.buffer();
