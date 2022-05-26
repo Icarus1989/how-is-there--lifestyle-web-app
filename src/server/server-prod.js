@@ -152,7 +152,10 @@ async function downloadAndCannyEdge(url) {
       fs.unlinkSync(`${tempPath}/edge.png`);
     } catch(err) {
       console.error(err);
-      return;
+      // return;
+      if (error) {
+        return;
+      }
     }
     
     const response = await fetch(url);
