@@ -153,7 +153,7 @@ async function downloadAndCannyEdge(url) {
     } catch(err) {
       console.error(err);
       // return;
-      if (error) {
+      if (err) {
         return;
       }
     }
