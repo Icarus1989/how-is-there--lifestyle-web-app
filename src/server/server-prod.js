@@ -159,10 +159,18 @@ async function downloadAndCannyEdge(url) {
     //   }
     // }
     
-    const response = await fetch(url);
-    // console.log(response);
-    const buffer = await response.buffer();
-    // console.log(buffer);
+    // const response = await fetch(url);
+    // const buffer = await response.buffer();
+
+
+    const data = await axios({
+      method: 'get',
+      url: url,
+      responseType: 'arraybuffer'
+    });
+
+    const buffer = await data["data"];
+    
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
       if(err){
         console.log(err);
