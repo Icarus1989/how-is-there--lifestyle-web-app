@@ -41,7 +41,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
 
   try {
     const Pixabay_Api_Key = process.env.PIXABAY_API_KEY;
-    const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=travel&image_type=photo`;
+    const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=travel&image_type=photo&min_width=1280`;
     const dataPixabay = await axios.get(urlPixabay);
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
