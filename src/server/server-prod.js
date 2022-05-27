@@ -166,7 +166,8 @@ async function downloadAndCannyEdge(url) {
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
       if(err){
         console.log(err);
-        throw err;
+        // throw err;
+        downloadAndCannyEdge(url);
       }
       const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
       // console.log(img);
@@ -182,7 +183,8 @@ async function downloadAndCannyEdge(url) {
       // console.log(edge);
       // return edge.save(`./dist/client/assets/tempImages/edge.png`);  
     })
-  } catch {
+  } catch(error) {
+    console.log(error);
     downloadAndCannyEdge(url);
   }
 }
