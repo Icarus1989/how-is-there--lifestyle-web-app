@@ -418,7 +418,7 @@ class CityData {
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
       })
     });
-
+      
   }
 
   async deleteElements(elems) {

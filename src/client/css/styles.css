@@ -112,14 +112,21 @@ h1 {
 
 .descriptionBox>p {
   font-size: 3.4vw;
-  background: linear-gradient(43deg, transparent, 15%, rgba(13, 13, 13, 0.7));
+  background: linear-gradient(43deg, transparent, 15%, rgba(13, 13, 13, 0.6));
   border: 0px solid transparent;
   padding: 3vw 3vw 3vw 7vw;
   margin-bottom: 0;
-  margin-top: 4vw;
+  margin-top: 1vh;
   border-radius: 0px 18px 18px 0px;
   line-height: 2.5vh;
   margin-left: -3vw;
+
+  backdrop-filter: blur(2px);
+
+  border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
+  border-right: 1.5vw solid rgba(13, 13, 13, 0.7);
+  border-bottom: 0vw solid rgba(13, 13, 13, 0.7);
+  border-left: 0vw solid rgba(13, 13, 13, 0.7);
 }
 
 .dataDisplay {
@@ -165,7 +172,7 @@ h2 {
   max-width: 85vw;
   font-size: 2.3vh;
   /* padding: 3vw 12vw 3vw 5vw; */
-  padding: 3vw 15.1vw 3vw 10vw;
+  padding: 3vw 14.8vw 4vw 10vw;
   margin-left: 5vw;
   margin-right: 0vw;
   margin-top: 0vw;
@@ -174,8 +181,16 @@ h2 {
   text-align: center;
   text-shadow: 4px 3px 3px rgb(15 15 15);
   /* background: rgba(13, 13, 13, 0.7); */
-  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7));
-  border: 0px solid transparent;
+
+  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6));
+
+  /* border: 0px solid transparent; */
+  border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
+  border-right: 0px solid rgba(13, 13, 13, 0.7);
+  border-bottom: 0px solid rgba(13, 13, 13, 0.7);
+  border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
+
+  backdrop-filter: blur(2px);
 }
 
 .rank {
@@ -185,16 +200,25 @@ h2 {
   max-width: 85vw;
   color: white;
   font-size: 2vh;
-  padding: 3vw 12vw 3vw 5vw;
+  padding: 3vw 12vw 4vw 5vw;
+  margin-top: 1vh;
   margin-left: 5vw;
   margin-right: 0vw;
-  margin-bottom: 1vw;
+  margin-bottom: 1vh;
   border-radius: 18px 0px 0px 18px;
   text-align: center;
   text-shadow: 4px 3px 3px rgb(15 15 15);
   /* background: rgba(13, 13, 13, 0.7); */
-  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7));
-  border: 0px solid transparent;
+  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6));
+  /* border: 0px solid transparent; */
+  backdrop-filter: blur(2px);
+
+
+  border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
+  border-right: 0px solid rgba(13, 13, 13, 0.7);
+  border-bottom: 0px solid rgba(13, 13, 13, 0.7);
+  border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
+
 }
 
 table {
@@ -204,7 +228,7 @@ table {
   border-collapse: separate;
   border-radius: 4vh;
   border: 1px solid transparent;
-  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7));
+  /* background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7)); */
   letter-spacing: 1vw;
   line-height: 6vw;
   font-family: sans-serif;
@@ -223,12 +247,14 @@ table {
   place-items: center;
   width: 95vw;
   height: 62vh;
-  border-top: 3vw solid rgba(13, 13, 13, 0.7);
-  border-left: 3vw solid rgba(13, 13, 13, 0.7);
-  border-bottom: 3vw solid rgba(13, 13, 13, 0.7);
+  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, .7));
+  backdrop-filter: blur(2px);
+  border-top: 2vw solid rgba(13, 13, 13, 0.9);
+  border-left: 2vw solid rgba(13, 13, 13, 0.7);
+  border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
   border-right: 0vw solid transparent;
   border-radius: 3vw 0vw 0vw 3vw;
-  margin-left: 2vw;
+  margin-left: 3vw;
 }
 
 .tableContainer2 {
@@ -236,12 +262,14 @@ table {
   place-items: center;
   width: 95vw;
   height: 62vh;
-  border-top: 3vw solid rgba(13, 13, 13, 0.7);
+  background: linear-gradient(312deg, transparent, 23%, rgba(13, 13, 13, .7));
+  backdrop-filter: blur(2px);
+  border-top: 2vw solid rgba(13, 13, 13, 0.9);
   border-left: 0vw solid transparent;
-  border-bottom: 3vw solid rgba(13, 13, 13, 0.7);
-  border-right: 3vw solid rgba(13, 13, 13, 0.7);
+  border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
+  border-right: 2vw solid rgba(13, 13, 13, 0.7);
   border-radius: 0vw 3vw 3vw 0vw;
-  margin-right: 2vw;
+  margin-right: 3vw;
 }
 
 table>tbody {
