@@ -418,7 +418,7 @@ class CityData {
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
       })
     });
-      
+
   }
 
   async deleteElements(elems) {
@@ -646,7 +646,7 @@ class createDraw {
     }
   }
 
-  wait(ms){
+  wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
@@ -654,17 +654,24 @@ class createDraw {
     this.image = document.createElement('img');
     this.image.src = '';
 
-    this.wait(1200).then(async ()=>{
-      this.response = await axios.get(this.path, {
+    this.wait(1200).then(() => {
+      return axios.get(this.path, {
         responseType: "blob"
       });
-      this.urlObj = URL.createObjectURL(await this.response["data"]);
+    }).then((response) => {
+      this.urlObj = URL.createObjectURL(response["data"]);
+    }).then(() => {
       this.image.src = this.urlObj;
-    }).then(()=>{
+    }).then(() => {
       this.image.addEventListener('load', () => {
         this.container.append(this.image);
       });
-    }).catch((err)=>{
+      this.image.addEventListener('error', () => {
+        console.log('error in image load');
+        this.drawImg();
+        this.calcMeasures();
+      })
+    }).catch((err) => {
       console.log('Error in new test zone');
       console.log(err);
     });
