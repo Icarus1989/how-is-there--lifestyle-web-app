@@ -646,20 +646,39 @@ class createDraw {
     }
   }
 
+  wait(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   drawImg() {
     this.image = document.createElement('img');
     this.image.src = '';
 
-    setTimeout(async () => {
+    this.wait(1200).then(async ()=>{
       this.response = await axios.get(this.path, {
         responseType: "blob"
       });
       this.urlObj = URL.createObjectURL(await this.response["data"]);
       this.image.src = this.urlObj;
-    }, 1000);
-    this.image.addEventListener('load', () => {
-      this.container.append(this.image);
+    }).then(()=>{
+      this.image.addEventListener('load', () => {
+        this.container.append(this.image);
+      });
+    }).catch((err)=>{
+      console.log('Error in new test zone');
+      console.log(err);
     });
+
+    // setTimeout(async () => {
+    //   this.response = await axios.get(this.path, {
+    //     responseType: "blob"
+    //   });
+    //   this.urlObj = URL.createObjectURL(await this.response["data"]);
+    //   this.image.src = this.urlObj;
+    // }, 1200);
+    // this.image.addEventListener('load', () => {
+    //   this.container.append(this.image);
+    // });
   }
 
   scrollMovement() {
