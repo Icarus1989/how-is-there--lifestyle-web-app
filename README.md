@@ -90,23 +90,9 @@ Il design delle tre pagine é volutamente scelto per dare un senso di continuit�
 Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pixabay con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà ricavata dalla prima con canny-edge-detector, un pacchetto NPM utilizzato per ricavare i bordi delle figure presenti nella foto. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico, simile ad un quadro (NOTA ricercare nome stile pittura).
 (In modalità mobile, ) quando si scorrerà tra una finestra e l'altra lo sfondo scorrera rivelando una nuova parte dell'immagine.
 
-<!-- Immagine menu -->
-<!-- <div align="center">
-  <img src="https://i.ibb.co/2vq2kn6/menu.gif">
-</div> -->
-
-![DropDownMenu](https://i.ibb.co/2vq2kn6/menu.gif)
-
 <div align="center">
-  <img src="https://i.ibb.co/2vq2kn6/menu.gif" alt="menu" border="0">
+  <img src="https://i.ibb.co/WDkGyt1/video.gif" alt="menu" width="188px" height="334">
 </div>
-
-<hr>
-<img src="https://i.ibb.co/2vq2kn6/menu.gif">
-<hr>
-<img src="https://i.ibb.co/WDkGyt1/video.gif" alt="video" border="0">
-<hr>
-![Menu](https://i.ibb.co/WDkGyt1/video.gif)
 <hr>
 
 
