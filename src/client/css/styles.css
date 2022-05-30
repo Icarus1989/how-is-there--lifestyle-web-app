@@ -148,6 +148,14 @@ h1 {
   scroll-snap-align: center;
 }
 
+.elemsPos {
+  place-items: normal;
+}
+
+.altPosition {
+  place-items: center;   
+}
+
 #imgContainer {
   position: fixed;
   top: 0;
@@ -929,6 +937,12 @@ table>tbody>tr>td {
   .dataDisplay {
     place-items: center;
   }
+
+  .elemsPos {
+    place-items: center;
+  }
+
+  
 
   h2 {
     left: 0;

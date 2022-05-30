@@ -410,12 +410,12 @@ class CityData {
     this.secondPath = 'client/assets/tempImages/image.png';
 
     retrievePixabay(this.city).then(() => {
-      loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
-      loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
+      loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
+      loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
     }).catch(() => {
       retrieveTeleportImage(this.city).then(() => {
-        loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath);
-        loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath);
+        loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
+        loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       })
     });
 
@@ -626,10 +626,11 @@ class RetrieveData {
 
 
 class createDraw {
-  constructor(container, resultsContainer, path) {
+  constructor(container, resultsContainer, path, altTag) {
     this.container = container;
     this.resultsContainer = resultsContainer;
     this.path = path;
+    this.altTag = altTag;
   }
   calcMeasures() {
     this.image.style.width = "250vw";
@@ -663,6 +664,7 @@ class createDraw {
       this.image.src = this.urlObj;
     }).then(() => {
       this.image.addEventListener('load', () => {
+        this.image.setAttribute('alt', this.altTag);
         this.container.append(this.image);
       });
       this.image.addEventListener('error', () => {

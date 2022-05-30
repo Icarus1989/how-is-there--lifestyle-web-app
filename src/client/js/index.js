@@ -91,7 +91,8 @@ async function retrieveAlternativeCities(info, input) {
     let alternativesButtons = await alternatives.createButtons();
     spinner.removeSpinner();
     indication.secondIndication();
-    resultsCont.children[0].style.placeItems = 'center';
+    resultsCont.children[0].classList.add('altPosition');
+    // resultsCont.children[0].style.placeItems = 'center';
     resultsCont.children[0].append(alternatesContainer);
 
     if (alternativesButtons > 8) {
@@ -118,7 +119,11 @@ async function retrieveAlternativeCities(info, input) {
       }
       indication.nullIndication();
     })
-    resultsCont.children[0].style.placeItems = 'normal';
+    // resultsCont.children[0].style.placeItems = 'normal';
+    if (resultsCont.children[0].classList.contains('altPosition')) {
+      resultsCont.children[0].classList.remove('altPosition');
+    }
+    resultsCont.children[0].classList.add('elemsPos');
     appearElement(document.querySelector('.menuBtn'), 500, 'grid');
   });
 
@@ -135,7 +140,11 @@ async function retrieveAlternativeCities(info, input) {
           appearInline.show();
         })
       })
-      resultsCont.children[0].style.placeItems = 'normal';
+      // resultsCont.children[0].style.placeItems = 'normal';
+      if (resultsCont.children[0].classList.contains('altPosition')) {
+        resultsCont.children[0].classList.remove('altPosition');
+      }
+      resultsCont.children[0].classList.add('elemsPos');
       indication.nullIndication();
     } else {
       return;
@@ -187,8 +196,8 @@ function createSaveBtn(container) {
   container.append(saveBtn);
 }
 
-async function loadImage(image, container, resultsContainer, path) {
-  let draw = new createDraw(container, resultsContainer, path);
+async function loadImage(image, container, resultsContainer, path, altTag) {
+  let draw = new createDraw(container, resultsContainer, path, altTag);
   if (image !== null) {
     image.remove();
     draw.drawImg();
