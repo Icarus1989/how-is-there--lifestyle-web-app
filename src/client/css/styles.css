@@ -34,19 +34,15 @@ body {
 
 h1 {
   position: absolute;
-  top: 30%;
   width: 100%;
   font-family: 'Dancing Script', cursive;
   font-weight: 700;
   font-style: italic;
-  font-size: 12vw;
   text-align: center;
 }
 
 #inputContainer {
   position: absolute;
-  width: 82vw;
-  height: auto;
   display: flex;
   place-items: center;
   flex-direction: row;
@@ -58,7 +54,6 @@ h1 {
 }
 
 #inputContainer>i {
-  font-size: 28px;
   color: grey;
   padding-left: 5%;
   padding-right: 1%;
@@ -67,7 +62,6 @@ h1 {
 #insertInput {
   width: 55vw;
   height: 5vh;
-  font-size: 16px;
   padding: 1% 3% 1% 3%;
   border-width: 2.5px;
   border-color: transparent;
@@ -83,7 +77,6 @@ h1 {
 
 #resultsContainer {
   position: absolute;
-  top: 0%;
   width: 100%;
   height: 90vh;
   display: grid;
@@ -102,41 +95,42 @@ h1 {
   display: none;
 }
 
+h2 {
+  position: relative;
+  right: -2vw;
+  color: white;
+  min-width: 70vw;
+  max-width: 85vw;
+  margin: 0vw 0vw 0vw 5vw;
+  border-radius: 18px 0px 0px 18px;
+  text-align: center;
+  text-shadow: 4px 3px 3px rgb(15 15 15);
+  background: linear-gradient(45deg, #0000008c, 23%, rgba(34, 34, 34, 1.0));
+  border-style: solid;
+  border-width: 1.5vw 0vw 0vw 1.5vw;
+  border-color: rgba(13, 13, 13, 0.7);
+}
+
 .descriptionBox {
   width: 95vw;
   color: white;
   display: grid;
-  place-items: center;
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
-
-  background: linear-gradient(43deg, transparent, 15%, rgba(13, 13, 13, 0.6));
-
-  /* backdrop-filter: blur(2px); */
-  /* -webkit-backdrop-filter: blur(2px); */
-
-
-  border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
-  border-right: 1.5vw solid rgba(13, 13, 13, 0.7);
-  border-bottom: 0vw solid rgba(13, 13, 13, 0.7);
-  border-left: 0vw solid rgba(13, 13, 13, 0.7);
-
+  background: linear-gradient(43deg, transparent, 10%, rgba(13, 13, 13, 0.7));border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
+  border-style: solid;
+  border-width: 1.5vw 1.5vw 0vw 0vw;
+  border-color: rgba(13, 13, 13, 0.7);
   border-radius: 0px 18px 18px 0px;
-
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
 .descriptionBox>p {
-  font-size: 3.4vw;
-  /* border: 0px solid transparent; */
   padding: 3vw 3vw 3vw 7vw;
   margin-bottom: 0vh;
   margin-top: 0vh;
   line-height: 2.5vh;
   margin-left: -3vw;
-
-
-
 }
 
 .dataDisplay {
@@ -182,64 +176,21 @@ h1 {
   z-index: -100;
 }
 
-h2 {
-  position: relative;
-  right: -2vw;
-  color: white;
-  min-width: 70vw;
-  max-width: 85vw;
-  font-size: 2.3vh;
-  /* padding: 3vw 12vw 3vw 5vw; */
-  padding: 3vw 14.8vw 4vw 10vw;
-  margin-left: 5vw;
-  margin-right: 0vw;
-  margin-top: 0vw;
-  margin-bottom: 0vw;
-  border-radius: 18px 0px 0px 18px;
-  text-align: center;
-  text-shadow: 4px 3px 3px rgb(15 15 15);
-  /* background: rgba(13, 13, 13, 0.7); */
-
-  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6));
-
-  /* border: 0px solid transparent; */
-  border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
-  border-right: 0px solid rgba(13, 13, 13, 0.7);
-  border-bottom: 0px solid rgba(13, 13, 13, 0.7);
-  border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
-
-  /* backdrop-filter: blur(2px); */
-  /* -webkit-backdrop-filter: blur(2px); */
-
-}
-
 .rank {
   position: relative;
   right: -2vw;
   min-width: 70vw;
   max-width: 85vw;
   color: white;
-  font-size: 2vh;
-  padding: 3vw 12vw 4vw 5vw;
-  margin-top: 0vh;
-  margin-left: 5vw;
-  margin-right: 0vw;
-  margin-bottom: 1vh;
+  margin: 0vh 0vw 1vh 5vw;
   border-radius: 18px 0px 0px 18px;
   text-align: center;
   text-shadow: 4px 3px 3px rgb(15 15 15);
-  /* background: rgba(13, 13, 13, 0.7); */
-  background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6));
-  /* border: 0px solid transparent; */
-  /* backdrop-filter: blur(2px); */
-  /* -webkit-backdrop-filter: blur(2px); */
-
-
-  border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
-  border-right: 0px solid rgba(13, 13, 13, 0.7);
-  border-bottom: 0px solid rgba(13, 13, 13, 0.7);
-  border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
-
+  /* background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6)); */
+  background: linear-gradient(45deg, #0000008c, 23%, rgba(34, 34, 34, 1.0));
+  border-style: solid;
+  border-width: 1.5vw 0vw 0vw 1.5vw;
+  border-color: rgba(13, 13, 13, 0.7);
 }
 
 table {
@@ -249,7 +200,6 @@ table {
   border-collapse: separate;
   border-radius: 4vh;
   border: 1px solid transparent;
-  /* background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7)); */
   letter-spacing: 1vw;
   line-height: 6vw;
   font-family: sans-serif;
@@ -259,8 +209,6 @@ table {
   border-spacing: 0px;
   -webkit-border-horizontal-spacing: 0px;
   -webkit-border-vertical-spacing: 0px;
-
-
 }
 
 .tableContainer1 {
@@ -269,13 +217,13 @@ table {
   width: 95vw;
   height: 62vh;
   background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, .7));
-  /* backdrop-filter: blur(2px); */
-  /* -webkit-backdrop-filter: blur(2px); */
-
-  border-top: 2vw solid rgba(13, 13, 13, 0.9);
+  border-style: solid;
+  border-width: 2vw 0vw 2vw 2vw;
+  border-color:  rgba(13, 13, 13, 0.9) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7);
+  /* border-top: 2vw solid rgba(13, 13, 13, 0.9);
   border-left: 2vw solid rgba(13, 13, 13, 0.7);
   border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
-  border-right: 0vw solid transparent;
+  border-right: 0vw solid transparent; */
   border-radius: 3vw 0vw 0vw 3vw;
   margin-left: 3vw;
 }
@@ -286,13 +234,14 @@ table {
   width: 95vw;
   height: 62vh;
   background: linear-gradient(312deg, transparent, 23%, rgba(13, 13, 13, .7));
-  /* backdrop-filter: blur(2px); */
-  /* -webkit-backdrop-filter: blur(2px); */
+  border-style: solid;
+  border-width: 2vw 2vw 2vw 0vw;
+  border-color: rgba(13, 13, 13, 0.9) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7);
 
-  border-top: 2vw solid rgba(13, 13, 13, 0.9);
+  /* border-top: 2vw solid rgba(13, 13, 13, 0.9);
   border-left: 0vw solid transparent;
   border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
-  border-right: 2vw solid rgba(13, 13, 13, 0.7);
+  border-right: 2vw solid rgba(13, 13, 13, 0.7); */
   border-radius: 0vw 3vw 3vw 0vw;
   margin-right: 3vw;
 }
@@ -309,10 +258,6 @@ table>tbody>tr>th {
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
 }
 
-/* table>tbody>tr {
-  background: rgba(13, 13, 13, 0.7);
-} */
-
 table>tbody>tr>td {
   width: 50%;
   font-weight: 700;
@@ -320,20 +265,12 @@ table>tbody>tr>td {
   text-shadow: 3px 2px 3px rgb(15, 15, 15);
 }
 
-#canvasImage {
-  position: absolute;
-}
-
 .alternatesContainer {
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  width: 80vw;
-  height: 45vh;
-  max-height: 320px;
   padding: 0;
-  margin: 1vw 0vw 5vw 0vw;
   border: 8px solid rgb(100, 100, 100);
   border-radius: 18px;
   background: #d4d4d44b;
@@ -638,6 +575,56 @@ table>tbody>tr>td {
   margin-bottom: 40%;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait){
+
+  h1 {
+    top: 30%;
+    font-size: 12vw;
+  }
+
+  #inputContainer {
+    width: 82vw;
+    height: auto;
+  }
+
+  #inputContainer>i {
+    font-size: 28px;
+  }
+
+  #insertInput {
+    font-size: 16px;
+  }
+
+  #resultsContainer {
+    top: 0%;
+  }
+
+  h2 {
+    font-size: 2.3vh;
+    padding: 3vw 14.8vw 4vw 10vw;
+  }
+
+  .descriptionBox {
+    place-items: center;
+  }
+
+  .descriptionBox>p {
+    font-size: 3.4vw;
+  }
+
+  .rank {
+    font-size: 2vh;
+    padding: 3vw 12vw 4vw 5vw;
+  }
+
+  .alternatesContainer {
+    width: 80vw;
+    height: 45vh;
+    max-height: 320px;
+    margin: 1vw 0vw 5vw 0vw;
+  }
+
+}
 @media only screen and (min-height: 280px) and (max-height: 480px) and (orientation: landscape) {
 
   h1 {
@@ -702,21 +689,10 @@ table>tbody>tr>td {
   }
 
   table {
-    color: white;
     width: 60vw;
-    padding: 0px;
-    border-collapse: separate;
-    border-radius: 4vh;
-    background: linear-gradient(45deg, transparent, 26%, rgba(13, 13, 13, 0.7));
-    /* border: 1px solid rgba(13, 13, 13, 0.7); */
     letter-spacing: 0.2vw;
     line-height: 1vw;
-    font-family: sans-serif;
     font-size: 1.5vw;
-    text-align: center;
-    border-spacing: 0px;
-    -webkit-border-horizontal-spacing: 0px;
-    -webkit-border-vertical-spacing: 0px;
   }
 
   .circleSegments {
@@ -751,10 +727,10 @@ table>tbody>tr>td {
   }
 
   .alternatesContainer {
-    margin-bottom: 1vw;
     width: 50vw;
     height: 60vh;
     max-height: 240px;
+    margin: 1vw 0vw 1vw 0vw;
   }
 
   .alternatesContainer>legend {
@@ -813,6 +789,7 @@ table>tbody>tr>td {
 
   h1 {
     top: 25%;
+    font-size: 12vw;
   }
 
   #inputContainer {
@@ -830,7 +807,6 @@ table>tbody>tr>td {
   }
 
   .indications {
-    width: fit-content;
     width: 50vw;
     font-size: 3vw;
   }
@@ -844,6 +820,7 @@ table>tbody>tr>td {
   .descriptionBox {
     width: 90vw;
     font-size: 20px;
+    place-items: center;
   }
 
   .descriptionBox>p {
@@ -942,14 +919,11 @@ table>tbody>tr>td {
     place-items: center;
   }
 
-  
-
   h2 {
     left: 0;
     min-width: 35vw;
     max-width: 35vw;
     font-size: 1.4vw;
-    /* background: rgba(13, 13, 13, 0.7); */
     background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7));
     border: 0px solid transparent;
     border-radius: 1.5vw 0vw 0vw 1.5vw;
@@ -966,8 +940,6 @@ table>tbody>tr>td {
   }
 
   .tableContainer1 {
-    display: grid;
-    place-items: center;
     width: 92vw;
     height: 62vh;
     border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
@@ -979,8 +951,6 @@ table>tbody>tr>td {
   }
 
   .tableContainer2 {
-    display: grid;
-    place-items: center;
     width: 92vw;
     height: 62vh;
     border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
@@ -996,6 +966,7 @@ table>tbody>tr>td {
     left: 0;
     max-width: 50vw;
     min-width: 50vw;
+    font-size: 2vh;
     padding: 1vw 31vw 1vw 5vw;
     border-radius: 1.5vw 0vw 0vw 1.5vw;
     margin-left: 20.5vw;
@@ -1015,6 +986,7 @@ table>tbody>tr>td {
     width: 50vw;
     position: relative;
     left: -3vw;
+    place-items: center;
   }
 
   .descriptionBox>p {
@@ -1061,7 +1033,6 @@ table>tbody>tr>td {
     border: 5px solid rgba(155, 9, 9, 0.7);
     border-radius: 2vw;
     margin-bottom: 1%;
-    /* background: rgb(90, 11, 11, 0.7); */
     text-shadow: 3px 2px 3px rgb(15, 15, 15);
   }
 
