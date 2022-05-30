@@ -111,8 +111,8 @@ h1 {
 
   background: linear-gradient(43deg, transparent, 15%, rgba(13, 13, 13, 0.6));
 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 
 
   border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
@@ -200,8 +200,8 @@ h2 {
   border-bottom: 0px solid rgba(13, 13, 13, 0.7);
   border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 
 }
 
@@ -223,8 +223,8 @@ h2 {
   /* background: rgba(13, 13, 13, 0.7); */
   background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6));
   /* border: 0px solid transparent; */
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 
 
   border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
@@ -261,8 +261,8 @@ table {
   width: 95vw;
   height: 62vh;
   background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, .7));
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 
   border-top: 2vw solid rgba(13, 13, 13, 0.9);
   border-left: 2vw solid rgba(13, 13, 13, 0.7);
@@ -278,8 +278,8 @@ table {
   width: 95vw;
   height: 62vh;
   background: linear-gradient(312deg, transparent, 23%, rgba(13, 13, 13, .7));
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 
   border-top: 2vw solid rgba(13, 13, 13, 0.9);
   border-left: 0vw solid transparent;

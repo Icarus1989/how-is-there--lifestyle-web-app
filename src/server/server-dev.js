@@ -11,9 +11,11 @@ const Datastore = require('nedb');
 const cannyEdgeDetector = require('canny-edge-detector');
 const ImageCanny = require('image-js').Image;
 
+console.log(path.resolve(__dirname, '../'));
+
 const app = express(),
   DIST_DIR = __dirname,
-  HTML_FILE = path.join(DIST_DIR, '/src/client/index.html');
+  HTML_FILE = path.resolve(DIST_DIR, 'client/index.html');
 
 app.use(express.static(DIST_DIR));
 app.use(express.json({
@@ -24,7 +26,7 @@ app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
 
-const port = 5001;
+const port = (process.env.PORT || 5000);
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
@@ -39,7 +41,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
 
   try {
     const Pixabay_Api_Key = process.env.PIXABAY_API_KEY;
-    const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=travel&image_type=photo`;
+    const urlPixabay = `https://pixabay.com/api/?key=${Pixabay_Api_Key}&q=${cityName}&category=places&image_type=photo`;
     const dataPixabay = await axios.get(urlPixabay);
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
@@ -126,38 +128,71 @@ app.post('/cancelDb', (request, response) => {
 });
 
 async function downloadAndCannyEdge(url) {
-  const dir = './dist/client/assets/tempImages';
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
-  }
-  if (fs.existsSync('./dist/client/assets/tempImages/image.png')) {
-    fs.unlink('./dist/client/assets/tempImages/image.png', (error) => {
-      if (error) {
-        throw error;
-      }
-    });
-  }
-  if (fs.existsSync('./dist/client/assets/tempImages/edge.png')) {
-    fs.unlink('./dist/client/assets/tempImages/edge.png', (error) => {
-      if (error) {
-        throw error;
-      }
-    });
-  }
-  const response = await fetch(url);
-  const buffer = response.buffer();
-  let writeFile = fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async () => {
-    const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
-    const grey = await img.grey();
-    const options = {
-      lowThreshold: 120,
-      highThreshold: 130,
-      gaussianBlur: 0.6,
-      brightness: 1.1
-    };
-    const edge = await cannyEdgeDetector(grey, options);
-    return edge.save('./dist/client/assets/tempImages/edge.png');
+  try {
+    const tempPath = './dist/client/assets/tempImages';
+    if (!fs.existsSync(tempPath)) {
+      fs.mkdirSync(tempPath);
+    }
+    if (fs.existsSync(`./dist/client/assets/tempImages/image.png`)) {
+      fs.unlink(`./dist/client/assets/tempImages/image.png`, (error) => {
+        if (error) {
+          throw error;
+        }
+      });
+    }
+    if (fs.existsSync(`./dist/client/assets/tempImages/edge.png`)) {
+      fs.unlink(`./dist/client/assets/tempImages/edge.png`, (error) => {
+        if (error) {
+          // return;
+          throw error;
+        }
+      });
+    }
+    // try {
+    //   fs.unlink(`./dist/client/assets/tempImages/image.png`);
+    //   fs.unlink(`./dist/client/assets/tempImages/edge.png`);
+    // } catch(err) {
+    //   console.error(err);
+    //   // return;
+    //   if (err) {
+    //     return;
+    //   }
+    // }
 
-  });
-  return writeFile;
+    // const response = await fetch(url);
+    // const buffer = await response.buffer();
+
+
+    const data = await axios({
+      method: 'get',
+      url: url,
+      responseType: 'arraybuffer'
+    });
+
+    const buffer = await data["data"];
+
+    fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
+      if (err) {
+        console.log(err);
+        // throw err;
+        downloadAndCannyEdge(url);
+      }
+      const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
+      // console.log(img);
+      const grey = await img.grey();
+      const options = {
+        lowThreshold: 120,
+        highThreshold: 130,
+        gaussianBlur: 0.6,
+        brightness: 0.8
+      };
+      const edge = await cannyEdgeDetector(grey, options);
+      return edge.save(`./dist/client/assets/tempImages/edge.png`);
+      // console.log(edge);
+      // return edge.save(`./dist/client/assets/tempImages/edge.png`);  
+    })
+  } catch (error) {
+    console.log(error);
+    downloadAndCannyEdge(url);
+  }
 }

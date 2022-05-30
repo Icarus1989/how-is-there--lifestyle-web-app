@@ -46,7 +46,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
     response.json(jsonPixabay);
-      downloadAndCannyEdge(fileUrl);
+    downloadAndCannyEdge(fileUrl);
   } catch {
     try {
       const urlTeleport = `https://api.teleport.org/api/urban_areas/slug:${(cityName).toLowerCase()}/images/`;
@@ -143,25 +143,10 @@ async function downloadAndCannyEdge(url) {
     if (fs.existsSync(`./dist/client/assets/tempImages/edge.png`)) {
       fs.unlink(`./dist/client/assets/tempImages/edge.png`, (error) => {
         if (error) {
-          // return;
           throw error;
         }
       });
     }
-    // try {
-    //   fs.unlink(`./dist/client/assets/tempImages/image.png`);
-    //   fs.unlink(`./dist/client/assets/tempImages/edge.png`);
-    // } catch(err) {
-    //   console.error(err);
-    //   // return;
-    //   if (err) {
-    //     return;
-    //   }
-    // }
-    
-    // const response = await fetch(url);
-    // const buffer = await response.buffer();
-
 
     const data = await axios({
       method: 'get',
@@ -170,15 +155,10 @@ async function downloadAndCannyEdge(url) {
     });
 
     const buffer = await data["data"];
-    
+
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
-      if(err){
-        console.log(err);
-        // throw err;
-        downloadAndCannyEdge(url);
-      }
+
       const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
-      // console.log(img);
       const grey = await img.grey();
       const options = {
         lowThreshold: 120,
@@ -187,11 +167,9 @@ async function downloadAndCannyEdge(url) {
         brightness: 0.8
       };
       const edge = await cannyEdgeDetector(grey, options);
-      return edge.save(`./dist/client/assets/tempImages/edge.png`); 
-      // console.log(edge);
-      // return edge.save(`./dist/client/assets/tempImages/edge.png`);  
+      return edge.save(`./dist/client/assets/tempImages/edge.png`);
     })
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     downloadAndCannyEdge(url);
   }
