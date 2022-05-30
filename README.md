@@ -81,6 +81,10 @@ Budler:
 Questo é il primo progetto in cui combino così tanti elementi: gestione dei dati ottenuti dall'API di Teleport, animazioni, gestione degli errori, un menu utilizzabile che utilizza dei dati salvati su database lato client, tramite node.js la gestione dell'API di Pixabay e la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack sia per il lato client che server ed il deploy dell'app utilizzando heroku.
 
 <!-- Immagine con dati visualizzati -->
+<div align="center">
+  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" border="0">
+</div>
+
 
 I dati sulle città di Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.

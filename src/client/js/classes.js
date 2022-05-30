@@ -654,7 +654,7 @@ class createDraw {
   drawImg() {
     this.image = document.createElement('img');
     this.image.src = '';
-    this.wait(800).then(() => {
+    this.wait(1000).then(() => {
       return axios.get(this.path, {
         responseType: "blob"
       });
