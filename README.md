@@ -97,7 +97,9 @@ Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pi
 
 ![DropDownMenu](https://i.ibb.co/2vq2kn6/menu.gif)
 
-<img src="https://i.ibb.co/2vq2kn6/menu.gif" width="280" height="400" />
+<div align="center">
+<img src="https://i.ibb.co/2vq2kn6/menu.gif"/>
+</div>
 
 L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database che utilizzo qui per la prima volta, per avere una persistenza dei dati. Tramite questo sarà sempre possibile avere una lista di partenza di città da visualizzare e salvare le proprie città preferite, ma anche eliminarle a piacere. Ho preferito usare questo approccio, rispetto ad esempio a LocalStorage, per poter sopperire ad eventuali altri problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app almeno con le città salvate nel caso di quest'eventualità. Questa infatti si avvia già con una base di DIGIT città.
 
