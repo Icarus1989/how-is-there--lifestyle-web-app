@@ -97,7 +97,7 @@ Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pi
 <hr>
 
 <div align="center">
-  <img src="https://i.ibb.co/N2tyRmT/menu-3.gif" alt="menu" border="0">
+  <img src="https://i.ibb.co/xCYwyv7/interction.gif" alt="interction" border="0">
 </div>
 
 <hr>
