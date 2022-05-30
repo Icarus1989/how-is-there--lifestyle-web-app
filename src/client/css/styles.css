@@ -220,10 +220,6 @@ table {
   border-style: solid;
   border-width: 2vw 0vw 2vw 2vw;
   border-color:  rgba(13, 13, 13, 0.9) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7);
-  /* border-top: 2vw solid rgba(13, 13, 13, 0.9);
-  border-left: 2vw solid rgba(13, 13, 13, 0.7);
-  border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
-  border-right: 0vw solid transparent; */
   border-radius: 3vw 0vw 0vw 3vw;
   margin-left: 3vw;
 }
@@ -237,11 +233,6 @@ table {
   border-style: solid;
   border-width: 2vw 2vw 2vw 0vw;
   border-color: rgba(13, 13, 13, 0.9) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7) rgba(13, 13, 13, 0.7);
-
-  /* border-top: 2vw solid rgba(13, 13, 13, 0.9);
-  border-left: 0vw solid transparent;
-  border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
-  border-right: 2vw solid rgba(13, 13, 13, 0.7); */
   border-radius: 0vw 3vw 3vw 0vw;
   margin-right: 3vw;
 }
@@ -625,6 +616,7 @@ table>tbody>tr>td {
   }
 
 }
+
 @media only screen and (min-height: 280px) and (max-height: 480px) and (orientation: landscape) {
 
   h1 {
@@ -674,18 +666,16 @@ table>tbody>tr>td {
   .tableContainer1 {
     width: 96vw;
     border-radius: 3vw 0vw 0vw 3vw;
-    border-top: 2vw solid rgba(13, 13, 13, 0.7);
-    border-left: 2vw solid rgba(13, 13, 13, 0.7);
-    border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
-    border-right: 0vw solid transparent;
+    border-style: solid;
+    border-color: rgba(13, 13, 13, 0.7);
+    border-width: 2vw 0vw 2vw 2wv;
   }
 
   .tableContainer2 {
     border-radius: 0vw 3vw 3vw 0vw;
-    border-top: 2vw solid rgba(13, 13, 13, 0.7);
-    border-left: 0vw solid transparent;
-    border-bottom: 2vw solid rgba(13, 13, 13, 0.7);
-    border-right: 2vw solid rgba(13, 13, 13, 0.7);
+    border-style: solid;
+    border-color: rgba(13, 13, 13, 0.7);
+    border-width: 2vw 2vw 2vw 0wv;
   }
 
   table {
@@ -814,7 +804,7 @@ table>tbody>tr>td {
   h2 {
     min-width: 78vw;
     max-width: 80vw;
-    padding: 3vw 11vw 3vw 4vw;
+    padding: 2vh 13vw 3vh 4vw;
   }
 
   .descriptionBox {
@@ -837,7 +827,7 @@ table>tbody>tr>td {
     min-width: 78vw;
     max-width: 80vw;
     font-size: 2.3vh;
-    padding: 3vw 11vw 3vw 4vw;
+    padding: 2vh 11vw 3vh 4vw;
   }
 
   .alternatesContainer {
@@ -924,10 +914,9 @@ table>tbody>tr>td {
     min-width: 35vw;
     max-width: 35vw;
     font-size: 1.4vw;
-    background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.7));
-    border: 0px solid transparent;
+    border-width: 1.2vh 0 0 1.2vh;
     border-radius: 1.5vw 0vw 0vw 1.5vw;
-    padding: 1vw 39vw 1vw 10vw;
+    padding: 2vh 39vw 2.5vh 10vw;
     margin-left: 22.5vw;
   }
 
@@ -942,10 +931,9 @@ table>tbody>tr>td {
   .tableContainer1 {
     width: 92vw;
     height: 62vh;
-    border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
-    border-left: 1.5vw solid rgba(13, 13, 13, 0.7);
-    border-bottom: 1.5vw solid rgba(13, 13, 13, 0.7);
-    border-right: 0vw solid transparent;
+    border-style: solid;
+    border-width: 1.5vw 0vw 1.5vw 1.5vw;
+    border-color: rgba(13, 13, 13, 0.9);
     border-radius: 8vh 0vh 0vh 8vh;
     margin-left: 6.5vw;
   }
@@ -953,10 +941,9 @@ table>tbody>tr>td {
   .tableContainer2 {
     width: 92vw;
     height: 62vh;
-    border-top: 1.5vw solid rgba(13, 13, 13, 0.7);
-    border-left: 0vw solid transparent;
-    border-bottom: 1.5vw solid rgba(13, 13, 13, 0.7);
-    border-right: 1.5vw solid rgba(13, 13, 13, 0.7);
+    border-style: solid;
+    border-width: 1.5vw 1.5vw 1.5vw 0vw;
+    border-color: rgba(13, 13, 13, 0.9);
     border-radius: 0vh 8vh 8vh 0vh;
     margin-right: 6.5vw;
   }
@@ -967,7 +954,8 @@ table>tbody>tr>td {
     max-width: 50vw;
     min-width: 50vw;
     font-size: 2vh;
-    padding: 1vw 31vw 1vw 5vw;
+    padding: 2vh 31vw 2.5vh 5vw;
+    border-width: 1.2vh 0 0 1.2vh;
     border-radius: 1.5vw 0vw 0vw 1.5vw;
     margin-left: 20.5vw;
   }
@@ -987,6 +975,10 @@ table>tbody>tr>td {
     position: relative;
     left: -3vw;
     place-items: center;
+    border-width: 1.2vh 1.2vh 0 1.2vh;
+    border-radius: 18px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
   }
 
   .descriptionBox>p {
@@ -994,7 +986,7 @@ table>tbody>tr>td {
     margin-top: 4vw;
     font-size: 1vw;
     padding: 1vw 3.5vw 1vw 3.5vw;
-    margin-top: 1vw;
+    margin-top: 0vw;
     margin-left: 0vw;
   }
 
