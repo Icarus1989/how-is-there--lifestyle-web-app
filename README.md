@@ -5,6 +5,10 @@
   <h1>How is There? - Lifestyle web app</h1>
 </div>
 
+<div align="center">
+  <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
+</div>
+
 <p align="center">
   Questo é un progetto per la guida di start2impact JavaScript Advanced categoria lifestyle.
 </p>
@@ -37,10 +41,6 @@
 <hr>
 
 ## About The Project
-
-<div align="center">
-  <img src="https://i.ibb.co/VB700sV/Devices-Mockup-1.png" alt="Devices-Mockup-1" width="80%" height="80%">
-</div>
 
 ### Built With
 
