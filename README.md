@@ -122,7 +122,7 @@ quelle salvate.
 </div>
 
 <br>
-* Se la città non é presente nei dati verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, dalle quali sarà poi possibile scegliere e osservarne i dati
+* Se la città non fosse presente nei dati verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, dalle quali sarà poi possibile scegliere e osservarne i dati
 
 <!-- Immagine buttons alternatives con Eureka -->
 
@@ -134,10 +134,13 @@ quelle salvate.
 <br>
 * Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
 <br>
+<br>
 
 <div align="center">
   <img src="https://i.ibb.co/ftQYmFM/Errors-Image.png" alt="Errors-Image" border="0">
 </div>
+<br>
+<br>
 
 &#9776; - Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
