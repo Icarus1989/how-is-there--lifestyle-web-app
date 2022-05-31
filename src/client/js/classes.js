@@ -393,7 +393,7 @@ class CityData {
     this.fullName = `${this.nameAndState}, ${this.continent}`;
     if (this.container.clientWidth > this.container.clientHeight) {
       setInfoButtons(this.resultsContainer);
-    } else if (this.container.clientWidth < this.container.clientHeight) {
+    } else if (this.container.clientWidth < this.container.clientHeight && !document.querySelector('#buttonsContainer')) {
       createPointButtons(this.resultsContainer);
     }
     this.cityDescription = await this.infoScores["summary"];
