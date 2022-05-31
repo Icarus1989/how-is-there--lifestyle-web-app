@@ -82,7 +82,7 @@ Questo é il primo progetto in cui combino così tanti elementi: gestione dei da
 
 <!-- Immagine con dati visualizzati -->
 <div align="center">
-  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" width="50%" height="50%" border="0">
+  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" width="30%" height="30%">
 </div>
 
 
