@@ -81,9 +81,7 @@ Budler:
 Questo é il primo progetto in cui combino così tanti elementi: gestione dei dati ottenuti dall'API di Teleport, animazioni, gestione degli errori, un menu utilizzabile che utilizza dei dati salvati su database lato client, tramite node.js la gestione dell'API di Pixabay e la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack sia per il lato client che server ed il deploy dell'app utilizzando heroku.
 
 <!-- Immagine con dati visualizzati -->
-<div align="center">
-  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" width="25%" height="25%">
-</div>
+
 
 
 I dati sulle città di Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
@@ -95,13 +93,6 @@ Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pi
 (In modalità mobile, ) quando si scorrerà tra una finestra e l'altra lo sfondo scorrera rivelando una nuova parte dell'immagine.
 
 <hr>
-
-<div align="center">
-  <img src="https://i.ibb.co/N2tyRmT/menu-3.gif" alt="menu" width="50%" height="50%" border="0">
-</div>
-
-<hr>
-
 
 L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database che utilizzo qui per la prima volta, per avere una persistenza dei dati. Tramite questo sarà sempre possibile avere una lista di partenza di città da visualizzare e salvare le proprie città preferite, ma anche eliminarle a piacere. Ho preferito usare questo approccio, rispetto ad esempio a LocalStorage, per poter sopperire ad eventuali altri problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app almeno con le città salvate nel caso di quest'eventualità. Questa infatti si avvia già con una base di DIGIT città.
 
@@ -116,30 +107,48 @@ quelle salvate.
 
 <!-- Immagine -->
 
-<hr>
-
 :mag: - Effettuando una ricerca si potranno ottenere vari risultati: 
+
+* Se la città é presente nei dati Teleport compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. 
 
 <!-- Immagini ottenute da città (cercare una con sfondo accattivante)
 prima, seconda e terza schermata -->
-* Se la città é presente nei dati Teleport compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. 
 
-<hr>
+<div align="center">
+  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" width="25%" height="25%">
+</div>
 
-<!-- Immagine buttons alternatives con Eureka -->
+<br>
 * Se la città non é presente nei dati verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, dalle quali sarà poi possibile scegliere e osservarne i dati
 
-<hr>
+<!-- Immagine buttons alternatives con Eureka -->
+
+<!-- <div align="center">
+  <img src="https://i.ibb.co/pLfgTqv/Ricerca-Eureka.gif" alt="interction" width="25%" height="25%">
+</div> -->
+[Eureka Search](https://i.ibb.co/pLfgTqv/Ricerca-Eureka.gif)
+
+
+<br>
+* Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
+<br>
 
 <!-- Immagini vari errors -->
-* Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
 
-<hr>
 
-<!-- Immagine menu aperto -->
 &#9776; - Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
+
+<div align="center">
+  <img src="https://i.ibb.co/N2tyRmT/menu-3.gif" alt="menu" width="50%" height="50%" border="0">
+</div>
+
+<!-- Immagine menu aperto -->
+
+
+<hr>
+<hr>
 
 ## Demo
 
