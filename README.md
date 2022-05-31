@@ -115,7 +115,7 @@ quelle salvate.
 prima, seconda e terza schermata -->
 
 <div align="center">
-  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" width="25%" height="25%">
+  <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
 </div>
 
 <br>
