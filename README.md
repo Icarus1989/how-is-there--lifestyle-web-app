@@ -3,15 +3,12 @@
 
 <div align="center">
   <h1>How is There? - Lifestyle web app</h1>
+  <h3>Questo é un progetto per la guida di start2impact JavaScript Advanced categoria lifestyle.</h3>
 </div>
-
+<br>
 <div align="center">
   <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
 </div>
-
-<p align="center">
-  Questo é un progetto per la guida di start2impact JavaScript Advanced categoria lifestyle.
-</p>
 
 <hr>
 <hr>
@@ -80,6 +77,10 @@ Budler:
 Questo é il primo progetto in cui combino così tanti elementi: gestione dei dati ottenuti dall'API di Teleport, animazioni, gestione degli errori, un menu utilizzabile che utilizza dei dati salvati su database lato client, tramite node.js la gestione dell'API di Pixabay e la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack sia per il lato client che server ed il deploy dell'app utilizzando heroku.
 
 <!-- Immagine con dati visualizzati -->
+
+<div align="center">
+  <img src="https://i.ibb.co/dB767Ws/mockupscreens.png" alt="screens" width="80%" height="80%">
+</div>
 
 
 I dati sulle città di Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
