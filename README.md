@@ -123,10 +123,9 @@ prima, seconda e terza schermata -->
 
 <!-- Immagine buttons alternatives con Eureka -->
 
-<!-- <div align="center">
-  <img src="https://i.ibb.co/pLfgTqv/Ricerca-Eureka.gif" alt="interction" width="25%" height="25%">
-</div> -->
-[Eureka Search](https://i.ibb.co/pLfgTqv/Ricerca-Eureka.gif)
+<div align="center">
+  <img src="https://i.ibb.co/Q6bvXyf/Ricerca-Eureka-1.gif" alt="alternativesSearch" width="50%" height="50%">
+</div>
 
 
 <br>
