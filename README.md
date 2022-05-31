@@ -79,7 +79,7 @@ Questo é il primo progetto in cui combino così tanti elementi: gestione dei da
 <!-- Immagine con dati visualizzati -->
 
 <div align="center">
-  <img src="https://i.ibb.co/qgdmD43/iphone7forpres-1.png" alt="screens" width="80%" height="80%">
+  <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="80%" height="80%">
 </div>
 
 
