@@ -82,7 +82,7 @@ Questo é il primo progetto in cui combino così tanti elementi: gestione dei da
 
 <!-- Immagine con dati visualizzati -->
 <div align="center">
-  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" border="0">
+  <img src="https://i.ibb.co/qMSXgFx/interction.gif" alt="interction" width="50%" height="50%" border="0">
 </div>
 
 
@@ -97,7 +97,7 @@ Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pi
 <hr>
 
 <div align="center">
-  <img src="https://i.ibb.co/xCYwyv7/interction.gif" alt="interction" border="0">
+  <img src="https://i.ibb.co/N2tyRmT/menu-3.gif" alt="menu" width="50%" height="50%" border="0">
 </div>
 
 <hr>

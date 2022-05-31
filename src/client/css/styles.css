@@ -930,7 +930,7 @@ table>tbody>tr>td {
 
   .tableContainer1 {
     width: 92vw;
-    height: 62vh;
+    height: 60vh;
     border-style: solid;
     border-width: 1.5vw 0vw 1.5vw 1.5vw;
     border-color: rgba(13, 13, 13, 0.9);
@@ -940,7 +940,7 @@ table>tbody>tr>td {
 
   .tableContainer2 {
     width: 92vw;
-    height: 62vh;
+    height: 60vh;
     border-style: solid;
     border-width: 1.5vw 1.5vw 1.5vw 0vw;
     border-color: rgba(13, 13, 13, 0.9);

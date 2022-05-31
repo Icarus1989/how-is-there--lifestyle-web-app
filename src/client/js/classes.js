@@ -673,6 +673,8 @@ class createDraw {
       })
     }).catch((err) => {
       console.log(err);
+      this.drawImg();
+      this.calcMeasures();
     });
 
   }
