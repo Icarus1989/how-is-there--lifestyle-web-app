@@ -99,7 +99,7 @@ Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pi
 L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database che utilizzo qui per la prima volta, per avere una persistenza dei dati. Tramite questo sarà sempre possibile avere una lista di partenza di città da visualizzare e salvare le proprie città preferite, ma anche eliminarle a piacere. Ho preferito usare questo approccio, rispetto ad esempio a LocalStorage, per poter sopperire ad eventuali altri problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app almeno con le città salvate nel caso di quest'eventualità. Questa infatti si avvia già con una base di DIGIT città.
 
 <div align="center">
-  <img src="https://i.ibb.co/zscnFcj/menu-Open-Def.png" alt="menu-Open" border="0">>
+  <img src="https://i.ibb.co/zscnFcj/menu-Open-Def.png" alt="menu-Open" border="0">
 </div>
 
 <hr>
@@ -132,11 +132,12 @@ quelle salvate.
 
 
 <br>
-* Se la città non esiste o é avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
+* Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
 <br>
 
-<!-- Immagini vari errors -->
-
+<div align="center">
+  <img src="https://i.ibb.co/ftQYmFM/Errors-Image.png" alt="Errors-Image" border="0">
+</div>
 
 &#9776; - Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
