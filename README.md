@@ -89,7 +89,7 @@ Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pi
 (In modalità mobile, ) quando si scorrerà tra una finestra e l'altra lo sfondo scorrera rivelando una nuova parte dell'immagine.
 
 <div align="center">
-  <img src="https://i.ibb.co/Ch9n9bk/double-Image.png" alt="double-Image" border="0">
+  <img src="https://i.ibb.co/Ch9n9bk/double-Image.png" alt="double-Image" width="80%" height="80%">
 </div>
 
 <hr>
@@ -135,7 +135,7 @@ quelle salvate.
 <br>
 
 <div align="center">
-  <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" border="0">
+  <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" width="80%" height="80%">
 </div>
 <br>
 <br>
