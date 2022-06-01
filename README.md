@@ -24,6 +24,7 @@
           <ul>
           <li><a href="#intro">Client Side</a></li>
           <li><a href="#data">Data</a></li>
+          <li><a href="#node.js">Node.js</a></li>
           <li><a href="#background">Background</a></li>
           <li><a href="#database">Database</a></li>
           <li><a href="#webpack">Webpack</a></li>
@@ -91,6 +92,11 @@ Le richieste dei dati verranno effettuate tramite axios. I dati sulle città ott
 </div>
 <br>
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
+
+#### Node.js
+
+RIVEDERE ->
+Il funzionamento delle varie parti dell'app si basa sia sul client side che sul server side dove ho utilizzato Node.js per l'effettivo funzionamento e per gestire le varie richieste dell'app: il database con il salvataggio, la richiesta di dati, il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, modifica di immagini e altro. Data la mia attuale scarsa esperienza, che spero di colmare presto, ritengo comunque soddisfacente il fatto che funzioni tutto nel modo corretto. 
 
 #### Background
 
