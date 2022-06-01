@@ -93,7 +93,7 @@ Le richieste dei dati verranno effettuate tramite axios. I dati sulle città ott
 <br>
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
 
-#### Node.js
+#### Node&#46;js
 
 RIVEDERE ->
 Il funzionamento delle varie parti dell'app si basa sia sul client side che sul server side dove ho utilizzato Node.js per l'effettivo funzionamento e per gestire le varie richieste dell'app: il database con il salvataggio, la richiesta di dati, il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, modifica di immagini e altro. Data la mia attuale scarsa esperienza, che spero di colmare presto, ritengo comunque soddisfacente il fatto che funzioni tutto nel modo corretto. 
@@ -117,7 +117,7 @@ L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo 
 
 #### Webpack
 
-Come bundler per quest'app é stato utilizzato Webpack 5. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo l'utilizzo di questo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato fino alle request e al salvataggio delle immagini per lo sfondo e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
+Come bundler per quest'app é stato utilizzato Webpack 5. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo l'utilizzo di questo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino alle request e al salvataggio delle immagini per lo sfondo e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
 
 <hr>
 <hr>
