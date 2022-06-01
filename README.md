@@ -75,15 +75,13 @@ Budler:
 ### Description
 
 Questo é il primo progetto in cui combino così tanti elementi: gestione dei dati ottenuti dall'API di Teleport, animazioni, gestione degli errori, un menu utilizzabile che utilizza dei dati salvati su database lato client, tramite node.js la gestione dell'API di Pixabay e la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack sia per il lato client che server ed il deploy dell'app utilizzando heroku.
+I dati sulle città di Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
 <br>
 <div align="center">
   <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="80%" height="80%">
 </div>
 <br>
-I dati sulle città di Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
-
-<!-- Immagine composta senza dati visualizzati -->
 
 <hr>
 
@@ -137,11 +135,10 @@ quelle salvate.
 <br>
 
 <div align="center">
-  <img src="https://i.ibb.co/ftQYmFM/Errors-Image.png" alt="Errors-Image" border="0">
+  <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" border="0">
 </div>
 <br>
 <br>
-
 &#9776; - Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
