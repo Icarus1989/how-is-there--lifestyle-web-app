@@ -125,7 +125,7 @@ quelle salvate.
 <!-- Immagine buttons alternatives con Eureka -->
 
 <div align="center">
-  <img src="https://i.ibb.co/Q6bvXyf/Ricerca-Eureka-1.gif" alt="alternativesSearch" width="50%" height="50%">
+  <img src="https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png" alt="iphone7alternatives-1" width="80%" height="80%">
 </div>
 
 
