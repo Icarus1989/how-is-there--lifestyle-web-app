@@ -27,7 +27,6 @@
           <li><a href="#background">Background</a></li>
           <li><a href="#database">Database</a></li>
           <li><a href="#webpack">Webpack</a></li>
-
           </ul>
         </li>
       </ul>
