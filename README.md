@@ -1,5 +1,10 @@
 <hr>
 <hr>
+[X](https://img.shields.io/github/last-commit/Icarus1989/how-is-there--lifestyle-web-app?style=for-the-badge)
+
+<hr>
+<hr>
+
 
 <div align="center">
   <h1>How is There? - Lifestyle web app</h1>
