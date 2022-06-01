@@ -24,7 +24,7 @@
           <ul>
           <li><a href="#intro">Client Side</a></li>
           <li><a href="#data">Data</a></li>
-          <li><a href="#node.js">Node.js</a></li>
+          <li><a href="#node">Node.js</a></li>
           <li><a href="#background">Background</a></li>
           <li><a href="#database">Database</a></li>
           <li><a href="#webpack">Webpack</a></li>
