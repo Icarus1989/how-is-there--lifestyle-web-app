@@ -1,7 +1,6 @@
 <hr>
 <hr>
-[X](https://img.shields.io/github/last-commit/Icarus1989/how-is-there--lifestyle-web-app?style=for-the-badge)
-
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Icarus1989/how-is-there--lifestyle-web-app?style=for-the-badge">
 <hr>
 <hr>
 
