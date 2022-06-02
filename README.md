@@ -1,15 +1,5 @@
 <hr>
 <hr>
-<p align="center">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Icarus1989/how-is-there--lifestyle-web-app?style=flat-square">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/Icarus1989/how-is-there--lifestyle-web-app">
-<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Icarus1989/how-is-there--lifestyle-web-app">
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Icarus1989/how-is-there--lifestyle-web-app">
-<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Icarus1989/how-is-there--lifestyle-web-app">
-</p>
-<hr>
-<hr>
-
 
 <div align="center">
   <h1>How is There? - Lifestyle web app</h1>
@@ -19,6 +9,16 @@
 <div align="center">
   <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
 </div>
+<hr>
+<hr>
+
+<p align="center">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Icarus1989/how-is-there--lifestyle-web-app?style=flat-square">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/Icarus1989/how-is-there--lifestyle-web-app">
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Icarus1989/how-is-there--lifestyle-web-app">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Icarus1989/how-is-there--lifestyle-web-app">
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Icarus1989/how-is-there--lifestyle-web-app">
+</p>
 
 <hr>
 <hr>
@@ -95,12 +95,12 @@ Questo é il primo progetto in cui combino così tanti elementi: gestione dei da
 <br>
 
 #### Data
-Le richieste dei dati verranno effettuate tramite axios. I dati sulle città ottenuti da Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
-<br>
+<p align="center">Le richieste dei dati verranno effettuate tramite axios. I dati sulle città ottenuti da Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
+
 <div align="center">
   <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="80%" height="80%">
 </div>
-<br>
+</p>
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
 
 #### Node
