@@ -97,9 +97,9 @@ Questo é il primo progetto in cui combino così tanti elementi: gestione dei da
 #### Data
 <p align="center">Le richieste dei dati verranno effettuate tramite axios. I dati sulle città ottenuti da Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
 
-<div align="center">
-  <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="80%" height="80%">
-</div>
+<!-- <div align="center"> -->
+  <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="20%" height="20%">
+<!-- </div> -->
 </p>
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
 
