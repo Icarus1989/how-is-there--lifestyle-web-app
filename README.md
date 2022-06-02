@@ -106,11 +106,11 @@ Il design delle tre pagine é volutamente scelto per dare un senso di continuit�
 #### Node
 
 RIVEDERE ->
-Il funzionamento delle varie parti dell'app si basa sia sul client side che sul server side dove ho utilizzato Node.js per l'effettivo funzionamento e per gestire le varie richieste dell'app: il database con il salvataggio, la richiesta di dati, il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, modifica di immagini e altro. Data la mia attuale scarsa esperienza, che spero di colmare presto, ritengo comunque soddisfacente il fatto che funzioni tutto nel modo corretto. 
+Il funzionamento delle varie parti dell'app si basa sia sul client side che sul server side dove ho utilizzato **Node.js** per l'effettivo funzionamento e per gestire le varie richieste dell'app: il database con il salvataggio, la richiesta di dati, il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, modifica di immagini e altro. Data la mia attuale scarsa esperienza, che spero di colmare presto, ritengo comunque soddisfacente il fatto che funzioni tutto nel modo corretto. 
 
 #### Background
 
-Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pixabay, sempre tramite axios ma utilizzato nel server, con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà ricavata dalla prima con canny-edge-detector, un pacchetto NPM utilizzato per ricavare i bordi delle figure presenti nella foto, che caricherà l'immagine e la modificherà per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico, simile ad un quadro (NOTA ricercare nome stile pittura).
+Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre tramite axios ma utilizzato nel server, con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà ricavata dalla prima con **canny-edge-detector**, un pacchetto NPM utilizzato per ricavare i bordi delle figure presenti nella foto, che caricherà l'immagine e la modificherà per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico, simile ad un quadro (NOTA ricercare nome stile pittura).
 Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere l'immagine quando si scrollerà a destra rivelando una nuova parte dello sfondo. 
 <br>
 <div align="center">
@@ -187,7 +187,8 @@ eliminarle dalla memoria a piacimento.
 L’applicazione é stata pubblicata utilizzando Heroku. 
 E’ possibile utilizzarla al link:
 <br>
-:link: https://how-is-there--lifestyle-app.herokuapp.com/
+:link: [Link](https://how-is-there--lifestyle-app.herokuapp.com/)
+ 
 
 <hr>
 <hr>
@@ -202,11 +203,11 @@ Distributed under the MIT License.
 ## Contacts
 
 Alex<br>
-westcoastrapper89@yahoo.it<br>
 [GitHub](http://https://github.com/Icarus1989)<br>
 [Instagram](http://https://www.instagram.com/alex._.1989/)<br>
 [Facebook](https://www.facebook.com/alex.valente.92)<br>
 
-Project Link :link: : [ https://github.com/Icarus1989/how-is-there--lifestyle-web-app ]
+Project Link: :link: [GitHub Repo](https://github.com/Icarus1989/how-is-there--lifestyle-web-app)
+
 
 
