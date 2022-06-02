@@ -95,11 +95,12 @@ Questo é il primo progetto in cui combino così tanti elementi: gestione dei da
 <br>
 
 #### Data
-Le richieste dei dati verranno effettuate tramite axios. I dati sulle città ottenuti da Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno un titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
-
+Le richieste dei dati verranno effettuate usando **Axios**. I dati sulle città ottenuti da Teleport verrano visualizzati in 3 diverse pagine: nella prima vi saranno: il titolo con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori dei dati più specifici per ogni singola categoria, che verranno rappresentati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
+<br>
 <div align="center">
-  <img float="left" src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="60%" height="60%">
+  <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="60%" height="60%">
 </div>
+<br>
 Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes iniziali allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra una pagina e rendere l'esperienza più fluida.
 
 #### Node
@@ -111,10 +112,11 @@ Il funzionamento delle varie parti dell'app si basa sia sul client side che sul 
 
 Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da Pixabay, sempre tramite axios ma utilizzato nel server, con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà ricavata dalla prima con canny-edge-detector, un pacchetto NPM utilizzato per ricavare i bordi delle figure presenti nella foto, che caricherà l'immagine e la modificherà per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert ed in seguito alla prima immagine, creerà uno sfondo con uno stile unico, simile ad un quadro (NOTA ricercare nome stile pittura).
 Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere l'immagine quando si scrollerà a destra rivelando una nuova parte dello sfondo. 
-
+<br>
 <div align="center">
   <img src="https://i.ibb.co/Ch9n9bk/double-Image.png" alt="double-Image" width="60%" height="60%">
 </div>
+<br>
 
 #### Database
 
@@ -126,7 +128,7 @@ L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo 
 
 #### Webpack
 
-Come bundler per quest'app é stato utilizzato Webpack 5. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo l'utilizzo di questo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino alle request e al salvataggio delle immagini per lo sfondo e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
+Come bundler per quest'app é stato utilizzato **Webpack 5**. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo l'utilizzo di questo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino alle request e al salvataggio delle immagini per lo sfondo e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
 
 <hr>
 <hr>
