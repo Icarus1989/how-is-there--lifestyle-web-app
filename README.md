@@ -187,7 +187,7 @@ eliminarle dalla memoria a piacimento.
 L’applicazione é stata pubblicata utilizzando Heroku. 
 E’ possibile utilizzarla al link:
 <br>
-:link: [Link](https://how-is-there--lifestyle-app.herokuapp.com/)
+:link: [How is There - Lifestyle App](https://how-is-there--lifestyle-app.herokuapp.com/)
  
 
 <hr>
