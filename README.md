@@ -34,6 +34,7 @@
           <ul>
           <li><a href="#intro">Client Side</a></li>
           <li><a href="#data">Data</a></li>
+          <li><a href="#design">Design</a></li>
           <li><a href="#node">Node.js</a></li>
           <li><a href="#background">Background</a></li>
           <li><a href="#database">Database</a></li>
@@ -95,19 +96,23 @@ Questa é una web app creata per visualizzare i dati sulla qualità delle città
 <br>
 
 #### Data
-Le richieste dei dati verranno effettuate tramite **Axios**. I dati sulle città ottenuti da Teleport verrano presentati in 3 diverse pagine al momento della ricerca: nella prima vi saranno il titolo, con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori di ogni singola categoria, che verranno visualizzati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
+
+Le richieste dei dati Teleport verranno effettuate tramite **Axios**. I dati sulle città ottenuti da Teleport verrano presentati in 3 diverse pagine al momento della ricerca: nella prima vi saranno il titolo, con nome della città ricercata, Paese e continente, la descrizione ed il punteggio Teleport in percentuale, ottenuto dalla media tra tutti i valori di ogni singola categoria, che verranno visualizzati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
 <br>
 <div align="center">
   <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="60%" height="60%">
 </div>
 <br>
-Il design delle tre pagine é volutamente scelto per dare un senso di continuità: elementi come le text boxes allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra le pagine e rendere l'esperienza più fluida e piacevole alla vista.
 
 L'app inoltre, in caso di riscontro negativo sulla presenza della città, effettuerà una nuova ricerca tra tutte le città disponibili nell'API Teleport selezionando quelle dello stesso Paese della città ricercata inizialmente e fornendole come alternative, potendo visualizzarne i dati.
 
+#### Design
+
+Il design delle tre pagine in cui verranno visualizzati i dati della città é volutamente scelto per trasmettere un senso di continuità: elementi come le text boxes allungate verso la seconda pagina o le tabelle leggermente spostate sono dettagli pensati per spingere a scorrere tra le pagine e rendere l'esperienza più fluida e piacevole alla vista.
+L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first dei vari elements rendendoli comunque responsive per le varie tipologie di display, mobile, tablet e desktop. 
+
 #### Node
 
-RIVEDERE ->
 Le varie parti dell'app si basano sia sul client che sul server side, dove ho utilizzato **Node.js** per l'effettivo funzionamento del server e per gestire le varie richieste effettuate dall'utente: il salvataggio di dati, la ricerca tra tali dati con il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, la modifica di immagini e altro. Per quanto sia basilare come codice, ritengo comunque soddisfacente il fatto che tutto funzioni nel modo corretto. 
 
 #### Background
