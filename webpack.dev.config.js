@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const WebpackFavicons = require('webpack-favicons');
 
 module.exports = {
   entry: {
@@ -74,6 +75,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "./client/css/[name].bundle.css"
     }),
+    new WebpackFavicons({
+      src: './src/client/assets/img/favicon.ico',
+      path: './dist/client/assets/images',
+      icons: {
+        favicons: true
+      }
+    })
   ],
   devServer: {
     port: 5000,

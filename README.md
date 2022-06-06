@@ -3,7 +3,7 @@
 
 <div align="center">
   <h1>How is There? - Lifestyle web app</h1>
-  <h3>Questo é un progetto della categoria lifestyle per verificare le conoscenze acquisite nel linguaggio JavaScript tramite la Super Guida di Start2Impact JavaScript Advanced.</h3>
+  <h3>Questo é un progetto per certificare le competenze acquisite con la Super Guida JavaScript Advanced di Start2Impact categoria lifestyle.</h3>
 </div>
 <br>
 
