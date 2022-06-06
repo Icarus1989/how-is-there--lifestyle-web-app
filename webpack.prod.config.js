@@ -81,7 +81,7 @@ module.exports = {
       src: './src/client/assets/img/favicon.ico',
       path: './dist/client/assets/images/favicon.ico',
       background: '#B0BEC5',
-      theme_color: '#000',
+      theme_color: '#B0BEC5',
       icons: {
         favicons: true,
         android: true,
