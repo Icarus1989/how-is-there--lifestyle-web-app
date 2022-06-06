@@ -167,37 +167,22 @@ quelle salvate.
 
 :mag: Effettuando una ricerca si potranno ottenere vari risultati: 
 
-* Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;.<br>
-<!-- <br>
-<br> -->
+* Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;.
 
-<!-- <div align="center">
-  <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
-</div> -->
 <br>
 <div align="center">
   <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
 </div>
 <br>
 
-<!-- <br>
-<br> -->
 * Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
-<!-- <br>
-<br> -->
+
 <br>
 <div align="center">
   <img src="https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png" alt="iphone7alternatives-1" width="60%" height="60%">
 </div>
 <br>
 
-<!-- <div align="center">
-![Alternatives](https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png)
-</div> -->
-
-<!-- 
-<br>
-<br> -->
 * Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
 <br>
 <div align="center">
@@ -209,9 +194,8 @@ destra sarà possibile selezionare una delle città salvate in precedenza o
 eliminarle dalla memoria a piacimento.
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/N2tyRmT/menu-3.gif" alt="menu" width="50%" height="50%">
+  <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="60%" height="60%">
 </div>
-<!-- Sosituire con immagine menu con mockup -->
 <br>
 <hr>
 <hr>
