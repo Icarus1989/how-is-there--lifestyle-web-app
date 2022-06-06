@@ -3,7 +3,6 @@ import express from 'express';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const fs = require('fs');
-const fetch = require('cross-fetch');
 const {
   default: axios
 } = require('axios');
@@ -148,20 +147,6 @@ async function downloadAndCannyEdge(url) {
         }
       });
     }
-    // try {
-    //   fs.unlink(`./dist/client/assets/tempImages/image.png`);
-    //   fs.unlink(`./dist/client/assets/tempImages/edge.png`);
-    // } catch(err) {
-    //   console.error(err);
-    //   // return;
-    //   if (err) {
-    //     return;
-    //   }
-    // }
-
-    // const response = await fetch(url);
-    // const buffer = await response.buffer();
-
 
     const data = await axios({
       method: 'get',

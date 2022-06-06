@@ -3,7 +3,6 @@ import express from 'express';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const fs = require('fs');
-const fetch = require('cross-fetch');
 const {
   default: axios
 } = require('axios');

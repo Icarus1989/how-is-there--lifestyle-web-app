@@ -73,7 +73,7 @@ Server:
   * [Regenarator-Runtime](https://www.npmjs.com/package/regenerator-runtime)
 * [NeDB](https://github.com/louischatriot/nedb)
 
-Budler:
+Bundler:
 * [Webpack](https://webpack.js.org/)
   * [Webpack-CLI]()
   * [Webpack-Dev-Server]()
@@ -129,10 +129,6 @@ Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere
 
 L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database, per avere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito usare questo approccio, rispetto ad altri come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità. 
 
-<div align="center">
-  <img src="https://i.ibb.co/zscnFcj/menu-Open-Def.png" alt="menu-Open" border="0">
-</div>
-
 #### Webpack
 
 Come bundler per quest'app é stato utilizzato **Webpack 5**. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
@@ -148,39 +144,41 @@ quelle salvate.
 
 :mag: - Effettuando una ricerca si potranno ottenere vari risultati: 
 
-* Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. 
-
+:mag: Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. 
+<br>
+<br>
 <div align="center">
   <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
 </div>
-
 <br>
-* Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
-
 <br>
-
+:mag: Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
+<br>
+<br>
 <div align="center">
-  <img src="https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png" alt="iphone7alternatives-1" width="80%" height="80%">
+  <img src="https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png" alt="iphone7alternatives-1" width="60%" height="60%">
 </div>
-
-<br>
-* Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
 <br>
 <br>
-
+:mag: Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
+<br>
+<br>
 <div align="center">
-  <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" width="80%" height="80%">
+  <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" width="60%" height="60%">
 </div>
 <br>
 <br>
 &#9776; - Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
-
+<br>
+<br>
 <div align="center">
   <img src="https://i.ibb.co/N2tyRmT/menu-3.gif" alt="menu" width="50%" height="50%">
 </div>
-
+<!-- Sosituire con immagine menu con mockup -->
+<br>
+<br>
 <hr>
 <hr>
 
