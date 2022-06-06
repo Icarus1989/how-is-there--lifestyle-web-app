@@ -153,7 +153,6 @@ async function downloadAndCannyEdge(url) {
       url: url,
       responseType: 'arraybuffer'
     });
-
     const buffer = await data["data"];
 
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
