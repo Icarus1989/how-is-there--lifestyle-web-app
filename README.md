@@ -195,9 +195,8 @@ eliminarle dalla memoria a piacimento.
 
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="50%" height="50%">
+  <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="40%" height="40%">
 </div>
-<br>
 
 <hr>
 <hr>
