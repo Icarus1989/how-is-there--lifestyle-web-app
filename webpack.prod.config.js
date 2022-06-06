@@ -43,17 +43,17 @@ module.exports = {
 
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'client/assets/fonts/[name].[ext]'
+          filename: 'client/assets/fonts/[name][ext]'
         }
       },
       {
         test: /\.(png|svg|jpg|gif|svg|ico)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'client/assets/images/[name].[ext]'
+          filename: 'client/assets/images/[name][ext]'
         }
       }
     ]
@@ -71,16 +71,20 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/client/index.html",
       filename: "client/index.html",
-      excludeChunks: ['server']
+      excludeChunks: ['server'],
+      // favicon: './src/client/assets/img/favicon.ico'
     }),
     new MiniCssExtractPlugin({
       filename: "./client/css/[name].bundle.css"
     }),
     new WebpackFavicons({
       src: './src/client/assets/img/favicon.ico',
-      path: './dist/client/assets/images',
+      path: './dist/client/assets/images/favicon.ico',
       icons: {
-        favicons: true
+        favicons: true,
+        android: true,
+        appleIcon: true,
+
       }
     })
   ],

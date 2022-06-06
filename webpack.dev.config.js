@@ -77,10 +77,7 @@ module.exports = {
     }),
     new WebpackFavicons({
       src: './src/client/assets/img/favicon.ico',
-      path: './dist/client/assets/images',
-      icons: {
-        favicons: true
-      }
+      // path: './dist/client/assets/images/[name].[ext]',
     })
   ],
   devServer: {
