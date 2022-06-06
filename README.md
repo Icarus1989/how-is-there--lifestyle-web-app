@@ -76,6 +76,7 @@ Bundler:
   * [Webpack Packages](https://github.com/Icarus1989/how-is-there--lifestyle-web-app/blob/main/package.json)
 <br>
 <hr>
+<hr>
 
 ## Description
 
@@ -99,10 +100,10 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 </div>
 <br>
 L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first dei vari elements rendendoli comunque responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
-
+<!-- 
 <div align="center">
   <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
-</div>
+</div> -->
 
 ### Node
 
