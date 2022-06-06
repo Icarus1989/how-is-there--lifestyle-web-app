@@ -192,11 +192,13 @@ quelle salvate.
 &#9776; Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
+
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="60%" height="60%">
+  <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="50%" height="50%">
 </div>
 <br>
+
 <hr>
 <hr>
 
