@@ -174,16 +174,22 @@ quelle salvate.
 <!-- <div align="center">
   <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
 </div> -->
-![city visualization gif](https://i.ibb.co/K52Mxvc/city-Visualization.gif)
+<div>
+  <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
+</div>
+
 <!-- <br>
 <br> -->
 * Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
 <!-- <br>
 <br> -->
-<!-- <div align="center">
+<div align="center">
   <img src="https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png" alt="iphone7alternatives-1" width="60%" height="60%">
-</div> -->
+</div>
+<!-- <div align="center">
 ![Alternatives](https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png)
+</div> -->
+
 <!-- 
 <br>
 <br> -->
