@@ -32,7 +32,7 @@
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#description">Description</a>
           <ul>
-          <li><a href="#intro">Client Side</a></li>
+          <li><a href="#intro">Intro</a></li>
           <li><a href="#data">Data</a></li>
           <li><a href="#design">Design</a></li>
           <li><a href="#node">Node.js</a></li>
@@ -75,7 +75,8 @@ Server:
 
 Bundler:
 * [Webpack](https://webpack.js.org/)
-  * [Webpack-CLI]()
+  * [Webpack Packages](https://github.com/Icarus1989/how-is-there--lifestyle-web-app/blob/main/package.json)
+  <!-- * [Webpack-CLI]()
   * [Webpack-Dev-Server]()
   * [Webpack-Node-Externals]()
   * [Dotenv-Webpack]()
@@ -84,7 +85,7 @@ Bundler:
   * [HTML-Webpack-Loader]()
   * [CSS-Loader]()
   * [Style-Loader]()
-  * [Babel](https://babeljs.io/)
+  * [Babel](https://babeljs.io/) -->
 <br>
 <hr>
 
@@ -129,7 +130,7 @@ Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere
 
 ### Database
 
-L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database, per avere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito usare questo approccio, rispetto ad altri come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità. 
+L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database, per avere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito servirmi di questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità. 
 
 
 ### Webpack
@@ -164,25 +165,29 @@ La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
 scegliere tra la ricerca di una città o l'utilizzo del menù per la selezione tra una di
 quelle salvate.
 
-:mag: - Effettuando una ricerca si potranno ottenere vari risultati: 
+:mag: Effettuando una ricerca si potranno ottenere vari risultati: 
 
-:mag: Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. 
-<br>
-<br>
-<div align="center">
+* Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. 
+<!-- <br>
+<br> -->
+
+<!-- <div align="center">
   <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
-</div>
-<br>
-<br>
-:mag: Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
-<br>
-<br>
-<div align="center">
+</div> -->
+![city visualization gif](https://i.ibb.co/K52Mxvc/city-Visualization.gif)
+<!-- <br>
+<br> -->
+* Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
+<!-- <br>
+<br> -->
+<!-- <div align="center">
   <img src="https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png" alt="iphone7alternatives-1" width="60%" height="60%">
-</div>
+</div> -->
+![Alternatives](https://i.ibb.co/qDmFFzj/iphone7alternatives-1.png)
+<!-- 
 <br>
-<br>
-:mag: Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
+<br> -->
+* Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti
 <br>
 <br>
 <div align="center">
@@ -190,7 +195,7 @@ quelle salvate.
 </div>
 <br>
 <br>
-&#9776; - Utilizzando il menu con l'apposito tasto nella parte in basso a 
+&#9776; Utilizzando il menu con l'apposito tasto nella parte in basso a 
 destra sarà possibile selezionare una delle città salvate in precedenza o 
 eliminarle dalla memoria a piacimento.
 <br>
@@ -206,7 +211,7 @@ eliminarle dalla memoria a piacimento.
 
 ## Demo
 
-L’applicazione é stata pubblicata tramite il servizio di web hosting Heroku. 
+L’applicazione é stata pubblicata tramite il servizio di web hosting [Heroku](https://www.heroku.com). 
 E’ possibile utilizzarla al link:
 <br>
 :link: [How is There - Lifestyle App](https://how-is-there--lifestyle-app.herokuapp.com/)
@@ -229,4 +234,4 @@ Alex<br>
 [Instagram](http://https://www.instagram.com/alex._.1989/)<br>
 [Facebook](https://www.facebook.com/alex.valente.92)<br>
 
-Project Link: :link: [GitHub Repo](https://github.com/Icarus1989/how-is-there--lifestyle-web-app)
+:link: [GitHub Repo of this project](https://github.com/Icarus1989/how-is-there--lifestyle-web-app)
