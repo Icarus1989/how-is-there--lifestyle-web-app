@@ -6,9 +6,7 @@
   <h3>Questo é un progetto della categoria lifestyle per verificare le conoscenze acquisite nel linguaggio JavaScript tramite la Super Guida di Start2Impact JavaScript Advanced.</h3>
 </div>
 <br>
-<div align="center">
-  <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
-</div>
+
 <hr>
 <hr>
 
@@ -76,16 +74,6 @@ Server:
 Bundler:
 * [Webpack](https://webpack.js.org/)
   * [Webpack Packages](https://github.com/Icarus1989/how-is-there--lifestyle-web-app/blob/main/package.json)
-  <!-- * [Webpack-CLI]()
-  * [Webpack-Dev-Server]()
-  * [Webpack-Node-Externals]()
-  * [Dotenv-Webpack]()
-  * [File-Loader]()
-  * [HTML-Loader]()
-  * [HTML-Webpack-Loader]()
-  * [CSS-Loader]()
-  * [Style-Loader]()
-  * [Babel](https://babeljs.io/) -->
 <br>
 <hr>
 
@@ -112,6 +100,10 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 <br>
 L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first dei vari elements rendendoli comunque responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
 
+<div align="center">
+  <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
+</div>
+
 ### Node
 
 Le varie parti dell'app si basano sia sul client che sul server side, dove ho utilizzato **Node.js** per l'effettivo funzionamento del server e per gestire le varie richieste effettuate dall'utente: il salvataggio di dati, la ricerca tra tali dati con il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, la modifica di immagini e altro. Per quanto sia basilare come codice, ritengo comunque soddisfacente il fatto che tutto funzioni nel modo corretto. 
@@ -137,8 +129,6 @@ L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo 
 
 Come bundler per quest'app é stato utilizzato **Webpack 5**. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
 
-
-
 <hr>
 <hr>
 
@@ -159,6 +149,9 @@ Risorse utilizzate:
 * [Ben Grunfeld Node - Express - Webpack Tutorial](https://binyamin.medium.com/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
 * [Gianluca Scocozza Webpack Tutorial](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
 
+<hr>
+<hr>
+
 ## Usage
 
 La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
@@ -167,7 +160,7 @@ quelle salvate.
 
 :mag: Effettuando una ricerca si potranno ottenere vari risultati: 
 
-* Se la ricerca va a buon fine e quindi la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;.
+* Se la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;.
 
 <br>
 <div align="center">
