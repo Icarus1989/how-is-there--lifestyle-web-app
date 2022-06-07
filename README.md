@@ -161,7 +161,6 @@ scegliere tra:<br>
 &#9776; l'utilizzo del menù per selezionare tra una delle città salvate in precedenza o per 
 eliminarle dalla memoria a piacimento.
 
-<!-- Immagine barra input e menu aperto affiancate -->
 <br>
 <div align="center">
   <img src="https://i.ibb.co/72RQg7T/readme-Usagei-Phone7.png" alt="readme-Usage-iPhone7"width="60%" height="60%">
@@ -174,7 +173,7 @@ eliminarle dalla memoria a piacimento.
 
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/K52Mxvc/city-Visualization.gif" alt="cityVisualization" width="25%" height="25%">
+  <img src="https://i.ibb.co/BsQ2x2M/Usagei-Phone7gray.gif" alt="Usagei-Phone7gray" border="0">
 </div>
 <br>
 
