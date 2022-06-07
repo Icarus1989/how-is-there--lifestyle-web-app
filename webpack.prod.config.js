@@ -78,8 +78,8 @@ module.exports = {
       filename: "./client/css/[name].bundle.css"
     }),
     new WebpackFavicons({
-      src: 'src/client/assets/img/favicon.svg',
-      path: './dist/client/assets/images/favicon.svg',
+      src: './src/client/assets/img/favicon.png',
+      path: '/client/assets/images',
       background: '#FFF',
       theme_color: '#FFF',
       icons: {
