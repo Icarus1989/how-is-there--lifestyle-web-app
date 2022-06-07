@@ -79,7 +79,11 @@ module.exports = {
     }),
     new WebpackFavicons({
       src: './src/client/assets/img/favicon.png',
-      path: '/client/assets/images',
+      path: '/client/assets/images/icons',
+      appName: 'How is There?',
+      appShortName: null,
+      appDescription: 'Cities Quality of Life App',
+      scope: '/',
       background: '#FFF',
       theme_color: '#FFF',
       icons: {
