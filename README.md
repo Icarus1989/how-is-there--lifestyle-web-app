@@ -163,7 +163,7 @@ eliminarle dalla memoria a piacimento.
 
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/72RQg7T/readme-Usagei-Phone7.png" alt="readme-Usage-iPhone7"width="60%" height="60%">
+  <img src="https://i.ibb.co/72RQg7T/readme-Usagei-Phone7.png" alt="readme-Usage-iPhone7" width="60%" height="60%">
 </div>
 <br>
 
@@ -173,7 +173,7 @@ eliminarle dalla memoria a piacimento.
 
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/T402QVJ/Usage-Video.gif" alt="Usage-Video" border="0">
+  <img src="https://i.ibb.co/T402QVJ/Usage-Video.gif" alt="Usage-Video" width="60%" height="60%">
 </div>
 <br>
 
