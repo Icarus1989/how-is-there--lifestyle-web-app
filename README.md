@@ -156,15 +156,15 @@ Risorse utilizzate:
 ## Usage
 
 La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
-scegliere tra:
-:mag: la ricerca di una città
+scegliere tra:<br>
+:mag: la ricerca di una città<br>
 &#9776; l'utilizzo del menù per selezionare tra una delle città salvate in precedenza o per 
 eliminarle dalla memoria a piacimento.
 
 <!-- Immagine barra input e menu aperto affiancate -->
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/72RQg7T/readme-Usagei-Phone7.png" alt="readme-Usagei-Phone7" border="0">
+  <img src="https://i.ibb.co/72RQg7T/readme-Usagei-Phone7.png" alt="readme-Usage-iPhone7"width="60%" height="60%">
 </div>
 <br>
 
