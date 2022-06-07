@@ -90,7 +90,6 @@ module.exports = {
         favicons: true,
         android: true,
         appleIcon: true,
-
       }
     })
   ],
