@@ -79,7 +79,7 @@ module.exports = {
     }),
     new WebpackFavicons({
       src: './src/client/assets/img/favicon.png',
-      path: '/client/assets/images',
+      path: '/client/assets/images/icons',
       background: '#FFF',
       theme_color: '#FFF',
       icons: {
