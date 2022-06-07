@@ -112,7 +112,7 @@ Le varie parti dell'app si basano sia sul client che sul server side, dove ho ut
 
 ### Background
 
-Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre tramite Axios ma utilizzato nel node server, con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà ricavata dalla prima attraverso **canny-edge-detector**, un pacchetto NPM utilizzato per ricavare i bordi delle figure presenti nella foto, che caricherà l'immagine e la modificherà per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert ed in sovrapposta alla prima immagine, creerà uno sfondo con uno stile unico, simile ad un quadro (NOTA ricercare nome stile pittura).
+Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre tramite Axios ma utilizzato nel server node, con opacità bassissima per ricavarne solo i colori sfumati, la seconda verrà elaborata dalla prima attraverso **canny-edge-detector** ed **image-js**, due pacchetti NPM che combinati ricaveranno un'immagine con i bordi delle figure presenti nella foto, per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert e poi sovrapposta alla prima immagine, creerà uno sfondo con uno stile simile ad un disegno.
 Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere l'immagine quando si scrollerà a destra o sinistra rivelando una nuova parte dello sfondo. 
 <br>
 <div align="center">
@@ -123,12 +123,12 @@ Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere
 
 ### Database
 
-L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database, per avere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito servirmi di questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità. 
+L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database, per ottenere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito servirmi di questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità. 
 
 
 ### Webpack
 
-Come bundler per quest'app é stato utilizzato **Webpack 5**. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quando a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request e molto altro, si é dimostrato uno strumento utilissimo per migliorare l'app nel suo intero.
+Come bundler per quest'app é stato utilizzato **Webpack 5**. Utilizzato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quanto a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificare il codice in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request, soprattutto delle immagini, la creazione automatica delle icone necessarie per ogni sistema operativo e molto altro, si é dimostrato uno strumento utilissimo per migliorare e completare l'app nel suo intero.
 
 <hr>
 <hr>
@@ -156,8 +156,17 @@ Risorse utilizzate:
 ## Usage
 
 La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
-scegliere tra la ricerca di una città o l'utilizzo del menù per la selezione tra una di
-quelle salvate.
+scegliere tra:
+:mag: la ricerca di una città
+&#9776; l'utilizzo del menù per selezionare tra una delle città salvate in precedenza o per 
+eliminarle dalla memoria a piacimento.
+
+<!-- Immagine barra input e menu aperto affiancate -->
+<br>
+<div align="center">
+  <img src="https://i.ibb.co/72RQg7T/readme-Usagei-Phone7.png" alt="readme-Usagei-Phone7" border="0">
+</div>
+<br>
 
 :mag: Effettuando una ricerca si potranno ottenere vari risultati: 
 
@@ -169,7 +178,7 @@ quelle salvate.
 </div>
 <br>
 
-* Se i dati della città non fossero presenti, verrà effettuata una ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
+* Se effettuando una ricerca i dati della città non fossero presenti, verrà effettuata una nuova ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
 
 <br>
 <div align="center">
@@ -183,11 +192,7 @@ quelle salvate.
   <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" width="60%" height="60%">
 </div>
 <br>
-&#9776; Utilizzando il menu con l'apposito tasto nella parte in basso a 
-destra sarà possibile selezionare una delle città salvate in precedenza o 
-eliminarle dalla memoria a piacimento.
 
-<br>
 <br>
 <div align="center">
   <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="40%" height="40%">
