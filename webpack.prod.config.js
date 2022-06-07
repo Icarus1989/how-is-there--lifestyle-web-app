@@ -84,8 +84,8 @@ module.exports = {
       appShortName: null,
       appDescription: 'Cities Quality of Life App',
       scope: '/',
-      background: '#FFF',
-      theme_color: '#FFF',
+      background: '#EEE',
+      theme_color: '#EEE',
       icons: {
         favicons: true,
         android: true,
