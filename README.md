@@ -2,10 +2,12 @@
 <hr>
 
 <div align="center">
-  <h1>How is There? - Lifestyle web app</h1>
+<img src="https://i.ibb.co/mytvjZL/Title-Readme.png" alt="Title-Readme">
+  <h1>Lifestyle web app</h1>
   <h3>Questo é un progetto per certificare le competenze acquisite con la Super Guida JavaScript Advanced di Start2Impact categoria lifestyle.</h3>
 </div>
 <br>
+<!-- Immagine iniziale? -->
 
 <hr>
 <hr>
@@ -100,10 +102,8 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 </div>
 <br>
 L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first dei vari elements rendendoli comunque responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
-<!-- 
-<div align="center">
-  <img src="https://i.ibb.co/82M5Yzh/Devices-Mockup-2.png" alt="Devices-Mockup-1" width="70%" height="70%">
-</div> -->
+
+<!-- Immagine per Responsive? -->
 
 ### Node
 
