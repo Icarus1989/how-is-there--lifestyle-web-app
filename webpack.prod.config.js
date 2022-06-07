@@ -86,12 +86,12 @@ module.exports = {
       scope: '/',
       background: '#EEE',
       theme_color: '#EEE',
-      icons: {
-        favicons: true,
-        android: true,
-        appleIcon: true,
+      // icons: {
+      //   favicons: true,
+      //   android: true,
+      //   appleIcon: true,
 
-      }
+      // }
     })
   ],
   devServer: {
