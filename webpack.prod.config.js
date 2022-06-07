@@ -43,14 +43,14 @@ module.exports = {
 
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'client/assets/fonts/[name][ext]'
         }
       },
       {
-        test: /\.(png|svg|jpg|gif|svg|ico)$/,
+        test: /\.(png|svg|jpg|gif|svg|ico)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'client/assets/images/[name][ext]'
@@ -78,10 +78,10 @@ module.exports = {
       filename: "./client/css/[name].bundle.css"
     }),
     new WebpackFavicons({
-      src: './src/client/assets/img/favicon.ico',
-      path: './dist/client/assets/images/favicon.ico',
-      background: '#B0BEC5',
-      theme_color: '#B0BEC5',
+      src: 'src/client/assets/img/favicon.svg',
+      path: './dist/client/assets/images/favicon.svg',
+      background: '#FFF',
+      theme_color: '#FFF',
       icons: {
         favicons: true,
         android: true,
