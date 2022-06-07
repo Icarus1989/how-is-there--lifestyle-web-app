@@ -192,11 +192,6 @@ eliminarle dalla memoria a piacimento.
 </div>
 <br>
 
-<br>
-<div align="center">
-  <img src="https://i.ibb.co/DCQ222P/iphone7-menu.png" alt="iphone7-menu" width="40%" height="40%">
-</div>
-
 <hr>
 <hr>
 
