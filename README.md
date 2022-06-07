@@ -173,7 +173,7 @@ eliminarle dalla memoria a piacimento.
 
 <br>
 <div align="center">
-  <img src="https://i.ibb.co/BsQ2x2M/Usagei-Phone7gray.gif" alt="Usagei-Phone7gray" border="0">
+  <img src="https://i.ibb.co/T402QVJ/Usage-Video.gif" alt="Usage-Video" border="0">
 </div>
 <br>
 
