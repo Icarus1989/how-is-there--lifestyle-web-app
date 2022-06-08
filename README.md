@@ -84,7 +84,7 @@ Bundler:
 
 ### Intro
 
-Questa é una web app creata per visualizzare i dati sulla qualità delle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizii esterni, animazioni, gestione degli errori, un menù in cui salvare i dati, la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database NeDB, l'utilizzo di webpack sia per il lato client che server ed il deploy dell'app utilizzando Heroku.
+Questa é una web app creata per visualizzare i dati sulla qualità delle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con la possibilità di salvare i dati e riutilizzarli, la creazione di cartelle e file e la loro modifica, la persistenza dei dati tramite database, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host.
 <br>
 
 ### Data
@@ -101,13 +101,13 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
   <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="60%" height="60%">
 </div>
 <br>
-L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first dei vari elements rendendoli comunque responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
+L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
 
 <!-- Immagine per Responsive? -->
 
 ### Node
 
-Le varie parti dell'app si basano sia sul client che sul server side, dove ho utilizzato **Node.js** per l'effettivo funzionamento del server e per gestire le varie richieste effettuate dall'utente: il salvataggio di dati, la ricerca tra tali dati con il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, la modifica di immagini e altro. Per quanto sia basilare come codice, ritengo comunque soddisfacente il fatto che tutto funzioni nel modo corretto. 
+Le varie parti dell'app si basano sia sul client che sul server side, dove ho utilizzato **Node.js** per l'effettivo funzionamento del server e per gestire le varie richieste effettuate dall'utente: il salvataggio di dati, la ricerca tra questi con il controllo della loro presenza o meno, la richiesta di immagini da Pixabay, la modifica di immagini e altro. Per quanto sia basilare come codice, ritengo comunque soddisfacente il fatto che tutto funzioni nel modo corretto. 
 
 
 ### Background
@@ -123,7 +123,7 @@ Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere
 
 ### Database
 
-L'app utilizza un database molto basilare, NeDb, mia prima esperienza dal campo database, per ottenere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito servirmi di questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità. 
+L'app utilizza un database molto basilare, NeDB, mia prima esperienza dal campo database, per ottenere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito servirmi di questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità già accaduta.
 
 
 ### Webpack
@@ -148,7 +148,7 @@ Risorse utilizzate:
 * [Coding Train NeDB Tutorial](https://www.youtube.com/watch?v=xVYa20DCUv0)
 * [Webpack Documentation](https://webpack.js.org/concepts/)
 * [Ben Grunfeld Node - Express - Webpack Tutorial](https://binyamin.medium.com/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
-* [Gianluca Scocozza Webpack Tutorial](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
+* [Gianluca Scocozza Webpack 5 Tutorial](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
 
 <hr>
 <hr>
@@ -157,8 +157,8 @@ Risorse utilizzate:
 
 La prima schermata dell'app, molto basilare ed intuitiva, dà la possibilità di
 scegliere tra:<br>
-:mag: la ricerca di una città<br>
-&#9776; l'utilizzo del menù per selezionare tra una delle città salvate in precedenza o per 
+* :mag: la ricerca di una città<br>
+* &#9776; l'utilizzo del menù per selezionare una delle città salvate in precedenza o per 
 eliminarle dalla memoria a piacimento.
 
 <br>
@@ -177,7 +177,7 @@ eliminarle dalla memoria a piacimento.
 </div>
 <br>
 
-* Se effettuando una ricerca i dati della città non fossero presenti, verrà effettuata una nuova ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne una ed osservarne i dati.
+* Se effettuando una ricerca i dati della città non fossero presenti, verrà effettuata una nuova ricerca su tutte le possibili alternative per il Paese di tale città, tra le quali sarà poi possibile sceglierne ed osservarne i dati.
 
 <br>
 <div align="center">
