@@ -3,9 +3,8 @@
 
 <div align="center">
 <img src="https://i.ibb.co/mytvjZL/Title-Readme.png" alt="Title-Readme" width="80%" height="80%">
-<h1><i>Lifestyle web app</i></h1>
+<h2><i>Lifestyle web app</i></h2>
 </div>
-
 
 ### Questo é un progetto per certificare le competenze acquisite con la **Super Guida JavaScript Advanced** di **Start2Impact** categoria lifestyle.
 <br>
