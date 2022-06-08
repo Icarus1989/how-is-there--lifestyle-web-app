@@ -22,7 +22,6 @@
   "dependencies": {
     "axios": "^0.26.1",
     "canny-edge-detector": "^1.0.0",
-    "canvas": "^2.9.1",
     "express": "^4.17.2",
     "image-js": "^0.33.1",
     "nedb": "^1.8.0",
@@ -33,6 +32,7 @@
     "@babel/plugin-transform-runtime": "^7.17.12",
     "@babel/preset-env": "^7.17.12",
     "babel-loader": "^8.2.5",
+    "canvas": "^2.9.1",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "dotenv-webpack": "^7.1.0",
