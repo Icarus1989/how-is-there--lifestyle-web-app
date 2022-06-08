@@ -5,7 +5,8 @@
 <img src="https://i.ibb.co/mytvjZL/Title-Readme.png" alt="Title-Readme" width="80%" height="80%">
 </div>
 
-## *Lifestyle web app*
+<h1><i>Lifestyle web app</i></h1>
+
 ### Questo é un progetto per certificare le competenze acquisite con la **Super Guida JavaScript Advanced** di **Start2Impact** categoria lifestyle.
 <br>
 
