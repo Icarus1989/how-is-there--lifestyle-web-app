@@ -169,7 +169,7 @@ eliminarle dalla memoria a piacimento.
 
 :mag: Effettuando una ricerca si potranno ottenere vari risultati: 
 
-* Se la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;.
+* Se la città é presente nei dati Teleport, compariranno la descriscrizione, il punteggio in percentuale dato alla città ed i dati sugli aspetti tenuti in considerazione per ottenere tale punteggio, ordinati in due tabelle nella seconda e terza pagina. Sarà inoltre possibile salvare tale città tramite l'apposito tasto in basso a sinistra &#9733;. Se si inserirà il nome di un Paese invece che di una città, verrà effettuata la ricerca della capitale di tale Paese. I nomi possono essere inseriti nelle varie lingue europee, non obbligatoriamente in inglese.
 
 <br>
 <div align="center">

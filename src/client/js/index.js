@@ -32,7 +32,7 @@ mainContainer.querySelector('h1').style.top = (getComputedStyle(document.querySe
 
 inputField.addEventListener('change', async (event) => {
   mainContainer.scrollTo(0, 0);
-  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 25) {
+  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 4) {
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
