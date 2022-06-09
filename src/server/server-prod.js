@@ -128,10 +128,6 @@ app.post('/cancelDb', (request, response) => {
 
 async function downloadAndCannyEdge(url) {
   try {
-    const tempPath = './dist/client/assets/tempImages';
-    if (!fs.existsSync(tempPath)) {
-      fs.mkdirSync(tempPath);
-    }
     if (fs.existsSync(`./dist/client/assets/tempImages/image.png`)) {
       fs.unlink(`./dist/client/assets/tempImages/image.png`, (error) => {
         if (error) {
@@ -145,6 +141,10 @@ async function downloadAndCannyEdge(url) {
           throw error;
         }
       });
+    }
+    const tempPath = './dist/client/assets/tempImages';
+    if (!fs.existsSync(tempPath)) {
+      fs.mkdirSync(tempPath);
     }
 
     const data = await axios({
