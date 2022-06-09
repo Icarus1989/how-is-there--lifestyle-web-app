@@ -149,12 +149,21 @@ async function downloadAndCannyEdge(url) {
       fs.mkdirSync(tempPath);
     }
 
-    const data = await axios({
-      method: 'get',
-      url: url,
-      responseType: 'arraybuffer'
-    });
-    const buffer = await data["data"];
+    let data;
+    let buffer;
+    try {
+      data = await axios({
+        method: 'get',
+        url: url,
+        responseType: 'arraybuffer'
+      });
+      buffer = await data["data"];
+    } catch (error) {
+      console.log('ERROR AXIOS');
+      console.log(error);
+      throw error;
+    }
+
 
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
 
