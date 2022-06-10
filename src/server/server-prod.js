@@ -1,5 +1,8 @@
 import path from 'path';
 import express from 'express';
+// import {
+//   db
+// } from '/src/server/db/citiesDatabase.db';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const fs = require('fs');
@@ -10,13 +13,14 @@ const Datastore = require('nedb');
 const cannyEdgeDetector = require('canny-edge-detector');
 const ImageCanny = require('image-js').Image;
 
-console.log(path.resolve(__dirname, '../'));
+console.log(__dirname);
 
 const app = express(),
   DIST_DIR = __dirname,
-  HTML_FILE = path.resolve(DIST_DIR, 'client/index.html');
+  HTML_FILE = path.resolve(DIST_DIR, '../../dist/client/index.html');
+// 
 
-app.use(express.static(DIST_DIR));
+app.use(express.static(path.resolve(DIST_DIR, '../')));
 app.use(express.json({
   limit: '10mb',
 }));

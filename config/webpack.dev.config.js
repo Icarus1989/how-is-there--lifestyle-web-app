@@ -2,17 +2,15 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const WebpackFavicons = require('webpack-favicons');
 
 module.exports = {
   entry: {
     main: '/src/client/js/index.js',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
     filename: 'client/js/[name].bundle.js',
-    // assetModuleFilename: 'assets/[name].[ext]'
   },
   target: 'web',
   module: {
@@ -31,9 +29,6 @@ module.exports = {
             minimize: true,
           }
         }],
-        // generator: {
-        //   filename: 'client/[name].[ext]'
-        // }
       },
       {
         test: /\.css$/,
@@ -55,7 +50,7 @@ module.exports = {
         generator: {
           filename: 'client/assets/images/[name][ext]'
         }
-      }
+      },
     ]
   },
   optimization: {
@@ -72,30 +67,15 @@ module.exports = {
       template: "./src/client/index.html",
       filename: "client/index.html",
       excludeChunks: ['server'],
-      // favicon: './src/client/assets/img/favicon.ico'
+      favicon: './src/client/assets/img/favicon.ico'
     }),
     new MiniCssExtractPlugin({
-      filename: "./client/css/[name].bundle.css"
-    }),
-    new WebpackFavicons({
-      src: './src/client/assets/img/favicon.png',
-      path: '/client/assets/images/icons',
-      appName: 'How is There?',
-      appShortName: null,
-      appDescription: 'Cities Quality of Life App',
-      scope: '/',
-      background: '#EEE',
-      theme_color: '#EEE',
-      icons: {
-        favicons: true,
-        android: true,
-        appleIcon: true,
-      }
+      filename: "client/css/[name].bundle.css"
     })
   ],
   devServer: {
     port: 5000,
     open: true,
-    static: path.resolve(__dirname, 'dist'),
+    static: path.resolve(__dirname, '../dist'),
   },
 }

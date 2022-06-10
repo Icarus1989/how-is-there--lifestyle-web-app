@@ -11,9 +11,9 @@ module.exports = (env, argv) => {
       server: SERVER_PATH,
     },
     output: {
-      path: path.join(__dirname, 'dist'),
+      path: path.resolve(__dirname, '../dist'),
       publicPath: '/',
-      filename: '[name].bundle.js'
+      filename: 'server/[name].bundle.js'
     },
     target: 'node',
     node: {
