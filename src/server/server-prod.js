@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 // import {
 //   db
-// } from '/src/server/db/citiesDatabase.db';
+// } from './db/citiesDatabase.db';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const fs = require('fs');

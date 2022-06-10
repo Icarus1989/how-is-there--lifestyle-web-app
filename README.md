@@ -101,7 +101,7 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
   <img src="https://i.ibb.co/J5FgQfm/iphone7forpres-2.png" alt="screens" width="60%" height="60%">
 </div>
 <br>
-L'app nel suo complesso é stata sviluppata con una metodologia Mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
+L'app nel suo complesso é stata sviluppata con un approccio Mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop. 
 
 <!-- Immagine per Responsive? -->
 
