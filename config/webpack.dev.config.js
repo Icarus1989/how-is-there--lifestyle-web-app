@@ -25,9 +25,6 @@ module.exports = {
         test: /\.html$/,
         use: [{
           loader: "html-loader",
-          options: {
-            minimize: true,
-          }
         }],
       },
       {
@@ -53,21 +50,11 @@ module.exports = {
       },
     ]
   },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      `...`,
-      new CssMinimizerPlugin({
-        minify: CssMinimizerPlugin.cleanCssMinify,
-      }),
-    ],
-  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/client/index.html",
       filename: "client/index.html",
-      excludeChunks: ['server'],
-      favicon: './src/client/assets/img/favicon.ico'
+      excludeChunks: ['server']
     }),
     new MiniCssExtractPlugin({
       filename: "client/css/[name].bundle.css"
