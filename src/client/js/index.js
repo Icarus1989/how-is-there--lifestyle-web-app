@@ -15,10 +15,6 @@ import {
   createDraw
 } from './classes.js';
 
-const {
-  default: axios
-} = require('axios');
-
 let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
@@ -81,7 +77,7 @@ async function retrieveAlternativeCities(info, input) {
 
   try {
     let alternatives = new AlternativeCities(urbanAreasList, info, input, alternatesContainer, resultsCont);
-    // let alternativesCities = await alternatives.createAlternatives();
+    let alternativesCities = await alternatives.createAlternatives();
     let alternativesButtons = await alternatives.createButtons();
     spinner.removeSpinner();
     indication.secondIndication();
@@ -110,7 +106,7 @@ async function retrieveAlternativeCities(info, input) {
         appearInline.show();
       }
       indication.nullIndication();
-    });
+    })
     if (resultsCont.children[0].classList.contains('altPosition')) {
       resultsCont.children[0].classList.remove('altPosition');
     }
@@ -130,7 +126,7 @@ async function retrieveAlternativeCities(info, input) {
           let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
           appearInline.show();
         })
-      });
+      })
       if (resultsCont.children[0].classList.contains('altPosition')) {
         resultsCont.children[0].classList.remove('altPosition');
       }
