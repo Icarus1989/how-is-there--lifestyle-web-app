@@ -1,7 +1,6 @@
 import '/src/client/css/styles.css';
 import 'regenerator-runtime/runtime';
 
-
 import {
   Spinner,
   Indication,
@@ -27,7 +26,6 @@ let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>
 menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
-
 mainContainer.querySelector('h1').style.top = (getComputedStyle(document.querySelector('h1')).top).slice(0, -2) - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
 inputField.addEventListener('change', async (event) => {
@@ -62,19 +60,15 @@ async function retrieveTeleportImage(name) {
 }
 
 async function retrieveAlternativeCities(info, input) {
-
   inputField.value = '';
   inputField.placeholder = 'Enter a new city...';
   inputField.blur();
   disappearElement(document.querySelector('.menuBtn'), 0);
-
   let resultsCont = document.querySelector('#resultsContainer');
   let alternatesContainer = document.createElement('fieldset');
   let legend = document.createElement('legend');
   let indication = new Indication(resultsCont.children[0], input);
   let spinner = new Spinner(resultsCont);
-
-
   resultsCont.scrollTo(0, 0);
   indication.firstIndication();
   spinner.drawSpinner();
@@ -87,14 +81,12 @@ async function retrieveAlternativeCities(info, input) {
 
   try {
     let alternatives = new AlternativeCities(urbanAreasList, info, input, alternatesContainer, resultsCont);
-    let alternativesCities = await alternatives.createAlternatives();
+    // let alternativesCities = await alternatives.createAlternatives();
     let alternativesButtons = await alternatives.createButtons();
     spinner.removeSpinner();
     indication.secondIndication();
     resultsCont.children[0].classList.add('altPosition');
-    // resultsCont.children[0].style.placeItems = 'center';
     resultsCont.children[0].append(alternatesContainer);
-
     if (alternativesButtons > 8) {
       alternatives.bigContainer();
     } else if (alternativesButtons == 0) {
@@ -118,8 +110,7 @@ async function retrieveAlternativeCities(info, input) {
         appearInline.show();
       }
       indication.nullIndication();
-    })
-    // resultsCont.children[0].style.placeItems = 'normal';
+    });
     if (resultsCont.children[0].classList.contains('altPosition')) {
       resultsCont.children[0].classList.remove('altPosition');
     }
@@ -139,8 +130,7 @@ async function retrieveAlternativeCities(info, input) {
           let appearInline = new AppearElems('inline', 0, document.querySelector('h2'), document.querySelector('.rank'));
           appearInline.show();
         })
-      })
-      // resultsCont.children[0].style.placeItems = 'normal';
+      });
       if (resultsCont.children[0].classList.contains('altPosition')) {
         resultsCont.children[0].classList.remove('altPosition');
       }
@@ -309,10 +299,7 @@ function setInfoButtons(scrollTarget) {
   leftBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
   rightBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
-
-
   scrollTarget.addEventListener('scroll', (event) => {
-
     if (event.target.scrollLeft >= event.target.children[0].clientWidth) {
       leftBtn.style.display = 'grid';
     } else {
@@ -333,7 +320,6 @@ function setInfoButtons(scrollTarget) {
         left: scrollTarget.children[0].clientWidth,
         behavior: 'smooth'
       });
-
     }
     if (event.target == leftBtn || event.target.contains(leftBtn.querySelector('i'))) {
       scrollTarget.scrollBy({

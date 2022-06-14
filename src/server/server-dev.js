@@ -9,14 +9,11 @@ const {
 const Datastore = require('nedb');
 const cannyEdgeDetector = require('canny-edge-detector');
 const ImageCanny = require('image-js').Image;
-
-// console.log(path.resolve(__dirname, '../'));
+const port = (process.env.PORT || 5000);
 
 const app = express(),
   DIST_DIR = __dirname,
   HTML_FILE = path.resolve(DIST_DIR, '../client/index.html');
-// 
-
 app.use(express.static(DIST_DIR));
 app.use(express.json({
   limit: '10mb',
@@ -25,8 +22,6 @@ app.use(express.json({
 app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
-
-const port = (process.env.PORT || 5000);
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
@@ -143,7 +138,6 @@ async function downloadAndCannyEdge(url) {
     if (fs.existsSync(`./dist/client/assets/tempImages/edge.png`)) {
       fs.unlink(`./dist/client/assets/tempImages/edge.png`, (error) => {
         if (error) {
-          // return;
           throw error;
         }
       });
@@ -160,11 +154,9 @@ async function downloadAndCannyEdge(url) {
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
       if (err) {
         console.log(err);
-        // throw err;
         downloadAndCannyEdge(url);
       }
       const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
-      // console.log(img);
       const grey = await img.grey();
       const options = {
         lowThreshold: 120,
@@ -174,8 +166,6 @@ async function downloadAndCannyEdge(url) {
       };
       const edge = await cannyEdgeDetector(grey, options);
       return edge.save(`./dist/client/assets/tempImages/edge.png`);
-      // console.log(edge);
-      // return edge.save(`./dist/client/assets/tempImages/edge.png`);  
     })
   } catch (error) {
     console.log(error);

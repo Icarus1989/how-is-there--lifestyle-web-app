@@ -1,8 +1,5 @@
 import path from 'path';
 import express from 'express';
-// import {
-//   db
-// } from './db/citiesDatabase.db';
 const regeneratorRuntime = require("regenerator-runtime");
 
 const fs = require('fs');
@@ -12,13 +9,11 @@ const {
 const Datastore = require('nedb');
 const cannyEdgeDetector = require('canny-edge-detector');
 const ImageCanny = require('image-js').Image;
-
-console.log(__dirname);
+const port = (process.env.PORT || 5000);
 
 const app = express(),
   DIST_DIR = __dirname,
   HTML_FILE = path.resolve(DIST_DIR, '../../dist/client/index.html');
-// 
 
 app.use(express.static(path.resolve(DIST_DIR, '../')));
 app.use(express.json({
@@ -28,8 +23,6 @@ app.use(express.json({
 app.get('/', (req, res) => {
   res.sendFile(HTML_FILE);
 });
-
-const port = (process.env.PORT || 5000);
 
 app.listen(port, () => {
   console.log(`Listening at ${port}`);
@@ -66,7 +59,6 @@ app.get('/bkgImage/:cityname', async (request, response) => {
 
 app.post('/queryDb', (request, response) => {
   database.loadDatabase();
-
   const data = request.body;
   database.find({
     name: data.name
@@ -100,7 +92,6 @@ app.post('/saveDb', (request, response) => {
     action: 'saved on database',
     name: saveData.name,
   });
-
 });
 
 app.get('/menu', (request, response) => {

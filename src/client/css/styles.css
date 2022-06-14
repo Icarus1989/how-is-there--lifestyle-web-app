@@ -186,7 +186,6 @@ h2 {
   border-radius: 18px 0px 0px 18px;
   text-align: center;
   text-shadow: 4px 3px 3px rgb(15 15 15);
-  /* background: linear-gradient(45deg, transparent, 23%, rgba(13, 13, 13, 0.6)); */
   background: linear-gradient(45deg, #0000008c, 23%, rgba(34, 34, 34, 1.0));
   border-style: solid;
   border-width: 1.5vw 0vw 0vw 1.5vw;

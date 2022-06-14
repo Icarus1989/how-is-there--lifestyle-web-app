@@ -24,6 +24,7 @@ class Spinner {
     this.layerThree = document.createElement('div');
     this.layerFour = document.createElement('div');
   }
+
   drawSpinner() {
     this.layerOne.classList.add('spinnerContainer');
     this.layerTwo.classList.add('circleSegments');
@@ -35,6 +36,7 @@ class Spinner {
     this.layerOne.append(this.layerFour);
     this.container.append(this.layerOne);
   }
+
   removeSpinner() {
     this.layerOne.remove();
   }
@@ -45,12 +47,13 @@ class Indication {
     this.p = document.createElement('p');
     this.input = input;
     this.container = container;
-
   }
+
   writeText(text) {
     this.p.textContent = text;
     this.container.append(this.p);
   }
+
   firstIndication() {
     this.writeText(`The city ${this.input} is not been found - searching for other cities in this country...`);
     this.p.classList.add('tempIndication');
@@ -98,6 +101,7 @@ class PointButtons {
   createButtons() {
     this.buttonSection.setAttribute('id', 'buttonsContainer');
     this.container.parentElement.append(this.buttonSection);
+
     for (this.page of this.pages) {
       this.point = document.createElement('button');
       this.point.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-circle"></i>');
@@ -138,12 +142,14 @@ class Menu {
     this.inputField = inputField;
     this.inputContainer = this.inputField.parentElement;
   }
+
   async createButton() {
     this.menuButton = document.createElement('button');
     this.menuButton.classList.add('menuBtn');
     this.menuButton.insertAdjacentHTML('afterbegin', this.icon);
     this.container.append(this.menuButton);
   }
+
   createMenu() {
     this.container.addEventListener('click', async (event) => {
       if (event.target == this.menuButton.querySelector('i') || event.target == this.menuButton) {
@@ -226,9 +232,7 @@ class Menu {
               btnEvent.target.closest('li').remove();
             }
           })
-
         });
-
 
         if (this.list.children.length == 0) {
           this.menuContainer.style.height = '100px';
@@ -252,7 +256,6 @@ class Menu {
               this.iElement.classList.add('fa-solid', 'fa-chevron-down');
               this.downBtn.firstElementChild.replaceWith(this.iElement);
             }
-
           });
         } else {
           this.list.style.marginBottom = '20px';
@@ -300,7 +303,6 @@ class CityData {
     this.fromDb = false;
     this.descriptionBox = document.querySelector('.descriptionBox');
     this.resultsContainer = document.querySelector('#resultsContainer');
-
   }
 
   async cityInfo() {
@@ -486,15 +488,13 @@ class Description {
     }
     this.rankBox.classList.add('rank');
   }
-
-
 }
 
 class UARetrieve {
   constructor(url) {
     this.url = url;
-
   }
+
   async retrieveUrbanAreas() {
     this.listData = await axios.get(this.url);
     this.completeUAList = await this.listData["data"]["_links"]["ua:item"];
@@ -554,7 +554,6 @@ class AlternativeCities {
     this.downBtn.setAttribute('id', 'altDownButton');
     this.container.querySelectorAll('.altButtons')[this.container.querySelectorAll('.altButtons').length - 1].classList.add('lastMargin');
 
-
     this.container.addEventListener('scroll', (event) => {
       this.downBtn.style.position = 'fixed';
       this.downBtn.style.top = this.container.getBoundingClientRect().bottom - this.downBtn.getBoundingClientRect().height + 'px';
@@ -571,15 +570,13 @@ class AlternativeCities {
         this.downBtn.firstElementChild.replaceWith(this.iElement);
       }
     });
+
     this.parentContainer.addEventListener('scroll', () => {
       if (this.container.querySelector('.downDirection')) {
         this.container.querySelector('.downDirection').position = 'absolute';
         this.container.querySelector('.downDirection').style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
       }
     });
-  }
-  async zeroAlternatives() {
-
   }
 }
 
@@ -624,7 +621,6 @@ class RetrieveData {
   }
 }
 
-
 class createDraw {
   constructor(container, resultsContainer, path, altTag) {
     this.container = container;
@@ -632,6 +628,7 @@ class createDraw {
     this.path = path;
     this.altTag = altTag;
   }
+
   calcMeasures() {
     this.image.style.width = "250vw";
     this.image.style.height = (this.container.clientHeight * 1.01) + "px";
@@ -676,7 +673,6 @@ class createDraw {
       this.drawImg();
       this.calcMeasures();
     });
-
   }
 
   scrollMovement() {
