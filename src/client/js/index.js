@@ -15,10 +15,6 @@ import {
   createDraw
 } from './classes.js';
 
-const {
-  default: axios
-} = require('axios');
-
 let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
