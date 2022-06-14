@@ -64,6 +64,7 @@ Client:
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=it)
   * [Teleport API](https://developers.teleport.org/) 
   * [Axios](https://axios-http.com/)
+* [Font Awesome Icons](https://fontawesome.com/)
 
 Server:
 * [Node.js](https://nodejs.dev/)
