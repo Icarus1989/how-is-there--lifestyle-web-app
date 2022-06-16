@@ -343,6 +343,8 @@ window.addEventListener('resize', () => {
   document.querySelector('#secondImgContainer')?.style.height = '100vh';
   document.querySelector('#imgContainer').querySelector('img')?.style.height = '100vh';
   document.querySelector('#secondImgContainer').querySelector('img')?.style.height = '100vh';
+  document.querySelector('.rightDirection')?.style.top = '50%';
+  document.querySelector('.leftDirection')?.style.top = '50%';
 });
 
 export {
