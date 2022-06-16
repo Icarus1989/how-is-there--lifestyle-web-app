@@ -189,13 +189,14 @@ class Description {
         this.elem.remove();
       }
       this.textbox.style.color = 'green';
+      this.textbox.classList.add('descriptionBox');
       // this.textbox.insertAdjacentHTML('afterbegin', this.description);
       // this.textbox.classList.add('descriptionBox');
     } else {
       this.textbox = document.createElement('div');
+      this.textbox.classList.add('descriptionBox');
       this.container.append(this.textbox);
     }
-    this.textbox.classList.add('descriptionBox');
     this.textbox.insertAdjacentHTML('afterbegin', this.description);
     // this.description.classList.add('.testOne');
 
