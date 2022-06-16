@@ -335,7 +335,7 @@ async function createIconBtn(container, icon) {
   container.append(menuBtn);
 }
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', function() {
   location.reload();
 });
 
