@@ -288,8 +288,8 @@ function setInfoButtons(scrollTarget) {
   let rightBtn = document.querySelector('.rightDirection');
 
   let rightBtnHeight = mainContainer / 2;
-  leftBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
-  rightBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+  // leftBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+  // rightBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
   scrollTarget.addEventListener('scroll', (event) => {
     if (event.target.scrollLeft >= event.target.children[0].clientWidth) {

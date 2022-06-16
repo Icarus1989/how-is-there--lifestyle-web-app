@@ -118,6 +118,7 @@ Le varie parti dell'app si basano sia sul client che sul server side, dove ho ut
 Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre tramite Axios ma utilizzato nel server node, alla quale verrà data un'opacità bassissima per ricavarne solamente i colori sfumati, la seconda verrà elaborata dalla prima attraverso **canny-edge-detector** ed **image-js**, due pacchetti NPM che combinati ricaveranno un'immagine con i bordi delle figure presenti nella foto, per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert e poi sovrapposta alla prima immagine, creerà uno sfondo con uno stile simile ad un disegno.
 Nel caso non fosse presente un'immagine per una determinata città ricercata dall'API di Pixabay, verrà utilizzata quella disponibile nell'API di Teleport con la stessa procedura per ottenere lo sfondo.
 Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere l'immagine quando si scrollerà a destra o sinistra rivelando una nuova parte dello sfondo.
+La scelta di usare Pixabay é stata presa grazie all'alta qualità artistica e visiva delle foto rispetto ad alcune altre API provate.
 <br>
 
 <div align="center">

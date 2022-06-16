@@ -126,7 +126,6 @@ async function downloadAndCannyEdge(url) {
     if (fs.existsSync(`./dist/client/assets/tempImages/image.png`)) {
       fs.unlink(`./dist/client/assets/tempImages/image.png`, (error) => {
         if (error) {
-          // console.log('ERROR FS EXIST IMG');
           throw error;
         }
       });
@@ -134,7 +133,6 @@ async function downloadAndCannyEdge(url) {
     if (fs.existsSync(`./dist/client/assets/tempImages/edge.png`)) {
       fs.unlink(`./dist/client/assets/tempImages/edge.png`, (error) => {
         if (error) {
-          // console.log('ERROR FS EXIST EDGE');
           throw error;
         }
       });
@@ -154,7 +152,6 @@ async function downloadAndCannyEdge(url) {
     fs.writeFile(`./dist/client/assets/tempImages/image.png`, await buffer, async (err) => {
 
       if (err) {
-        // console.log('ERROR WRITEFILE')
         throw err;
       }
       const img = await ImageCanny.load(`./dist/client/assets/tempImages/image.png`);
@@ -169,8 +166,6 @@ async function downloadAndCannyEdge(url) {
       return edge.save(`./dist/client/assets/tempImages/edge.png`);
     })
   } catch {
-    // console.log(error);
-    // console.log('ERROR TRY CATCH');
     downloadAndCannyEdge(url);
   }
 }

@@ -31,10 +31,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(png|svg|jpg|gif|svg)$/,
-          type: 'asset/resource',
-          // generator: {
-          //   filename: 'server/tempImages/[name].[ext]'
-          // }
+          type: 'asset/resource'
         }
       ]
     },
