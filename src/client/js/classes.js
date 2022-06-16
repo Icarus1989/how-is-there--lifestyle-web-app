@@ -184,9 +184,11 @@ class Description {
   async createText() {
     this.textbox = document.querySelector('.descriptionBox');
     if (this.textbox) {
-      for (this.elem of this.textbox.children) {
+      for (this.elem of this.textbox.querySelectorAll('p')) {
+        // console.log(this.elem);
         this.elem.remove();
       }
+      this.textbox.style.color = 'green';
       // this.textbox.insertAdjacentHTML('afterbegin', this.description);
       // this.textbox.classList.add('descriptionBox');
     } else {
@@ -195,6 +197,12 @@ class Description {
     }
     this.textbox.classList.add('descriptionBox');
     this.textbox.insertAdjacentHTML('afterbegin', this.description);
+    // this.description.classList.add('.testOne');
+
+    // for (this.elem of this.textbox.children) {
+    //   // console.log(this.elem);
+    //   this.elem.style.color = 'red';
+    // }
   }
 
   async createRank() {
