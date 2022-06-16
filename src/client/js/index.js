@@ -26,7 +26,7 @@ mainContainer.querySelector('h1').style.top = (getComputedStyle(document.querySe
 
 inputField.addEventListener('change', async (event) => {
   mainContainer.scrollTo(0, 0);
-  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 12) {
+  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 10) {
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
@@ -336,15 +336,7 @@ async function createIconBtn(container, icon) {
 }
 
 window.addEventListener('resize', () => {
-  mainContainer.style.height = '100vh';
-  document.querySelector('#imgContainer')?.style.width = '100vw';
-  document.querySelector('#imgContainer')?.style.height = '100vh';
-  document.querySelector('#secondImgContainer')?.style.width = '100vw';
-  document.querySelector('#secondImgContainer')?.style.height = '100vh';
-  document.querySelector('#imgContainer').querySelector('img')?.style.height = '100vh';
-  document.querySelector('#secondImgContainer').querySelector('img')?.style.height = '100vh';
-  document.querySelector('.rightDirection')?.style.top = '50%';
-  document.querySelector('.leftDirection')?.style.top = '50%';
+  location.reload();
 });
 
 export {
