@@ -4,8 +4,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const WebpackFavicons = require('webpack-favicons');
 
-const json5 = require('json5');
-
 module.exports = {
   entry: {
     main: '/src/client/js/index.js',
@@ -53,26 +51,7 @@ module.exports = {
         generator: {
           filename: 'client/assets/images/[name][ext]'
         }
-      },
-      // {
-      //   test: /\.db$/i,
-      //   type: 'json',
-      //   parser: {
-      //     parse: json5.parse,
-      //   },
-      // use: ['xml-loader'],
-      // type: 'asset',
-      // generator: {
-      //   filename: 'server/db/[name][ext]'
-      // }
-      // },
-      // {
-      //   test: /\.(db)$/i,
-      //   type: 'asset',
-      //   generator: {
-      //     filename: 'server/db/[name][ext]'
-      //   }
-      // }
+      }
     ]
   },
   optimization: {

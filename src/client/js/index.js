@@ -2,17 +2,17 @@ import '/src/client/css/styles.css';
 import 'regenerator-runtime/runtime';
 
 import {
-  Spinner,
-  Indication,
-  PointButtons,
-  Menu,
   CityData,
   Description,
+  PointButtons,
   UARetrieve,
   AlternativeCities,
   AppearElems,
   RetrieveData,
-  createDraw
+  createDraw,
+  Spinner,
+  Indication,
+  Menu
 } from './classes.js';
 
 let mainContainer = document.querySelector('#mainContainer');
@@ -41,6 +41,93 @@ inputField.addEventListener('change', async (event) => {
   }
   searchCity(event.target);
 });
+
+async function searchCity(input) {
+  disappearElement(document.querySelector('h1'), 0);
+  let cityData = new CityData(input, mainContainer);
+  try {
+    let info = await cityData.cityInfo();
+    try {
+      let queryResponse = await cityData.cityQueryDb();
+      let infoScores;
+      if (queryResponse.status == 'success' && queryResponse.action == 'Not in database') {
+        infoScores = await cityData.notInDatabase();
+      } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
+        infoScores = await cityData.inDatabase();
+      }
+      input.value = '';
+      input.placeholder = 'Enter a new city...';
+      input.blur();
+      cityData.createElements(infoScores);
+    } catch {
+      let elemetsToDel = [document.querySelector('#buttonsContainer'), document.querySelector('h2'), document.querySelector('.descriptionBox'), document.querySelector('.rank'), document.querySelector('.saveBtn'), document.querySelector('.tableContainer1'), document.querySelector('.tableContainer2')];
+      cityData.deleteElements(elemetsToDel).then(() => {
+        cityData.createAlternatives(info);
+      }).catch((err) => {
+        throw new Error(err);
+      });
+    }
+  } catch (error) {
+    input.value = '';
+    input.placeholder = 'Something wrong...';
+    input.blur();
+    let errorInd = new Indication(mainContainer, error.message);
+    error.message == 'Network Error' ? errorInd.fourthIndication() : errorInd.fifthIndication();
+  }
+}
+
+async function createDescription(state, globalContinent, rank, textbox, text, container) {
+  let description = new Description(state, globalContinent, rank, textbox, text, container);
+  let title = await description.createTitle();
+  let textBox = await description.createText();
+  let rankBox = await description.createRank();
+}
+
+function createDataTable(oldTable, jsonData, container) {
+  oldTable?.parentElement.remove();
+  oldTable?.remove();
+  let tableContainer = document.createElement('div');
+  tableContainer.classList.add(`tableContainer${Array.from(container.parentElement.children).indexOf(container)}`);
+  let table = document.createElement('table');
+  let tbody = document.createElement('tbody');
+  for (let i = 0; i < jsonData.length; i++) {
+    let tr = document.createElement('tr');
+    tbody.append(tr);
+    let th = document.createElement('th');
+    th.textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
+    tr.append(th);
+    let td = document.createElement('td');
+    td.textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
+    tr.append(td);
+  }
+  table.append(tbody);
+  tableContainer.append(table);
+  container.append(tableContainer);
+  table.firstElementChild.children[0].firstElementChild.style.borderRadius = '4vh 0vh 0vh 0vh';
+  table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
+  table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
+  table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
+}
+
+function createSaveBtn(container) {
+  let saveBtn = document.createElement('button');
+  saveBtn.classList.add('saveBtn');
+  saveBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-star"></i>');
+  container.append(saveBtn);
+}
+
+async function loadImage(image, container, resultsContainer, path, altTag) {
+  let draw = new createDraw(container, resultsContainer, path, altTag);
+  if (image !== null) {
+    image.remove();
+    draw.drawImg();
+    draw.calcMeasures();
+  } else {
+    draw.drawImg();
+    draw.calcMeasures();
+  }
+  draw.scrollMovement();
+}
 
 async function retrievePixabay(name) {
   const url = `bkgImage/${name}`;
@@ -138,95 +225,9 @@ async function retrieveAlternativeCities(info, input) {
   });
 }
 
-async function createDescription(state, globalContinent, rank, textbox, text, container) {
-  let description = new Description(state, globalContinent, rank, textbox, text, container);
-  let title = await description.createTitle();
-  let textBox = await description.createText();
-  let rankBox = await description.createRank();
-}
-
-function createDataTable(oldTable, jsonData, container) {
-  // oldTable?.parentElement.remove();
-  // oldTable?.remove();
-  if (oldTable) {
-    oldTable.parentElement.remove();
-    oldTable.remove();
-  }
-  let tableContainer = document.createElement('div');
-  tableContainer.classList.add(`tableContainer${Array.from(container.parentElement.children).indexOf(container)}`);
-  let table = document.createElement('table');
-  let tbody = document.createElement('tbody');
-  for (let i = 0; i < jsonData.length; i++) {
-    let tr = document.createElement('tr');
-    tbody.append(tr);
-    let th = document.createElement('th');
-    th.textContent = jsonData[jsonData.indexOf(jsonData[i])]["name"];
-    tr.append(th);
-    let td = document.createElement('td');
-    td.textContent = `${(jsonData[jsonData.indexOf(jsonData[i])]["score_out_of_10"]).toFixed(1)} / 10`;
-    tr.append(td);
-  }
-  table.append(tbody);
-  tableContainer.append(table);
-  container.append(tableContainer);
-  table.firstElementChild.children[0].firstElementChild.style.borderRadius = '4vh 0vh 0vh 0vh';
-  table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
-  table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
-  table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
-}
-
-function createSaveBtn(container) {
-  let saveBtn = document.createElement('button');
-  saveBtn.classList.add('saveBtn');
-  saveBtn.insertAdjacentHTML('afterbegin', '<i class="fa-solid fa-star"></i>');
-  container.append(saveBtn);
-}
-
-async function loadImage(image, container, resultsContainer, path, altTag) {
-  let draw = new createDraw(container, resultsContainer, path, altTag);
-  if (image !== null) {
-    image.remove();
-    draw.drawImg();
-    draw.calcMeasures();
-  } else {
-    draw.drawImg();
-    draw.calcMeasures();
-  }
-  draw.scrollMovement();
-}
-
-async function searchCity(input) {
-  disappearElement(document.querySelector('h1'), 0);
-  let cityData = new CityData(input, mainContainer);
-  try {
-    let info = await cityData.cityInfo();
-    try {
-      let queryResponse = await cityData.cityQueryDb();
-      let infoScores;
-      if (queryResponse.status == 'success' && queryResponse.action == 'Not in database') {
-        infoScores = await cityData.notInDatabase();
-      } else if (queryResponse.status == 'success' && queryResponse.action == 'read from db') {
-        infoScores = await cityData.inDatabase();
-      }
-      input.value = '';
-      input.placeholder = 'Enter a new city...';
-      input.blur();
-      cityData.createElements(infoScores);
-    } catch {
-      let elemetsToDel = [document.querySelector('h2'), document.querySelector('.descriptionBox'), document.querySelector('.rank'), document.querySelector('.tableContainer1'), document.querySelector('.tableContainer2')];
-      cityData.deleteElements(elemetsToDel).then(() => {
-        cityData.createAlternatives(info);
-      }).catch((err) => {
-        throw new Error(err);
-      });
-    }
-  } catch (error) {
-    input.value = '';
-    input.placeholder = 'Something wrong...';
-    input.blur();
-    let errorInd = new Indication(mainContainer, error.message);
-    error.message == 'Network Error' ? errorInd.fourthIndication() : errorInd.fifthIndication();
-  }
+async function appearElement(elem, delay, display) {
+  let appearGrid = new AppearElems(display, delay, elem);
+  appearGrid.show();
 }
 
 async function disappearElement(elem, delay) {
@@ -244,11 +245,6 @@ async function disappearElement(elem, delay) {
     }, delay);
     resolve();
   });
-}
-
-async function appearElement(elem, delay, display) {
-  let appearGrid = new AppearElems(display, delay, elem);
-  appearGrid.show();
 }
 
 function createNavButton(direction, container, position) {
@@ -340,18 +336,18 @@ async function createIconBtn(container, icon) {
 }
 
 export {
-  createIconBtn,
-  createPointButtons,
-  setInfoButtons,
-  createNavButton,
+  searchCity,
+  createDescription,
+  createDataTable,
+  createSaveBtn,
+  loadImage,
+  retrievePixabay,
+  retrieveTeleportImage,
+  retrieveAlternativeCities,
   appearElement,
   disappearElement,
-  searchCity,
-  loadImage,
-  createSaveBtn,
-  createDataTable,
-  createDescription,
-  retrieveAlternativeCities,
-  retrieveTeleportImage,
-  retrievePixabay
+  createNavButton,
+  setInfoButtons,
+  createPointButtons,
+  createIconBtn
 }
