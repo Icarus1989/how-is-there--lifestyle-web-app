@@ -763,7 +763,6 @@ table > tbody > tr > td {
 
   .leftDirection {
     display: none;
-    top: 50%;
     height: 30vh;
     background: transparent;
     border: 0px solid transparent;
@@ -777,7 +776,6 @@ table > tbody > tr > td {
   }
 
   .rightDirection {
-    top: 50%;
     height: 30vh;
     background: transparent;
     border: 0px solid transparent;
@@ -1105,7 +1103,6 @@ table > tbody > tr > td {
 
   .leftDirection {
     display: none;
-    top: 50%;
     background: rgba(240, 248, 255, 0);
     z-index: 12;
     border: 1px solid transparent;
@@ -1127,7 +1124,6 @@ table > tbody > tr > td {
   }
 
   .rightDirection {
-    top: 50%;
     background: rgba(240, 248, 255, 0);
     border: 1px solid transparent;
     z-index: 12;

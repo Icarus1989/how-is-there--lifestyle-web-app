@@ -210,7 +210,7 @@ scegliere tra:<br>
 
 ## Demo
 
-L’applicazione é stata pubblicata tramite il servizio di web hosting [Heroku](https://www.heroku.com).
+L’applicazione é stata pubblicata tramite il servizio di web hosting [Heroku](https://www.heroku.com) con il supplemento del servizio Kaffeine, in modo che l'app possa entrare in mode sleep solo dalle 23:00 alle 5:00 GMT.
 E’ possibile utilizzarla al link:
 <br>
 :link: [How is There - Lifestyle App](https://how-is-there--lifestyle-app.herokuapp.com/)
