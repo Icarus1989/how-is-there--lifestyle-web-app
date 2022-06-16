@@ -27,21 +27,6 @@ mainContainer.querySelector('h1').style.top = (getComputedStyle(document.querySe
 
 inputField.addEventListener('change', async (event) => {
   mainContainer.scrollTo(0, 0);
-  // function animateInput(input, main, ){
-  //   if (input.getBoundingClientRect().y > main.clientHeight / 10) {
-  //     input.animate([{
-  //       transform: `translateY(-${main.clientHeight / 2 - input.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
-  //     }], {
-  //       duration: 700,
-  //       easing: 'linear',
-  //       direction: 'normal',
-  //       iteration: 1,
-  //       fill: 'forwards'
-  //     });
-  //   } else {
-  //     input.style.top = main.clientHeight / 2 - input.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
-  //   }
-  // }
   if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 10 || animationCounter == 0) {
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
