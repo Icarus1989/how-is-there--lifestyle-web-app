@@ -146,7 +146,7 @@ class CityData {
     if (this.descriptionBox) {
       this.elems = elems;
       for (let elem of this.elems) {
-        elem.remove();
+        elem?.remove();
       }
     }
   }

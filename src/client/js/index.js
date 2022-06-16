@@ -19,6 +19,7 @@ let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
+// let animationCounter = 0;
 menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
@@ -26,6 +27,21 @@ mainContainer.querySelector('h1').style.top = (getComputedStyle(document.querySe
 
 inputField.addEventListener('change', async (event) => {
   mainContainer.scrollTo(0, 0);
+  // function animateInput(input, main, ){
+  //   if (input.getBoundingClientRect().y > main.clientHeight / 10) {
+  //     input.animate([{
+  //       transform: `translateY(-${main.clientHeight / 2 - input.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
+  //     }], {
+  //       duration: 700,
+  //       easing: 'linear',
+  //       direction: 'normal',
+  //       iteration: 1,
+  //       fill: 'forwards'
+  //     });
+  //   } else {
+  //     input.style.top = main.clientHeight / 2 - input.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
+  //   }
+  // }
   if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 10) {
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
@@ -36,6 +52,7 @@ inputField.addEventListener('change', async (event) => {
       iteration: 1,
       fill: 'forwards'
     });
+    // animationCounter++;
   } else {
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
   }
@@ -173,7 +190,7 @@ async function retrieveAlternativeCities(info, input) {
     if (alternativesButtons > 8) {
       alternatives.bigContainer();
     } else if (alternativesButtons == 0) {
-      alternatesContainer.remove();
+      alternatesContainer?.remove();
       indication.noAltIndication();
     }
   } catch {
@@ -183,7 +200,7 @@ async function retrieveAlternativeCities(info, input) {
 
   inputField.addEventListener('change', () => {
     disappearElement(alternatesContainer, 0).then(() => {
-      alternatesContainer.remove();
+      alternatesContainer?.remove();
       if (document.querySelector('.descriptionBox')) {
         let appearGrid = new AppearElems('grid', 0, document.querySelector('.descriptionBox'), document.querySelector('.menuBtn'));
         appearGrid.show();
