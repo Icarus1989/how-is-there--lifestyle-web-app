@@ -19,7 +19,7 @@ let mainContainer = document.querySelector('#mainContainer');
 let inputField = document.querySelector('#insertInput');
 let inputContainer = inputField.parentElement;
 let menu = new Menu(inputField, mainContainer, '<i class="fa-solid fa-bars"></i>');
-// let animationCounter = 0;
+let animationCounter = 0;
 menu.createButton();
 menu.createMenu();
 inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
@@ -42,7 +42,7 @@ inputField.addEventListener('change', async (event) => {
   //     input.style.top = main.clientHeight / 2 - input.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
   //   }
   // }
-  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 10) {
+  if (inputContainer.getBoundingClientRect().y > mainContainer.clientHeight / 10 || animationCounter == 0) {
     inputContainer.animate([{
       transform: `translateY(-${mainContainer.clientHeight / 2 - inputContainer.clientHeight - (document.body.clientHeight - document.documentElement.clientHeight) / 2}px)`
     }], {
@@ -52,7 +52,7 @@ inputField.addEventListener('change', async (event) => {
       iteration: 1,
       fill: 'forwards'
     });
-    // animationCounter++;
+    animationCounter++;
   } else {
     inputContainer.style.top = mainContainer.clientHeight / 2 - inputContainer.clientHeight / 2 - (document.body.clientHeight - document.documentElement.clientHeight) / 2 + 'px';
   }
