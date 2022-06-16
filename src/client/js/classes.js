@@ -193,6 +193,7 @@ class Description {
       this.textbox = document.createElement('div');
       this.container.append(this.textbox);
     }
+    this.description.classList.add('descriptionBox>p');
     this.textbox.insertAdjacentHTML('afterbegin', this.description);
     this.textbox.classList.add('descriptionBox');
   }
