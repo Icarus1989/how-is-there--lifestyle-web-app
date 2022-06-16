@@ -728,7 +728,7 @@ table > tbody > tr > td {
 
   .alternatesContainer {
     width: 50vw;
-    height: 60vh;
+    height: 55vh;
     max-height: 240px;
     margin: 1vw 0vw 1vw 0vw;
   }
@@ -741,6 +741,7 @@ table > tbody > tr > td {
     min-width: 15vw;
     height: 10vh;
     font-size: 3vh;
+    margin: 5%;
   }
 
   .menuBtn {
