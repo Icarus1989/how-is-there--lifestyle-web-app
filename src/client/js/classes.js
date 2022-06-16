@@ -184,7 +184,7 @@ class Description {
   async createText() {
     this.textbox = document.querySelector('.descriptionBox');
     if (this.textbox) {
-      for (this.elem of this.textbox.querySelectorAll('p')) {
+      for (this.elem of this.textbox.children) {
         this.elem.remove();
       }
       // this.textbox.insertAdjacentHTML('afterbegin', this.description);
