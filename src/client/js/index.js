@@ -287,9 +287,9 @@ function setInfoButtons(scrollTarget) {
   let leftBtn = document.querySelector('.leftDirection');
   let rightBtn = document.querySelector('.rightDirection');
 
-  let rightBtnHeight = mainContainer / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2);
-  leftBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 + 'px';
-  rightBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 + 'px';
+  let rightBtnHeight = mainContainer / 2;
+  leftBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
+  rightBtn.style.top = document.body.clientHeight / 2 - rightBtnHeight / 2 - ((document.body.clientHeight - document.documentElement.clientHeight) / 2) + 'px';
 
   scrollTarget.addEventListener('scroll', (event) => {
     if (event.target.scrollLeft >= event.target.children[0].clientWidth) {
@@ -334,6 +334,16 @@ async function createIconBtn(container, icon) {
   menuBtn.insertAdjacentHTML('afterbegin', icon);
   container.append(menuBtn);
 }
+
+window.addEventListener('resize', () => {
+  mainContainer.style.height = '100vh';
+  document.querySelector('#imgContainer')?.style.width = '100vw';
+  document.querySelector('#imgContainer')?.style.height = '100vh';
+  document.querySelector('#secondImgContainer')?.style.width = '100vw';
+  document.querySelector('#secondImgContainer')?.style.height = '100vh';
+  document.querySelector('#imgContainer').querySelector('img')?.style.height = '100vh';
+  document.querySelector('#secondImgContainer').querySelector('img')?.style.height = '100vh';
+});
 
 export {
   searchCity,
