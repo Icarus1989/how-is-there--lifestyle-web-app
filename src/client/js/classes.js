@@ -187,13 +187,13 @@ class Description {
       for (this.elem of this.textbox.querySelectorAll('p')) {
         this.elem.remove();
       }
-      this.textbox.insertAdjacentHTML('afterbegin', this.description);
-      this.textbox.classList.add('descriptionBox');
+      // this.textbox.insertAdjacentHTML('afterbegin', this.description);
+      // this.textbox.classList.add('descriptionBox');
     } else {
       this.textbox = document.createElement('div');
-      this.textbox.insertAdjacentHTML('afterbegin', this.description);
       this.container.append(this.textbox);
     }
+    this.textbox.insertAdjacentHTML('afterbegin', this.description);
     this.textbox.classList.add('descriptionBox');
   }
 
