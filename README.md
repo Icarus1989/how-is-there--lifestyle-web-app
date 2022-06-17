@@ -104,9 +104,9 @@ L'app inoltre, in caso di riscontro negativo sulla presenza della città, effett
 Il design delle tre pagine in cui verranno visualizzati i dati della città é volutamente scelto per trasmettere un senso di continuità: elementi come le text boxes allungate verso la seconda pagina o le tabelle leggermente spostate contenute in un unico container sono dettagli pensati per spingere a scorrere tra le pagine e rendere l'esperienza più fluida e piacevole alla vista.
 <br>
 
-<!-- <div align="center">
+<div align="center">
   <img src="https://i.ibb.co/wBMRZ58/image-For-Presentation-1.png" alt="image-For-Presentation-1" width="60%" height="60%">
-</div> -->
+</div>
 <br>
 L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop.
 Per migliorare la visualizzazione dell'app soprattutto su mobile, dove la barra di ricerca può apparire ed essere nascosta velocemente, ho aggiunto il ricaricamento della pagina al verificarsi si un event resize.
