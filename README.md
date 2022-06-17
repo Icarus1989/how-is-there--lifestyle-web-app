@@ -90,7 +90,7 @@ Bundler:
 
 ### Intro
 
-Questa é una web app creata per visualizzare i dati sulla qualità della vita nelle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con la possibilità di salvare i dati e riutilizzarli, la creazione di cartelle e file e la loro modifica, la persistenza dei dati attraverso un database, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host.
+Questa é una web app creata per visualizzare i dati sulla qualità della vita nelle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con la possibilità di salvare i dati e riutilizzarli, la creazione di cartelle e file e la loro modifica, la persistenza dei dati attraverso un database, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host gratuito.
 <br>
 
 ### Data
@@ -109,7 +109,7 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 </div>
 <br>
 L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop.
-Per migliorare la visualizzazione dell'app soprattutto su mobile, dove la barra di ricerca può apparire ed essere nascosta velocemente, ho aggiunto il ricaricamento della pagina al verificarsi si un event resize.
+Per migliorare la visualizzazione dell'app soprattutto su mobile, dove la barra di ricerca può apparire ed essere nascosta velocemente, ho aggiunto il ricaricamento della pagina al verificarsi di un event resize.
 
 ### Node
 
@@ -134,7 +134,7 @@ L'app utilizza un database molto basilare, NeDB, mia prima esperienza dal campo 
 
 ### Webpack
 
-Come bundler per quest'app é stato utilizzato **Webpack 5**. Sperimentato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quanto a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificarlo in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request, soprattutto delle immagini, la creazione automatica delle icone necessarie per ogni sistema operativo e molto altro, si é dimostrato uno strumento utilissimo per migliorare e completare l'app nel suo intero.
+Come bundler per quest'app ho utilizzato **Webpack 5**. Sperimentato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quanto a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificarlo in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request, soprattutto delle immagini, la creazione automatica delle favicon necessarie per ogni sistema operativo e molto altro, si é dimostrato uno strumento utilissimo per migliorare e completare l'app nel suo intero.
 
 ### Missing
 
@@ -142,7 +142,7 @@ Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esp
 
 ### Error handling
 
-Anche se molto sporadici, possono avvenire degli errori nella modifica e nel caricamento delle immagini o nella creazione delle varie directories da parte di Node.js. Proprio per questo ho inserito una serie di error handling per coprire la maggioranza delle situazioni, compresi errori critici che porteranno al ricaricamento della pagina piuttosto che un crash della web app.
+Anche se molto sporadici, possono avvenire degli errori nella modifica e nel salvataggio delle immagini. Proprio per questo ho inserito una serie di error handling per coprire la maggioranza delle situazioni, compresi errori critici che porteranno al ricaricamento della pagina piuttosto che un crash della web app.
 
 <hr>
 <hr>
@@ -151,7 +151,7 @@ Anche se molto sporadici, possono avvenire degli errori nella modifica e nel car
 
 Risorse utilizzate:
 
-- [Ster2Impact Courses](https://www.start2impact.it)
+- [Start2Impact Courses](https://www.start2impact.it)
 - [Teleport API Documentation and Explorer](https://developers.teleport.org/api/)
 - [Axios Documentation](https://axios-http.com/docs/intro)
 - [Coding Train Working with Data and API Playlist](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X)
