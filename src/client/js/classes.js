@@ -186,7 +186,8 @@ class Description {
     if (this.textbox) {
       this.textbox.classList.add('descriptionBox');
       for (this.elem of this.textbox.querySelectorAll('p')) {
-        this.elem.remove();
+        // this.elem.remove();
+        this.textbox.removeChild(this.elem);
       }
       // this.textbox.style.color = 'green';
       // this.textbox.insertAdjacentHTML('afterbegin', this.description);
