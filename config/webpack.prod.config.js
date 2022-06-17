@@ -87,10 +87,5 @@ module.exports = {
         appleIcon: true,
       }
     })
-  ],
-  devServer: {
-    port: 5000,
-    open: true,
-    static: path.resolve(__dirname, '../dist'),
-  },
+  ]
 }

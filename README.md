@@ -138,7 +138,7 @@ Come bundler per quest'app é stato utilizzato **Webpack 5**. Sperimentato per l
 
 ### Missing
 
-Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esperienza soprattutto con Node.js e Webpack, che andranno comunque nel breve tempo colmate in modo da aggiornare questo progetto al più presto. Per porre un esempio, una piccola parte da segnalare é il non aver trovato una soluzione per inserire nel bundle il file citiesDatabase.db, problema che non interferisce con il corretto funzionamento della web app, ma resta comunque da sistemare per completezza.
+Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esperienza soprattutto con Node.js e Webpack, che andranno comunque nel breve tempo colmate in modo da aggiornarlo al più presto. Per porre un esempio, una piccola parte da segnalare é il non aver trovato una soluzione per inserire nel bundle il file citiesDatabase.db, problema che non interferisce con il corretto funzionamento della web app, ma resta comunque da sistemare per completezza.
 
 ### Error handling
 

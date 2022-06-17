@@ -13,8 +13,9 @@ const port = (process.env.PORT || 5000);
 
 const app = express(),
   DIST_DIR = __dirname,
-  HTML_FILE = path.resolve(DIST_DIR, '../client/index.html');
-app.use(express.static(DIST_DIR));
+  HTML_FILE = path.resolve(DIST_DIR, '../../dist/client/index.html');
+  
+app.use(express.static(path.resolve(DIST_DIR, '../')));
 app.use(express.json({
   limit: '10mb',
 }));

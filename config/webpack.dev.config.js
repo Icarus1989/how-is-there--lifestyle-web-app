@@ -25,6 +25,9 @@ module.exports = {
         test: /\.html$/,
         use: [{
           loader: "html-loader",
+          options: {
+            minimize: false,
+          }
         }],
       },
       {
@@ -32,7 +35,6 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, "css-loader"
         ],
-
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,

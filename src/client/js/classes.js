@@ -133,16 +133,19 @@ class CityData {
     try {
       try {
         this.imageCreationPix = await retrievePixabay(this.city);
-        this.imageLoadingSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
-        this.imageLoadingFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
-      } catch(err) {
-        console.log('error pixabay client');
-        console.log(err);
+        this.imageLoadSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
+        this.imageLoadFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
+      } catch {
         this.imageCreationTel = await retrieveTeleportImage(this.city);
-        this.imageLoadingSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
-        this.imageLoadingFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
+        this.imageLoadSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
+        this.imageLoadFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       }
     } catch(error) {
+      // 
+      // 
+      // 
+      // 
+      // 
       console.log('error external');
       console.log(error);
       // errore estremo - provare ad inserire location.reload()
@@ -441,7 +444,6 @@ class createDraw {
         this.calcMeasures();
       })
     }).catch(() => {
-      console.log('error 2');
       this.drawImg();
       this.calcMeasures();
     });

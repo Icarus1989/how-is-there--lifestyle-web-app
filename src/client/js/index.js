@@ -62,17 +62,14 @@ async function searchCity(input) {
       input.blur();
       cityData.createElements(infoScores);
     } catch {
-      console.log('error 3');
       let elemetsToDel = [document.querySelector('#buttonsContainer'), document.querySelector('h2'), document.querySelector('.descriptionBox'), document.querySelector('.rank'), document.querySelector('.saveBtn'), document.querySelector('.tableContainer1'), document.querySelector('.tableContainer2')];
       cityData.deleteElements(elemetsToDel).then(() => {
         cityData.createAlternatives(info);
       }).catch((err) => {
-        console.log('error 4');
         throw new Error(err);
       });
     }
   } catch (error) {
-    console.log('error 5');
     input.value = '';
     input.placeholder = 'Something wrong...';
     input.blur();
@@ -183,7 +180,6 @@ async function retrieveAlternativeCities(info, input) {
       indication.noAltIndication();
     }
   } catch {
-    console.log('error 6');
     spinner.removeSpinner();
     indication.thirdIndication();
   }
