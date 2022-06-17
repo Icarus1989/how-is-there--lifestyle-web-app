@@ -137,7 +137,8 @@ async function loadImage(image, container, resultsContainer, path, altTag) {
 async function retrievePixabay(name) {
   const url = `bkgImage/${name}`;
   const pixData = new RetrieveData(url);
-  return pixResponse = await pixData.retrieve();
+  let pixResponse = await pixData.retrieve();
+  return pixResponse;
 }
 
 async function retrieveTeleportImage(name) {

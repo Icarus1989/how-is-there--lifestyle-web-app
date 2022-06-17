@@ -41,7 +41,6 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     const dataPixabay = await axios.get(urlPixabay);
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
-    console.log(fileUrl);
     response.json(jsonPixabay);
     downloadAndCannyEdge(fileUrl);
   } catch {
