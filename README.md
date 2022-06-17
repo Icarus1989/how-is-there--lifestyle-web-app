@@ -105,7 +105,7 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 <br>
 
 <div align="center">
-  <img src="https://i.ibb.co/wBMRZ58/image-For-Presentation-1.png" alt="image-For-Presentation-1" width="60%" height="60%">
+  <img src="https://i.ibb.co/8DLs7HV/image-Complete.png" alt="image-For-Presentation" width="60%" height="60%">
 </div>
 <br>
 L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop.
