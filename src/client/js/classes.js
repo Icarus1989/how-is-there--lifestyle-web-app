@@ -209,7 +209,7 @@ class Description {
     for (this.elem of this.textbox.children){
       this.elem.classList.add('descriptionBox>p');
     }
-    console.log(this.description);
+    alert(this.textbox.children[0].classList);
 
     
     // this.description.classList.add('.testOne');
