@@ -41,6 +41,7 @@ app.get('/bkgImage/:cityname', async (request, response) => {
     const dataPixabay = await axios.get(urlPixabay);
     const jsonPixabay = await dataPixabay["data"];
     fileUrl = await jsonPixabay["hits"][0]["largeImageURL"];
+    console.log(fileUrl);
     response.json(jsonPixabay);
     downloadAndCannyEdge(fileUrl);
   } catch {
@@ -49,9 +50,10 @@ app.get('/bkgImage/:cityname', async (request, response) => {
       const dataTeleport = await axios.get(urlTeleport);
       const jsonTeleport = await dataTeleport["data"];
       fileUrl = await jsonTeleport["photos"][0]["image"]["web"];
-      response.json(jsonTeleport);
+      // response.json(jsonTeleport);
       downloadAndCannyEdge(fileUrl);
     } catch (error) {
+      console.log('error 7');
       response.json(error["data"]);
     }
   }
@@ -166,6 +168,7 @@ async function downloadAndCannyEdge(url) {
       return edge.save(`./dist/client/assets/tempImages/edge.png`);
     })
   } catch {
+    console.log('error 8');
     downloadAndCannyEdge(url);
   }
 }

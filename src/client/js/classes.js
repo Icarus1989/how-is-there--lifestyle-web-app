@@ -133,8 +133,10 @@ class CityData {
     retrievePixabay(this.city).then(() => {
       loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
       loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
+      console.log('error pixabay client');
     }).catch(() => {
       retrieveTeleportImage(this.city).then(() => {
+        console.log('error 1');
         loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
         loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       })
@@ -475,6 +477,7 @@ class createDraw {
         this.calcMeasures();
       })
     }).catch(() => {
+      console.log('error 2');
       this.drawImg();
       this.calcMeasures();
     });
