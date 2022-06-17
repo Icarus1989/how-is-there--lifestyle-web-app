@@ -144,19 +144,19 @@ class CityData {
 
     try {
       try {
-        this.retrPixabay = await retrievePixabay(this.city);
+        this.imageCreationPix = await retrievePixabay(this.city);
         this.imageLoadingSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
         this.imageLoadingFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       } catch(err) {
         console.log('error pixabay client');
         console.log(err);
-        this.retrTeleport = await retrieveTeleportImage(this.city);
+        this.imageCreationTel = await retrieveTeleportImage(this.city);
         this.imageLoadingSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
         this.imageLoadingFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       }
     } catch(error) {
       console.log('error external');
-      conso.log(error);
+      console.log(error);
     }
     
     
