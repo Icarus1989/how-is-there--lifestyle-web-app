@@ -206,10 +206,11 @@ class Description {
     }
     // this.description.classList.add('descriptionBox>p');
     this.textbox.insertAdjacentHTML('afterbegin', this.description);
-    for (this.elem of this.textbox.children){
-      this.elem.classList.add('descriptionBox>p');
-    }
-    alert(this.textbox.children[0].classList);
+    this.textbox.querySelector('p').style.fontSize = '10px';
+    // for (this.elem of this.textbox.children){
+    //   this.elem.classList.add('descriptionBox>p');
+    // }
+    // alert(this.textbox.children[0].classList);
 
     
     // this.description.classList.add('.testOne');
