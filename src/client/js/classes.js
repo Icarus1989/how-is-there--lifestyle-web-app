@@ -201,12 +201,12 @@ class Description {
     } else {
       this.textbox = document.createElement('div');
       this.container.append(this.textbox);
-      this.textbox.classList.add('descriptionBox');
+      this.textbox.setAttribute('class','descriptionBox');
       
     }
     // this.description.classList.add('descriptionBox>p');
     this.textbox.insertAdjacentHTML('afterbegin', this.description);
-    this.textbox.querySelector('p').style.fontSize = '10px';
+    // this.textbox.querySelector('p').style.fontSize = '10px';
     // for (this.elem of this.textbox.children){
     //   this.elem.classList.add('descriptionBox>p');
     // }
