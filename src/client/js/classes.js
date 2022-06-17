@@ -196,7 +196,6 @@ class Description {
     }
     this.textbox.classList.add('descriptionBox');
 
-
     // this.textbox = document.querySelector('.descriptionBox');
     // if (this.textbox) {
     // // this.textbox?.remove();
