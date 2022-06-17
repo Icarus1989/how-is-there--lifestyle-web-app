@@ -157,6 +157,8 @@ class CityData {
     } catch(error) {
       console.log('error external');
       console.log(error);
+      // errore estremo - provare ad inserire location.reload()
+      location.reload();
     }
     
     
