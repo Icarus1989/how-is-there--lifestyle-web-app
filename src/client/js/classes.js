@@ -184,25 +184,43 @@ class Description {
   async createText() {
     this.textbox = document.querySelector('.descriptionBox');
     if (this.textbox) {
-      this.textbox.classList.add('descriptionBox');
-      for (this.elem of this.textbox.querySelectorAll('p')) {
-        // this.elem.remove();
-        this.textbox.removeChild(this.elem);
-      }
+    // this.textbox?.remove();
+      // this.textbox.classList.add('descriptionBox');
+      for (this.elem of this.textbox.children) {
+        this.elem.remove();
+      //   this.textbox.removeChild(this.elem);
+      // }
       // this.textbox.style.color = 'green';
       // this.textbox.insertAdjacentHTML('afterbegin', this.description);
       // this.textbox.classList.add('descriptionBox');
+
+      
+      // for (let elem of this.textbox.children){
+        
+      }
     } else {
       this.textbox = document.createElement('div');
       this.container.append(this.textbox);
       this.textbox.classList.add('descriptionBox');
+      
     }
+    // this.description.classList.add('descriptionBox>p');
     this.textbox.insertAdjacentHTML('afterbegin', this.description);
+    for (this.elem of this.textbox.children){
+      this.elem.classList.add('descriptionBox>p');
+    }
+    console.log(this.description);
+
+    
     // this.description.classList.add('.testOne');
 
     // for (this.elem of this.textbox.children) {
     //   // console.log(this.elem);
     //   this.elem.style.color = 'red';
+    // }
+
+    // if(this.textbox){
+
     // }
   }
 
