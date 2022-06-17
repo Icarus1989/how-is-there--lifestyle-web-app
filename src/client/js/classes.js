@@ -147,7 +147,7 @@ class CityData {
       // 
       // 
       console.log('error external');
-      console.log(error);
+      // console.log(error);
       // errore estremo - provare ad inserire location.reload()
       location.reload();
     }
@@ -426,7 +426,7 @@ class createDraw {
   drawImg() {
     this.image = document.createElement('img');
     this.image.src = '';
-    this.wait(500).then(() => {
+    this.wait(800).then(() => {
       return axios.get(this.path, {
         responseType: "blob"
       });
