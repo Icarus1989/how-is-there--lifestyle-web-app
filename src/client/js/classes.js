@@ -130,18 +130,6 @@ class CityData {
     this.secondContainer = document.querySelector('#secondImgContainer');
     this.secondPath = 'client/assets/tempImages/image.png';
 
-    // retrievePixabay(this.city).then(() => {
-    //   loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
-    //   loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
-    //   console.log('error pixabay client');
-    // }).catch(() => {
-    //   retrieveTeleportImage(this.city).then(() => {
-    //     console.log('error 1');
-    //     loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
-    //     loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
-    //   })
-    // });
-
     try {
       try {
         this.imageCreationPix = await retrievePixabay(this.city);
@@ -160,9 +148,6 @@ class CityData {
       // errore estremo - provare ad inserire location.reload()
       location.reload();
     }
-    
-    
-
   }
 
   async deleteElements(elems) {
@@ -218,48 +203,6 @@ class Description {
       this.textbox.insertAdjacentHTML('afterbegin', this.description);
     }
     this.textbox.classList.add('descriptionBox');
-
-    // this.textbox = document.querySelector('.descriptionBox');
-    // if (this.textbox) {
-    // // this.textbox?.remove();
-    //   // this.textbox.classList.add('descriptionBox');
-    //   for (this.elem of this.textbox.querySelectorAll('p')) {
-    //     this.elem.remove();
-    //   //   this.textbox.removeChild(this.elem);
-    //   // }
-    //   // this.textbox.style.color = 'green';
-    //   // this.textbox.insertAdjacentHTML('afterbegin', this.description);
-    //   // this.textbox.classList.add('descriptionBox');
-
-      
-    //   // for (let elem of this.textbox.children){
-        
-    //   }
-    // } else {
-    //   this.textbox = document.createElement('div');
-    //   this.container.append(this.textbox);
-    //   this.textbox.setAttribute('class','descriptionBox');
-      
-    // }
-    // // this.description.classList.add('descriptionBox>p');
-    // this.textbox.insertAdjacentHTML('afterbegin', this.description);
-    // this.textbox.querySelector('p').style.fontSize = '10px';
-    // for (this.elem of this.textbox.children){
-    //   this.elem.classList.add('descriptionBox>p');
-    // }
-    // alert(this.textbox.children[0].classList);
-
-    
-    // this.description.classList.add('.testOne');
-
-    // for (this.elem of this.textbox.children) {
-    //   // console.log(this.elem);
-    //   this.elem.style.color = 'red';
-    // }
-
-    // if(this.textbox){
-
-    // }
   }
 
   async createRank() {

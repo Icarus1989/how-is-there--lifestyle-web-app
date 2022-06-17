@@ -41,6 +41,7 @@
           <li><a href="#database">Database</a></li>
           <li><a href="#webpack">Webpack</a></li>
           <li><a href="#missing">Missing</a></li>
+          <li><a href="#error-handling">Error handling</a></li>
           </ul>
         </li>
       </ul>
@@ -108,6 +109,7 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 </div>
 <br>
 L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop.
+Per migliorare la visualizzazione dell'app soprattutto su mobile, dove la barra di ricerca può apparire ed essere nascosta velocemente, ho aggiunto il ricaricamento della pagina al verificarsi si un event resize.
 
 ### Node
 
@@ -137,6 +139,10 @@ Come bundler per quest'app é stato utilizzato **Webpack 5**. Sperimentato per l
 ### Missing
 
 Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esperienza soprattutto con Node.js e Webpack, che andranno comunque nel breve tempo colmate in modo da aggiornare questo progetto al più presto. Per porre un esempio, una piccola parte da segnalare é il non aver trovato una soluzione per inserire nel bundle il file citiesDatabase.db, problema che non interferisce con il corretto funzionamento della web app, ma resta comunque da sistemare per completezza.
+
+### Error handling
+
+Anche se molto sporadici, possono avvenire degli errori nella modifica e nel caricamento delle immagini o nella creazione delle varie directories da parte di Node.js. Proprio per questo ho inserito una serie di error handling per coprire la maggioranza delle situazioni, compresi errori critici per porteranno al ricaricamento della pagina piuttosto che un crash della web app.
 
 <hr>
 <hr>
