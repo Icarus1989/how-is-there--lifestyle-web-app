@@ -611,6 +611,12 @@ table > tbody > tr > td {
     max-height: 320px;
     margin: 1vw 0vw 5vw 0vw;
   }
+
+  .altButtons {
+    height: fit-content;
+    font-size: 17px;
+    padding: 8%;
+  }
 }
 
 @media only screen and (min-height: 280px) and (max-height: 480px) and (orientation: landscape) {
@@ -962,7 +968,7 @@ table > tbody > tr > td {
     border-width: 1.5vw 0vw 1.5vw 1.5vw;
     border-color: rgba(13, 13, 13, 0.9);
     border-radius: 8vh 0vh 0vh 8vh;
-    margin-left: 6.5vw;
+    margin-left: 6.53vw;
   }
 
   .tableContainer2 {

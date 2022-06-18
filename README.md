@@ -108,8 +108,8 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
   <img src="https://i.ibb.co/8DLs7HV/image-Complete.png" alt="image-For-Presentation" width="60%" height="60%">
 </div>
 <br>
-L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, con orientamento portrait e landscape, tablet e desktop.
-Per migliorare la visualizzazione dell'app soprattutto su mobile, dove la barra di ricerca può apparire ed essere nascosta velocemente, ho aggiunto il ricaricamento della pagina al verificarsi di un event resize.
+L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, tablet e desktop.
+Per ottimizzare la visualizzazione dell'app soprattutto su mobile e tablet, dove si può passare da un orientamento portrait ad uno landscape velocemente e la barra di ricerca può apparire ed essere nascosta, ho aggiunto il ricaricamento della pagina al verificarsi di un event resize. Questo favorirà anche la scomparsa di alcuni buttons in favore di altri per migliorare l'usabilità della web app in entrambe le modalità di visualizzazione.
 
 ### Node
 
