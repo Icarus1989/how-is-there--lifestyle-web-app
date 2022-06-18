@@ -140,15 +140,7 @@ class CityData {
         this.imageLoadSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
         this.imageLoadFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       }
-    } catch(error) {
-      // 
-      // 
-      // 
-      // 
-      // 
-      console.log('error external');
-      // console.log(error);
-      // errore estremo - provare ad inserire location.reload()
+    } catch {
       location.reload();
     }
   }
