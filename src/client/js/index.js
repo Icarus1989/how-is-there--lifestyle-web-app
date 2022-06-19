@@ -105,10 +105,6 @@ function createDataTable(oldTable, jsonData, container) {
   table.append(tbody);
   tableContainer.append(table);
   container.append(tableContainer);
-  table.firstElementChild.children[0].firstElementChild.style.borderRadius = '4vh 0vh 0vh 0vh';
-  table.firstElementChild.children[0].lastElementChild.style.borderRadius = '0vh 4vh 0vh 0vh';
-  table.firstElementChild.children[table.firstElementChild.children.length - 1].firstElementChild.style.borderRadius = '0vh 0vh 0vh 4vh';
-  table.firstElementChild.children[table.firstElementChild.children.length - 1].lastElementChild.style.borderRadius = '0vh 0vh 4vh 0vh';
 }
 
 function createSaveBtn(container) {
@@ -149,12 +145,12 @@ async function retrieveAlternativeCities(info, input) {
   inputField.value = '';
   inputField.placeholder = 'Enter a new city...';
   inputField.blur();
-  disappearElement(document.querySelector('.menuBtn'), 0);
   let resultsCont = document.querySelector('#resultsContainer');
   let alternatesContainer = document.createElement('fieldset');
   let legend = document.createElement('legend');
   let indication = new Indication(resultsCont.children[0], input);
   let spinner = new Spinner(resultsCont);
+  disappearElement(document.querySelector('.menuBtn'), 0);
   resultsCont.scrollTo(0, 0);
   indication.firstIndication();
   spinner.drawSpinner();

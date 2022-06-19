@@ -49,10 +49,8 @@ app.get('/bkgImage/:cityname', async (request, response) => {
       const dataTeleport = await axios.get(urlTeleport);
       const jsonTeleport = await dataTeleport["data"];
       fileUrl = await jsonTeleport["photos"][0]["image"]["web"];
-      // response.json(jsonTeleport);
       downloadAndCannyEdge(fileUrl);
     } catch (error) {
-      console.log('error 7');
       response.json(error["data"]);
     }
   }
@@ -166,8 +164,7 @@ async function downloadAndCannyEdge(url) {
       const edge = await cannyEdgeDetector(grey, options);
       return edge.save(`./dist/client/assets/tempImages/edge.png`);
     })
-  } catch {
-    console.log('error 8');
-    downloadAndCannyEdge(url);
+  } catch(error) {
+    throw new Error(error);
   }
 }

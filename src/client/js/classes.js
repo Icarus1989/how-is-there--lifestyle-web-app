@@ -88,7 +88,6 @@ class CityData {
         this.savingCount++;
       }
     });
-
     return this.infoScores;
   }
 
@@ -132,11 +131,14 @@ class CityData {
 
     try {
       try {
-        this.imageCreationPix = await retrievePixabay(this.city);
+        try {
+          this.imageCreationPix = await retrievePixabay(this.city);
+        } catch {
+          this.imageCreationTel = await retrieveTeleportImage(this.city);
+        }
         this.imageLoadSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
         this.imageLoadFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       } catch {
-        this.imageCreationTel = await retrieveTeleportImage(this.city);
         this.imageLoadSec = await loadImage(this.secondContainer.querySelector('img'), this.secondContainer, document.querySelector('#resultsContainer'), this.secondPath, 'city image');
         this.imageLoadFirst = await loadImage(this.firstContainer.querySelector('img'), this.firstContainer, document.querySelector('#resultsContainer'), this.firstPath, 'city edge image');
       }
@@ -628,7 +630,6 @@ class Menu {
           this.list.style.marginBottom = (this.list.children[0].getBoundingClientRect().height) * 2 + 'px';
           createNavButton('down', this.menuContainer, 'absolute');
           this.menuContainer.addEventListener('scroll', () => {
-
             this.downBtn = this.menuContainer.querySelector('.downDirection');
             this.downBtn.style.position = 'fixed';
             this.downBtn.style.top = this.menuContainer.getBoundingClientRect().height - this.downBtn.getBoundingClientRect().height + this.menuContainer.getBoundingClientRect().y - 2 + 'px';

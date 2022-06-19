@@ -167,7 +167,7 @@ async function downloadAndCannyEdge(url) {
       const edge = await cannyEdgeDetector(grey, options);
       return edge.save(`./dist/client/assets/tempImages/edge.png`);
     })
-  } catch {
-    downloadAndCannyEdge(url);
+  } catch(error) {
+    throw new Error(error);
   }
 }

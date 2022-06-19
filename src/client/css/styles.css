@@ -958,7 +958,6 @@ table > tbody > tr > td {
     font-size: 1vw;
     line-height: 1.6vh;
     letter-spacing: 0.5vh;
-    background: linear-gradient(45deg, transparent, 10%, rgba(13, 13, 13, 0.7));
   }
 
   .tableContainer1 {
