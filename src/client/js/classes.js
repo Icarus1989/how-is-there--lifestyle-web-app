@@ -415,18 +415,16 @@ class createDraw {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  drawImg() {
-    this.image = document.createElement('img');
-    this.image.src = '';
-    this.wait(800).then(() => {
-      return axios.get(this.path, {
+  async drawImg() {
+    try {
+      this.image = document.createElement('img');
+      this.image.src = '';
+      this.timer = await this.wait(800);
+      this.imageData = await axios.get(this.path, {
         responseType: "blob"
       });
-    }).then((response) => {
-      this.urlObj = URL.createObjectURL(response["data"]);
-    }).then(() => {
-      this.image.src = this.urlObj;
-    }).then(() => {
+      this.urlObj = URL.createObjectURL(await this.imageData["data"]);
+      this.image.src = await this.urlObj;
       this.image.addEventListener('load', () => {
         this.image.setAttribute('alt', this.altTag);
         this.container.append(this.image);
@@ -434,11 +432,11 @@ class createDraw {
       this.image.addEventListener('error', () => {
         this.drawImg();
         this.calcMeasures();
-      })
-    }).catch(() => {
+      });
+    } catch {
       this.drawImg();
       this.calcMeasures();
-    });
+    }
   }
 
   scrollMovement() {
