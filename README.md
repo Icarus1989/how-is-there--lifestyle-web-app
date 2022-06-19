@@ -84,7 +84,9 @@ Bundler:
 
 - [Webpack](https://webpack.js.org/)
   - [Webpack Packages](https://github.com/Icarus1989/how-is-there--lifestyle-web-app/blob/main/package.json)
-    <br>
+
+<br>
+<br>
 
 <p><a href="#begin">&#9650; Back to summary</a></p>
 
@@ -175,6 +177,7 @@ Risorse utilizzate:
 - [Ben Grunfeld Node "Express - Webpack Tutorial"](https://binyamin.medium.com/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
 - [Gianluca Scocozza "Webpack 5" Playlist](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
 
+<br>
 <p><a href="#begin">&#9650; Back to summary</a></p>
 
 <hr>
