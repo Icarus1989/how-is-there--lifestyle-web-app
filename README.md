@@ -104,7 +104,7 @@ Questa é una web app creata per visualizzare i dati sulla qualità della vita n
 
 Le richieste dei dati verranno effettuate tramite **Axios**. I dati sulle città ottenuti da Teleport verrano presentati in 3 diverse pagine al momento della ricerca: nella prima vi saranno il titolo, con nome della città ricercata, Paese e continente, la descrizione ed il punteggio dato da Teleport in percentuale, ottenuto dalla media tra tutti i valori di ogni singola categoria, che verranno visualizzati nel dettaglio nella seconda e terza pagina inseriti ordinatamente in due tabelle.
 <br>
-L'app inoltre, in caso di riscontro negativo sulla presenza della città, effettuerà una nuova ricerca tra tutte le città disponibili nell'API Teleport selezionando quelle dello stesso Paese della città ricercata inizialmente e fornendole come alternative, potendone visualizzare i dati.
+L'app inoltre, in caso di riscontro negativo sulla presenza della città, effettuerà una nuova ricerca tra tutte le città disponibili nell'API Teleport selezionando quelle dello stesso Paese della città ricercata inizialmente e fornendole come alternative.
 
 ### Design
 
@@ -126,7 +126,7 @@ Qui ho utilizzato **Node.js** per l'effettivo funzionamento del server e per ges
 ### Background
 
 Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre attraverso Axios ma utilizzato nel server node, alla quale verrà data un'opacità bassissima per ricavarne solamente i colori sfumati, la seconda verrà elaborata dalla prima attraverso **canny-edge-detector** ed **image-js**, due pacchetti NPM che combinati ricaveranno un'immagine con i bordi delle figure presenti nella foto, per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert e poi sovrapposta alla prima immagine, creerà uno sfondo con uno stile simile ad un disegno.
-Nel caso non fosse presente un'immagine per una determinata città ricercata dall'API di Pixabay, verrà utilizzata quella disponibile nell'API di Teleport con la stessa procedura per ottenere lo sfondo.
+Nel caso non fosse presente un'immagine per una determinata città ricercata nell'API di Pixabay, verrà utilizzata quella disponibile nell'API di Teleport con la stessa procedura.
 Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere l'immagine quando si scrollerà a destra o sinistra rivelando una nuova parte dello sfondo.
 La scelta di usare Pixabay é stata presa grazie all'alta qualità artistica e visiva delle foto rispetto ad alcune altre API provate.
 <br>
@@ -237,6 +237,7 @@ E’ possibile utilizzarla al link:
 <br>
 :link: [How is There - Lifestyle App](https://how-is-there--lifestyle-app.herokuapp.com/)
 
+<br>
 <p><a href="#begin">&#9650; Back to summary</a></p>
 
 <hr>
@@ -246,6 +247,7 @@ E’ possibile utilizzarla al link:
 
 Distributed under MIT License.
 
+<br>
 <p><a href="#begin">&#9650; Back to summary</a></p>
 
 <hr>
@@ -260,4 +262,5 @@ Alex<br>
 
 :link: [GitHub Repo of this project](https://github.com/Icarus1989/how-is-there--lifestyle-web-app)
 
+<br>
 <p><a href="#begin">&#9650; Back to summary</a></p>
