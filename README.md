@@ -24,6 +24,8 @@
 <hr>
 <hr>
 
+<div id="begin"></div>
+
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
@@ -90,7 +92,7 @@ Bundler:
 
 ### Intro
 
-Questa é una web app creata per visualizzare i dati sulla qualità della vita nelle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con la possibilità di salvare i dati e riutilizzarli, la creazione di cartelle e file e la loro modifica, la persistenza dei dati attraverso un database, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host gratuito.
+Questa é una web app creata per visualizzare i dati sulla qualità della vita nelle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con i dati salvati e riutilizzabili, la persistenza di tali dati attraverso un database, la creazione di cartelle e file e la loro modifica, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host gratuito.
 <br>
 
 ### Data
@@ -101,7 +103,7 @@ L'app inoltre, in caso di riscontro negativo sulla presenza della città, effett
 
 ### Design
 
-Il design delle tre pagine in cui verranno visualizzati i dati della città é volutamente scelto per trasmettere un senso di continuità: elementi come le text boxes allungate verso la seconda pagina o le tabelle leggermente spostate contenute in un unico container sono dettagli pensati per spingere a scorrere tra le pagine e rendere l'esperienza più fluida e piacevole alla vista.
+Il design delle tre pagine in cui verranno visualizzati i dati della città é volutamente scelto per trasmettere un senso di continuità: elementi come le text boxes allungate verso la seconda pagina o le tabelle leggermente spostate contenute in un unico riquadro sono dettagli pensati per spingere l'utente a scorrere tra le pagine e rendere l'esperienza più fluida e piacevole alla vista.
 <br>
 
 <div align="center">
@@ -109,15 +111,16 @@ Il design delle tre pagine in cui verranno visualizzati i dati della città é v
 </div>
 <br>
 L'app nel suo complesso é stata sviluppata con un approccio mobile-first rendendo comunque i vari elements responsive per le varie tipologie di display: mobile, tablet e desktop.
-Per ottimizzare la visualizzazione dell'app soprattutto su mobile e tablet, dove si può passare da un orientamento portrait ad uno landscape velocemente e la barra di ricerca può apparire ed essere nascosta, ho aggiunto il ricaricamento della pagina al verificarsi di un event resize. Questo favorirà anche la scomparsa di alcuni buttons in favore di altri per migliorare l'usabilità della web app in entrambe le modalità di visualizzazione.
+Per ottimizzare la visualizzazione dell'app soprattutto sui dispositivi portatili, dove si può passare da un orientamento portrait ad uno landscape velocemente e la barra di ricerca può apparire ed essere nascosta, ho aggiunto il ricaricamento della pagina al verificarsi di un event resize. Questo favorirà anche la scomparsa di alcuni buttons in favore di altri per migliorare l'usabilità della web app in entrambe le modalità di visualizzazione.
 
 ### Node
 
-Le varie parti dell'app si basano sia sul client che sul server side, dove ho utilizzato **Node.js** per l'effettivo funzionamento del server e per gestire le varie richieste effettuate dall'utente: il salvataggio di dati, la ricerca tra questi con il controllo sulla loro presenza, la richiesta di immagini da Pixabay, la loro modifica e altro. Per quanto sia basilare come codice, ritengo comunque soddisfacente il fatto che tutto funzioni nel modo corretto.
+Le varie parti dell'app si basano sia sul client che sul server side.
+Qui ho utilizzato **Node.js** per l'effettivo funzionamento del server e per gestire le varie richieste effettuate dall'utente: il salvataggio di dati, la ricerca tra questi con il controllo sulla loro presenza, la richiesta di immagini da Pixabay, la loro modifica e altro. Per quanto sia basilare come codice, ritengo comunque soddisfacente il fatto che tutto funzioni nel modo corretto.
 
 ### Background
 
-Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre tramite Axios ma utilizzato nel server node, alla quale verrà data un'opacità bassissima per ricavarne solamente i colori sfumati, la seconda verrà elaborata dalla prima attraverso **canny-edge-detector** ed **image-js**, due pacchetti NPM che combinati ricaveranno un'immagine con i bordi delle figure presenti nella foto, per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert e poi sovrapposta alla prima immagine, creerà uno sfondo con uno stile simile ad un disegno.
+Lo sfondo sarà composto da due immagini, la prima sarà una foto ottenuta da **Pixabay**, sempre attraverso Axios ma utilizzato nel server node, alla quale verrà data un'opacità bassissima per ricavarne solamente i colori sfumati, la seconda verrà elaborata dalla prima attraverso **canny-edge-detector** ed **image-js**, due pacchetti NPM che combinati ricaveranno un'immagine con i bordi delle figure presenti nella foto, per poi salvarla rendendola utilizzabile. Quest'immagine unita al filter CSS invert e poi sovrapposta alla prima immagine, creerà uno sfondo con uno stile simile ad un disegno.
 Nel caso non fosse presente un'immagine per una determinata città ricercata dall'API di Pixabay, verrà utilizzata quella disponibile nell'API di Teleport con la stessa procedura per ottenere lo sfondo.
 Un effetto che ho voluto inserire nella modalità mobile e tablet farà scorrere l'immagine quando si scrollerà a destra o sinistra rivelando una nuova parte dello sfondo.
 La scelta di usare Pixabay é stata presa grazie all'alta qualità artistica e visiva delle foto rispetto ad alcune altre API provate.
@@ -130,19 +133,20 @@ La scelta di usare Pixabay é stata presa grazie all'alta qualità artistica e v
 
 ### Database
 
-L'app utilizza un database molto basilare, NeDB, mia prima esperienza dal campo database, per ottenere la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite o eliminarle a piacere. Ho preferito servirmi di questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, senza troppo codice JavaScript, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità.
+L'app utilizza un database molto basilare, NeDB, mia prima esperienza in questo campo, per la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite durante le ricerche o eliminarle a piacere. Ho optato per questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità.
 
 ### Webpack
 
-Come bundler per quest'app ho utilizzato **Webpack 5**. Sperimentato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quanto a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificarlo in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request, soprattutto delle immagini, la creazione automatica delle favicon necessarie per ogni sistema operativo e molto altro, si é dimostrato uno strumento utilissimo per migliorare e completare l'app nel suo intero.
+Come bundler per quest'app ho utilizzato **Webpack 5**.
+Sperimentato per la prima volta per questo progetto, Webpack si é dimostrato molto utile per aumentare le prestazioni e la stabilità dell'app. Per quanto a primo impatto mi sembrasse superfluo il suo l'utilizzo, ho dovuto ricredermi: dal rilevare parti di codice non utilizzato, alla possibilità di minificarlo in modo molto semplice, fino ad una maggiore percentuale di riuscita delle request, soprattutto delle immagini, la creazione automatica delle favicon necessarie per ogni sistema operativo e molto altro, si é dimostrato uno strumento utilissimo per migliorare e completare l'app nel suo intero.
 
 ### Missing
 
-Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esperienza soprattutto con Node.js e Webpack, che andranno comunque nel breve tempo colmate in modo da aggiornarlo al più presto. Per porre un esempio, una piccola parte da segnalare é il non aver trovato una soluzione per inserire nel bundle il file citiesDatabase.db, problema che non interferisce con il corretto funzionamento della web app, ma resta comunque da sistemare per completezza.
+Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esperienza soprattutto con Node.js e Webpack, che andranno comunque nel breve tempo colmate in modo da aggiornarlo al più presto. Per porre un esempio, una piccola parte da segnalare é non aver trovato una soluzione per inserire nel bundle il file citiesDatabase.db, problema che non interferisce con il corretto funzionamento della web app, ma resta comunque da sistemare per completezza.
 
 ### Error handling
 
-Anche se molto sporadici, possono avvenire degli errori nella modifica e nel salvataggio delle immagini. Proprio per questo ho inserito una serie di error handling per coprire la maggioranza delle situazioni, compresi errori critici che porteranno al ricaricamento della pagina piuttosto che un crash della web app.
+Anche se molto sporadici, possono avvenire degli errori nella modifica e nel salvataggio delle immagini. Proprio per questo ho inserito una serie di error handling per coprire la maggioranza delle situazioni, compresi errori critici che porteranno ad un ricaricamento piuttosto che ad un crash della web app.
 
 <hr>
 <hr>
@@ -154,17 +158,17 @@ Risorse utilizzate:
 - [Start2Impact Courses](https://www.start2impact.it)
 - [Teleport API Documentation and Explorer](https://developers.teleport.org/api/)
 - [Axios Documentation](https://axios-http.com/docs/intro)
-- [Coding Train Working with Data and API Playlist](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X)
+- [Coding Train "Working with Data and API" Playlist](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YxDKpFzf_2D84p0cyk4T7X)
 - [Node.js Documentation](https://nodejs.org/en/docs/)
 - [Node Academy Tutorial](https://www.nodeacademy.it/tutorial/node-js/)
 - [Pixabay API Documentation](https://pixabay.com/api/docs/)
 - [canny-edge-detector README](https://github.com/image-js/canny-edge-detector#readme)
 - [image-js README](https://github.com/image-js/image-js)
 - [NeDB README](https://github.com/louischatriot/nedb)
-- [Coding Train NeDB Tutorial](https://www.youtube.com/watch?v=xVYa20DCUv0)
+- [Coding Train "NeDB Tutorial"](https://www.youtube.com/watch?v=xVYa20DCUv0)
 - [Webpack Documentation](https://webpack.js.org/concepts/)
-- [Ben Grunfeld Node - Express - Webpack Tutorial](https://binyamin.medium.com/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
-- [Gianluca Scocozza Webpack 5 Playlist](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
+- [Ben Grunfeld Node "Express - Webpack Tutorial"](https://binyamin.medium.com/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
+- [Gianluca Scocozza "Webpack 5" Playlist](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
 
 <hr>
 <hr>
@@ -226,7 +230,7 @@ E’ possibile utilizzarla al link:
 
 ## License
 
-Distributed under the MIT License.
+Distributed under MIT License.
 
 <hr>
 <hr>
@@ -239,3 +243,5 @@ Alex<br>
 [Facebook](https://www.facebook.com/alex.valente.92)<br>
 
 :link: [GitHub Repo of this project](https://github.com/Icarus1989/how-is-there--lifestyle-web-app)
+
+<p><a href="#begin">&#9650; Back to summary</a></p>
