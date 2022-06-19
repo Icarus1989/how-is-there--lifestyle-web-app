@@ -84,9 +84,12 @@ Bundler:
 
 - [Webpack](https://webpack.js.org/)
   - [Webpack Packages](https://github.com/Icarus1989/how-is-there--lifestyle-web-app/blob/main/package.json)
-  <br>
-  <hr>
-  <hr>
+    <br>
+
+<p><a href="#begin">&#9650; Back to summary</a></p>
+
+<hr>
+<hr>
 
 ## Description
 
@@ -148,6 +151,8 @@ Questo progetto chiaramente avrà alcune piccole lacune dovute alla mia poca esp
 
 Anche se molto sporadici, possono avvenire degli errori nella modifica e nel salvataggio delle immagini. Proprio per questo ho inserito una serie di error handling per coprire la maggioranza delle situazioni, compresi errori critici che porteranno ad un ricaricamento piuttosto che ad un crash della web app.
 
+<p><a href="#begin">&#9650; Back to summary</a></p>
+
 <hr>
 <hr>
 
@@ -169,6 +174,8 @@ Risorse utilizzate:
 - [Webpack Documentation](https://webpack.js.org/concepts/)
 - [Ben Grunfeld Node "Express - Webpack Tutorial"](https://binyamin.medium.com/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334)
 - [Gianluca Scocozza "Webpack 5" Playlist](https://www.youtube.com/playlist?list=PLdtVpbcGjJ9qhsYvlIBArBX-DRyc2enbx)
+
+<p><a href="#begin">&#9650; Back to summary</a></p>
 
 <hr>
 <hr>
@@ -215,6 +222,8 @@ scegliere tra:<br>
 </div>
 <br>
 
+<p><a href="#begin">&#9650; Back to summary</a></p>
+
 <hr>
 <hr>
 
@@ -225,12 +234,16 @@ E’ possibile utilizzarla al link:
 <br>
 :link: [How is There - Lifestyle App](https://how-is-there--lifestyle-app.herokuapp.com/)
 
+<p><a href="#begin">&#9650; Back to summary</a></p>
+
 <hr>
 <hr>
 
 ## License
 
 Distributed under MIT License.
+
+<p><a href="#begin">&#9650; Back to summary</a></p>
 
 <hr>
 <hr>
