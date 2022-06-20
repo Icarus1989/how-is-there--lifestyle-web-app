@@ -219,7 +219,7 @@ scegliere tra:<br>
 </div>
 <br>
 
-- Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo, compariranno dei messaggi di errore adatti.
+- Se la città non esistesse o fosse avvenuto un errore nell'inserimento del nome o vi fosse un problema di connessione del dispositivo o altro, compariranno dei messaggi di errore adatti.
 <br>
 <div align="center">
   <img src="https://i.ibb.co/gvPv6mM/iphone7-errors.png" alt="iphone7-errors" width="60%" height="60%">
@@ -235,6 +235,7 @@ scegliere tra:<br>
 
 L’applicazione é stata pubblicata tramite il servizio di web hosting [Heroku](https://www.heroku.com) con il supplemento del servizio Kaffeine, in modo che l'app possa entrare in mode sleep solo dalle 23:00 alle 5:00 GMT.
 E’ possibile utilizzarla al link:
+<br>
 <br>
 :link: [How is There - Lifestyle App](https://how-is-there--lifestyle-app.herokuapp.com/)
 
