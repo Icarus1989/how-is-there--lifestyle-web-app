@@ -97,7 +97,8 @@ Bundler:
 
 ### Intro
 
-Questa é una web app creata per visualizzare i dati sulla qualità della vita nelle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/). Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con i dati salvati e riutilizzabili, la persistenza di tali dati attraverso un database, la creazione di cartelle e file e la loro modifica, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host gratuito.
+Questa é una web app creata per visualizzare i dati sulla qualità della vita nelle città forniti da [Teleport](https://developers.teleport.org/api/reference/#/).
+Questo é il primo progetto in cui combino insieme così tanti elementi: gestione dei dati ottenuti da più servizi esterni, animazioni, gestione degli errori, un menù con i dati salvati e riutilizzabili, la persistenza di tali dati attraverso un database, la creazione di cartelle e file e la loro modifica, l'utilizzo di un bundler sia per il lato client che server ed il deploy dell'app su un Web Host gratuito.
 <br>
 
 ### Data
@@ -138,7 +139,7 @@ La scelta di usare Pixabay é stata presa grazie all'alta qualità artistica e v
 
 ### Database
 
-L'app utilizza un database molto basilare, NeDB, mia prima esperienza in questo campo, per la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite durante le ricerche o eliminarle a piacere. Ho optato per questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, per mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità.
+L'app utilizza un database molto basilare, NeDB, mia prima esperienza in questo campo, per la persistenza dei dati. Tramite questo sarà possibile cominciare ad utilizzare l'app con una lista di città predefinite da visualizzare senza la necessità di richieste all'API di Teleport ed inoltre sarà possibile salvarvi le proprie città preferite durante le ricerche o eliminarle a piacere. Ho optato per questo approccio rispetto ad altri, come ad esempio LocalStorage, per poter sopperire ad eventuali problemi futuri dei server Teleport ed avere una base di dati facilmente estendibile, in modo da mantenere utilizzabile l'app con le città salvate nel caso di quest'eventualità.
 
 ### Webpack
 
