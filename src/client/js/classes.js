@@ -69,13 +69,11 @@ class CityData {
     appearElement(this.saveButton, 500, 'grid');
     this.saveButton.addEventListener('click', async (event) => {
       if ((event.target == this.saveButton.querySelector('i') || event.target == this.saveButton) && !(this.savingCount > 0) && (this.fromDb == false)) {
-
         this.dbData = {
           name: this.city,
           title: this.fullName,
           data: this.infoScores
         }
-
         this.saveDb = await axios({
           method: 'post',
           url: '/saveDb',
@@ -187,7 +185,6 @@ class Description {
   }
 
   async createText() {
-
     this.textbox = document.querySelector('.descriptionBox');
     if (this.textbox) {
       for (this.elem of this.textbox.querySelectorAll('p')) {
@@ -328,7 +325,6 @@ class AlternativeCities {
       this.downBtn.style.top = this.container.getBoundingClientRect().bottom - this.downBtn.getBoundingClientRect().height + 'px';
       this.downBtn.style.left = this.container.getBoundingClientRect().left + (this.container.clientLeft) + 'px';
       this.downBtn.style.overflow = 'hidden';
-
       if (this.container.scrollTop >= this.container.scrollHeight - this.container.clientHeight) {
         this.iElement = document.createElement('i');
         this.iElement.classList.add('fa-solid', 'fa-chevron-up');
@@ -622,7 +618,6 @@ class Menu {
             }
           })
         });
-
         if (this.list.children.length == 0) {
           this.menuContainer.style.height = '100px';
           this.header.textContent = 'No cities saved.';
@@ -634,7 +629,6 @@ class Menu {
             this.downBtn.style.position = 'fixed';
             this.downBtn.style.top = this.menuContainer.getBoundingClientRect().height - this.downBtn.getBoundingClientRect().height + this.menuContainer.getBoundingClientRect().y - 2 + 'px';
             this.downBtn.style.overflow = 'hidden';
-
             if (this.menuContainer.scrollTop >= this.menuContainer.scrollHeight - this.menuContainer.clientHeight) {
               this.iElement = document.createElement('i');
               this.iElement.classList.add('fa-solid', 'fa-chevron-up');
