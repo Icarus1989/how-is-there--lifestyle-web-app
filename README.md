@@ -256,7 +256,7 @@ Queste sono le correzioni da effettuare consigliate dal coach di Start2Impact do
 Questi sono i miglioramenti che verranno effettuati dopo la correzione per modernizzare e migliorare l'app:
 
 - [ ] ottimizzare il controllo della presenza dei dati nel database
-- [ ] sostituire database da NeDB a MongoDB
+- [ ] migrazione database da NeDB a MongoDB
 - [ ] miglioramento codice server side dopo lo studio della guida Node.js
 
 ## License
