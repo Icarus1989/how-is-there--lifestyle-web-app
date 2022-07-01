@@ -51,7 +51,7 @@
     <li><a href="#resources">Resources</a>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#demo">Demo</a></li>
-    <li><a href="#next-steps">License</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contacts">Contacts</a></li>
   </ol>
