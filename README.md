@@ -245,6 +245,19 @@ E’ possibile utilizzarla al link:
 <hr>
 <hr>
 
+## Next Steps
+
+Queste sono le correzioni da effettuare consigliate dal coach di Start2Impact dopo la correzione:
+
+- [ ] aggiungere Lodash per gestire la possibilità che venga restituito undefined dalla request
+- [ ] concentrare l'attenzione sull'avere una value di default per le request, legato al primo punto
+
+Questi sono i miglioramenti che verranno effettuati dopo la correzione per modernizzare e migliorare l'app:
+
+- [ ] ottimizzare il controllo della presenza dei dati nel database
+- [ ] sostituire database da NeDB a MongoDB
+- [ ] miglioramento codice server side dopo lo studio della guida Node.js
+
 ## License
 
 Distributed under MIT License.
