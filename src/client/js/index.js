@@ -67,6 +67,7 @@ async function searchCity(input) {
         cityData.createAlternatives(info);
       }).catch((err) => {
         throw new Error(err);
+        // test from ECMA2022 throw new Error('Error Here', {cause: err});
       });
     }
   } catch (error) {

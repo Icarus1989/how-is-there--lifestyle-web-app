@@ -24,6 +24,91 @@
 <hr>
 <hr>
 
+### Traccia Progetto Originale
+
+Realizzerai un'app che permetta di ottenere informazioni riguardo la qualità della vita delle città attraverso l’utilizzo del servizio esterno Teleport.
+
+L’applicazione dovrà essere composta da un semplice textbox (Google style) per permettere all’utente di inserire il nome di una specifica città.
+
+Una volta che l’utente cliccherà su un apposito button, l’applicazione dovrà contattare le API del servizio esterno Teleport per ottenere la informazioni da visualizzare in pagina, dove los-angeles è la città inserita dall’utente.
+
+Una volta ricevuti i dati dal servizio esterno l’applicazione dovrà visualizzare in pagina le informazioni riguardanti le categorie, la descrizione e il city score della città:
+
+"categories": [
+{
+"color": "#f3c32c",
+"name": "Housing",
+"score_out_of_10": 1.5274999999999999
+},
+{
+"color": "#f3d630",
+"name": "Cost of Living",
+"score_out_of_10": 4.556000000000001
+},
+{
+"color": "#f4eb33",
+"name": "Startups",
+"score_out_of_10": 10
+},
+....
+"summary": "<p>\n Los Angeles is a sprawling city of 500 square miles and the heart of a metropolitan area with 18 million residents. It is a fabled California region, home to Hollywood and America's <b>entertainment industry</b> with <b>year-round sunshine</b>, world-famous beaches, and an intense <b>car culture</b>. The \"City of Angels\" is a magnet to people from around the world and a uniquely exciting environment.\n</p>\n\n\n <p>Los Angeles is one of the top ten city matches for 11.5% of Teleport users.</p>\n",
+"teleport_city_score": 63.426351351351364
+
+L'applicazione deve essere sviluppata con JavaScript.
+
+Ti consigliamo di utilizzare delle librerie esterne JavaScript, ma non è obbligatorio.
+
+Sono ammesse tutte le funzionalità aggiuntive che si ritengono necessarie.
+
+Git
+Git è oggi un requisito fondamentale per lavorare come sviluppatore, sia in azienda sia come freelancer. Ma che cos’è veramente? Cosa vuol dire “software di controllo versione distribuito?” E perché scegliere proprio Git?
+
+Per scoprire perché è importantissimo utilizzarlo vai subito al Corso HTML e CSS nella sezione "Progetto" e leggi il materiale a disposizione su Git. Se invece hai già studiato come utilizzarlo prosegui con la lettura delle istruzioni per il progetto.
+
+Il progetto deve essere committato nel tuo repository GitHub, il quale deve contenere tutto il codice sorgente dell'applicazione e anche il file README contenente la descrizione del progetto, screenshot dell'applicazione (se necessario), il link ben visibile di dove provare l'applicazione.
+
+Inserisci tutte le informazioni che riteni opportune. Di seguito trovi vari link utili per creare un buon README:
+
+Best README Template
+Awesome README
+README
+cercare su Google “git README template”
+
+Webpack
+Oltre ad aver capito come funziona Git, e aver capito il funzionamento del file .gitignore, il prerequisito per pubblicare il codice JavaScript su Git è studiare webpack, di cui si possono trovare i concetti fondamentali qui.
+
+Environment Variables
+Devi esplorare anche un po' il concetto di Environment Variables, per il quale trovi una piccola introduzione qui.
+
+Webpack-Dotenv
+Axios o simili
+Axios è un pacchetto JS che ti permetterà molto più facilmente di effettuare chiamate esterne tramite JavaScript.
+
+Lodash o simili
+Lodash integra una serie di funzioni che possono esserti utili. In particolare, se lavori con dati da API esterne, dai un'occhiata alla sua \_.get()
+
+Struttura progetto
+Verrà valutata la bontà del codice scritto. Ci si aspetta una giusta suddivisione e implementazione delle logiche del progetto (cambio valore, visualizzazione valore) in diverse funzioni, se necessario in diversi file.
+
+Verrà valutata la bontà della struttura del progetto:
+
+il contenuto html nell'apposito file index.html
+il contenuto del codice JavaScript all'interno di file .js contenuto nella cartella JS
+il contenuto dello stile del progetto all'interno del file .css contenuti nella cartalla CSS
+il contenuto delle immagini (se necessarie) all'interno dell'apposita cartella IMG
+Di seguito ti lascio qualche link utile da cui trarre ispirazione:
+
+How to Create a Front End Project Structure That Scales and Is Easy to Maintain?
+A Good Front-End Architecture
+Frontend structure
+
+Il progetto deve essere commutato nel tuo repository GitHub, il quale deve contenere tutto il codice sorgente dell'applicazione e anche il file README contenente la descrizione del progetto, screenshot dell'applicazione (se necessario), il link, ben visibile, per provare l'applicazione. Inserite tutte le informazioni che ritenete opportune.
+
+Il progetto deve essere deployato su qualsiasi Web Host gratuito (Netfly, Firebase....)
+
+Prima di inviare il progetto controlla che l'applicazione funzioni correttamente.
+Infine crea un documento PDF dove inserire il link cliccabile al repository GitHub.
+
 <div id="begin"></div>
 
 <details open="open">
@@ -258,6 +343,7 @@ Questi sono i miglioramenti che verranno effettuati dopo la correzione per moder
 - [ ] ottimizzare il controllo della presenza dei dati nel database
 - [ ] migrazione database da NeDB a MongoDB
 - [ ] miglioramento codice server side dopo lo studio della guida Node.js
+- [ ] ottimizzazione animazione input con event once
 
 ## License
 
@@ -273,6 +359,7 @@ Distributed under MIT License.
 
 Alex<br>
 [GitHub](http://https://github.com/Icarus1989)<br>
+[Linkedin](https://www.linkedin.com/in/alex-valente-018586156/)<br>
 [Instagram](http://https://www.instagram.com/alex._.1989/)<br>
 [Facebook](https://www.facebook.com/alex.valente.92)<br>
 

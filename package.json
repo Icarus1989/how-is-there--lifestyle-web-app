@@ -24,6 +24,7 @@
     "canny-edge-detector": "^1.0.0",
     "express": "^4.17.2",
     "image-js": "^0.33.1",
+    "mongoose": "^6.4.4",
     "nedb": "^1.8.0",
     "regenerator-runtime": "^0.13.9"
   },

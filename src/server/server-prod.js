@@ -136,10 +136,29 @@ async function downloadAndCannyEdge(url) {
         }
       });
     }
+    // if(fs.access(file, constants.F_OK, (err)=>{
+    //   if(err){
+    //     throw err;
+    //   }
+    //   fs.unlink(`./dist/client/assets/tempImages/edge.png`, (error)=> {
+    //   if(error){
+    //     throw error;
+    //   }
+    //   })
+    // }));
     const tempPath = './dist/client/assets/tempImages';
     if (!fs.existsSync(tempPath)) {
       fs.mkdirSync(tempPath);
     }
+    // fs.access No
+    // if(!fs.existsSync(tempPath))
+    // fs.mkdir(tempPath, (err)=> {
+    //   if(err){
+    //     throw err;
+    //   }
+    // });
+
+    // TESTING due versioni asincrone sopra
 
     const data = await axios({
       method: 'get',
